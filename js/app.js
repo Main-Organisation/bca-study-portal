@@ -9,7 +9,8 @@ const pageIndicator = document.getElementById("pageIndicator");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const collapseAllBtn = document.getElementById("collapseAllBtn");
-
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const sidebar = document.querySelector(".sidebar");
 let currentModuleIndex = -1;
 let currentTopicIndex = -1;
 let currentPageIndex = 0;
@@ -142,6 +143,12 @@ function openTopic(moduleIndex, topicIndex) {
   openCurrentModule();
   updateActiveTopic();
   updatePageDisplay();
+
+  // Mobile par topic select hone ke baad sidebar close
+  if (window.innerWidth <= 768) {
+    sidebar.classList.remove("mobile-open");
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+  }
 }
 
 function getNextPosition() {
@@ -224,10 +231,18 @@ moduleList.addEventListener("click", event => {
     Number(topicButton.dataset.topicIndex)
   );
 });
-
 collapseAllBtn.addEventListener("click", closeAllModules);
 prevBtn.addEventListener("click", goPrevious);
 nextBtn.addEventListener("click", goNext);
+
+mobileMenuBtn.addEventListener("click", () => {
+  const isOpen = sidebar.classList.toggle("mobile-open");
+
+  mobileMenuBtn.setAttribute(
+    "aria-expanded",
+    isOpen ? "true" : "false"
+  );
+});
 
 renderSidebar();
 updateNavigationButtons();
