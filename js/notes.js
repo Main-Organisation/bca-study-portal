@@ -3146,7 +3146,7 @@ Smallest → Largest
 NOTES["m1-architecture"] = [
   `
 
-  <h1>Architecture</h1>
+  
 
   <p>
     Computer Architecture refers to the design, structure, and organization
@@ -3594,7 +3594,7 @@ NOTES["m1-architecture"] = [
 
   `
 
-  <h1>Architecture — Part 2</h1>
+  
 
 
   <h2>Registers and Their Types</h2>
@@ -4236,7 +4236,7 @@ OPCODE + OPERANDS
 NOTES["m1-software-hardware"] = [
   `
 
-  <h1>Definition of Software and Hardware</h1>
+  
 
   <p>
     A computer system is made up of two major parts:
@@ -5020,7 +5020,797 @@ OUTPUT
 
   `
 ];
+// ============================================================
+// MODULE 1 — TOPIC 4
+// TYPES OF PROGRAMMING LANGUAGES
+// ============================================================
 
+NOTES["m1-programming-languages"] = [
+  `
+
+ 
+
+  <p>
+    A programming language is a formal way of writing instructions
+    that a computer can process to perform a particular task or solve
+    a problem.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      A programming language is a way for humans to
+      <strong>give instructions to a computer</strong>.
+      It provides rules, keywords, and syntax for writing programs.
+    </p>
+
+  </div>
+
+
+  <h2>Why Do We Need Programming Languages?</h2>
+
+  <p>
+    Computers understand machine-level instructions, but writing large
+    programs directly in binary form is difficult for humans.
+    Programming languages provide a structured way to express logic
+    and solve problems.
+  </p>
+
+  <ul>
+
+    <li>
+      Help programmers write instructions for computers.
+    </li>
+
+    <li>
+      Make problem solving systematic.
+    </li>
+
+    <li>
+      Allow developers to create software and applications.
+    </li>
+
+    <li>
+      Help control computer hardware and automate tasks.
+    </li>
+
+  </ul>
+
+
+  <h2>Major Types of Programming Languages</h2>
+
+  <p>
+    Programming languages can broadly be divided into
+    <strong>Low-Level Languages</strong> and
+    <strong>High-Level Languages</strong>.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Main Types</th>
+          <th>Main Characteristic</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Low-Level Languages</strong></td>
+          <td>Machine Language, Assembly Language</td>
+          <td>
+            Close to hardware and machine dependent.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>High-Level Languages</strong></td>
+          <td>C, C++, Java, Python, JavaScript</td>
+          <td>
+            Easier for humans to understand and more portable.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Machine Language</h2>
+
+  <p>
+    Machine Language is the <strong>lowest-level programming language</strong>.
+    It consists of binary codes, mainly <strong>0s and 1s</strong>,
+    that are directly understood and executed by the CPU.
+  </p>
+
+  <p>
+    Each processor has its own instruction set, so machine language is
+    hardware-dependent.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Machine language is the language that the
+      <strong>CPU directly understands</strong>.
+      It uses binary instructions such as:
+    </p>
+
+    <div class="note-flow">
+10110000 01100001
+00000100 00000010
+    </div>
+
+  </div>
+
+
+  <h3>Characteristics of Machine Language</h3>
+
+  <ul>
+
+    <li>Uses binary digits (0 and 1).</li>
+
+    <li>Directly executed by the CPU.</li>
+
+    <li>Machine dependent.</li>
+
+    <li>Not portable between different processor architectures.</li>
+
+    <li>Very difficult to write and debug.</li>
+
+    <li>Provides very fast execution.</li>
+
+  </ul>
+
+
+  <h3>Advantages</h3>
+
+  <ul>
+
+    <li>Fast execution.</li>
+
+    <li>No translator is required before execution.</li>
+
+    <li>Direct access to processor instructions.</li>
+
+  </ul>
+
+
+  <h3>Limitations</h3>
+
+  <ul>
+
+    <li>Difficult to understand.</li>
+
+    <li>Difficult to write and maintain.</li>
+
+    <li>Highly error-prone.</li>
+
+    <li>Machine dependent.</li>
+
+  </ul>
+
+
+  <h2>2. Assembly Language</h2>
+
+  <p>
+    Assembly Language is a low-level language that uses
+    <strong>mnemonics</strong> instead of binary codes.
+    Common mnemonics include <strong>MOV, ADD, SUB, and JMP</strong>.
+  </p>
+
+  <p>
+    An <strong>assembler</strong> converts assembly language instructions
+    into machine code.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Assembly language represents machine instructions using
+      short symbolic words instead of only 0s and 1s.
+    </p>
+
+  </div>
+
+
+  <h3>Characteristics of Assembly Language</h3>
+
+  <ul>
+
+    <li>Uses mnemonics such as MOV, ADD and SUB.</li>
+
+    <li>Uses symbolic addresses and labels.</li>
+
+    <li>Usually has a close relationship with machine instructions.</li>
+
+    <li>Hardware dependent.</li>
+
+    <li>Requires an assembler for translation.</li>
+
+    <li>Used in system-level and embedded programming.</li>
+
+  </ul>
+
+
+  <h3>Example</h3>
+
+  <div class="note-flow">
+MOV AX, 5
+ADD AX, 3
+  </div>
+
+
+  <h2>3. High-Level Languages</h2>
+
+  <p>
+    High-Level Languages use syntax that is easier for humans to understand.
+    They often use English-like keywords and mathematical notation.
+  </p>
+
+  <p>
+    Examples include <strong>C, C++, Java, Python, and JavaScript</strong>.
+    High-level programs are generally translated using a compiler or
+    interpreter before or during execution.
+  </p>
+
+
+  <h3>Characteristics of High-Level Languages</h3>
+
+  <ul>
+
+    <li>Easier to learn and write.</li>
+
+    <li>More readable than low-level languages.</li>
+
+    <li>Generally more portable between systems.</li>
+
+    <li>Easier debugging and maintenance.</li>
+
+    <li>Support structured programming and higher-level abstractions.</li>
+
+    <li>Require translation before the processor can execute them.</li>
+
+  </ul>
+
+
+  <h3>Example in C</h3>
+
+  <div class="note-flow">
+int sum = a + b;
+printf("Sum = %d", sum);
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Important
+    </span>
+
+    <p>
+      C is a <strong>high-level programming language</strong>,
+      although it also provides low-level features that allow
+      close interaction with system hardware.
+    </p>
+
+  </div>
+
+
+  <h2>Low-Level vs High-Level Languages</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Feature</th>
+          <th>Low-Level</th>
+          <th>High-Level</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Abstraction</strong></td>
+          <td>Minimal</td>
+          <td>High</td>
+        </tr>
+
+        <tr>
+          <td><strong>Portability</strong></td>
+          <td>Low / No</td>
+          <td>High</td>
+        </tr>
+
+        <tr>
+          <td><strong>Speed</strong></td>
+          <td>Very fast</td>
+          <td>Generally slower due to translation</td>
+        </tr>
+
+        <tr>
+          <td><strong>Ease of Use</strong></td>
+          <td>Difficult</td>
+          <td>Easier</td>
+        </tr>
+
+        <tr>
+          <td><strong>Examples</strong></td>
+          <td>Machine, Assembly</td>
+          <td>C, Python, Java</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  `,
+
+  // ==========================================================
+  // TYPES OF PROGRAMMING LANGUAGES — PAGE 2
+  // ==========================================================
+
+  `
+
+  
+
+
+  <h2>Generations of Programming Languages</h2>
+
+  <p>
+    Programming languages evolved through different generations.
+    Each generation increased the level of abstraction and made
+    programming easier and more productive.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Generation</th>
+          <th>Type</th>
+          <th>Example</th>
+          <th>Main Feature</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>1GL</strong></td>
+          <td>Machine Language</td>
+          <td>Binary</td>
+          <td>Directly understood by hardware</td>
+        </tr>
+
+        <tr>
+          <td><strong>2GL</strong></td>
+          <td>Assembly Language</td>
+          <td>MOV, ADD</td>
+          <td>Uses mnemonics</td>
+        </tr>
+
+        <tr>
+          <td><strong>3GL</strong></td>
+          <td>Procedural High-Level Language</td>
+          <td>C, Fortran, Pascal</td>
+          <td>Uses logic and control structures</td>
+        </tr>
+
+        <tr>
+          <td><strong>4GL</strong></td>
+          <td>Non-Procedural Language</td>
+          <td>SQL, R</td>
+          <td>Focuses more on what is required</td>
+        </tr>
+
+        <tr>
+          <td><strong>5GL</strong></td>
+          <td>AI-Based Language</td>
+          <td>Prolog, Mercury</td>
+          <td>Problem solving using higher-level approaches</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Easy Way to Remember
+    </span>
+
+    <p>
+      <strong>
+        1GL → Machine
+        &nbsp; | &nbsp;
+        2GL → Assembly
+        &nbsp; | &nbsp;
+        3GL → Procedural
+        &nbsp; | &nbsp;
+        4GL → Non-Procedural
+        &nbsp; | &nbsp;
+        5GL → AI-Based
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Features of a Good Programming Language</h2>
+
+  <p>
+    A good programming language should make programs easy to write,
+    understand, test, maintain and execute.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Feature</th>
+          <th>Meaning</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Readability</strong></td>
+          <td>Code should be easy to understand.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Writability</strong></td>
+          <td>Programs should be easy to write.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Reliability</strong></td>
+          <td>Programs should produce dependable results.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Portability</strong></td>
+          <td>Programs should work on different platforms with minimal changes.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Efficiency</strong></td>
+          <td>Programs should use time and memory effectively.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Abstraction</strong></td>
+          <td>Complex implementation details can be hidden.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Modularity</strong></td>
+          <td>Large programs can be divided into smaller modules or functions.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Applications of Programming Languages</h2>
+
+  <p>
+    Different programming languages are used for different types of
+    applications.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Language</th>
+          <th>Common Applications</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>C / C++</strong></td>
+          <td>System software, operating systems, embedded systems and games.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Python</strong></td>
+          <td>AI, machine learning, data science and automation.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Java</strong></td>
+          <td>Enterprise applications, Android and banking systems.</td>
+        </tr>
+
+        <tr>
+          <td><strong>JavaScript</strong></td>
+          <td>Web development and interactive web applications.</td>
+        </tr>
+
+        <tr>
+          <td><strong>SQL</strong></td>
+          <td>Database management and data querying.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Type / Generation</th>
+          <th>Remember This</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Machine Language</strong></td>
+          <td>Binary, lowest level, directly understood by CPU.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Assembly Language</strong></td>
+          <td>Uses mnemonics and requires an assembler.</td>
+        </tr>
+
+        <tr>
+          <td><strong>High-Level Language</strong></td>
+          <td>Human-friendly, portable and easier to maintain.</td>
+        </tr>
+
+        <tr>
+          <td><strong>1GL</strong></td>
+          <td>Machine Language.</td>
+        </tr>
+
+        <tr>
+          <td><strong>2GL</strong></td>
+          <td>Assembly Language.</td>
+        </tr>
+
+        <tr>
+          <td><strong>3GL</strong></td>
+          <td>Procedural languages such as C.</td>
+        </tr>
+
+        <tr>
+          <td><strong>4GL</strong></td>
+          <td>Non-procedural languages such as SQL.</td>
+        </tr>
+
+        <tr>
+          <td><strong>5GL</strong></td>
+          <td>AI-based languages such as Prolog.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Exam Tip
+    </span>
+
+    <p>
+      Remember the basic hierarchy:
+      <strong>
+        Machine → Assembly → High-Level
+      </strong>.
+      As the level increases, programming generally becomes easier
+      for humans and the abstraction level increases.
+    </p>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a programming language?</li>
+
+    <li>What is machine language?</li>
+
+    <li>What is assembly language?</li>
+
+    <li>What is a high-level programming language?</li>
+
+    <li>Write any four characteristics of a high-level language.</li>
+
+    <li>What is a low-level language?</li>
+
+    <li>What is meant by 1GL and 2GL?</li>
+
+    <li>What is 3GL?</li>
+
+    <li>What is 4GL?</li>
+
+    <li>What is 5GL?</li>
+
+    <li>Write any five features of a good programming language.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the major types of programming languages with suitable examples.
+    </li>
+
+    <li>
+      Explain machine language and assembly language in detail.
+    </li>
+
+    <li>
+      Explain high-level languages and their characteristics.
+    </li>
+
+    <li>
+      Differentiate between low-level and high-level programming languages.
+    </li>
+
+    <li>
+      Explain the five generations of programming languages.
+    </li>
+
+    <li>
+      Explain the important features of a good programming language.
+    </li>
+
+    <li>
+      Explain the applications of different programming languages.
+    </li>
+
+  </ol>
+
+
+  <!-- ========================================================
+       RESOURCE SECTION
+       ======================================================== -->
+
+  <div class="resource-section">
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        After reading the topic, watch this Hindi lecture covering
+        machine, assembly, low-level and high-level programming languages.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/watch?v=3nLUHFk2SN4"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: High Level & Low Level Languages — Hindi Lecture
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet covering machine language,
+        assembly language, high-level languages and language generations
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of low-level and high-level
+        languages and their generations.
+      </p>
+
+    </div>
+
+
+  </div>
+
+  `
+];
 // ============================================================
 // END OF CURRENT NOTES
 // ============================================================
