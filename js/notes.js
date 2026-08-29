@@ -9374,6 +9374,329 @@ O(2ⁿ)
   `
 ];
 // ============================================================
+// MODULE 1 — TOPIC 13
+// FLOWCHART — DEFINITION
+// ============================================================
+
+NOTES["m1-flowchart-definition"] = [
+  `
+
+  <h2>What is a Flowchart?</h2>
+
+  <p>
+    A <strong>flowchart</strong> is a graphical representation of an
+    algorithm or process. It uses standard symbols and arrows to show
+    the sequence of steps used to solve a problem.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      A flowchart shows the <strong>steps of a solution visually</strong>
+      so that the logic of a problem is easier to understand.
+    </p>
+
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Real World Example
+    </span>
+
+    <p>
+      Think about the process of getting ready for college:
+      wake up → get ready → have breakfast → go to college.
+      When these steps are shown using symbols and arrows,
+      they form a simple flowchart.
+    </p>
+
+  </div>
+
+
+  <h2>Why is a Flowchart Used?</h2>
+
+  <ul>
+
+    <li>
+      Makes the logic of a problem easier to understand.
+    </li>
+
+    <li>
+      Shows the sequence of steps clearly.
+    </li>
+
+    <li>
+      Helps in planning a program before coding.
+    </li>
+
+    <li>
+      Makes errors or missing steps easier to identify.
+    </li>
+
+    <li>
+      Helps explain a solution to others.
+    </li>
+
+  </ul>
+
+
+  <h2>Flowchart in Problem Solving</h2>
+
+  <p>
+    A programmer can first develop an algorithm and then represent
+    the same logic graphically using a flowchart.
+  </p>
+
+  <div class="note-flow">
+PROBLEM
+   ↓
+ALGORITHM
+   ↓
+FLOWCHART
+   ↓
+PROGRAM
+   ↓
+OUTPUT
+  </div>
+
+
+  <h2>Simple Flowchart Example</h2>
+
+  <p>
+    The following example represents the logic for adding two numbers.
+  </p>
+
+  <div class="note-flow">
+START
+   ↓
+INPUT A, B
+   ↓
+SUM = A + B
+   ↓
+PRINT SUM
+   ↓
+STOP
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      An <strong>algorithm</strong> describes a solution using steps,
+      while a <strong>flowchart</strong> represents those steps
+      graphically.
+    </p>
+
+  </div>
+
+
+  <h2>Flowchart vs Algorithm</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Algorithm</th>
+          <th>Flowchart</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Written step-by-step instructions.</td>
+          <td>Graphical representation of the steps.</td>
+        </tr>
+
+        <tr>
+          <td>Focuses on logical instructions.</td>
+          <td>Focuses on visual flow of the solution.</td>
+        </tr>
+
+        <tr>
+          <td>Can be written in simple language or pseudocode.</td>
+          <td>Uses standard symbols and arrows.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Advantages of a Flowchart</h2>
+
+  <ul>
+
+    <li>Easy to understand and explain.</li>
+
+    <li>Provides a clear visual view of the solution.</li>
+
+    <li>Helps in program planning.</li>
+
+    <li>Useful for finding logical mistakes.</li>
+
+  </ul>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Point</th>
+          <th>Remember</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Definition</strong></td>
+          <td>Graphical representation of an algorithm or process.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Purpose</strong></td>
+          <td>Shows the sequence and logic of steps visually.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Uses</strong></td>
+          <td>Planning, understanding and explaining solutions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Main Elements</strong></td>
+          <td>Symbols and arrows/flow lines.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a flowchart?</li>
+
+    <li>Why is a flowchart used?</li>
+
+    <li>Write any three advantages of a flowchart.</li>
+
+    <li>What is the difference between an algorithm and a flowchart?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define a flowchart and explain its importance in problem solving.
+    </li>
+
+    <li>
+      Differentiate between an algorithm and a flowchart.
+    </li>
+
+    <li>
+      Explain the advantages of using flowcharts in program development.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a simple explanation of flowcharts and their use
+        in problem solving.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=flowchart+definition+in+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Flowchart Definition & Examples — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for Flowchart
+        Definition will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of flowchart,
+        algorithm and problem-solving steps.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
