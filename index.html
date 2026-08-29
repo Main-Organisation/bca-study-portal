@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BCA Study Portal - syllabus-based notes for BCA students.">
+  <title>BCA Study Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-icon" aria-hidden="true">🎓</div>
+    <div>
+      <h1>BCA Study Portal</h1>
+      <p>BCA 1st Year · C Programming</p>
+    </div>
+  </div>
+</header>
+
+<main class="app-shell">
+  <aside class="sidebar" aria-label="Syllabus navigation">
+    <div class="sidebar-heading">
+      <span>C PROGRAMMING</span>
+      <button id="collapseAllBtn" class="text-button" type="button">Collapse All</button>
+    </div>
+    <div id="moduleList" class="module-list"></div>
+  </aside>
+
+  <section class="content-area">
+    <div class="content-topbar">
+      <span id="breadcrumb" class="breadcrumb">BCA 1st Year · C Programming</span>
+      <h2 id="topicTitle">Select a Topic</h2>
+      <span id="progressText" class="progress-text">Select a topic from the left menu</span>
+    </div>
+
+    <article id="notesContainer" class="notes-card" aria-live="polite">
+      <div class="welcome-state">
+        <h1>Welcome to BCA Study Portal</h1>
+        <p>Select a module from the left menu and then choose a topic.</p>
+      </div>
+    </article>
+
+    <nav class="pager" aria-label="Notes navigation">
+      <button id="prevBtn" class="pager-button secondary" type="button" disabled>← Previous</button>
+      <div id="pageIndicator" class="page-indicator">Page —</div>
+      <button id="nextBtn" class="pager-button primary" type="button" disabled>Next →</button>
+    </nav>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>BCA Study Portal · Static GitHub Pages Ready</p>
+</footer>
+
+<script src="js/syllabus.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

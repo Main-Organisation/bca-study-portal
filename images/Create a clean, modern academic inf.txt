@@ -1,0 +1,68 @@
+Create a clean, modern academic infographic for a BCA 1st-year student notes website.
+
+VISUAL STYLE:
+- Clean educational infographic style
+- Professional but simple and student-friendly
+- Light/white background unless a dark background is specifically requested
+- Minimal, uncluttered design
+- Plenty of white space
+- Flat/vector-style illustrations
+- Crisp, sharp, high-resolution graphics
+- Consistent visual language across all BCA Study Portal diagrams
+
+LAYOUT:
+- Use a wide horizontal content area suitable for placing inside a web notes card
+- When representing a process, arrange steps vertically
+- Use evenly spaced rounded rectangular cards/panels
+- Keep all important content comfortably inside the image boundaries
+- No elements should touch or cross the edges
+- Maintain balanced margins on all sides
+- Design the image so it can be displayed responsively inside a notes card
+
+CARDS/PANELS:
+- Rounded rectangular boxes
+- Thin clean outlines
+- Soft pastel backgrounds
+- One visually distinct color per major step where appropriate
+- Consistent card size, spacing, border radius and typography
+- Use circular icon areas on the left when suitable
+
+TYPOGRAPHY:
+- Large, bold, highly readable headings
+- Clean modern sans-serif font
+- Dark navy/blue text for main content
+- Short, easy-to-understand descriptions
+- Text must be correctly spelled and clearly legible
+- Do not overcrowd the image with text
+
+ICONS:
+- Simple educational/vector icons
+- Topic-appropriate
+- Consistent illustration style
+- Clean outlines with subtle colors
+- Avoid photorealistic images
+
+FLOWCHART / PROCESS IMAGES:
+- Use clear downward arrows between steps
+- Arrows should be centered and visually consistent
+- Steps should be easy to follow from top to bottom
+- Each step should contain a clear title and a short explanation
+- Example style:
+  INPUT
+  ↓
+  PROCESSING
+  ↓
+  OUTPUT
+  ↓
+  STORAGE
+
+REFERENCE:
+Use the previously approved "INPUT → PROCESSING → OUTPUT → STORAGE"
+infographic as the visual reference for size, spacing, card proportions,
+icons, typography, pastel colors, arrows, and overall academic appearance.
+
+IMPORTANT:
+- Keep the image visually consistent with the existing BCA Study Portal notes.
+- Do not introduce a completely different design style.
+- Prioritize readability for first-year BCA students.
+- Make the final image suitable for embedding directly into a web-based notes page.
