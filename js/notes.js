@@ -9697,6 +9697,959 @@ STOP
   `
 ];
 // ============================================================
+// MODULE 1 — TOPIC 14
+// SYMBOLS USED IN WRITING THE FLOWCHART
+// ============================================================
+
+NOTES["m1-flowchart-symbols"] = [
+  `
+
+  <h2>Symbols Used in a Flowchart</h2>
+
+<p>
+  A flowchart uses standard symbols to represent different types of
+  steps in a process. These symbols make the logic easy to read and
+  understand.
+</p>
+
+<div class="note-image">
+  <img
+    src="images/Image8.png"
+    alt="Main Flowchart Symbols"
+  >
+</div>
+
+<h2>Main Flowchart Symbols</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Purpose</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Oval</strong></td>
+          <td>Start / End</td>
+          <td>Shows the beginning or end of a flowchart.</td>
+          <td>START, STOP</td>
+        </tr>
+
+        <tr>
+          <td><strong>Rectangle</strong></td>
+          <td>Process</td>
+          <td>Represents a calculation or processing step.</td>
+          <td>SUM = A + B</td>
+        </tr>
+
+        <tr>
+          <td><strong>Parallelogram</strong></td>
+          <td>Input / Output</td>
+          <td>Represents data input or displayed output.</td>
+          <td>INPUT A, B</td>
+        </tr>
+
+        <tr>
+          <td><strong>Diamond</strong></td>
+          <td>Decision</td>
+          <td>Represents a condition with different possible paths.</td>
+          <td>A > B?</td>
+        </tr>
+
+        <tr>
+          <td><strong>Arrow</strong></td>
+          <td>Flow Line</td>
+          <td>Shows the direction of flow from one step to another.</td>
+          <td>↓</td>
+        </tr>
+
+        <tr>
+          <td><strong>Circle</strong></td>
+          <td>Connector</td>
+          <td>Connects different parts of a flowchart.</td>
+          <td>A, B</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Start / End Symbol</h2>
+
+  <p>
+    The <strong>Start / End</strong> symbol is used to show where a
+    flowchart begins and where it finishes. It is commonly represented
+    by an <strong>oval</strong>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <strong>START</strong> marks the beginning and
+      <strong>STOP</strong> marks the end.
+    </p>
+
+  </div>
+
+
+  <h2>2. Process Symbol</h2>
+
+  <p>
+    The <strong>Process</strong> symbol represents an operation,
+    calculation, assignment, or processing step. It is generally
+    represented by a <strong>rectangle</strong>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <strong>SUM = A + B</strong>
+    </p>
+
+  </div>
+
+
+  <h2>3. Input / Output Symbol</h2>
+
+  <p>
+    The <strong>Input / Output</strong> symbol is used when data is
+    entered into the system or when information is displayed as output.
+    It is generally represented by a <strong>parallelogram</strong>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Examples
+    </span>
+
+    <p>
+      <strong>INPUT A, B</strong><br>
+      <strong>PRINT SUM</strong>
+    </p>
+
+  </div>
+
+
+  <h2>4. Decision Symbol</h2>
+
+  <p>
+    The <strong>Decision</strong> symbol is used when a condition must
+    be checked. It is represented by a <strong>diamond</strong> and
+    normally provides two or more possible paths.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <strong>A &gt; B?</strong>
+    </p>
+
+    <p>
+      The result may be <strong>Yes</strong> or <strong>No</strong>.
+    </p>
+
+  </div>
+
+
+  <div class="note-flow">
+       A > B?
+       /   \
+    YES     NO
+     ↓       ↓
+  STEP A   STEP B
+  </div>
+
+
+  <h2>5. Flow Line</h2>
+
+  <p>
+    A <strong>flow line</strong> is represented by an arrow. It shows
+    the direction in which the flowchart moves from one step to the next.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>Arrow = Direction of Flow</strong>
+    </p>
+
+  </div>
+
+
+  <h2>6. Connector Symbol</h2>
+
+  <p>
+    A <strong>connector</strong> is used to connect different parts of
+    a flowchart, especially when the flowchart becomes large.
+    A small circle is commonly used as a connector.
+  </p>
+
+  <p>
+    Connectors may contain labels such as <strong>A</strong> or
+    <strong>B</strong> to show where the flow continues.
+  </p>
+
+
+  <h2>Simple Flowchart Using Basic Symbols</h2>
+
+  <p>
+    The following example shows how the basic symbols work together
+    in an algorithm for adding two numbers.
+  </p>
+
+  <div class="note-flow">
+START
+  ↓
+INPUT A, B
+  ↓
+SUM = A + B
+  ↓
+PRINT SUM
+  ↓
+STOP
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Easy Way to Remember
+    </span>
+
+    <p>
+      <strong>
+        Oval → Start / End
+        <br>
+        Rectangle → Process
+        <br>
+        Parallelogram → Input / Output
+        <br>
+        Diamond → Decision
+        <br>
+        Arrow → Flow
+        <br>
+        Circle → Connector
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Oval</strong></td>
+          <td>Start or End</td>
+        </tr>
+
+        <tr>
+          <td><strong>Rectangle</strong></td>
+          <td>Process / Calculation</td>
+        </tr>
+
+        <tr>
+          <td><strong>Parallelogram</strong></td>
+          <td>Input / Output</td>
+        </tr>
+
+        <tr>
+          <td><strong>Diamond</strong></td>
+          <td>Decision / Condition</td>
+        </tr>
+
+        <tr>
+          <td><strong>Arrow</strong></td>
+          <td>Direction of flow</td>
+        </tr>
+
+        <tr>
+          <td><strong>Circle</strong></td>
+          <td>Connector</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a flowchart symbol?</li>
+
+    <li>Which symbol is used for Start and End?</li>
+
+    <li>Which symbol is used for processing?</li>
+
+    <li>Which symbol is used for Input and Output?</li>
+
+    <li>Which symbol is used for decision making?</li>
+
+    <li>What is the purpose of a flow line?</li>
+
+    <li>What is a connector?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the standard symbols used in a flowchart with their purposes.
+    </li>
+
+    <li>
+      Draw and explain the basic flowchart symbols used in programming.
+    </li>
+
+    <li>
+      Explain the use of Process, Input/Output and Decision symbols
+      with suitable examples.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a simple Hindi explanation of standard flowchart symbols.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=flowchart+symbols+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Flowchart Symbols — Hindi Explanation
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet of the main
+        flowchart symbols will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of flowchart symbols
+        and their purposes.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+
+// ============================================================
+// MODULE 1 — TOPIC 15
+// WRITING ALGORITHMS AND FLOW-CHARTS OF SIMPLE PROBLEMS
+// ============================================================
+
+NOTES["m1-simple-problems"] = [
+  `
+
+  <h2>Writing Algorithms and Flowcharts of Simple Problems</h2>
+
+  <p>
+    After understanding algorithms and flowcharts, we can use them to
+    solve simple computer problems. First, we write the solution as
+    clear step-by-step instructions and then represent the same logic
+    graphically using a flowchart.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Basic Approach
+    </span>
+
+    <p>
+      <strong>
+        Understand the Problem → Identify Input and Output →
+        Write Algorithm → Draw Flowchart
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Example 1: Find the Area of a Circle</h2>
+
+  <p>
+    This is a simple <strong>arithmetic problem</strong>. We take the
+    radius as input, apply the formula, and display the area.
+  </p>
+
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm and flowchart to calculate the area of a circle.
+  </p>
+
+
+  <h3>Formula</h3>
+
+  <div class="note-callout">
+
+    <p>
+      <strong>Area = π × r × r</strong>
+    </p>
+
+  </div>
+
+
+  <h3>Algorithm</h3>
+
+  <ol>
+
+    <li><strong>Start</strong></li>
+
+    <li>Input the radius <strong>R</strong>.</li>
+
+    <li>Calculate <strong>AREA = π × R × R</strong>.</li>
+
+    <li>Display <strong>AREA</strong>.</li>
+
+    <li><strong>Stop</strong></li>
+
+  </ol>
+
+
+  <h3>Flowchart</h3>
+
+  <div class="note-flow">
+START
+  ↓
+INPUT RADIUS
+  ↓
+AREA = π × R × R
+  ↓
+PRINT AREA
+  ↓
+STOP
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    If <strong>R = 5</strong> and π = 3.14:
+  </p>
+
+  <div class="note-flow">
+AREA = 3.14 × 5 × 5
+     = 78.5
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Type of Flowchart
+    </span>
+
+    <p>
+      This is a <strong>linear arithmetic flowchart</strong>.
+      It does not require a decision or loop.
+    </p>
+
+  </div>
+
+
+  <h2>Example 2: Find the Largest of Two Numbers</h2>
+
+  <p>
+    This is a <strong>decision-based problem</strong> because a condition
+    must be checked before deciding which number is larger.
+  </p>
+
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm and flowchart to find the largest of two numbers.
+  </p>
+
+
+  <h3>Algorithm</h3>
+
+  <ol>
+
+    <li><strong>Start</strong></li>
+
+    <li>Input two numbers <strong>A</strong> and <strong>B</strong>.</li>
+
+    <li>Check whether <strong>A &gt; B</strong>.</li>
+
+    <li>
+      If the condition is true, display <strong>A</strong>.
+    </li>
+
+    <li>
+      Otherwise, display <strong>B</strong>.
+    </li>
+
+    <li><strong>Stop</strong></li>
+
+  </ol>
+
+
+  <h3>Flowchart Logic</h3>
+
+  <div class="note-flow">
+START
+  ↓
+INPUT A, B
+  ↓
+A > B ?
+ ↙     ↘
+YES     NO
+ ↓       ↓
+PRINT A  PRINT B
+   ↘     ↙
+      ↓
+    STOP
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    Let <strong>A = 25</strong> and <strong>B = 18</strong>.
+    Since <strong>25 &gt; 18</strong>, the output will be:
+  </p>
+
+  <div class="note-callout">
+
+    <p>
+      <strong>Largest = 25</strong>
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Type of Flowchart
+    </span>
+
+    <p>
+      This is a <strong>decision-based flowchart</strong>.
+      The decision symbol is used to create Yes/No paths.
+    </p>
+
+  </div>
+
+
+  <h2>Example 3: Print Numbers from 1 to N</h2>
+
+  <p>
+    This is an <strong>iterative problem</strong> because the same
+    operation is repeated until a condition becomes false.
+  </p>
+
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm and flowchart to print numbers from
+    <strong>1 to N</strong>.
+  </p>
+
+
+  <h3>Algorithm</h3>
+
+  <ol>
+
+    <li><strong>Start</strong></li>
+
+    <li>Input <strong>N</strong>.</li>
+
+    <li>Set <strong>I = 1</strong>.</li>
+
+    <li>Check whether <strong>I ≤ N</strong>.</li>
+
+    <li>
+      If true, print <strong>I</strong>.
+    </li>
+
+    <li>
+      Increase <strong>I</strong> by 1.
+    </li>
+
+    <li>
+      Repeat the condition check.
+    </li>
+
+    <li>
+      If the condition is false, <strong>Stop</strong>.
+    </li>
+
+  </ol>
+
+
+  <h3>Flowchart Logic</h3>
+
+  <div class="note-flow">
+START
+  ↓
+INPUT N
+  ↓
+I = 1
+  ↓
+I ≤ N ?
+ ↙       ↘
+YES       NO
+ ↓         ↓
+PRINT I   STOP
+ ↓
+I = I + 1
+ ↓
+↺ Back to condition
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    If <strong>N = 5</strong>, the output will be:
+  </p>
+
+  <div class="note-flow">
+1  2  3  4  5
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Type of Flowchart
+    </span>
+
+    <p>
+      This is an <strong>iterative flowchart</strong> because the
+      flow returns to the condition and repeats the steps.
+    </p>
+
+  </div>
+
+
+  <h2>Three Common Types of Simple Problems</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Type</th>
+          <th>Main Idea</th>
+          <th>Example</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Arithmetic</strong></td>
+          <td>Uses formulas and calculations.</td>
+          <td>Area of a circle</td>
+        </tr>
+
+        <tr>
+          <td><strong>Decision-Based</strong></td>
+          <td>Checks a condition and chooses a path.</td>
+          <td>Largest of two numbers</td>
+        </tr>
+
+        <tr>
+          <td><strong>Iterative</strong></td>
+          <td>Repeats steps until a condition becomes false.</td>
+          <td>Print 1 to N</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>How to Convert an Algorithm into a Flowchart</h2>
+
+  <ol>
+
+    <li>
+      Identify the <strong>Start</strong> and <strong>Stop</strong>.
+    </li>
+
+    <li>
+      Identify input and output steps.
+    </li>
+
+    <li>
+      Represent calculations using the Process symbol.
+    </li>
+
+    <li>
+      Represent conditions using the Decision symbol.
+    </li>
+
+    <li>
+      Connect the symbols using flow lines in the correct order.
+    </li>
+
+    <li>
+      Check the flow using suitable test data.
+    </li>
+
+  </ol>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Easy Exam Approach
+    </span>
+
+    <p>
+      Whenever a question asks you to write an algorithm and flowchart,
+      first identify:
+      <strong>Input → Process → Decision (if required) → Output → Stop</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Problem</th>
+          <th>Important Point</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Area of Circle</strong></td>
+          <td>Input radius → Apply formula → Output area</td>
+        </tr>
+
+        <tr>
+          <td><strong>Largest of Two</strong></td>
+          <td>Input two numbers → Check condition → Output largest</td>
+        </tr>
+
+        <tr>
+          <td><strong>Print 1 to N</strong></td>
+          <td>Initialize → Check condition → Print → Update → Repeat</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Write an algorithm to find the area of a circle.
+    </li>
+
+    <li>
+      Write an algorithm to find the largest of two numbers.
+    </li>
+
+    <li>
+      Write an algorithm to print numbers from 1 to N.
+    </li>
+
+    <li>
+      What is the difference between an arithmetic and decision-based flowchart?
+    </li>
+
+  </ol>
+
+
+  <h3>Practical / Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Write an algorithm and draw a flowchart to calculate the area of a circle.
+    </li>
+
+    <li>
+      Write an algorithm and flowchart to find the largest of two numbers.
+    </li>
+
+    <li>
+      Write an algorithm and flowchart to print numbers from 1 to N.
+    </li>
+
+    <li>
+      Explain the steps involved in converting an algorithm into a flowchart.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a simple Hindi explanation of algorithms and flowcharts
+        with basic problem-solving examples.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=algorithm+and+flowchart+simple+problems+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Algorithms & Flowcharts — Simple Problems
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet containing important
+        algorithms and flowcharts will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map to revise arithmetic, decision-based and
+        iterative problem solving.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
