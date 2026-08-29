@@ -4227,6 +4227,798 @@ OPCODE + OPERANDS
 
   `
 ];
+// ============================================================
+// MODULE 1 — TOPIC 3
+// DEFINITION OF SOFTWARE AND HARDWARE
+// ============================================================
+
+NOTES["m1-software-hardware"] = [
+  `
+
+  <h1>Definition of Software and Hardware</h1>
+
+  <p>
+    A computer system is made up of two major parts:
+    <strong>Hardware</strong> and <strong>Software</strong>.
+    Both work together to make a computer system useful.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      <strong>Hardware</strong> is the part of a computer that we can
+      see and touch, while <strong>software</strong> is the set of
+      instructions that tells the hardware what to do.
+    </p>
+  </div>
+
+
+  <h2>What is Hardware?</h2>
+
+  <p>
+    Hardware refers to all the <strong>physical and tangible components</strong>
+    of a computer system. These are the parts that can be seen and touched.
+  </p>
+
+  <p>
+    Hardware may contain electronic or mechanical components that work
+    together to perform different computer operations.
+  </p>
+
+  <h3>Examples of Hardware</h3>
+
+  <ul>
+
+    <li>CPU</li>
+
+    <li>RAM</li>
+
+    <li>Hard Disk Drive (HDD)</li>
+
+    <li>Solid State Drive (SSD)</li>
+
+    <li>Monitor</li>
+
+    <li>Keyboard</li>
+
+    <li>Mouse</li>
+
+    <li>Printer</li>
+
+    <li>Speakers</li>
+
+  </ul>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>Hardware = Physical parts of the computer.</strong>
+    </p>
+
+  </div>
+
+
+  <h2>What is Software?</h2>
+
+  <p>
+    Software refers to the <strong>intangible instructions, programs,
+    and related data</strong> that tell computer hardware what to do
+    and how to perform a particular task.
+  </p>
+
+  <p>
+    Unlike hardware, software cannot be physically touched. It is a
+    logical part of a computer system that controls and uses the
+    hardware resources.
+  </p>
+
+
+  <h3>Examples of Software</h3>
+
+  <ul>
+
+    <li>Windows</li>
+
+    <li>Linux</li>
+
+    <li>Android</li>
+
+    <li>Microsoft Word</li>
+
+    <li>Google Chrome</li>
+
+    <li>Photoshop</li>
+
+    <li>Tally</li>
+
+  </ul>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>Software = Programs and instructions used by the computer.</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Difference Between Hardware and Software</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Aspect</th>
+          <th>Hardware</th>
+          <th>Software</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+
+          <td><strong>Nature</strong></td>
+
+          <td>
+            Physical and tangible
+          </td>
+
+          <td>
+            Logical and intangible
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Can it be touched?</strong></td>
+
+          <td>
+            Yes
+          </td>
+
+          <td>
+            No
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Function</strong></td>
+
+          <td>
+            Performs physical operations
+          </td>
+
+          <td>
+            Provides instructions to perform operations
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Failure</strong></td>
+
+          <td>
+            Can fail due to physical wear or damage
+          </td>
+
+          <td>
+            Can fail due to bugs or corruption
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Replacement</strong></td>
+
+          <td>
+            Physical replacement is required
+          </td>
+
+          <td>
+            Usually reinstalled or updated
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Examples</strong></td>
+
+          <td>
+            CPU, RAM, HDD, Monitor
+          </td>
+
+          <td>
+            Windows, MS Word, Chrome
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Easy Example
+    </span>
+
+    <p>
+      Think of a <strong>music player</strong>.
+      The physical player is hardware, while the program that controls
+      how it plays music is software.
+    </p>
+
+  </div>
+
+
+  <h2>Categories of Hardware Devices</h2>
+
+  <p>
+    Hardware devices can be grouped according to the work they perform.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Category</th>
+          <th>Purpose</th>
+          <th>Examples</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+
+          <td><strong>Input Devices</strong></td>
+
+          <td>
+            Used to enter data and instructions.
+          </td>
+
+          <td>
+            Keyboard, Mouse, Scanner, Microphone
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Output Devices</strong></td>
+
+          <td>
+            Used to present processed information.
+          </td>
+
+          <td>
+            Monitor, Printer, Speakers
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Processing Devices</strong></td>
+
+          <td>
+            Execute instructions and process data.
+          </td>
+
+          <td>
+            CPU, GPU
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Storage Devices</strong></td>
+
+          <td>
+            Store data and programs.
+          </td>
+
+          <td>
+            HDD, SSD, Pen Drive
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Communication Devices</strong></td>
+
+          <td>
+            Help computers communicate over networks.
+          </td>
+
+          <td>
+            Network Interface, Modem, Router
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>How Hardware and Software Work Together</h2>
+
+  <p>
+    Hardware and software are <strong>interdependent</strong>.
+    Hardware provides the physical platform, while software provides
+    the instructions that use and control that hardware.
+  </p>
+
+  <div class="note-flow">
+USER
+      ↓
+SOFTWARE
+      ↓
+HARDWARE
+      ↓
+OUTPUT
+  </div>
+
+
+  <p>
+    For example, when a user opens a word-processing application and
+    types a document, the application software gives instructions to
+    the operating system and hardware. The keyboard provides input,
+    the CPU processes the instructions, and the monitor displays the result.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      <strong>Software instructs; hardware performs.</strong>
+      Neither is useful to the user by itself.
+    </p>
+
+  </div>
+
+  `,
+  
+  `
+
+  <h1>Types of Software</h1>
+
+  <p>
+    Software can be grouped according to the type of work it performs
+    and the way it supports the computer system.
+  </p>
+
+
+  <h2>1. System Software</h2>
+
+  <p>
+    System software manages computer hardware and provides the platform
+    on which application software runs.
+  </p>
+
+  <p>
+    It acts as an interface between the user, application programs,
+    and computer hardware.
+  </p>
+
+
+  <h3>Examples of System Software</h3>
+
+  <ul>
+
+    <li><strong>Operating Systems:</strong> Windows, Linux, macOS, Android</li>
+
+    <li><strong>Device Drivers:</strong> Control specific hardware devices such as printers.</li>
+
+    <li><strong>Utilities:</strong> Antivirus, disk cleanup and backup tools.</li>
+
+    <li><strong>Language Processors:</strong> Compiler, Interpreter and Assembler.</li>
+
+  </ul>
+
+
+  <h2>2. Application Software</h2>
+
+  <p>
+    Application software is designed to perform specific tasks for
+    the user.
+  </p>
+
+  <p>
+    It runs on top of system software and uses the services provided
+    by the operating system.
+  </p>
+
+
+  <h3>Examples</h3>
+
+  <ul>
+
+    <li>Microsoft Word</li>
+
+    <li>Google Chrome</li>
+
+    <li>Adobe Photoshop</li>
+
+    <li>Tally</li>
+
+    <li>Games and multimedia applications</li>
+
+  </ul>
+
+
+  <h2>3. Utility Software</h2>
+
+  <p>
+    Utility software helps maintain, protect, and manage a computer system.
+  </p>
+
+  <ul>
+
+    <li>Antivirus software</li>
+
+    <li>Disk cleanup tools</li>
+
+    <li>Backup software</li>
+
+    <li>File compression tools</li>
+
+  </ul>
+
+
+  <h2>Firmware</h2>
+
+  <p>
+    Firmware is specialized software that is permanently programmed
+    into hardware devices. It provides low-level control for
+    device-specific functions and helps hardware start and operate.
+  </p>
+
+  <p>
+    Examples include BIOS or UEFI in a motherboard and firmware used
+    in devices such as routers, printers, storage devices, and GPUs.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Firmware is software that is closely connected to the hardware
+      and helps control the basic functions of the device.
+    </p>
+
+  </div>
+
+
+  <h2>Open Source Software</h2>
+
+  <p>
+    Open source software is software whose source code is made available
+    so that it can be studied, modified, and distributed according to
+    its license.
+  </p>
+
+
+  <h2>Proprietary Software</h2>
+
+  <p>
+    Proprietary software is software controlled by an individual,
+    organization, or company. Its source code is generally not openly
+    available for modification.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Type</th>
+          <th>Main Purpose</th>
+          <th>Examples</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+
+          <td><strong>System Software</strong></td>
+
+          <td>
+            Manages hardware and provides a platform for applications.
+          </td>
+
+          <td>
+            Windows, Linux, Device Drivers
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Application Software</strong></td>
+
+          <td>
+            Performs user-oriented tasks.
+          </td>
+
+          <td>
+            MS Word, Chrome, Tally
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Utility Software</strong></td>
+
+          <td>
+            Maintains, protects and manages the system.
+          </td>
+
+          <td>
+            Antivirus, Backup, Disk Cleanup
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Firmware</strong></td>
+
+          <td>
+            Provides low-level control of specific hardware.
+          </td>
+
+          <td>
+            BIOS/UEFI, Router Firmware
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Relationship Between Hardware and Software</h2>
+
+  <p>
+    Hardware and software depend on each other.
+    Hardware provides the physical resources, while software provides
+    the instructions needed to use those resources.
+  </p>
+
+  <ul>
+
+    <li>
+      Software instructs the hardware.
+    </li>
+
+    <li>
+      Hardware executes the instructions provided by software.
+    </li>
+
+    <li>
+      The operating system manages hardware resources.
+    </li>
+
+    <li>
+      Device drivers allow software to communicate with specific hardware.
+    </li>
+
+    <li>
+      Applications use operating-system services to perform user tasks.
+    </li>
+
+  </ul>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    Suppose a student opens a word processor and types an assignment.
+    The keyboard is the hardware used for input. The word-processing
+    application is software. The CPU processes the instructions,
+    memory temporarily holds data, and the monitor displays the document.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Quick Revision
+    </span>
+
+    <p>
+      <strong>Hardware = What we can touch.</strong><br>
+      <strong>Software = What tells the hardware what to do.</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is hardware?</li>
+
+    <li>What is software?</li>
+
+    <li>Write any five examples of hardware.</li>
+
+    <li>Write any five examples of software.</li>
+
+    <li>Differentiate between hardware and software.</li>
+
+    <li>What is system software?</li>
+
+    <li>What is application software?</li>
+
+    <li>What is utility software?</li>
+
+    <li>What is firmware?</li>
+
+    <li>What is the difference between open source and proprietary software?</li>
+
+    <li>Why are hardware and software interdependent?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define hardware and software and explain their differences with suitable examples.
+    </li>
+
+    <li>
+      Explain the major categories of hardware devices.
+    </li>
+
+    <li>
+      Explain system software, application software and utility software.
+    </li>
+
+    <li>
+      What is firmware? Explain its role with suitable examples.
+    </li>
+
+    <li>
+      Explain the relationship between hardware and software.
+    </li>
+
+    <li>
+      Explain open source and proprietary software.
+    </li>
+
+  </ol>
+
+
+  <!-- ========================================================
+       RESOURCE SECTION
+       ======================================================== -->
+
+  <div class="resource-section">
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        After reading the topic, watch this BCA-level Hindi explanation
+        of hardware and software.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/watch?v=5fUIBQ6QE3w"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: What is Hardware and Software? — BCA Hindi Lecture
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet covering hardware,
+        software, system software, application software and firmware
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of Hardware,
+        Software and their relationship.
+      </p>
+
+    </div>
+
+
+  </div>
+
+  `
+];
 
 // ============================================================
 // END OF CURRENT NOTES
