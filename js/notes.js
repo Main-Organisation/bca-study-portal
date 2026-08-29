@@ -4227,6 +4227,7 @@ OPCODE + OPERANDS
 
   `
 ];
+
 // ============================================================
 // MODULE 1 — TOPIC 3
 // DEFINITION OF SOFTWARE AND HARDWARE
