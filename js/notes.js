@@ -5812,6 +5812,3568 @@ printf("Sum = %d", sum);
   `
 ];
 // ============================================================
+// MODULE 1 — TOPIC 5
+// ASSEMBLER
+// ============================================================
+
+NOTES["m1-assembler"] = [
+  `
+
+  <h2>What is an Assembler?</h2>
+
+  <p>
+    An <strong>assembler</strong> is a language translator that converts
+    a program written in <strong>assembly language</strong> into
+    <strong>machine language</strong> or object code that the computer
+    can use for execution.
+  </p>
+
+  <p>
+    Assembly language uses symbolic instructions called
+    <strong>mnemonics</strong>, such as <strong>MOV, ADD, SUB</strong>,
+    instead of writing binary instructions directly.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      An assembler acts like a <strong>translator</strong>:
+      it changes easy-to-read assembly instructions into
+      machine-level instructions understood by the processor.
+    </p>
+  </div>
+
+
+  <h2>Why is an Assembler Needed?</h2>
+
+  <p>
+    A computer processor directly executes machine-level instructions.
+    Writing programs directly in binary is difficult for humans.
+    Assembly language makes those instructions easier to write using
+    symbolic names, and the assembler converts them into machine code.
+  </p>
+
+  <ul>
+
+    <li>
+      Makes low-level programming easier than writing binary code.
+    </li>
+
+    <li>
+      Converts mnemonics into machine instructions.
+    </li>
+
+    <li>
+      Handles symbols, labels and addresses.
+    </li>
+
+    <li>
+      Produces object code for later linking and execution.
+    </li>
+
+  </ul>
+
+
+  <h2>Input and Output of an Assembler</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>Assembly language source file, usually with an <code>.asm</code> extension.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Processing</strong></td>
+          <td>Translates mnemonics, resolves symbols and addresses.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>Object code, commonly stored in an <code>.obj</code> or <code>.o</code> file.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>How an Assembler Works</h2>
+
+  <p>
+    The assembler reads the assembly language program, identifies
+    instructions and symbols, determines addresses, and produces
+    machine or object code.
+  </p>
+
+
+  <div class="note-flow">
+ASSEMBLY LANGUAGE
+        ↓
+     ASSEMBLER
+        ↓
+   OBJECT CODE
+        ↓
+      LINKER
+        ↓
+   EXECUTABLE
+  </div>
+
+
+  <h2>One-to-One Translation</h2>
+
+  <p>
+    Assembly language instructions generally have a
+    <strong>one-to-one relationship</strong> with machine instructions.
+    This means one assembly instruction corresponds closely to one
+    machine instruction.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Assembly Instruction</th>
+          <th>Machine Representation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>MOV AX, 5</code></td>
+          <td><code>B8 05 00</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      The assembler does not convert a whole high-level program like
+      a compiler. Its main job is to translate
+      <strong>assembly language into machine/object code</strong>.
+    </p>
+  </div>
+
+
+  <h2>Two-Pass Assembler</h2>
+
+  <p>
+    A two-pass assembler processes the source program in
+    <strong>two passes</strong>. This allows it to identify symbols
+    and addresses before generating the final object code.
+  </p>
+
+
+  <div class="note-flow">
+PASS 1
+  ↓
+Build Symbol Table
+  ↓
+PASS 2
+  ↓
+Generate Object Code
+  </div>
+
+
+  <h3>Pass 1 — Symbol Table Construction</h3>
+
+  <p>
+    In the first pass, the assembler scans the source program and
+    identifies labels and symbols. It records their corresponding
+    addresses in a <strong>symbol table</strong>.
+  </p>
+
+  <ul>
+
+    <li>
+      Reads the source program.
+    </li>
+
+    <li>
+      Maintains addresses for instructions and data.
+    </li>
+
+    <li>
+      Identifies labels and symbols.
+    </li>
+
+    <li>
+      Builds the symbol table.
+    </li>
+
+  </ul>
+
+
+  <h3>Pass 2 — Object Code Generation</h3>
+
+  <p>
+    In the second pass, the assembler uses the information collected
+    during Pass 1 to generate the actual object or machine code.
+  </p>
+
+  <ul>
+
+    <li>
+      Reads the source program again.
+    </li>
+
+    <li>
+      Replaces mnemonics with their machine opcodes.
+    </li>
+
+    <li>
+      Resolves symbolic addresses.
+    </li>
+
+    <li>
+      Generates object code.
+    </li>
+
+  </ul>
+
+
+  <h2>Pass 1 vs Pass 2</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Pass 1</th>
+          <th>Pass 2</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Scans the source program.</td>
+          <td>Scans the source program again.</td>
+        </tr>
+
+        <tr>
+          <td>Builds the symbol table.</td>
+          <td>Generates object code.</td>
+        </tr>
+
+        <tr>
+          <td>Assigns/records addresses.</td>
+          <td>Resolves symbols and addresses.</td>
+        </tr>
+
+        <tr>
+          <td>Prepares information required for code generation.</td>
+          <td>Produces machine/object instructions.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Symbols and Labels</h2>
+
+  <p>
+    Assembly programs often use symbolic names, such as labels,
+    instead of directly writing numeric memory addresses.
+    The assembler keeps track of these names and their associated
+    addresses.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      A label is a <strong>name given to an instruction or memory
+      location</strong>. The assembler later finds its actual address.
+    </p>
+
+  </div>
+
+
+  <h2>Example of Assembly Code</h2>
+
+  <div class="note-flow">
+MOV AX, 5
+ADD AX, 3
+  </div>
+
+  <p>
+    The assembler translates these assembly instructions into their
+    corresponding machine/object representation.
+  </p>
+
+
+  <h2>Examples of Assemblers</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Assembler</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>NASM</strong></td>
+          <td>Assembler commonly used for x86 and x86-64 programming.</td>
+        </tr>
+
+        <tr>
+          <td><strong>MASM</strong></td>
+          <td>Microsoft Macro Assembler for x86-family assembly.</td>
+        </tr>
+
+        <tr>
+          <td><strong>TASM</strong></td>
+          <td>Borland Turbo Assembler.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Advantages of an Assembler</h2>
+
+  <ul>
+
+    <li>
+      Provides a readable symbolic form of machine instructions.
+    </li>
+
+    <li>
+      Allows close control over processor operations.
+    </li>
+
+    <li>
+      Produces efficient low-level code.
+    </li>
+
+    <li>
+      Useful for system programming and hardware-related programming.
+    </li>
+
+    <li>
+      Allows use of labels and symbolic addresses.
+    </li>
+
+  </ul>
+
+
+  <h2>Limitations of Assembly Language and Assembler-Based Programming</h2>
+
+  <ul>
+
+    <li>
+      Assembly programs are harder to write than high-level programs.
+    </li>
+
+    <li>
+      Assembly language is generally hardware dependent.
+    </li>
+
+    <li>
+      Programs are less portable between processor architectures.
+    </li>
+
+    <li>
+      Debugging and maintenance can be more difficult.
+    </li>
+
+  </ul>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember This</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Assembler</strong></td>
+          <td>Converts assembly language into machine/object code.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>Assembly source file, usually <code>.asm</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>Object code, usually <code>.obj</code> or <code>.o</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Pass 1</strong></td>
+          <td>Builds the symbol table and records addresses.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Pass 2</strong></td>
+          <td>Generates object code and resolves symbols.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Translation</strong></td>
+          <td>Assembly instruction → Machine/Object instruction.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Examples</strong></td>
+          <td>NASM, MASM, TASM.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Easy Revision Trick
+    </span>
+
+    <p>
+      <strong>
+        Pass 1 = Symbols & Addresses
+        <br>
+        Pass 2 = Machine/Object Code
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an assembler?</li>
+
+    <li>What is the main function of an assembler?</li>
+
+    <li>What is the input of an assembler?</li>
+
+    <li>What is the output of an assembler?</li>
+
+    <li>What is a mnemonic in assembly language?</li>
+
+    <li>What is a symbol or label?</li>
+
+    <li>What is a two-pass assembler?</li>
+
+    <li>What is performed during Pass 1?</li>
+
+    <li>What is performed during Pass 2?</li>
+
+    <li>What is a symbol table?</li>
+
+    <li>Name any three assemblers.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define an assembler and explain its working.
+    </li>
+
+    <li>
+      Explain the need for an assembler in computer programming.
+    </li>
+
+    <li>
+      Explain the two-pass assembler with the functions of Pass 1 and Pass 2.
+    </li>
+
+    <li>
+      Explain how symbols, labels and addresses are handled by an assembler.
+    </li>
+
+    <li>
+      Differentiate between Pass 1 and Pass 2 of an assembler.
+    </li>
+
+    <li>
+      Explain the input and output of an assembler with a suitable example.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        After reading the topic, watch this Hindi explanation of the
+        two-pass assembler and its working.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/watch?v=oHczuY7dVIU"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: 2-Pass Assembler — Hindi Lecture
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet covering assembler,
+        symbol tables, Pass 1 and Pass 2 will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of assembler working,
+        two-pass processing, symbols and object-code generation.
+      </p>
+
+    </div>
+
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 1 — TOPIC 6
+// COMPILER
+// ============================================================
+
+NOTES["m1-compiler"] = [
+  `
+
+  <h2>What is a Compiler?</h2>
+
+  <p>
+    A <strong>compiler</strong> is a language translator that converts
+    a complete program written in a <strong>high-level programming language</strong>
+    into machine code or executable code before the program is run.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      A compiler takes the <strong>whole program</strong>,
+      translates it, and prepares it for execution.
+    </p>
+
+  </div>
+
+
+  <h2>Why is a Compiler Needed?</h2>
+
+  <p>
+    A computer's CPU executes machine-level instructions, while
+    programmers usually write programs using high-level languages
+    such as C. The compiler acts as a bridge between the two.
+  </p>
+
+
+  <div class="note-flow">
+
+HIGH-LEVEL SOURCE PROGRAM
+          ↓
+       COMPILER
+          ↓
+    MACHINE / OBJECT CODE
+          ↓
+      EXECUTABLE PROGRAM
+
+  </div>
+
+
+  <h2>How a Compiler Works</h2>
+
+  <p>
+    A compiler processes the program and performs several stages before
+    producing the final executable or object code.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Main Function</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Preprocessing</strong></td>
+          <td>Handles directives such as <code>#include</code> and <code>#define</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Compilation</strong></td>
+          <td>Translates source code into lower-level code such as assembly.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Assembly</strong></td>
+          <td>Converts assembly code into object code.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Linking</strong></td>
+          <td>Combines object code with required libraries to create the executable.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Features of a Compiler</h2>
+
+  <ul>
+
+    <li>
+      Translates the <strong>whole program</strong> before execution.
+    </li>
+
+    <li>
+      Checks syntax and other program-related errors during translation.
+    </li>
+
+    <li>
+      Can optimize the generated code.
+    </li>
+
+    <li>
+      Produces object or executable code.
+    </li>
+
+    <li>
+      Once compiled, the executable can generally be run without
+      recompiling the source each time, unless the source changes.
+    </li>
+
+  </ul>
+
+
+  <h2>Example</h2>
+
+  <div class="note-flow">
+hello.c
+  ↓
+Preprocessing
+  ↓
+Compilation
+  ↓
+Assembly
+  ↓
+Object Code
+  ↓
+Linking
+  ↓
+Executable
+  </div>
+
+
+  <h2>Compiler Error Detection</h2>
+
+  <p>
+    During compilation, the compiler checks the program and reports
+    errors that prevent successful translation. These may include
+    syntax and semantic problems.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>Compiler = Translate the complete program first,
+      then execute the generated program.</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Point</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>High-level source program</td>
+        </tr>
+
+        <tr>
+          <td><strong>Translation</strong></td>
+          <td>Whole program</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>Object / executable code</td>
+        </tr>
+
+        <tr>
+          <td><strong>Main Advantage</strong></td>
+          <td>Fast execution after successful compilation</td>
+        </tr>
+
+        <tr>
+          <td><strong>Example</strong></td>
+          <td>GCC, Clang, MSVC</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a compiler?</li>
+
+    <li>Why is a compiler needed?</li>
+
+    <li>What is the input and output of a compiler?</li>
+
+    <li>What is meant by compilation?</li>
+
+    <li>Write the main phases of compilation.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define a compiler and explain its working.
+    </li>
+
+    <li>
+      Explain the major phases of compilation.
+    </li>
+
+    <li>
+      Explain the role of a compiler in converting a high-level program
+      into executable code.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        After reading the topic, watch an easy explanation of compiler
+        and the compilation process.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=compiler+in+C+programming+Hindi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Compiler in C Programming — Hindi Explanation
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for Compiler
+        and Compilation Process will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of Compiler,
+        compilation phases and output.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 1 — TOPIC 7
+// INTERPRETER
+// ============================================================
+
+NOTES["m1-interpreter"] = [
+  `
+
+  <h2>What is an Interpreter?</h2>
+
+  <p>
+    An <strong>interpreter</strong> is a language translator that
+    translates and executes a high-level program
+    <strong>line by line</strong>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      An interpreter reads one statement, translates it,
+      executes it, and then moves to the next statement.
+    </p>
+
+  </div>
+
+
+  <h2>How an Interpreter Works</h2>
+
+  <div class="note-flow">
+SOURCE PROGRAM
+      ↓
+  INTERPRETER
+      ↓
+READ ONE LINE
+      ↓
+TRANSLATE
+      ↓
+EXECUTE
+      ↓
+NEXT LINE
+  </div>
+
+
+  <h3>Example Process</h3>
+
+  <ol>
+
+    <li>Read the first statement.</li>
+
+    <li>Translate the statement.</li>
+
+    <li>Execute the statement.</li>
+
+    <li>Move to the next statement.</li>
+
+    <li>Continue until the program ends or an error occurs.</li>
+
+  </ol>
+
+
+  <h2>Important Characteristics</h2>
+
+  <ul>
+
+    <li>
+      Translates and executes the program <strong>line by line</strong>.
+    </li>
+
+    <li>
+      Generally does not create a separate executable file.
+    </li>
+
+    <li>
+      If an error occurs, execution can stop at that point.
+    </li>
+
+    <li>
+      Makes testing and debugging easier because errors can be identified
+      during execution.
+    </li>
+
+    <li>
+      Execution is generally slower than already compiled code.
+    </li>
+
+  </ul>
+
+
+  <h2>Interpreter vs Compiler</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Feature</th>
+          <th>Compiler</th>
+          <th>Interpreter</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Translation</strong></td>
+          <td>Whole program</td>
+          <td>Line by line</td>
+        </tr>
+
+        <tr>
+          <td><strong>Execution</strong></td>
+          <td>After compilation</td>
+          <td>During interpretation</td>
+        </tr>
+
+        <tr>
+          <td><strong>Speed</strong></td>
+          <td>Generally faster at runtime</td>
+          <td>Generally slower</td>
+        </tr>
+
+        <tr>
+          <td><strong>Error Handling</strong></td>
+          <td>Reports errors during compilation</td>
+          <td>Can stop when an error is encountered</td>
+        </tr>
+
+        <tr>
+          <td><strong>Executable File</strong></td>
+          <td>Generally produced</td>
+          <td>Separate executable generally not produced</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>
+        Compiler = Whole Program
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        Interpreter = Line by Line
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Examples</h2>
+
+  <p>
+    Interpreters are commonly associated with languages and environments
+    such as <strong>Python, JavaScript, Ruby and PHP</strong>.
+  </p>
+
+
+  <h2>Advantages of an Interpreter</h2>
+
+  <ul>
+
+    <li>Easy to test and debug.</li>
+
+    <li>Errors can be identified during execution.</li>
+
+    <li>No separate executable file is generally required.</li>
+
+  </ul>
+
+
+  <h2>Limitations of an Interpreter</h2>
+
+  <ul>
+
+    <li>Generally slower execution than compiled code.</li>
+
+    <li>The source program is interpreted during execution.</li>
+
+  </ul>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Point</th>
+          <th>Remember</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>High-level source program</td>
+        </tr>
+
+        <tr>
+          <td><strong>Method</strong></td>
+          <td>Line-by-line translation and execution</td>
+        </tr>
+
+        <tr>
+          <td><strong>Executable</strong></td>
+          <td>Separate executable generally not produced</td>
+        </tr>
+
+        <tr>
+          <td><strong>Error</strong></td>
+          <td>Execution can stop when an error is encountered</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an interpreter?</li>
+
+    <li>How does an interpreter work?</li>
+
+    <li>What is line-by-line translation?</li>
+
+    <li>Write any three characteristics of an interpreter.</li>
+
+    <li>Give examples of languages commonly associated with interpreters.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define an interpreter and explain its working.
+    </li>
+
+    <li>
+      Explain the characteristics, advantages and limitations of an interpreter.
+    </li>
+
+    <li>
+      Differentiate between compiler and interpreter.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch an easy explanation of interpreter and its
+        line-by-line execution process.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=interpreter+compiler+difference+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Compiler vs Interpreter — Hindi Explanation
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for Interpreter
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of interpreter
+        working and compiler comparison.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 1 — TOPIC 8
+// LINKER
+// ============================================================
+
+NOTES["m1-linker"] = [
+  `
+
+  <h2>What is a Linker?</h2>
+
+  <p>
+    A <strong>linker</strong> is a system program that combines
+    object files and required library files to create a
+    <strong>single executable program</strong>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      After a program is compiled and assembled, the linker
+      <strong>joins the required pieces together</strong> and
+      prepares the final executable program.
+    </p>
+
+  </div>
+
+
+  <h2>Why is a Linker Needed?</h2>
+
+  <p>
+    A large program may be divided into multiple source files and may
+    use functions from libraries. The linker combines these separate
+    parts so that the complete program can be executed.
+  </p>
+
+
+  <div class="note-flow">
+OBJECT FILES
+      +
+LIBRARY FILES
+      ↓
+    LINKER
+      ↓
+ EXECUTABLE FILE
+  </div>
+
+
+  <h2>Functions of a Linker</h2>
+
+  <ul>
+
+    <li>
+      Combines multiple object files.
+    </li>
+
+    <li>
+      Links required library files.
+    </li>
+
+    <li>
+      Resolves references to functions and variables defined in
+      other modules or libraries.
+    </li>
+
+    <li>
+      Assigns or adjusts final memory addresses through relocation.
+    </li>
+
+    <li>
+      Produces the final executable file.
+    </li>
+
+  </ul>
+
+
+  <h2>Input and Output</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>Object files and required library files.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Processing</strong></td>
+          <td>Combines modules and resolves external references.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>A single executable file.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Linking Process</h2>
+
+  <div class="note-flow">
+SOURCE CODE
+      ↓
+   COMPILER
+      ↓
+   ASSEMBLER
+      ↓
+  OBJECT FILES
+      ↓
+    LINKER
+      +
+  LIBRARIES
+      ↓
+ EXECUTABLE
+  </div>
+
+
+  <h2>Types of Linking</h2>
+
+  <h3>1. Static Linking</h3>
+
+  <p>
+    In static linking, the required library code is included in the
+    executable file during the linking process.
+  </p>
+
+
+  <h3>2. Dynamic Linking</h3>
+
+  <p>
+    In dynamic linking, some library code is linked at runtime using
+    shared library files.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Static Linking</th>
+          <th>Dynamic Linking</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Library code is included in the executable.</td>
+          <td>Shared library code is linked when required.</td>
+        </tr>
+
+        <tr>
+          <td>Executable can be larger.</td>
+          <td>Executable can be smaller.</td>
+        </tr>
+
+        <tr>
+          <td>Less dependence on external libraries at runtime.</td>
+          <td>Depends on required shared libraries being available.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Example</h2>
+
+  <p>
+    Suppose a C program uses a library function such as
+    <code>printf()</code>. After compilation and assembly, the linker
+    connects the required library information with the object code
+    to create the final executable program.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>
+        Linker = Combines object files + libraries → Executable
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Point</th>
+          <th>Remember</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>Object files + libraries</td>
+        </tr>
+
+        <tr>
+          <td><strong>Main Job</strong></td>
+          <td>Combines modules and resolves references</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>Executable file</td>
+        </tr>
+
+        <tr>
+          <td><strong>Types</strong></td>
+          <td>Static linking and Dynamic linking</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a linker?</li>
+
+    <li>Why is a linker needed?</li>
+
+    <li>What are the inputs of a linker?</li>
+
+    <li>What is the output of a linker?</li>
+
+    <li>What is static linking?</li>
+
+    <li>What is dynamic linking?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define a linker and explain its functions.
+    </li>
+
+    <li>
+      Explain the linking process from object files to executable file.
+    </li>
+
+    <li>
+      Differentiate between static linking and dynamic linking.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch an easy explanation of linker and the program
+        translation process.
+      </p>
+
+      <p>
+
+        <a
+          href="https://youtube.com/shorts/WN_144noEmg?si=9LjJ3tmbR64K286x"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Linker in Compiler — Hindi Explanation
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for Linker
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of linker,
+        object files, libraries and executable generation.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 1 — TOPIC 9
+// LOADER
+// ============================================================
+
+NOTES["m1-loader"] = [
+  `
+
+  <h2>What is a Loader?</h2>
+
+  <p>
+    A <strong>loader</strong> is a system program that loads an executable
+    program from secondary storage into <strong>main memory (RAM)</strong>
+    so that the CPU can execute it. It also prepares the required memory
+    and addresses before execution begins.
+  </p>
+
+
+  <h2>Real World Example</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Real World Example
+    </span>
+
+    <p>
+      Think about opening <strong>Microsoft Word</strong>.
+      The program is stored on your computer's storage.
+      When you click its icon, the operating system loads the required
+      program into RAM so that the CPU can start running it.
+    </p>
+
+  </div>
+
+
+  <h2>How Does a Loader Work?</h2>
+
+  <div class="note-flow">
+EXECUTABLE FILE
+      ↓
+    LOADER
+      ↓
+LOAD INTO RAM
+      ↓
+MEMORY SETUP
+      ↓
+CPU STARTS EXECUTION
+  </div>
+
+
+  <h3>Step 1 — Locate the Program</h3>
+
+  <p>
+    The loader finds the executable program stored on secondary storage
+    such as an HDD or SSD.
+  </p>
+
+
+  <h3>Step 2 — Load into Main Memory</h3>
+
+  <p>
+    The executable program is copied from storage into the required
+    locations in <strong>main memory (RAM)</strong>.
+  </p>
+
+
+  <h3>Step 3 — Memory and Address Setup</h3>
+
+  <p>
+    The loader prepares the memory layout and adjusts addresses when
+    required so that the program can run correctly.
+  </p>
+
+
+  <h3>Step 4 — Transfer Control</h3>
+
+  <p>
+    After the program is ready in memory, control is transferred to
+    the program's entry point and execution begins.
+  </p>
+
+
+  <h2>Main Functions of a Loader</h2>
+
+  <ul>
+
+    <li>
+      Loads the executable program into main memory.
+    </li>
+
+    <li>
+      Allocates the required memory.
+    </li>
+
+    <li>
+      Performs address relocation when required.
+    </li>
+
+    <li>
+      Helps prepare the runtime environment.
+    </li>
+
+    <li>
+      Transfers control to the program's entry point.
+    </li>
+
+  </ul>
+
+
+  <h2>Types of Loader</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Type</th>
+          <th>Meaning</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Absolute Loader</strong></td>
+
+          <td>
+            Loads the program at a fixed memory address.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Relocating Loader</strong></td>
+
+          <td>
+            Can load the program at different memory locations
+            by adjusting addresses.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Loader in Program Execution</h2>
+
+  <div class="note-flow">
+SOURCE PROGRAM
+      ↓
+   COMPILER
+      ↓
+  ASSEMBLER
+      ↓
+   LINKER
+      ↓
+ EXECUTABLE FILE
+      ↓
+    LOADER
+      ↓
+      RAM
+      ↓
+     CPU
+      ↓
+  PROGRAM EXECUTES
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+<h2>What Happens When You Switch On a PC?</h2>
+
+<p>
+  The process of starting or resetting a computer is called
+  <strong>Booting</strong>. It connects the initial hardware startup
+  with loading the operating system into main memory so that the
+  computer becomes ready for use.
+</p>
+
+
+<h3>1. Power On and Reset Vector</h3>
+
+<p>
+  When the power button is pressed, the power supply provides power
+  to the motherboard. The CPU starts from a predefined location called
+  the <strong>Reset Vector</strong>, which points to the system firmware
+  such as <strong>BIOS or UEFI</strong>.
+</p>
+
+
+<h3>2. POST — Power-On Self-Test</h3>
+
+<p>
+  The BIOS or UEFI performs <strong>POST</strong> to check whether
+  important hardware components are working properly.
+</p>
+
+<ul>
+
+  <li><strong>RAM:</strong> Memory check</li>
+
+  <li><strong>CPU:</strong> Basic processor operation</li>
+
+  <li><strong>Graphics:</strong> Display initialization</li>
+
+  <li><strong>Keyboard:</strong> Input-device check</li>
+
+  <li><strong>Storage:</strong> Detection of available boot devices</li>
+
+</ul>
+
+<p>
+  If a critical hardware problem is detected, the firmware may report
+  the problem through error messages or diagnostic signals.
+</p>
+
+
+<h3>3. Locating a Bootable Device</h3>
+
+<p>
+  After POST, the firmware checks the configured
+  <strong>boot order</strong> to find a bootable storage device such
+  as an SSD, HDD, or USB drive.
+</p>
+
+<p>
+  On traditional BIOS-based systems, boot information may involve the
+  <strong>Master Boot Record (MBR)</strong>. Modern UEFI systems
+  generally use the <strong>EFI System Partition (ESP)</strong>
+  and a boot manager.
+</p>
+
+
+<h3>4. Loading the Bootloader</h3>
+
+<p>
+  The firmware starts the system's <strong>bootloader</strong>.
+  Examples include <strong>Windows Boot Manager</strong> and
+  <strong>GRUB</strong> for Linux systems.
+</p>
+
+<p>
+  The bootloader prepares the next stage of the startup process
+  and locates the operating system kernel.
+</p>
+
+
+<h3>5. Loading the Kernel</h3>
+
+<p>
+  The bootloader loads the <strong>OS Kernel</strong> into
+  <strong>RAM</strong> and transfers control to it.
+  The kernel then initializes the operating environment and starts
+  the required system services and drivers.
+</p>
+
+
+<h3>6. Operating System Starts</h3>
+
+<p>
+  After the kernel and essential services are initialized,
+  the operating system starts its user environment, such as a
+  <strong>GUI or CLI</strong>, and the computer becomes ready for use.
+</p>
+
+
+<div class="note-flow">
+POWER ON
+   ↓
+CPU RESET VECTOR
+   ↓
+BIOS / UEFI
+   ↓
+POST
+   ↓
+BOOTABLE DEVICE
+   ↓
+BOOTLOADER
+   ↓
+OS KERNEL
+   ↓
+OPERATING SYSTEM
+   ↓
+USER INTERFACE
+</div>
+
+
+<div class="note-callout">
+
+  <span class="note-callout-title">
+    💡 In Simple Words
+  </span>
+
+  <p>
+    When you switch on a computer, the firmware first checks the hardware,
+    finds a bootable device, starts the bootloader, and the bootloader
+    loads the operating system kernel into RAM. The kernel then starts
+    the operating system.
+  </p>
+
+</div>
+
+
+<h2>Loader vs Bootloader</h2>
+
+<div class="note-table-wrap">
+
+  <table class="note-table">
+
+    <thead>
+
+      <tr>
+        <th>Loader</th>
+        <th>Bootloader</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr>
+
+        <td>
+          Loads an executable program into main memory for execution.
+        </td>
+
+        <td>
+          Starts the operating system boot process and loads the OS kernel.
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td>
+          Usually works with normal executable programs.
+        </td>
+
+        <td>
+          Works during system startup.
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td>
+          Prepares a program for CPU execution.
+        </td>
+
+        <td>
+          Prepares and transfers control to the operating system.
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+
+<div class="note-callout">
+
+  <span class="note-callout-title">
+    📌 Remember
+  </span>
+
+  <p>
+    <strong>
+      Loader → Loads a program into RAM
+      <br>
+      Bootloader → Loads/starts the operating system
+    </strong>
+  </p>
+
+</div>
+    <p>
+      The <strong>linker creates the executable</strong>,
+      while the <strong>loader puts that executable into RAM</strong>
+      so the CPU can run it.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Point</th>
+          <th>Remember</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>Executable file</td>
+        </tr>
+
+        <tr>
+          <td><strong>Main Job</strong></td>
+          <td>Load program into RAM for execution</td>
+        </tr>
+
+        <tr>
+          <td><strong>Memory</strong></td>
+          <td>Main Memory / RAM</td>
+        </tr>
+
+        <tr>
+          <td><strong>Types</strong></td>
+          <td>Absolute Loader, Relocating Loader</td>
+        </tr>
+
+        <tr>
+          <td><strong>Final Action</strong></td>
+          <td>Transfers control to the program</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a loader?</li>
+
+    <li>What is the main function of a loader?</li>
+
+    <li>Where does the loader load an executable program?</li>
+
+    <li>What is an absolute loader?</li>
+
+    <li>What is a relocating loader?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define a loader and explain its working.
+    </li>
+
+    <li>
+      Explain the main functions of a loader.
+    </li>
+
+    <li>
+      Explain the different types of loader.
+    </li>
+
+    <li>
+      Explain the role of a loader in program execution.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a simple Hindi explanation of loader and the
+        program execution process.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=loader+in+operating+system+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Loader in Operating System — Hindi Explanation
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for Loader
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of loader,
+        memory loading and program execution.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 1 — TOPIC 10
+// ALGORITHM — DEFINITION
+// ============================================================
+
+NOTES["m1-algorithm-definition"] = [
+  `
+
+  <h2>What is an Algorithm?</h2>
+
+  <p>
+    An <strong>algorithm</strong> is a finite sequence of well-defined
+    and unambiguous steps used to solve a problem or perform a task.
+    It takes input, processes it step-by-step, and produces the required
+    output.
+  </p>
+
+
+  <h2>Real-World Example</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Real World Example
+    </span>
+
+    <p>
+      A <strong>recipe for making tea</strong> is similar to an algorithm.
+      It gives instructions in a particular order, such as boiling water,
+      adding tea leaves, adding milk and sugar, and finally serving the tea.
+    </p>
+
+  </div>
+
+
+  <h2>Algorithm in Computer Problem Solving</h2>
+
+  <p>
+    Before writing a program, a programmer can first design an algorithm
+    to describe the solution logically. The algorithm can then be converted
+    into a program using a programming language such as C.
+  </p>
+
+
+  <div class="note-flow">
+PROBLEM
+   ↓
+ALGORITHM
+   ↓
+PROGRAM
+   ↓
+OUTPUT
+  </div>
+
+
+  <h2>Example: Algorithm to Add Two Numbers</h2>
+
+  <ol>
+
+    <li><strong>Start</strong></li>
+
+    <li>
+      Input two numbers <strong>A</strong> and <strong>B</strong>.
+    </li>
+
+    <li>
+      Calculate <strong>Sum = A + B</strong>.
+    </li>
+
+    <li>
+      Display the value of <strong>Sum</strong>.
+    </li>
+
+    <li><strong>Stop</strong></li>
+
+  </ol>
+
+
+  <h3>Example in Simple Form</h3>
+
+  <div class="note-flow">
+START
+  ↓
+INPUT A, B
+  ↓
+SUM = A + B
+  ↓
+PRINT SUM
+  ↓
+STOP
+  </div>
+
+
+  <h2>Important Points About an Algorithm</h2>
+
+  <ul>
+
+    <li>
+      It provides a <strong>step-by-step solution</strong>.
+    </li>
+
+    <li>
+      Each step should be clear and understandable.
+    </li>
+
+    <li>
+      The steps should eventually terminate.
+    </li>
+
+    <li>
+      An algorithm is <strong>independent of a particular programming language</strong>.
+    </li>
+
+    <li>
+      It can be represented using natural language, pseudocode,
+      or a flowchart.
+    </li>
+
+  </ul>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      An algorithm is simply a
+      <strong>step-by-step plan for solving a problem</strong>.
+      First we decide the logic, and then we write the program.
+    </p>
+
+  </div>
+
+
+  <h2>Algorithm vs Program</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Algorithm</th>
+          <th>Program</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>A logical step-by-step solution.</td>
+          <td>The solution written using a programming language.</td>
+        </tr>
+
+        <tr>
+          <td>Language independent.</td>
+          <td>Written in a specific programming language.</td>
+        </tr>
+
+        <tr>
+          <td>Focuses on logic.</td>
+          <td>Focuses on implementing the logic.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Point</th>
+          <th>Remember</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Meaning</strong></td>
+          <td>Step-by-step procedure to solve a problem.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Nature</strong></td>
+          <td>Logical and language independent.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>Data required to solve the problem.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>Required result of the problem.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Representation</strong></td>
+          <td>Natural language, pseudocode or flowchart.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an algorithm?</li>
+
+    <li>Why is an algorithm used in problem solving?</li>
+
+    <li>Write the important features of an algorithm.</li>
+
+    <li>Is an algorithm dependent on a programming language?</li>
+
+    <li>Write an algorithm to add two numbers.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define an algorithm and explain its role in computer problem solving.
+    </li>
+
+    <li>
+      Write and explain an algorithm to add two numbers.
+    </li>
+
+    <li>
+      Differentiate between an algorithm and a program.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a simple Hindi explanation of algorithms and
+        basic problem solving.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=algorithm+definition+in+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Algorithm Definition & Examples — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for Algorithm
+        Definition will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of algorithm,
+        input, processing and output.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 1 — TOPIC 11
+// ALGORITHM — CHARACTERISTICS
+// ============================================================
+
+NOTES["m1-algorithm-characteristics"] = [
+  `
+
+  <h2>Characteristics of an Algorithm</h2>
+
+  <p>
+    A good algorithm must follow certain basic rules so that it can
+    correctly and clearly solve a problem. The five essential
+    characteristics are <strong>Input, Output, Definiteness,
+    Finiteness, and Effectiveness</strong>.
+  </p>
+
+
+  <h2>Five Essential Characteristics</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Characteristic</th>
+          <th>Meaning</th>
+          <th>Simple Example</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+
+          <td>
+            An algorithm may take zero or more input values.
+          </td>
+
+          <td>
+            Enter two numbers A and B.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+
+          <td>
+            An algorithm should produce at least one required result.
+          </td>
+
+          <td>
+            Display the sum of A and B.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Definiteness</strong></td>
+
+          <td>
+            Every step must be clear, precise, and unambiguous.
+          </td>
+
+          <td>
+            "Add A and B" is clear.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Finiteness</strong></td>
+
+          <td>
+            The algorithm must finish after a finite number of steps.
+          </td>
+
+          <td>
+            Stop after producing the required result.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Effectiveness</strong></td>
+
+          <td>
+            Every step should be simple, practical, and possible to perform.
+          </td>
+
+          <td>
+            "Add 5 to X" is an executable step.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Input</h2>
+
+  <p>
+    <strong>Input</strong> is the data given to an algorithm before
+    processing starts. An algorithm may take zero or more input values,
+    depending on the problem.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      To calculate the sum of two numbers, the inputs can be
+      <strong>A = 5</strong> and <strong>B = 7</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>2. Output</h2>
+
+  <p>
+    <strong>Output</strong> is the result produced after processing
+    the input. An algorithm should produce at least one required output.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      For A = 5 and B = 7, the output is
+      <strong>12</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>3. Definiteness</h2>
+
+  <p>
+    <strong>Definiteness</strong> means that every step of an algorithm
+    must be clearly defined. There should be no confusion about what
+    a particular step means.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <strong>Clear:</strong> Add 5 to X.<br>
+      <strong>Unclear:</strong> Do something with X.
+    </p>
+
+  </div>
+
+
+  <h2>4. Finiteness</h2>
+
+  <p>
+    <strong>Finiteness</strong> means that an algorithm must terminate
+    after a finite number of steps. It should not continue forever.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      An algorithm for finding the sum of two numbers should calculate
+      the result and stop. It should not continue indefinitely.
+    </p>
+
+  </div>
+
+
+  <h2>5. Effectiveness</h2>
+
+  <p>
+    <strong>Effectiveness</strong> means that every step of an algorithm
+    must be basic enough to be performed practically and should lead
+    toward solving the problem.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <strong>Effective:</strong> Add 5 to X.<br>
+      <strong>Not Effective:</strong> Divide X by infinity.
+    </p>
+
+  </div>
+
+
+  <h2>Example Showing All Characteristics</h2>
+
+  <p>
+    Consider an algorithm to calculate the sum of two numbers:
+  </p>
+
+  <div class="note-image">
+  <img
+    src="images/Image7.1.png"
+    alt="Algorithm to Add Two Numbers"
+  >
+</div>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Characteristic</th>
+          <th>In This Algorithm</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>A and B are entered.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>SUM is displayed.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Definiteness</strong></td>
+          <td>Each instruction is clear.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Finiteness</strong></td>
+          <td>The algorithm ends at STOP.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Effectiveness</strong></td>
+          <td>Each operation can actually be performed.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Easy Revision Trick
+    </span>
+
+    <p>
+      Remember the five characteristics as:
+      <strong>IODFE</strong>
+    </p>
+
+    <p>
+      <strong>
+        I → Input
+        &nbsp; O → Output
+        &nbsp; D → Definiteness
+        &nbsp; F → Finiteness
+        &nbsp; E → Effectiveness
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Term</th>
+          <th>One-Line Meaning</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>Data given to the algorithm.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>Result produced by the algorithm.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Definiteness</strong></td>
+          <td>Every step must be clear and unambiguous.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Finiteness</strong></td>
+          <td>Algorithm must terminate after finite steps.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Effectiveness</strong></td>
+          <td>Every step must be practical and executable.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What are the characteristics of an algorithm?</li>
+
+    <li>What is meant by input and output in an algorithm?</li>
+
+    <li>What is definiteness?</li>
+
+    <li>What is finiteness?</li>
+
+    <li>What is effectiveness?</li>
+
+    <li>Why should an algorithm be finite?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the five essential characteristics of an algorithm.
+    </li>
+
+    <li>
+      Explain Input, Output, Definiteness, Finiteness and Effectiveness
+      with suitable examples.
+    </li>
+
+    <li>
+      Write an algorithm to add two numbers and explain how it satisfies
+      the characteristics of an algorithm.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a simple explanation of the characteristics of an algorithm
+        with examples.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=characteristics+of+algorithm+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Characteristics of Algorithm — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet covering the five
+        characteristics of an algorithm will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of Input, Output,
+        Definiteness, Finiteness and Effectiveness.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 1 — TOPIC 12
+// COMPLEXITY NOTATIONS
+// ============================================================
+
+NOTES["m1-complexity-notations"] = [
+  `
+
+  <h2>What is Complexity Analysis?</h2>
+
+  <p>
+    <strong>Complexity analysis</strong> is used to measure how much
+    time and memory an algorithm requires as the size of its input
+    increases. It helps us compare algorithms and understand their
+    efficiency.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Complexity tells us how an algorithm's
+      <strong>work and memory requirement grow</strong>
+      when the amount of data becomes larger.
+    </p>
+
+  </div>
+
+
+  <h2>Why Do We Need Complexity?</h2>
+
+  <ul>
+
+    <li>
+      To compare different algorithms.
+    </li>
+
+    <li>
+      To understand how an algorithm behaves for large input.
+    </li>
+
+    <li>
+      To choose a more efficient solution.
+    </li>
+
+    <li>
+      To study time and memory requirements.
+    </li>
+
+  </ul>
+
+
+  <h2>Types of Complexity</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Type</th>
+          <th>Measures</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Time Complexity</strong></td>
+
+          <td>
+            How the number of operations grows with input size.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Space Complexity</strong></td>
+
+          <td>
+            How the memory requirement grows with input size.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Time Complexity</h2>
+
+  <p>
+    <strong>Time complexity</strong> describes how the number of
+    operations performed by an algorithm grows as the input size
+    <strong>n</strong> increases.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Important
+    </span>
+
+    <p>
+      Time complexity usually talks about the
+      <strong>number of steps or operations</strong>,
+      not the actual time in seconds.
+    </p>
+
+  </div>
+
+
+  <h3>Example</h3>
+
+  <div class="note-flow">
+FOR i = 1 TO n
+      ↓
+Perform one operation
+      ↓
+Total operations ≈ n
+      ↓
+Time Complexity = O(n)
+  </div>
+
+
+  <h2>Space Complexity</h2>
+
+  <p>
+    <strong>Space complexity</strong> describes how much memory an
+    algorithm requires as the input size increases. It includes the
+    memory needed for the input and the extra memory used by the algorithm.
+  </p>
+
+
+  <h3>Example</h3>
+
+  <p>
+    If an algorithm uses only a fixed number of extra variables,
+    its extra space remains constant even when <strong>n</strong>
+    becomes larger.
+  </p>
+
+  <div class="note-flow">
+Fixed Extra Memory
+      ↓
+Does not grow with n
+      ↓
+Space Complexity = O(1)
+  </div>
+
+
+  <h2>Asymptotic Analysis</h2>
+
+  <p>
+    <strong>Asymptotic analysis</strong> studies the growth of an
+    algorithm for very large input sizes. It focuses on the growth rate
+    and normally ignores constants and lower-order terms.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <strong>3n</strong> and <strong>5n</strong> both have linear growth,
+      so both are represented as <strong>O(n)</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Common Growth Rates</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Notation</th>
+          <th>Name</th>
+          <th>Example</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>O(1)</strong></td>
+          <td>Constant</td>
+          <td>Accessing an array element</td>
+        </tr>
+
+        <tr>
+          <td><strong>O(log n)</strong></td>
+          <td>Logarithmic</td>
+          <td>Binary search</td>
+        </tr>
+
+        <tr>
+          <td><strong>O(n)</strong></td>
+          <td>Linear</td>
+          <td>Linear search</td>
+        </tr>
+
+        <tr>
+          <td><strong>O(n log n)</strong></td>
+          <td>Linearithmic</td>
+          <td>Merge sort</td>
+        </tr>
+
+        <tr>
+          <td><strong>O(n²)</strong></td>
+          <td>Quadratic</td>
+          <td>Bubble sort</td>
+        </tr>
+
+        <tr>
+          <td><strong>O(2ⁿ)</strong></td>
+          <td>Exponential</td>
+          <td>Some subset-generation problems</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Big-O Notation — O(g(n))</h2>
+
+  <p>
+    <strong>Big-O notation</strong> represents an asymptotic
+    <strong>upper bound</strong> on an algorithm's growth.
+    It is commonly used to describe worst-case time complexity.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Big-O tells us how much an algorithm can grow at most,
+      especially in the <strong>worst case</strong>.
+    </p>
+
+  </div>
+
+
+  <h3>Example</h3>
+
+  <div class="note-flow">
+for i = 0 to n
+      ↓
+Runs about n times
+      ↓
+O(n)
+  </div>
+
+
+  <h2>Big-Ω (Omega) Notation — Ω(g(n))</h2>
+
+  <p>
+    <strong>Omega notation</strong> represents an asymptotic
+    <strong>lower bound</strong>. It describes the minimum amount of
+    growth or work required by an algorithm.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Omega tells us the <strong>minimum growth</strong> of an algorithm.
+      It is commonly associated with the best-case situation.
+    </p>
+
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    In a linear search, if the required element is found at the
+    first position, only one comparison may be required.
+  </p>
+
+  <div class="note-flow">
+Best Case
+   ↓
+Minimum Work
+   ↓
+Ω(1)
+  </div>
+
+
+  <h2>Big-Θ (Theta) Notation — Θ(g(n))</h2>
+
+  <p>
+    <strong>Theta notation</strong> represents a
+    <strong>tight asymptotic bound</strong>. It is used when the
+    upper and lower bounds have the same growth rate.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Theta tells us the <strong>exact growth order</strong> of an
+      algorithm within constant factors when the upper and lower
+      bounds match.
+    </p>
+
+  </div>
+
+
+  <h3>Example</h3>
+
+  <div class="note-flow">
+n Operations in Best Case
+          ↓
+n Operations in Worst Case
+          ↓
+Θ(n)
+  </div>
+
+
+  <h2>Big-O, Big-Ω and Big-Θ</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Notation</th>
+          <th>Meaning</th>
+          <th>Simple Idea</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>O(g(n))</strong></td>
+          <td>Upper bound</td>
+          <td>Maximum / worst-case growth</td>
+        </tr>
+
+        <tr>
+          <td><strong>Ω(g(n))</strong></td>
+          <td>Lower bound</td>
+          <td>Minimum / best-case growth</td>
+        </tr>
+
+        <tr>
+          <td><strong>Θ(g(n))</strong></td>
+          <td>Tight bound</td>
+          <td>Matching upper and lower growth</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Comparison of Growth Rates</h2>
+
+  <div class="note-flow">
+O(1)
+  ↓
+O(log n)
+  ↓
+O(n)
+  ↓
+O(n log n)
+  ↓
+O(n²)
+  ↓
+O(2ⁿ)
+  </div>
+
+  <p>
+    In general, a slower-growing complexity is preferred when working
+    with large input sizes.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Quick Memory Trick
+    </span>
+
+    <p>
+      <strong>
+        O → Upper Bound
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        Ω → Lower Bound
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        Θ → Tight Bound
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Simple Example: Finding a Number</h2>
+
+  <p>
+    Suppose we search for a number in an unsorted array containing
+    <strong>n</strong> elements.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Case</th>
+          <th>Situation</th>
+          <th>Complexity</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Best Case</strong></td>
+          <td>Element is found at the first position.</td>
+          <td>Ω(1)</td>
+        </tr>
+
+        <tr>
+          <td><strong>Worst Case</strong></td>
+          <td>Element is at the last position or absent.</td>
+          <td>O(n)</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Time Complexity</strong></td>
+          <td>Growth in number of operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Space Complexity</strong></td>
+          <td>Growth in memory requirement.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Big-O</strong></td>
+          <td>Upper bound / commonly used for worst case.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Big-Ω</strong></td>
+          <td>Lower bound / commonly associated with best case.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Big-Θ</strong></td>
+          <td>Tight bound.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is complexity analysis?</li>
+
+    <li>What is time complexity?</li>
+
+    <li>What is space complexity?</li>
+
+    <li>What is asymptotic analysis?</li>
+
+    <li>What is Big-O notation?</li>
+
+    <li>What is Big-Ω notation?</li>
+
+    <li>What is Big-Θ notation?</li>
+
+    <li>Write the common growth rates of algorithms.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain time complexity and space complexity with suitable examples.
+    </li>
+
+    <li>
+      Explain Big-O, Big-Ω and Big-Θ notations.
+    </li>
+
+    <li>
+      Explain asymptotic analysis and its importance in algorithm analysis.
+    </li>
+
+    <li>
+      Explain different common growth rates with examples.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of time complexity,
+        space complexity and Big-O notation.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=time+complexity+Big+O+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Time Complexity & Big-O — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for complexity
+        notations will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of time complexity,
+        space complexity and asymptotic notations.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
