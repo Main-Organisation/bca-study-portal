@@ -21162,6 +21162,931 @@ After function call: x = 10, y = 20</pre>
   `
 ];
 // ============================================================
+// MODULE 3 — TOPIC 8
+// CALL BY REFERENCE
+// ============================================================
+
+NOTES["m3-call-by-reference"] = [
+  `
+  
+
+  <p>
+    <strong>Definition:</strong> In C, the technique commonly called
+    <strong>call by reference</strong> passes the <strong>address</strong>
+    of a variable to a function using a pointer. The function can then
+    access and modify the original variable through that address.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If the address of <code>x</code> is passed to a function, the function
+    can use a pointer to change the actual value stored in <code>x</code>.
+  </div>
+
+
+  <h2>Why is Call by Reference Used?</h2>
+
+  <p>
+    <strong>Definition:</strong> Address-based parameter passing is used
+    when a function needs to modify the original variable of the calling
+    function or when working with large data without making a separate
+    copy of the data.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A <code>swap()</code> function can exchange the values of two original
+    variables by receiving their addresses.
+  </div>
+
+
+  <h2>Pointers and Addresses</h2>
+
+  <p>
+    <strong>Definition:</strong> A pointer is a variable that stores the
+    memory address of another variable.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>int *p;</code>, <code>p</code> is a pointer to an integer.
+  </div>
+
+
+  <h2>Address-of Operator (&amp;)</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>&amp;</code> operator returns
+    the memory address of a variable.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>&amp;x</code> means the address of variable <code>x</code>.
+  </div>
+
+
+  <h2>Dereference Operator (*)</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>*</code> operator is used with
+    a pointer to access the value stored at the address held by that pointer.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>p</code> stores the address of <code>x</code>, then
+    <code>*p</code> accesses the value of <code>x</code>.
+  </div>
+
+
+  <h2>How Call by Reference Works</h2>
+
+  <div class="note-flow">
+Original Variable
+      ↓
+Address of Variable
+      ↓
+Function receives Address
+      ↓
+Pointer Accesses Original Data
+      ↓
+Original Variable Can Change
+  </div>
+
+
+  <h2>Simple Example</h2>
+
+  <p>
+    The function receives the address of <code>x</code> and changes
+    the value stored at that address.
+  </p>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+void change(int *p)
+{
+    *p = 20;                // modify the original variable
+}
+
+int main()
+{
+    int x = 10;
+
+    change(&amp;x);             // pass address of x
+
+    printf("x = %d\n", x);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Output</h3>
+
+  <pre class="output-box">x = 20</pre>
+
+
+  <div class="simple-box">
+    📌 <strong>Why did x change?</strong>
+    The function received the address of <code>x</code>. Using
+    <code>*p</code>, it modified the value stored at that address.
+  </div>
+
+
+  <h2>Call by Value vs Call by Reference</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Call by Value</th>
+          <th>Call by Reference (Address-Based)</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Value is passed.</td>
+          <td>Address is passed.</td>
+        </tr>
+
+        <tr>
+          <td>Function works with a copy.</td>
+          <td>Function can access the original variable through a pointer.</td>
+        </tr>
+
+        <tr>
+          <td>Original variable normally remains unchanged by parameter assignment.</td>
+          <td>Original variable can be modified.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>change(x)</code></td>
+          <td>Example: <code>change(&amp;x)</code></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Using Pointer Parameters</h2>
+
+  <p>
+    A pointer parameter is used when a function needs access to the
+    caller's variable through its address.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>void change(int *p)</code> declares <code>p</code> as a
+    pointer to an integer.
+  </div>
+
+
+  <h2>Practical Example — Swap Two Numbers</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to swap two numbers using a function and pointers.
+    The original values in <code>main()</code> should be changed.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand address-based parameter passing.</li>
+    <li>Use pointers as function parameters.</li>
+    <li>Modify original variables from inside a function.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Pass the addresses of the two variables to <code>swap()</code>.
+    Use pointer dereferencing and a temporary variable to exchange
+    their values.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    To modify the caller's variables, pass their addresses to the
+    function. The pointer parameters can then access and update the
+    original values.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b)
+{
+    int temp;
+
+    temp = *a;              // store the value at address a
+    *a = *b;                // copy value at b into a
+    *b = temp;              // place original a value into b
+}
+
+int main()
+{
+    int x, y;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    printf("Before swap: x = %d, y = %d\n", x, y);
+
+    swap(&amp;x, &amp;y);         // pass addresses of x and y
+
+    printf("After swap: x = %d, y = %d\n", x, y);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter two numbers: 10 20
+Before swap: x = 10, y = 20
+After swap: x = 20, y = 10</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The function receives the addresses of <code>x</code> and
+    <code>y</code>. Therefore, changes made through <code>*a</code>
+    and <code>*b</code> affect the original variables.
+  </p>
+
+
+  <h2>Key Symbols to Remember</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>&amp;</code></td>
+          <td>Address of a variable</td>
+          <td><code>&amp;x</code></td>
+        </tr>
+
+        <tr>
+          <td><code>*</code></td>
+          <td>Pointer declaration / dereference</td>
+          <td><code>int *p</code>, <code>*p</code></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>C uses pointers and addresses for the technique commonly called call by reference.</li>
+    <li>The address of the variable is passed to the function.</li>
+    <li>A pointer parameter receives that address.</li>
+    <li>The dereference operator <code>*</code> accesses the original value.</li>
+    <li>Changes through the pointer can modify the caller's variable.</li>
+    <li>The <code>&amp;</code> operator is used to obtain a variable's address.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>&amp;x → address of x</strong><br>
+    <strong>int *p → pointer that stores an address</strong><br>
+    <strong>*p → value at that address</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Common name</strong></td>
+          <td>Call by reference / address-based passing.</td>
+        </tr>
+
+        <tr>
+          <td><strong>What is passed?</strong></td>
+          <td>Address of the variable.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Used with</strong></td>
+          <td>Pointers.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Can original change?</strong></td>
+          <td>Yes, through the pointer.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is call by reference?</li>
+    <li>How is call by reference achieved in C?</li>
+    <li>What is a pointer parameter?</li>
+    <li>What is the use of the <code>&amp;</code> operator?</li>
+    <li>What is the use of the <code>*</code> dereference operator?</li>
+    <li>How can a function modify the original variable?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain call by reference in C with a suitable example.
+    </li>
+
+    <li>
+      Explain how pointers are used to modify original variables
+      through a function.
+    </li>
+
+    <li>
+      Write a C program to swap two numbers using pointers.
+    </li>
+
+    <li>
+      Differentiate between call by value and call by reference.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of pointers and
+        call by reference in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=call+by+reference+pointers+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Call by Reference in C — Hindi
+        </a>
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for pointers and
+        call by reference will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of address, pointer,
+        dereference and original variable modification.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 3 — TOPIC 9
+// PASSING ARRAYS TO FUNCTIONS
+// ============================================================
+
+NOTES["m3-passing-arrays"] = [
+  `
+  <h2>Passing Arrays to Functions</h2>
+
+  <p>
+    <strong>Definition:</strong> Passing an array to a function means
+    providing the array to a function so that the function can access
+    and process its elements.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    An array containing student marks can be passed to a function
+    that calculates their total.
+  </div>
+
+
+  <h2>Why Pass an Array to a Function?</h2>
+
+  <p>
+    Arrays are often passed to functions when the same collection of
+    values needs to be processed by a separate function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    One function can read the marks while another function calculates
+    the sum of those marks.
+  </div>
+
+
+  <h2>Passing a One-Dimensional Array</h2>
+
+  <p>
+    <strong>Definition:</strong> A one-dimensional array is passed to a
+    function by providing the array name in the function call.
+    The function parameter is declared as an array or an equivalent
+    pointer parameter.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>display(arr, 5);</code> passes the array <code>arr</code>
+    along with its size to the function.
+  </div>
+
+
+  <h3>Basic Syntax</h3>
+
+  <pre class="program-code"><code>function_name(array_name, size);</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>sumArray(numbers, 5);</code>
+    passes the array <code>numbers</code> and its size
+    <code>5</code> to the function.
+  </div>
+
+
+  <h2>Array Parameter</h2>
+
+  <p>
+    A function can declare an array parameter to receive the array.
+    The size is commonly supplied separately because the function does
+    not automatically know the number of elements in the array.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int sumArray(int arr[], int n)</code>
+    accepts an integer array and its number of elements.
+  </div>
+
+
+  <pre class="program-code"><code>int sumArray(int arr[], int n)
+{
+    int sum = 0;
+
+    for (int i = 0; i &lt; n; i++)
+        sum += arr[i];
+
+    return sum;
+}</code></pre>
+
+
+  <h2>Passing Array Size</h2>
+
+  <p>
+    <strong>Definition:</strong> When an array is passed to a function,
+    the number of elements is usually passed separately so that the
+    function knows how many elements it should process.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>sumArray(arr, 5);</code>
+    tells the function that it should process 5 elements.
+  </div>
+
+
+  <h2>Accessing Elements Inside the Function</h2>
+
+  <p>
+    The function can access array elements using their indexes just as
+    they are accessed in the calling function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>arr[i]</code> accesses the element at index <code>i</code>.
+  </div>
+
+
+  <h2>Important Point: Array Changes</h2>
+
+  <p>
+    <strong>Definition:</strong> In a normal function parameter, an array
+    argument provides access to the same underlying array elements, so
+    changes made to elements inside the function are visible to the
+    calling function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If a function executes <code>arr[0] = 100;</code>, the first element
+    of the original array is changed to <strong>100</strong>.
+  </div>
+
+
+  <h2>Simple Example</h2>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+void changeFirst(int arr[])
+{
+    arr[0] = 100;          // modify the first array element
+}
+
+int main()
+{
+    int numbers[3] = {10, 20, 30};
+
+    changeFirst(numbers);  // pass the array
+
+    printf("%d\n", numbers[0]);
+
+    return 0;
+}</code></pre>
+
+  <h3>Output</h3>
+
+  <pre class="output-box">100</pre>
+
+
+  <div class="simple-box">
+    📌 <strong>Remember:</strong>
+    When an array is passed to a function in C, the function can access
+    the original array elements through the parameter.
+  </div>
+
+
+  <h2>Passing Array with Size</h2>
+
+  <p>
+    A common function design is to pass both the array and the number
+    of elements.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>display(arr, 5);</code>
+    tells the function exactly how many elements to display.
+  </div>
+
+
+  <h2>Practical Example — Find Sum of Array Elements Using a Function</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept 5 integers in an array and pass the
+    array to a function that calculates and returns the sum.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Pass a one-dimensional array to a function.</li>
+    <li>Pass the size of the array as a separate parameter.</li>
+    <li>Process array elements inside a function.</li>
+    <li>Return the calculated result to the calling function.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a function <code>sumArray()</code> that accepts the array and
+    its size. Use a loop inside the function to calculate the sum.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A one-dimensional array can be passed to a function by writing its
+    name in the function call. The function can then access the array
+    elements using indexes. The array size is usually passed separately.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int sumArray(int arr[], int n);       // function declaration
+
+int main()
+{
+    int arr[5];
+    int i, sum;
+
+    printf("Enter 5 numbers: ");
+
+    // read array elements
+    for (i = 0; i &lt; 5; i++)
+        scanf("%d", &amp;arr[i]);
+
+    sum = sumArray(arr, 5);            // pass array and its size
+
+    printf("Sum = %d\n", sum);
+
+    return 0;
+}
+
+int sumArray(int arr[], int n)
+{
+    int sum = 0;
+
+    // calculate the sum of all array elements
+    for (int i = 0; i &lt; n; i++)
+        sum += arr[i];
+
+    return sum;                         // return the calculated sum
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter 5 numbers: 10 20 30 40 50
+Sum = 150</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The array itself is passed using its name, while <code>5</code>
+    is passed separately to specify the number of elements to process.
+  </p>
+
+
+  <h2>Passing an Array to a Function: Flow</h2>
+
+  <div class="note-flow">
+Array created in main()
+        ↓
+Function call
+        ↓
+Pass array name + size
+        ↓
+Function accesses array elements
+        ↓
+Processing performed
+        ↓
+Result returned
+  </div>
+
+
+  <h2>Advantages of Passing Arrays to Functions</h2>
+
+  <ul>
+    <li>Large arrays can be processed by separate functions.</li>
+    <li>Programs become more modular and easier to understand.</li>
+    <li>The same function can be reused for different arrays.</li>
+    <li>Array elements can be processed using loops inside the function.</li>
+  </ul>
+
+
+  <h2>Passing Array vs Passing Single Variable</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Single Variable</th>
+          <th>Array</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Passes one value.</td>
+          <td>Provides access to multiple elements.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>square(x)</code></td>
+          <td>Example: <code>sumArray(arr, 5)</code></td>
+        </tr>
+
+        <tr>
+          <td>Usually processed as one value.</td>
+          <td>Usually processed using a loop.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>An array can be passed to a function using its name.</li>
+    <li>The array size is usually passed separately.</li>
+    <li>The function can access elements using indexes.</li>
+    <li>Changes made to array elements inside the function can affect the original array.</li>
+    <li>Arrays are commonly processed inside functions using loops.</li>
+    <li>Passing arrays to functions improves modularity and code reuse.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>Pass Array Name + Size → Function Processes Elements</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Array parameter</strong></td>
+          <td><code>int arr[]</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Function call</strong></td>
+          <td><code>function(arr, n)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Array size</strong></td>
+          <td>Usually passed separately.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Element access</strong></td>
+          <td><code>arr[i]</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Modification</strong></td>
+          <td>Changes to elements can affect the original array.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>How is a one-dimensional array passed to a function?</li>
+    <li>Why is the array size commonly passed separately?</li>
+    <li>How are array elements accessed inside a function?</li>
+    <li>Can a function modify an array passed to it?</li>
+    <li>Write the syntax for passing an array to a function.</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain how one-dimensional arrays are passed to functions with
+      a suitable example.
+    </li>
+
+    <li>
+      Write a C program to pass an array to a function and calculate
+      the sum of its elements.
+    </li>
+
+    <li>
+      Explain how a function can modify the elements of an array passed
+      to it.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of passing arrays to
+        functions in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=passing+array+to+function+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Passing Arrays to Functions — Hindi
+        </a>
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for passing arrays
+        to functions will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of array parameters,
+        array size, indexing and function processing.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
