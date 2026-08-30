@@ -726,3 +726,85 @@ button {
     margin-right: 0;
   }
 }
+/* ==========================================================
+   GOOGLE TRANSLATE
+   ========================================================== */
+
+.translate-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 18px;
+  padding: 8px 12px;
+  width: fit-content;
+
+  background: #f8f9ff;
+  border: 1px solid #d9def2;
+  border-radius: 8px;
+}
+
+.translate-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #243b64;
+}
+
+/* Google Translate widget */
+#google_translate_element {
+  display: inline-block;
+}
+
+/* Remove Google's unnecessary top banner/spacing */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Style the language dropdown */
+.goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 0 !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+  margin: 0 !important;
+  padding: 6px 28px 6px 9px;
+
+  border: 1px solid #cbd3ea;
+  border-radius: 6px;
+
+  background: white;
+  color: #243b64;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+/* Hide Google's default text */
+.goog-te-gadget > span {
+  display: none !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .translate-bar {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin: 10px 0 16px;
+  }
+
+  .translate-label {
+    font-size: 13px;
+  }
+
+  .goog-te-combo {
+    max-width: 130px;
+  }
+}

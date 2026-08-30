@@ -35,6 +35,10 @@
   <section class="content-area">
     <div class="content-topbar">
       <span id="breadcrumb" class="breadcrumb">BCA 1st Year · C Programming</span>
+      <div class="translate-bar">
+      <span class="translate-label">🌐 Language:</span>
+      <div id="google_translate_element"></div>
+      </div>
       <h1 id="topicTitle">Master C Programming — One Concept at a Time</h1>
 
       <p id="progressText">
@@ -65,9 +69,28 @@
 <footer class="site-footer">
   <p>BCA Study Portal · Static GitHub Pages Ready</p>
 </footer>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi',
+        autoDisplay: false
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+
+<script
+  type="text/javascript"
+  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 
 <script src="js/syllabus.js"></script>
 <script src="js/notes.js"></script>
 <script src="js/app.js"></script>
+
+
 </body>
 </html>

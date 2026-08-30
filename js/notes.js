@@ -14183,7 +14183,7 @@ Continue program
 
   <h3>Program</h3>
 
-  <div class="program-code">
+  <div class="program-code notranslate">
 #include &lt;stdio.h&gt;
 
 int main()
