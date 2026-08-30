@@ -22087,6 +22087,855 @@ Result returned
   `
 ];
 // ============================================================
+// MODULE 3 — TOPIC
+// NESTED FUNCTIONS
+// ============================================================
+
+NOTES["m3-nested-functions"] = [
+  `
+
+  <h2>Nested Functions</h2>
+
+  <p>
+    In C programming, the term <strong>nested functions</strong> is often
+    used to describe a function that is called from another function.
+    This allows a program to divide a task into smaller functions.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+main()
+  ↓
+calculateSum()
+  ↓
+returns result
+    </div>
+
+    <p>
+      Here, <code>main()</code> calls another function
+      <code>calculateSum()</code> to perform the calculation.
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Technical Note
+    </span>
+
+    <p>
+      Standard C does <strong>not</strong> allow a function definition
+      inside another function. Functions are normally defined separately
+      and can call one another.
+    </p>
+
+  </div>
+
+
+  <h2>Why Use Functions?</h2>
+
+  <p>
+    Functions divide a large program into smaller and manageable parts.
+    One function can call another function whenever a particular task
+    needs to be performed.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A student result program can use one function to calculate marks
+      and another function to display the result.
+    </p>
+
+  </div>
+
+
+  <h2>Simple Example</h2>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int calculateSum(int a, int b)
+{
+    // calculate and return the sum
+    return a + b;
+}
+
+int main()
+{
+    int result;
+
+    // main() calls another function
+    result = calculateSum(10, 15);
+
+    printf("Sum = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Sum = 25
+    </p>
+
+  </div>
+
+
+  <h2>How It Works</h2>
+
+  <div class="note-flow">
+main()
+   ↓
+calculateSum(10, 15)
+   ↓
+10 + 15
+   ↓
+25 returned to main()
+   ↓
+printf() displays 25
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program in which the <code>main()</code> function calls
+    another function to calculate the square of a number and displays
+    the result.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand how one function can call another function.</li>
+
+    <li>Pass a value to a function and receive a result.</li>
+
+    <li>Divide a program into smaller functional parts.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a function named <code>square()</code> that accepts one integer
+    and returns its square. Call this function from <code>main()</code>.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A function can call another function to perform a specific task.
+    The called function executes its statements and can return a value
+    to the calling function.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int square(int n)
+{
+    // return the square of the given number
+    return n * n;
+}
+
+int main()
+{
+    int num, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // call square() from main()
+    result = square(num);
+
+    printf("Square = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter a number: 7
+    </p>
+
+    <p>
+      Square = 49
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The function <code>square()</code> is defined separately from
+    <code>main()</code>. The <code>main()</code> function calls it,
+    passes a value, and receives the returned result.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Function</strong></td>
+          <td>A reusable block of code for a specific task.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Function Call</strong></td>
+          <td>Used to execute another function.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Calling Function</strong></td>
+          <td>The function that calls another function.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Called Function</strong></td>
+          <td>The function that is called to perform a task.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Return Value</strong></td>
+          <td>The result sent back by the called function.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is meant by nested functions in C?</li>
+
+    <li>Can a function be defined inside another function in standard C?</li>
+
+    <li>What is a function call?</li>
+
+    <li>What is the difference between a calling function and a called function?</li>
+
+    <li>How can one function call another function in C?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the concept of nested functions in C with a suitable example.
+    </li>
+
+    <li>
+      Write a C program in which one function calls another function
+      and explain its working.
+    </li>
+
+    <li>
+      Explain why functions are defined separately in standard C.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of function calling
+        and functions working together in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=nested+functions+function+calling+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Nested Functions / Function Calling in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for nested functions
+        and function calling will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of calling function,
+        called function and return value.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 3 — LAST TOPIC
+// RECURSION
+// ============================================================
+
+NOTES["m3-recursion"] = [
+  `
+
+  <h2>Recursion</h2>
+
+  <p>
+    <strong>Recursion</strong> is a process in which a function calls
+    itself to solve a problem by breaking it into smaller versions
+    of the same problem.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A function <code>factorial()</code> can call itself to calculate
+      the factorial of a smaller number.
+    </p>
+
+  </div>
+
+
+  <h2>How Recursion Works</h2>
+
+  <p>
+    A recursive function normally has two important parts:
+    a <strong>base case</strong> and a <strong>recursive case</strong>.
+  </p>
+
+
+  <h3>1. Base Case</h3>
+
+  <p>
+    The <strong>base case</strong> is the condition that stops the
+    recursive calls. Without a proper base case, recursion can continue
+    indefinitely.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      In factorial, <code>factorial(0) = 1</code> can be used as the
+      base case.
+    </p>
+
+  </div>
+
+
+  <h3>2. Recursive Case</h3>
+
+  <p>
+    The <strong>recursive case</strong> is the part of the function
+    where the function calls itself with a smaller or simpler value.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>factorial(n) = n * factorial(n - 1)</code>
+    </p>
+
+  </div>
+
+
+  <h2>Simple Example of Recursion</h2>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int countDown(int n)
+{
+    if (n == 0)
+        return 0;               // base case
+
+    printf("%d ", n);
+
+    return countDown(n - 1);     // recursive call
+}
+
+int main()
+{
+    countDown(5);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      5 4 3 2 1
+    </p>
+
+  </div>
+
+
+  <h2>Real-World Idea</h2>
+
+  <p>
+    Recursion can be understood like solving a large task by repeatedly
+    solving a smaller version of the same task until a simple stopping
+    condition is reached.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Example
+    </span>
+
+    <p>
+      A folder can contain subfolders, and each subfolder can contain
+      more subfolders. A program can process them using the same logic
+      repeatedly.
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to find the factorial of a positive integer
+    using recursion.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the concept of recursive function calls.</li>
+
+    <li>Identify the base case and recursive case.</li>
+
+    <li>Use recursion to calculate factorial.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Define a function <code>factorial()</code> that returns
+    <code>1</code> when <code>n == 0</code>. Otherwise return
+    <code>n * factorial(n - 1)</code>.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Factorial of a non-negative integer <code>n</code> is the product
+    of all positive integers from <code>1</code> to <code>n</code>.
+    Recursion calculates it by repeatedly reducing the value of
+    <code>n</code> until the base case is reached.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>5! = 5 × 4 × 3 × 2 × 1 = 120</code>
+    </p>
+
+  </div>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int factorial(int n)
+{
+    if (n == 0)
+        return 1;                // base case
+
+    return n * factorial(n - 1); // recursive call
+}
+
+int main()
+{
+    int n, result;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &amp;n);
+
+    // calculate factorial using recursion
+    result = factorial(n);
+
+    printf("Factorial of %d = %d\n", n, result);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter a positive integer: 5
+    </p>
+
+    <p>
+      Factorial of 5 = 120
+    </p>
+
+  </div>
+
+
+  <h3>Working of the Example</h3>
+
+  <div class="note-flow">
+factorial(5)
+    ↓
+5 × factorial(4)
+    ↓
+5 × 4 × factorial(3)
+    ↓
+5 × 4 × 3 × factorial(2)
+    ↓
+5 × 4 × 3 × 2 × factorial(1)
+    ↓
+5 × 4 × 3 × 2 × 1
+    ↓
+120
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    Every recursive function must have a proper stopping condition.
+    The base case prevents the function from calling itself forever.
+  </p>
+
+
+  <h2>Advantages of Recursion</h2>
+
+  <p>
+    Recursion can make some problems easier to express when the problem
+    naturally consists of smaller versions of itself.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Problems involving factorial, Fibonacci series, tree structures
+      and divide-and-conquer techniques can be expressed using recursion.
+    </p>
+
+  </div>
+
+
+  <h2>Disadvantages of Recursion</h2>
+
+  <p>
+    Recursion can use additional memory because each function call remains
+    active until the recursive calls return. Poorly designed recursion
+    can also lead to excessive calls.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A recursive function without a correct base case may continue
+      calling itself until the program runs out of available stack space.
+    </p>
+
+  </div>
+
+
+  <h2>Recursion vs Iteration</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Recursion</th>
+          <th>Iteration</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Function calls itself.</td>
+          <td>Uses loops such as <code>for</code> or <code>while</code>.</td>
+        </tr>
+
+        <tr>
+          <td>Requires a base case.</td>
+          <td>Requires a loop condition.</td>
+        </tr>
+
+        <tr>
+          <td>Uses function-call stack memory.</td>
+          <td>Usually uses less additional stack memory.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Recursion</strong></td>
+          <td>A function calling itself.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Base Case</strong></td>
+          <td>Stops the recursive calls.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Recursive Case</strong></td>
+          <td>Makes the function call itself again.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Factorial</strong></td>
+          <td>A common example of recursion.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is recursion?</li>
+
+    <li>What is a recursive function?</li>
+
+    <li>What is a base case?</li>
+
+    <li>What is a recursive case?</li>
+
+    <li>Why is a base case necessary in recursion?</li>
+
+    <li>Give one example of a problem that can be solved using recursion.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain recursion in C with a suitable example.
+    </li>
+
+    <li>
+      Explain base case and recursive case with an example.
+    </li>
+
+    <li>
+      Write a C program to calculate factorial using recursion.
+    </li>
+
+    <li>
+      Differentiate between recursion and iteration.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of recursion and
+        recursive functions in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=recursion+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Recursion in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for recursion
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of recursive call,
+        base case and recursive case.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
