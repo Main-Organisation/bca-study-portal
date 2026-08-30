@@ -25,12 +25,27 @@
 
 <main class="app-shell">
   <aside class="sidebar" aria-label="Syllabus navigation">
-    <div class="sidebar-heading">
-      <span>C PROGRAMMING</span>
-      <button id="collapseAllBtn" class="text-button" type="button">Collapse All</button>
-    </div>
-    <div id="moduleList" class="module-list"></div>
-  </aside>
+
+  <div class="sidebar-heading">
+    <span>C PROGRAMMING</span>
+    <button id="collapseAllBtn" class="text-button" type="button">
+      Collapse All
+    </button>
+  </div>
+
+  <!-- Topic Search -->
+  <div class="topic-search">
+    <input
+      type="search"
+      id="topicSearch"
+      placeholder="🔍 Search topics..."
+      aria-label="Search topics"
+    >
+  </div>
+
+  <div id="moduleList" class="module-list"></div>
+
+</aside>
 
   <section class="content-area">
     <div class="content-topbar">

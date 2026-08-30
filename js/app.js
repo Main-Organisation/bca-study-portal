@@ -1,5 +1,5 @@
 // BCA STUDY PORTAL - Navigation
-
+const topicSearch = document.getElementById("topicSearch");
 const moduleList = document.getElementById("moduleList");
 const notesContainer = document.getElementById("notesContainer");
 const topicTitle = document.getElementById("topicTitle");
@@ -93,6 +93,51 @@ function renderSidebar() {
 
     wrapper.append(moduleButton, topicList);
     moduleList.appendChild(wrapper);
+  });
+}
+
+function filterTopics() {
+  const searchTerm = topicSearch.value.trim().toLowerCase();
+
+  document.querySelectorAll(".module-item").forEach(moduleItem => {
+    const topics = moduleItem.querySelectorAll(".topic-button");
+
+    let moduleHasMatch = false;
+
+    topics.forEach(topicButton => {
+      const topicText = topicButton.textContent.toLowerCase();
+
+      const matches =
+        searchTerm === "" ||
+        topicText.includes(searchTerm);
+
+      topicButton.style.display = matches ? "" : "none";
+
+      if (matches) {
+        moduleHasMatch = true;
+      }
+    });
+
+    // Hide module if no topic matches
+    moduleItem.style.display = moduleHasMatch ? "" : "none";
+
+    const moduleButton =
+      moduleItem.querySelector(".module-button");
+
+    const topicList =
+      moduleItem.querySelector(".topic-list");
+
+    // When searching, automatically open matching modules
+    if (searchTerm && moduleHasMatch) {
+      moduleButton.setAttribute("aria-expanded", "true");
+      topicList.classList.add("open");
+    }
+
+    // When search is cleared, restore normal state
+    if (!searchTerm) {
+      moduleButton.setAttribute("aria-expanded", "false");
+      topicList.classList.remove("open");
+    }
   });
 }
 
@@ -234,7 +279,7 @@ moduleList.addEventListener("click", event => {
 collapseAllBtn.addEventListener("click", closeAllModules);
 prevBtn.addEventListener("click", goPrevious);
 nextBtn.addEventListener("click", goNext);
-
+topicSearch.addEventListener("input", filterTopics);
 mobileMenuBtn.addEventListener("click", () => {
   const isOpen = sidebar.classList.toggle("mobile-open");
 
