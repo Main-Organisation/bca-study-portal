@@ -14982,6 +14982,504 @@ int main()
 
   `
 ];
+NOTES["m2-nested-if"] = [
+  `
+  <h2>Nested if Statement in C</h2>
+
+  <p>
+    <strong>Definition:</strong> A nested <strong>if</strong> statement is
+    an <strong>if statement placed inside another if statement</strong>.
+    It is used when a second condition needs to be checked only after the
+    first condition is true.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>In simple words:</strong>
+    First, C checks the outer <strong>if</strong> condition. If it is true,
+    the inner <strong>if</strong> condition is checked.
+  </div>
+
+  <h3>Syntax</h3>
+
+  <pre class="program-code"><code>if (condition1)
+{
+    if (condition2)
+    {
+        // statements
+    }
+}</code></pre>
+
+  <h3>How Nested if Works</h3>
+
+  <p>
+    In a nested <strong>if</strong>, one condition is placed inside another
+    condition. The inner condition is checked only when the outer condition
+    is true.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    Suppose we want to check whether a student has passed and then check
+    whether the student has scored more than 75 marks.
+  </div>
+
+  <h3>Example</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks = 80;
+
+    if (marks &gt;= 40)
+    {
+        if (marks &gt;= 75)
+        {
+            printf("Student passed with distinction.");
+        }
+    }
+
+    return 0;
+}</code></pre>
+
+  <h3>Output</h3>
+
+  <pre class="output-box">Student passed with distinction.</pre>
+
+  <h3>Nested if for Multiple Conditions</h3>
+
+  <p>
+    Nested <strong>if</strong> statements can be used when more than one
+    condition must be checked step by step.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    To find the largest among three numbers, first compare the first two
+    numbers. Then compare the larger number with the third number.
+  </div>
+
+  <h3>Practical Example — Largest of Three Numbers</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c, largest;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if (a &gt; b)
+    {
+        if (a &gt; c)
+            largest = a;
+        else
+            largest = c;
+    }
+    else
+    {
+        if (b &gt; c)
+            largest = b;
+        else
+            largest = c;
+    }
+
+    printf("Largest number = %d", largest);
+
+    return 0;
+}</code></pre>
+
+  <h3>Output</h3>
+
+  <pre class="output-box">Enter three numbers: 25 40 15
+Largest number = 40</pre>
+  `,
+
+  `
+  <h2>Important Points — Nested if</h2>
+
+  <ul>
+    <li>A nested <strong>if</strong> means an <strong>if statement inside another if statement</strong>.</li>
+    <li>The inner <strong>if</strong> is checked only when the outer condition is true.</li>
+    <li>Nested <strong>if</strong> is useful for checking conditions in a step-by-step manner.</li>
+    <li>Multiple levels of nested <strong>if</strong> statements can be used when required.</li>
+    <li>Proper indentation should be used to make nested conditions easy to understand.</li>
+  </ul>
+
+  <h3>Nested if vs if-else</h3>
+
+  <table class="notes-table">
+    <thead>
+      <tr>
+        <th>Nested if</th>
+        <th>if-else</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>An if statement is placed inside another if statement.</td>
+        <td>Provides two alternative paths based on a condition.</td>
+      </tr>
+      <tr>
+        <td>Useful for dependent or step-by-step conditions.</td>
+        <td>Useful when one of two alternatives must be selected.</td>
+      </tr>
+      <tr>
+        <td>Inner condition depends on the outer condition.</td>
+        <td>The else block executes when the if condition is false.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Exam Tip</h3>
+
+  <div class="simple-box">
+    🎯 <strong>Remember:</strong>
+    In nested <strong>if</strong>, the inner condition does not execute
+    independently. The program reaches the inner <strong>if</strong> only
+    when the outer <strong>if</strong> condition is satisfied.
+  </div>
+
+  <h3>Quick Revision</h3>
+
+  <p>
+    <strong>Nested if → Outer condition → Inner condition → Statement</strong>
+  </p>
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 11
+// CONTROL STRUCTURES: SWITCH-CASE
+// ============================================================
+
+NOTES["m2-switch-case"] = [
+  `
+  <h2>Control Structure: switch-case</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>switch-case</code> statement
+    is a decision-making control structure used to select one block of
+    statements from multiple possible choices based on the value of an
+    expression.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A program can use <code>switch-case</code> to display a day name
+    based on a number from <strong>1 to 7</strong>.
+  </div>
+
+  <h3>Syntax</h3>
+
+  <pre class="program-code"><code>switch (expression)
+{
+    case value1:
+        statement;
+        break;
+
+    case value2:
+        statement;
+        break;
+
+    default:
+        statement;
+}</code></pre>
+
+
+  <h3>Important Parts</h3>
+
+  <p>
+    <strong>case:</strong> Defines one possible value to compare with
+    the switch expression.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>case 1:</code> can represent Monday when the input is 1.
+  </div>
+
+  <p>
+    <strong>break:</strong> Ends the current case and prevents execution
+    from continuing into the next case.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    After displaying Monday, <code>break;</code> stops the switch
+    from executing the next case.
+  </div>
+
+  <p>
+    <strong>default:</strong> Executes when none of the specified case
+    values match the expression.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    An input such as <strong>9</strong> does not match cases 1 to 7,
+    so the <code>default</code> block executes.
+  </div>
+
+
+  <h3>How switch-case Works</h3>
+
+  <div class="note-flow">
+Expression
+    ↓
+Compare with case values
+    ↓
+Matching case executes
+    ↓
+break
+    ↓
+Switch ends
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A menu-driven application can use <code>switch-case</code> when
+    the user has to choose one option from a fixed list of choices.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <strong>1 → Add</strong>,
+    <strong>2 → Subtract</strong>,
+    <strong>3 → Multiply</strong>.
+  </div>
+
+
+  <h2>Practical Example — Displaying the Day of the Week</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that accepts a number from 1 to 7 and displays
+    the corresponding day of the week using <code>switch-case</code>.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use the <code>switch-case</code> construct to select among several fixed outcomes.</li>
+    <li>Understand the use of the <code>break</code> statement.</li>
+    <li>Use <code>default</code> to handle invalid input.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Map <strong>1 to Monday</strong>, <strong>2 to Tuesday</strong>,
+    and so on up to <strong>7 to Sunday</strong>. Use
+    <code>default</code> for values outside this range.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>switch</code> statement compares one expression with a
+    list of constant case values and executes the matching case.
+    The <code>break</code> statement ends the case, while
+    <code>default</code> handles values that do not match any case.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int day;
+
+    printf("Enter a number (1-7): ");
+    scanf("%d", &amp;day);
+
+    // match the input number to the corresponding day
+    switch (day)
+    {
+        case 1:
+            printf("Monday\n");
+            break;
+
+        case 2:
+            printf("Tuesday\n");
+            break;
+
+        case 3:
+            printf("Wednesday\n");
+            break;
+
+        case 4:
+            printf("Thursday\n");
+            break;
+
+        case 5:
+            printf("Friday\n");
+            break;
+
+        case 6:
+            printf("Saturday\n");
+            break;
+
+        case 7:
+            printf("Sunday\n");
+            break;
+
+        default:
+            printf("Invalid input\n");
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter a number (1-7): 3
+Wednesday</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    Forgetting <code>break</code> can cause <strong>fall-through</strong>,
+    where execution continues into the next case. The
+    <code>default</code> case is useful for handling invalid input.
+  </p>
+
+
+  <h2>switch-case vs if-else</h2>
+
+  <table class="notes-table">
+    <thead>
+      <tr>
+        <th>switch-case</th>
+        <th>if-else</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Useful when one expression is compared with fixed values.</td>
+        <td>Useful for conditions and ranges.</td>
+      </tr>
+
+      <tr>
+        <td>Uses <code>case</code>, <code>break</code> and <code>default</code>.</td>
+        <td>Uses <code>if</code>, <code>else if</code> and <code>else</code>.</td>
+      </tr>
+
+      <tr>
+        <td>Good for menu-driven choices.</td>
+        <td>Good for relational and logical conditions.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="simple-box">
+    🎯 <strong>Remember:</strong><br><br>
+    <strong>switch</strong> → checks the expression<br>
+    <strong>case</strong> → represents a possible value<br>
+    <strong>break</strong> → exits the current case<br>
+    <strong>default</strong> → handles unmatched values
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a switch-case statement in C?</li>
+    <li>Write the syntax of switch-case.</li>
+    <li>What is the purpose of the case statement?</li>
+    <li>What is the use of break in switch-case?</li>
+    <li>What is the purpose of default?</li>
+    <li>What is fall-through in switch-case?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain the switch-case statement with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program using switch-case to display the day of the week.
+    </li>
+
+    <li>
+      Explain the role of case, break and default in switch-case.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of switch-case in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=switch+case+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: switch-case in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for switch-case
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of switch, case, break
+        and default.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
 
 // ============================================================
 // END OF CURRENT NOTES
