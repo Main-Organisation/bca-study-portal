@@ -1145,3 +1145,32 @@ body {
   height: 700px !important;
   border: 0;
 }
+/* ==========================================================
+   DOUBT MENU BUTTON
+   ========================================================== */
+
+.doubt-menu {
+  margin-top: 18px;
+  padding: 0 13px;
+}
+
+.doubt-menu-button {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #d9e1ef;
+  border-radius: 8px;
+  background: #f7f9ff;
+  color: #2b66d9;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.doubt-menu-button:hover {
+  background: #edf3ff;
+}
+
+.doubt-menu-button.active {
+  border-color: #2b66d9;
+  background: #eaf1ff;
+}

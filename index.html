@@ -31,48 +31,50 @@
 
   <aside class="sidebar" aria-label="Syllabus navigation">
 
-    <div class="sidebar-heading">
-      <span>C PROGRAMMING</span>
+  <!-- ================= C PROGRAMMING ================= -->
+  
+  <div class="sidebar-heading">
+  <span>C PROGRAMMING</span>
+  <button id="collapseAllBtn" class="text-button" type="button">
+    Collapse All
+  </button>
+</div>
 
-      <button
-        id="collapseAllBtn"
-        class="text-button"
-        type="button">
-        Collapse All
-      </button>
-    </div>
+<!-- Search -->
+<div class="topic-search">
+  <input
+    type="text"
+    id="topicSearch"
+    placeholder="🔎 Search topics..."
+    autocomplete="off"
+  >
+</div>
 
+<div id="moduleList" class="module-list"></div>
+ 
 
-    <!-- Topic Search -->
-    <div class="topic-search">
-      <input
-        type="search"
-        id="topicSearch"
-        placeholder="🔍 Search topics..."
-        aria-label="Search topics"
-        autocomplete="off"
-      >
-    </div>
+<!-- ================= C SOLUTIONS ================= -->
+<div class="sidebar-heading solutions-heading">
+  <span>C SOLUTIONS</span>
+  <button id="collapseAllSolutionsBtn" class="text-button" type="button">
+    Collapse All
+  </button>
+</div>
 
+<div id="solutionModuleList" class="module-list"></div>
 
-    <!-- Syllabus Modules -->
-    <div id="moduleList" class="module-list"></div>
+<!-- ================= DOUBT ================= -->
+<div class="doubt-menu">
+  <button
+    id="doubtMenuBtn"
+    class="doubt-menu-button"
+    type="button"
+  >
+    💬 Have Any Doubt?
+  </button>
+</div>
 
-
-    <!-- Doubt Button -->
-    <div class="doubt-sidebar-item">
-
-      <button
-        id="doubtMenuBtn"
-        class="doubt-menu-button"
-        type="button">
-        💬 Have Any Doubt?
-      </button>
-
-    </div>
-
-  </aside>
-
+</aside>
 
   <!-- ==========================================================
        CONTENT AREA
@@ -243,8 +245,13 @@
 
 <script src="js/syllabus.js"></script>
 <script src="js/notes.js"></script>
-<script src="js/app.js"></script>
 
+<script src="js/solution-syllabus.js"></script>
+<script src="js/c-solutions.js"></script>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
+
+
