@@ -26462,6 +26462,5763 @@ struct Student createStudent()
   `
 ];
 // ============================================================
+// MODULE 4 — TOPIC 9
+// UNIONS
+// ============================================================
+
+NOTES["m4-unions"] = [
+  `
+
+  <p>
+    A <strong>union</strong> is a user-defined data type in C that allows
+    different members to share the same memory location. A union can
+    contain members of different data types, but at a particular time,
+    the same memory area is used by all its members.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+union Data
+{
+    int number;
+    float value;
+    char grade;
+};
+    </div>
+
+    <p>
+      Here, <code>number</code>, <code>value</code>, and
+      <code>grade</code> share the same memory area.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of a Union</h2>
+
+  <p>
+    A union is declared using the <code>union</code> keyword, followed
+    by the union name and its members inside braces.
+  </p>
+
+  <div class="note-flow">
+union union_name
+{
+    data_type member1;
+    data_type member2;
+    ...
+};
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+union Data
+{
+    int number;
+    float value;
+};
+    </div>
+
+  </div>
+
+
+  <h2>Declaring a Union Variable</h2>
+
+  <p>
+    After defining a union, a union variable is declared using the
+    union type. The variable provides access to the members of the union.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+union Data d1;
+    </div>
+
+    <p>
+      Here, <code>d1</code> is a variable of type
+      <code>union Data</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Accessing Union Members</h2>
+
+  <p>
+    Union members are accessed using the <strong>dot operator (.)</strong>,
+    just like members of a structure.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+d1.number
+d1.value
+    </div>
+
+  </div>
+
+
+  <h2>Important Feature of a Union</h2>
+
+  <p>
+    The most important feature of a union is that all its members share
+    the same memory location. Therefore, assigning a value to one member
+    can affect the value represented by another member.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Example
+    </span>
+
+    <div class="note-flow">
+d1.number = 10;
+d1.value = 25.5;
+    </div>
+
+    <p>
+      After assigning <code>d1.value</code>, the same shared memory is
+      being used for that member. Therefore, a union is normally used
+      when only one of its alternative members needs to hold a meaningful
+      value at a time.
+    </p>
+
+  </div>
+
+
+  <h2>Memory Usage</h2>
+
+  <p>
+    The size of a union is determined by the size required for its
+    largest member, subject to the compiler's alignment requirements.
+    Since members share storage, a union can use less memory than a
+    structure containing the same members.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      If a union contains an <code>int</code>, a <code>float</code>,
+      and a <code>char</code>, its storage is large enough to hold
+      the member requiring the largest amount of storage.
+    </p>
+
+  </div>
+
+
+  <h2>Union vs Structure</h2>
+
+  <p>
+    Both structures and unions can contain members of different data
+    types, but their memory arrangement is different. A structure
+    gives separate storage to its members, whereas a union shares
+    the same storage among its members.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Structure</th>
+          <th>Union</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Each member has separate storage.</td>
+          <td>All members share the same storage.</td>
+        </tr>
+
+        <tr>
+          <td>Multiple members can hold meaningful values at the same time.</td>
+          <td>Normally one member is used to hold the meaningful value at a time.</td>
+        </tr>
+
+        <tr>
+          <td>Size is generally based on the total storage of its members and padding.</td>
+          <td>Size is generally based on the largest member and alignment.</td>
+        </tr>
+
+        <tr>
+          <td>Useful for complete records.</td>
+          <td>Useful when alternative representations share storage.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>When is a Union Useful?</h2>
+
+  <p>
+    A union is useful when a program needs to store one of several
+    possible types of information in the same memory area. It is
+    especially useful when saving memory is important.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A data item may sometimes need to store an integer and at another
+      time a floating-point value. A union allows both alternatives
+      to use the same storage.
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to define a union containing an integer and a
+    floating-point member. Store a value in each member one at a time
+    and display the value after each assignment.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Define and declare a union.</li>
+
+    <li>Access union members using the dot operator.</li>
+
+    <li>Observe that union members share the same memory.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a union named <code>Data</code> with members
+    <code>number</code> and <code>value</code>. Assign a value to one
+    member, display it, and then assign a value to the other member.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Unlike a structure, a union provides one shared memory area for all
+    its members. When a value is assigned to one member, that member
+    becomes the currently stored value in that shared area.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+union Data
+{
+    int number;
+    float value;
+};
+
+int main()
+{
+    union Data d1;
+
+    d1.number = 10;
+
+    // display the integer value stored in the union
+    printf("Integer value = %d\n", d1.number);
+
+    d1.value = 25.5;
+
+    // display the floating-point value stored in the union
+    printf("Float value = %.1f\n", d1.value);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Integer value = 10
+    </p>
+
+    <p>
+      Float value = 25.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The program stores one value and then uses the same shared memory
+    for another member. Therefore, a union should be used when the
+    members represent alternative forms of data rather than values
+    that must all be stored simultaneously.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Union</strong></td>
+          <td>User-defined type whose members share memory.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Keyword</strong></td>
+          <td><code>union</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Member Access</strong></td>
+          <td>Use the dot operator.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Memory</strong></td>
+          <td>Members use the same storage area.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Main Use</strong></td>
+          <td>Useful for alternative data that can share storage.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a union in C?</li>
+
+    <li>How is a union declared?</li>
+
+    <li>How are union members accessed?</li>
+
+    <li>How is a union different from a structure?</li>
+
+    <li>Why do union members share memory?</li>
+
+    <li>What determines the size of a union?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the concept of unions in C with syntax and suitable example.
+    </li>
+
+    <li>
+      Differentiate between structures and unions.
+    </li>
+
+    <li>
+      Write a C program to demonstrate the working of a union.
+    </li>
+
+    <li>
+      Explain the memory allocation of a union.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of unions in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=union+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Union in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for unions
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of union, shared memory,
+        member access and structure comparison.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 10
+// BIT-FIELDS
+// ============================================================
+
+NOTES["m4-bit-fields"] = [
+  `
+
+  <p>
+    A <strong>bit-field</strong> is a special feature of C structures
+    that allows a member to use a specified number of bits instead of
+    using the normal size of its data type. Bit-fields are useful when
+    a variable needs to store only a small range of values.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+unsigned int gender : 1;
+    </div>
+
+    <p>
+      A 1-bit field can represent two states, such as
+      <code>0</code> and <code>1</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Why Are Bit-fields Used?</h2>
+
+  <p>
+    If a variable needs only a few possible values, using a complete
+    integer for it may use more memory than necessary. Bit-fields allow
+    the programmer to specify only the number of bits required for that
+    particular member.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      If a variable can have only two values, <code>0</code> and
+      <code>1</code>, one bit is sufficient to represent it.
+    </p>
+
+  </div>
+
+
+  <h2>Number of Values and Required Bits</h2>
+
+  <p>
+    The number of bits determines how many different values can be
+    represented. With <strong>n bits</strong>, up to
+    <strong>2<sup>n</sup></strong> different combinations can be
+    represented.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Bits</th>
+          <th>Possible Values</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>1 bit</strong></td>
+          <td>2 values</td>
+        </tr>
+
+        <tr>
+          <td><strong>2 bits</strong></td>
+          <td>4 values</td>
+        </tr>
+
+        <tr>
+          <td><strong>3 bits</strong></td>
+          <td>8 values</td>
+        </tr>
+
+        <tr>
+          <td><strong>4 bits</strong></td>
+          <td>16 values</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      If a value can range from <code>0</code> to <code>3</code>,
+      four different values are possible, so <strong>2 bits</strong>
+      are sufficient.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of a Bit-field</h2>
+
+  <p>
+    A bit-field is declared inside a structure by writing the data type,
+    member name, and the number of bits after a colon.
+  </p>
+
+  <div class="note-flow">
+data_type member_name : number_of_bits;
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+unsigned int gender : 1;
+unsigned int status : 2;
+    </div>
+
+  </div>
+
+
+  <h2>Bit-fields Inside a Structure</h2>
+
+  <p>
+    Bit-fields are generally used as members of a structure. Different
+    members can be assigned different numbers of bits according to the
+    values they need to represent.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Employee
+{
+    unsigned int gender : 1;
+    unsigned int status : 2;
+    unsigned int hobby : 3;
+};
+    </div>
+
+    <p>
+      Here, each member is given a specific number of bits according
+      to the amount of information it needs to store.
+    </p>
+
+  </div>
+
+
+  <h2>Important Points About Bit-fields</h2>
+
+  <ul>
+
+    <li>
+      Bit-fields are declared inside a structure.
+    </li>
+
+    <li>
+      The width of a bit-field is specified after a colon.
+    </li>
+
+    <li>
+      The width indicates how many bits are allocated to that member.
+    </li>
+
+    <li>
+      Bit-fields are useful when memory usage needs to be reduced.
+    </li>
+
+    <li>
+      The values that can be represented depend on the number of bits
+      assigned to the field.
+    </li>
+
+  </ul>
+
+
+  <h2>Example from the Concept</h2>
+
+  <p>
+    Suppose an employee record needs to store whether the employee is
+    male or female, the marital status, a hobby category, and a scheme
+    number. These fields can be represented using different numbers of
+    bits instead of using separate full-size integer members.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+unsigned int gender : 1;
+unsigned int mar_status : 2;
+unsigned int hobby : 3;
+unsigned int scheme : 4;
+    </div>
+
+    <p>
+      The number after <code>:</code> specifies the number of bits
+      assigned to each member.
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program using bit-fields to store simple employee
+    information such as gender, marital status and hobby, and display
+    the stored values.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the purpose of bit-fields.</li>
+
+    <li>Declare bit-fields inside a structure.</li>
+
+    <li>Assign and access values stored in bit-fields.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Define an <code>Employee</code> structure with bit-fields for
+    gender, marital status and hobby. Assign values and display them.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Bit-fields allow a structure member to occupy a specified number
+    of bits. This is useful for data whose possible values are limited,
+    because only the required number of bits needs to be allocated.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    unsigned int gender : 1;
+    unsigned int maritalStatus : 2;
+    unsigned int hobby : 3;
+};
+
+int main()
+{
+    struct Employee e1;
+
+    e1.gender = 1;
+    e1.maritalStatus = 2;
+    e1.hobby = 5;
+
+    // display the values stored in bit-fields
+    printf("Gender = %u\n", e1.gender);
+    printf("Marital Status = %u\n", e1.maritalStatus);
+    printf("Hobby = %u\n", e1.hobby);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Gender = 1
+    </p>
+
+    <p>
+      Marital Status = 2
+    </p>
+
+    <p>
+      Hobby = 5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    In the program, <code>gender</code> uses 1 bit,
+    <code>maritalStatus</code> uses 2 bits, and <code>hobby</code>
+    uses 3 bits. The bit-field width limits the range of values that
+    can be stored in each member.
+  </p>
+
+
+  <h2>Advantages of Bit-fields</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Advantage</th>
+          <th>Explanation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Memory Efficiency</strong></td>
+          <td>
+            Only the specified number of bits is allocated to a field.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Compact Data</strong></td>
+          <td>
+            Useful for storing several small values together.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Useful for Flags</strong></td>
+          <td>
+            Suitable for values that represent ON/OFF or similar states.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Structured Representation</strong></td>
+          <td>
+            Related bit-level information can be grouped in a structure.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Limitations</h2>
+
+  <p>
+    Bit-fields are useful for compact data storage, but their exact
+    memory layout and some implementation details can depend on the
+    compiler. Therefore, they should be used carefully when a program
+    must depend on a particular memory representation.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Remember
+    </span>
+
+    <p>
+      Bit-fields are mainly useful when the range of possible values
+      is known and small.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Bit-field</strong></td>
+          <td>
+            Structure member with a specified number of bits.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Syntax</strong></td>
+          <td>
+            <code>type member : width;</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>1 Bit</strong></td>
+          <td>
+            Can represent 2 possible combinations.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>2 Bits</strong></td>
+          <td>
+            Can represent 4 possible combinations.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Use</strong></td>
+          <td>
+            Useful for compact storage of small-range values.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a bit-field in C?</li>
+
+    <li>Why are bit-fields used?</li>
+
+    <li>Write the syntax of a bit-field.</li>
+
+    <li>How many different combinations can be represented using 3 bits?</li>
+
+    <li>Where are bit-fields declared?</li>
+
+    <li>What does the number after the colon represent?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain bit-fields in C with syntax and suitable example.
+    </li>
+
+    <li>
+      Explain the advantages of using bit-fields in structures.
+    </li>
+
+    <li>
+      Write a C program to demonstrate the use of bit-fields.
+    </li>
+
+    <li>
+      Explain how the number of bits affects the values that can be
+      stored in a bit-field.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of bit-fields in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=bit+fields+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Bit-fields in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for bit-fields
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of bit-field width,
+        structure declaration and memory efficiency.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 11
+// ENUMERATED DATA TYPES
+// ============================================================
+
+NOTES["m4-enumerated"] = [
+  `
+
+  <p>
+    An <strong>enumerated data type</strong>, or <strong>enum</strong>,
+    is a user-defined data type in C that allows a programmer to create
+    a set of named integer constants. Instead of using numbers directly,
+    meaningful names can be used to represent related values.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Status
+{
+    single,
+    married,
+    divorced,
+    widowed
+};
+    </div>
+
+    <p>
+      Here, <code>single</code>, <code>married</code>,
+      <code>divorced</code> and <code>widowed</code> are named
+      enumeration constants.
+    </p>
+
+  </div>
+
+
+  <h2>Why Use enum?</h2>
+
+  <p>
+    An enum makes a program easier to understand because meaningful
+    names can be used instead of unexplained integer values. It is
+    useful when a variable can have one value from a fixed set of
+    related choices.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Instead of storing marital status as <code>0</code>,
+      <code>1</code>, <code>2</code> and <code>3</code>, we can use
+      <code>single</code>, <code>married</code>,
+      <code>divorced</code> and <code>widowed</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of enum</h2>
+
+  <p>
+    The <code>enum</code> keyword is followed by the enumeration name
+    and a list of named constants enclosed in braces.
+  </p>
+
+  <div class="note-flow">
+enum enum_name
+{
+    constant1,
+    constant2,
+    constant3
+};
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Day
+{
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday
+};
+    </div>
+
+  </div>
+
+
+  <h2>Declaring an enum Variable</h2>
+
+  <p>
+    After defining an enumeration type, a variable of that enum type
+    can be declared. The variable can then store one of the defined
+    enumeration values.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Day today;
+    </div>
+
+    <p>
+      Here, <code>today</code> is an enum variable of type
+      <code>Day</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Assigning Values to enum Constants</h2>
+
+  <p>
+    By default, enumeration constants are assigned integer values
+    starting from <code>0</code> and increasing by <code>1</code>.
+    The programmer can also explicitly assign values when required.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Status
+{
+    single = 100,
+    married = 200,
+    divorced = 300,
+    widowed = 400
+};
+    </div>
+
+    <p>
+      Here, the enumeration constants are assigned explicit integer
+      values instead of the default sequence.
+    </p>
+
+  </div>
+
+
+  <h2>Using enum in a Program</h2>
+
+  <p>
+    An enum variable can be assigned one of the named constants.
+    Using these names makes the purpose of the value clear to the
+    reader of the program.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Status status;
+
+status = married;
+    </div>
+
+    <p>
+      The variable <code>status</code> is assigned the enumeration
+      constant <code>married</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Default Integer Values</h2>
+
+  <p>
+    When values are not explicitly specified, the first enumeration
+    constant gets the value <code>0</code>, the next gets
+    <code>1</code>, and so on. These are integer values internally,
+    but the named constants make the program easier to read.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Color
+{
+    Red,
+    Green,
+    Blue
+};
+    </div>
+
+    <p>
+      The constants are assigned values in sequence:
+      <code>Red = 0</code>, <code>Green = 1</code> and
+      <code>Blue = 2</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Advantages of enum</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Advantage</th>
+          <th>Explanation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Readability</strong></td>
+          <td>
+            Meaningful names are easier to understand than raw numbers.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Better Organization</strong></td>
+          <td>
+            Related constant values can be grouped together.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Fixed Set of Values</strong></td>
+          <td>
+            Useful when a variable should represent one choice from
+            a known set.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Maintainability</strong></td>
+          <td>
+            Named constants make programs easier to read and maintain.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program using an enumerated data type to represent the
+    status of an employee and display the selected status.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Define an enumerated data type.</li>
+
+    <li>Declare and use an enum variable.</li>
+
+    <li>Understand named integer constants.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create an enum named <code>Status</code> containing
+    <code>single</code>, <code>married</code>,
+    <code>divorced</code> and <code>widowed</code>.
+    Assign one of these values to an enum variable.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    An enumeration provides names for a related set of integer
+    constants. It is particularly useful when a variable can have
+    one value from a small, predefined set of choices.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+enum Status
+{
+    single,
+    married,
+    divorced,
+    widowed
+};
+
+int main()
+{
+    enum Status employeeStatus;
+
+    employeeStatus = married;
+
+    // display the selected employee status
+    if (employeeStatus == married)
+        printf("Employee Status = Married\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Employee Status = Married
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    In this program, <code>married</code> is one of the named constants
+    defined inside the enumeration. Internally, enumeration constants
+    are represented as integer values, but their names make the program
+    easier to understand.
+  </p>
+
+
+  <h2>enum with switch</h2>
+
+  <p>
+    Enumeration values are particularly useful with a
+    <code>switch</code> statement when different actions need to be
+    performed for different named choices.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+switch (status)
+{
+    case single:
+        printf("Single");
+        break;
+
+    case married:
+        printf("Married");
+        break;
+}
+    </div>
+
+  </div>
+
+
+  <h2>Common Mistake</h2>
+
+  <p>
+    Enumeration constants are names representing integer values. They
+    should not be confused with strings such as <code>"married"</code>.
+    The enum constant <code>married</code> is not a string.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Remember
+    </span>
+
+    <p>
+      <code>married</code> → enumeration constant<br>
+      <code>"married"</code> → string literal
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>enum</strong></td>
+          <td>
+            User-defined type containing named integer constants.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Keyword</strong></td>
+          <td>
+            <code>enum</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Default Values</strong></td>
+          <td>
+            Start from 0 and increase by 1 unless explicitly assigned.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Use</strong></td>
+          <td>
+            Represents one choice from a fixed set of related values.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Example</strong></td>
+          <td>
+            <code>enum Status { single, married, divorced, widowed };</code>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an enumerated data type?</li>
+
+    <li>What is the purpose of the <code>enum</code> keyword?</li>
+
+    <li>What are enumeration constants?</li>
+
+    <li>What values are assigned by default to enum constants?</li>
+
+    <li>Can specific values be assigned to enumeration constants?</li>
+
+    <li>Why is enum useful for program readability?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain enumerated data types in C with syntax and suitable example.
+    </li>
+
+    <li>
+      Explain the advantages and uses of enumerated data types.
+    </li>
+
+    <li>
+      Write a C program to demonstrate the use of an enum variable.
+    </li>
+
+    <li>
+      Explain the default and user-defined values of enumeration
+      constants.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of enumerated data types
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=enumerated+data+type+enum+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: enum in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for enumerated
+        data types will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of enum, constants,
+        default values and practical uses.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 5 — TOPIC 1
+// POINTERS: IDEA OF POINTERS
+// ============================================================
+
+NOTES["m5-pointer-idea"] = [
+  `
+
+  <p>
+    A <strong>pointer</strong> is a variable that stores the address
+    of another variable. Since every variable is stored at some memory
+    location, a pointer can be used to keep the address of that
+    location and access the value stored there.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int age = 20;
+int *ptr;
+
+ptr = &age;
+    </div>
+
+    <p>
+      Here, <code>age</code> stores the value <code>20</code>, while
+      <code>ptr</code> stores the address of <code>age</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Variable and Memory Address</h2>
+
+  <p>
+    Whenever a variable is declared, the computer allocates a memory
+    location for it. The variable has a value, and that memory location
+    has an address. The actual address may be different each time the
+    program runs, so the important thing is the relationship between
+    the variable and its address.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int marks = 75;
+    </div>
+
+    <p>
+      The value <code>75</code> is stored somewhere in memory and that
+      memory location has an address.
+    </p>
+
+  </div>
+
+
+  <h2>Address of a Variable</h2>
+
+  <p>
+    The <strong>address of a variable</strong> is the memory location
+    where its value is stored. In C, the address of a variable can be
+    obtained using the <strong>address-of operator (&amp;)</strong>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int marks = 75;
+
+printf("%p", (void *)&amp;marks);
+    </div>
+
+    <p>
+      The expression <code>&amp;marks</code> gives the address of the
+      variable <code>marks</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Address-of Operator (&amp;)</h2>
+
+  <p>
+    The <strong>&amp;</strong> operator is called the
+    <strong>address-of operator</strong>. It returns the memory address
+    of the variable placed after it. This address can then be stored
+    in a pointer variable of the appropriate type.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int number = 10;
+
+&amp;number
+    </div>
+
+    <p>
+      <code>&amp;number</code> represents the address of
+      <code>number</code>, not the value <code>10</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Pointer Variable</h2>
+
+  <p>
+    A pointer variable is a variable specifically designed to store a
+    memory address. The type of the pointer tells the compiler what
+    kind of value is expected at the address stored in that pointer.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int *ptr;
+    </div>
+
+    <p>
+      Here, <code>ptr</code> is a pointer to an integer. It can store
+      the address of an <code>int</code> variable.
+    </p>
+
+  </div>
+
+
+  <h2>Value-at-Address Operator (*)</h2>
+
+  <p>
+    The <strong>*</strong> operator can be used to obtain the value
+    stored at the address contained in a pointer. It is called the
+    <strong>value-at-address</strong> or <strong>indirection</strong>
+    operator.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int number = 10;
+int *ptr = &amp;number;
+
+*ptr
+    </div>
+
+    <p>
+      <code>*ptr</code> gives the value stored at the address held by
+      <code>ptr</code>, which is <code>10</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Relationship Between Variable, Address and Pointer</h2>
+
+  <p>
+    A normal variable stores a value, while a pointer stores the
+    address of that variable. Using the pointer with the
+    <code>*</code> operator allows the program to reach the value
+    stored at that address.
+  </p>
+
+  <div class="note-flow">
+Variable
+   ↓
+Stores a value
+
+&amp;Variable
+   ↓
+Gives its address
+
+Pointer
+   ↓
+Stores that address
+
+*Pointer
+   ↓
+Gives the value at that address
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Example
+    </span>
+
+    <div class="note-flow">
+int i = 3;
+int *j;
+
+j = &amp;i;
+
+i    → value stored = 3
+&amp;i   → address of i
+j    → stores address of i
+*j   → value stored at that address = 3
+    </div>
+
+  </div>
+
+
+  <h2>Why Do We Need Pointers?</h2>
+
+  <p>
+    Pointers allow a program to work directly with memory addresses.
+    They are useful when a program needs to access or modify data
+    indirectly, pass addresses to functions, work with arrays and
+    strings, or manage memory dynamically.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Instead of passing the value of a variable to a function, a
+      program can pass its address so that the function can work with
+      the original variable.
+    </p>
+
+  </div>
+
+
+  <h2>Important Difference Between &amp; and *</h2>
+
+  <p>
+    The <strong>&amp;</strong> operator is used to obtain an address,
+    whereas the <strong>*</strong> operator is used to access the value
+    stored at an address held by a pointer. Understanding this
+    difference is the foundation of pointer programming.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Expression</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>&amp;i</code></td>
+          <td>Address of variable <code>i</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>p</code></td>
+          <td>Address stored in pointer <code>p</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>*p</code></td>
+          <td>Value stored at the address held by <code>p</code>.</td>
+        </tr>
+
+        <tr>
+          <td><code>*( &amp;i )</code></td>
+          <td>Value stored at the address of <code>i</code>.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to demonstrate the relationship between a variable,
+    its address, a pointer, and the value stored at the pointer's
+    address.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the meaning of a memory address.</li>
+
+    <li>Use the address-of operator <code>&amp;</code>.</li>
+
+    <li>Declare and initialize a pointer.</li>
+
+    <li>Use the indirection operator <code>*</code> to access a value.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Declare an integer variable, store its address in an integer
+    pointer, and display the address and value through both the
+    variable and the pointer.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A pointer stores the address of another variable. The address-of
+    operator gives the address of a variable, while the indirection
+    operator accesses the value stored at that address.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 25;
+    int *ptr;
+
+    // store the address of number in the pointer
+    ptr = &amp;number;
+
+    printf("Value of number = %d\n", number);
+    printf("Address of number = %p\n", (void *)&amp;number);
+    printf("Value stored in ptr = %p\n", (void *)ptr);
+    printf("Value at address stored in ptr = %d\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Value of number = 25
+    </p>
+
+    <p>
+      Address of number = 0x7ffe12345678
+    </p>
+
+    <p>
+      Value stored in ptr = 0x7ffe12345678
+    </p>
+
+    <p>
+      Value at address stored in ptr = 25
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The address shown in the output is only an example. The actual
+    address will normally be different each time the program runs.
+    What remains important is that <code>ptr</code> contains the same
+    address as <code>&amp;number</code>, and <code>*ptr</code> gives
+    the value stored there.
+  </p>
+
+
+  <h2>Pointer Declaration Examples</h2>
+
+  <p>
+    The pointer type should correspond to the type of data whose address
+    it is intended to store. This tells the compiler how the pointed-to
+    data should be interpreted.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int *p;
+char *ch;
+float *f;
+    </div>
+
+    <p>
+      <code>p</code> points to an integer,
+      <code>ch</code> points to a character, and
+      <code>f</code> points to a floating-point value.
+    </p>
+
+  </div>
+
+
+  <h2>Common Mistake</h2>
+
+  <p>
+    A pointer stores an address, not the ordinary data value itself.
+    For example, assigning <code>number</code> directly to a pointer
+    is not the correct way to make the pointer point to
+    <code>number</code>. Its address should be assigned instead.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Example
+    </span>
+
+    <p>
+      <strong>Correct:</strong>
+      <code>ptr = &amp;number;</code>
+    </p>
+
+    <p>
+      <strong>Incorrect:</strong>
+      <code>ptr = number;</code>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Pointer</strong></td>
+          <td>A variable that stores an address.</td>
+        </tr>
+
+        <tr>
+          <td><strong>&amp;</strong></td>
+          <td>Address-of operator.</td>
+        </tr>
+
+        <tr>
+          <td><strong>*</strong></td>
+          <td>Value-at-address / indirection operator.</td>
+        </tr>
+
+        <tr>
+          <td><strong>int *p</strong></td>
+          <td>Pointer to an integer.</td>
+        </tr>
+
+        <tr>
+          <td><strong>p = &amp;i</strong></td>
+          <td>Stores the address of <code>i</code> in <code>p</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>*p</strong></td>
+          <td>Accesses the value at the address stored in <code>p</code>.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a pointer in C?</li>
+
+    <li>What is the address-of operator?</li>
+
+    <li>What is the value-at-address operator?</li>
+
+    <li>What does <code>int *p</code> mean?</li>
+
+    <li>How can the address of a variable be obtained?</li>
+
+    <li>What does <code>*p</code> represent?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the concept of pointers in C with a suitable example.
+    </li>
+
+    <li>
+      Explain the relationship between a variable, its address and
+      a pointer.
+    </li>
+
+    <li>
+      Explain the address-of and indirection operators with examples.
+    </li>
+
+    <li>
+      Write a C program to demonstrate the use of a pointer variable.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of pointers in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=pointers+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Pointers in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for pointer basics
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for variable, address, pointer, &amp; and *
+        relationships.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 5 — TOPIC 2
+// DEFINING POINTERS
+// ============================================================
+
+NOTES["m5-defining-pointers"] = [
+  `
+
+  <p>
+    A pointer variable must be declared before it is used. The
+    declaration tells the compiler that the variable will store the
+    address of a particular type of data. The <strong>*</strong> symbol
+    in a pointer declaration indicates that the variable is a pointer.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *ptr;
+    </div>
+
+    <p>
+      Here, <code>ptr</code> is declared as a pointer to an integer.
+      It is meant to store the address of an <code>int</code> variable.
+    </p>
+  </div>
+
+
+  <h2>Basic Syntax</h2>
+
+  <p>
+    The general form of a pointer declaration is:
+  </p>
+
+  <div class="note-flow">
+data_type *pointer_name;
+  </div>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *p;
+char *ch;
+float *f;
+    </div>
+
+    <p>
+      Each declaration creates a pointer for a different data type.
+    </p>
+  </div>
+
+
+  <h2>Integer Pointer</h2>
+
+  <p>
+    An integer pointer is used to store the address of an integer
+    variable. Its declaration uses the <code>int</code> data type
+    followed by <code>*</code> and the pointer name.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 25;
+int *ptr;
+
+ptr = &amp;number;
+    </div>
+
+    <p>
+      <code>ptr</code> stores the address of <code>number</code>.
+    </p>
+  </div>
+
+
+  <h2>Character Pointer</h2>
+
+  <p>
+    A character pointer stores the address of a character variable.
+    The pointer is declared using the <code>char</code> type.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+char grade = 'A';
+char *ptr;
+
+ptr = &amp;grade;
+    </div>
+
+    <p>
+      Here, <code>ptr</code> stores the address of the character
+      variable <code>grade</code>.
+    </p>
+  </div>
+
+
+  <h2>Floating-Point Pointer</h2>
+
+  <p>
+    A floating-point pointer stores the address of a
+    <code>float</code> variable. It is declared using the
+    <code>float</code> type.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+float percentage = 82.5;
+float *ptr;
+
+ptr = &amp;percentage;
+    </div>
+
+    <p>
+      Here, <code>ptr</code> stores the address of
+      <code>percentage</code>.
+    </p>
+  </div>
+
+
+  <h2>Pointer Initialization</h2>
+
+  <p>
+    Declaring a pointer only creates the pointer variable. Before using
+    it to access a variable, it should be initialized with a valid
+    address of a compatible variable.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 10;
+int *ptr = &amp;number;
+    </div>
+
+    <p>
+      The pointer <code>ptr</code> is initialized with the address of
+      <code>number</code>.
+    </p>
+  </div>
+
+
+  <h2>Using the Same Pointer Type with the Same Data Type</h2>
+
+  <p>
+    A pointer should normally be used with the corresponding data type
+    it is declared for. This allows the compiler to correctly interpret
+    the value stored at the pointed-to address.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 50;
+int *ptr = &amp;number;
+    </div>
+
+    <p>
+      Here, an <code>int *</code> pointer is used with an
+      <code>int</code> variable.
+    </p>
+  </div>
+
+
+  <h2>Multiple Pointer Declarations</h2>
+
+  <p>
+    More than one pointer can be declared in the same statement.
+    Every variable that needs to be a pointer must have its own
+    <strong>*</strong> symbol.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *p, *q;
+    </div>
+
+    <p>
+      Both <code>p</code> and <code>q</code> are pointers to integers.
+    </p>
+  </div>
+
+
+  <h2>Pointer Declaration with a Normal Variable</h2>
+
+  <p>
+    A normal variable and a pointer variable can appear in the same
+    declaration statement, but the <strong>*</strong> belongs only to
+    the variable immediately associated with it.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">⚠️ Example</span>
+
+    <div class="note-flow">
+int number, *ptr;
+    </div>
+
+    <p>
+      Here, <code>number</code> is an ordinary integer variable,
+      whereas <code>ptr</code> is an integer pointer.
+    </p>
+  </div>
+
+
+  <h2>Meaning of the Asterisk in Pointer Declaration</h2>
+
+  <p>
+    In a declaration such as <code>int *ptr</code>, the asterisk
+    indicates that <code>ptr</code> is a pointer to an integer.
+    It does not mean that <code>ptr</code> will store an ordinary
+    integer value.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *ptr;
+    </div>
+
+    <p>
+      This means <code>ptr</code> is capable of storing the address
+      of an integer value.
+    </p>
+  </div>
+
+
+  <h2>Pointer Declaration and Meaning</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Declaration</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>int *p;</code></td>
+          <td><code>p</code> is a pointer to an integer.</td>
+        </tr>
+
+        <tr>
+          <td><code>char *p;</code></td>
+          <td><code>p</code> is a pointer to a character.</td>
+        </tr>
+
+        <tr>
+          <td><code>float *p;</code></td>
+          <td><code>p</code> is a pointer to a floating-point value.</td>
+        </tr>
+
+        <tr>
+          <td><code>double *p;</code></td>
+          <td><code>p</code> is a pointer to a double value.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to declare an integer pointer, store the address
+    of an integer variable in it, and display the original value and
+    the value accessed through the pointer.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Declare an integer pointer.</li>
+
+    <li>Initialize a pointer with the address of a variable.</li>
+
+    <li>Access the value through the pointer.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Declare an integer variable and an integer pointer. Assign
+    <code>&amp;number</code> to the pointer and use <code>*ptr</code>
+    to access the stored value.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A pointer declaration specifies the type of value whose address
+    the pointer is expected to store. After initialization, the pointer
+    can be used with the indirection operator to access that value.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 50;
+    int *ptr;
+
+    // store the address of number in the pointer
+    ptr = &amp;number;
+
+    printf("Value of number = %d\n", number);
+    printf("Value through pointer = %d\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Value of number = 50
+    </p>
+
+    <p>
+      Value through pointer = 50
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The pointer <code>ptr</code> does not contain the value
+    <code>50</code> directly. It contains the address of
+    <code>number</code>, and <code>*ptr</code> accesses the value
+    stored at that address.
+  </p>
+
+
+  <h2>Common Mistakes</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 1
+    </span>
+
+    <p>
+      Declaring a pointer and using it before giving it a valid address
+      can lead to undefined behavior.
+    </p>
+
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 2
+    </span>
+
+    <p>
+      Do not confuse <code>int *ptr</code> with
+      <code>*ptr</code>. The first is a declaration, while the second
+      is used to access the value at the stored address.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Pointer Declaration</strong></td>
+          <td>
+            <code>data_type *pointer_name;</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Integer Pointer</strong></td>
+          <td>
+            <code>int *p;</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Character Pointer</strong></td>
+          <td>
+            <code>char *p;</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Initialization</strong></td>
+          <td>
+            Store a compatible variable's address in the pointer.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Address</strong></td>
+          <td>
+            Use the <code>&amp;</code> operator.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Value</strong></td>
+          <td>
+            Use the <code>*</code> operator with the pointer.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a pointer declaration?</li>
+
+    <li>What does <code>int *p</code> mean?</li>
+
+    <li>What is an integer pointer?</li>
+
+    <li>How is a pointer initialized?</li>
+
+    <li>What is the meaning of <code>char *p</code>?</li>
+
+    <li>Why must a pointer be initialized before it is used?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain pointer declaration and initialization with suitable examples.
+    </li>
+
+    <li>
+      Explain different types of pointer declarations in C.
+    </li>
+
+    <li>
+      Write a C program to declare, initialize and use an integer pointer.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of pointer declaration
+        and initialization in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=defining+pointers+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Defining Pointers in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for pointer
+        declarations will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for pointer declaration, initialization,
+        address and indirection.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 5 — TOPIC 3
+// USE OF POINTERS
+// ============================================================
+
+NOTES["m5-use-pointers"] = [
+  `
+
+  <p>
+    Pointers are used when a program needs to work with the address of
+    a variable instead of using only its value. Through a pointer, a
+    program can access and modify the original variable, pass its
+    address to a function, and work efficiently with arrays and other
+    data structures.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 10;
+int *ptr = &amp;number;
+
+*ptr = 20;
+    </div>
+
+    <p>
+      The pointer accesses the original variable, so the value of
+      <code>number</code> becomes <code>20</code>.
+    </p>
+  </div>
+
+
+  <h2>1. Accessing a Variable Through a Pointer</h2>
+
+  <p>
+    A pointer can be used to access the value of the variable whose
+    address it stores. The indirection operator <code>*</code> is used
+    for this purpose.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int marks = 75;
+int *ptr = &amp;marks;
+
+printf("%d", *ptr);
+    </div>
+
+    <p>
+      <code>*ptr</code> accesses the value stored in
+      <code>marks</code>, so the output is <code>75</code>.
+    </p>
+  </div>
+
+
+  <h2>2. Modifying a Variable Through a Pointer</h2>
+
+  <p>
+    A pointer does not only allow us to read a value. It can also be
+    used to change the value of the original variable by assigning a
+    new value through the indirection operator.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 10;
+int *ptr = &amp;number;
+
+*ptr = 50;
+    </div>
+
+    <p>
+      After <code>*ptr = 50</code>, the original variable
+      <code>number</code> also contains <code>50</code>.
+    </p>
+  </div>
+
+
+  <h2>3. Passing an Address to a Function</h2>
+
+  <p>
+    A pointer allows the address of a variable to be passed to a
+    function. The function can then use that address to access the
+    original variable instead of receiving only a separate copy of
+    its value.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+void change(int *p)
+{
+    *p = 100;
+}
+
+change(&amp;number);
+    </div>
+
+    <p>
+      The function receives the address of <code>number</code> and
+      changes its original value through <code>*p</code>.
+    </p>
+  </div>
+
+
+  <h2>4. Pointers and Call by Reference</h2>
+
+  <p>
+    In C, pointers are commonly used to achieve the effect of
+    <strong>call by reference</strong>. Instead of passing a copy of
+    the value, the address of the variable is passed to the function.
+    The function can then modify the original variable.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+swap(&amp;a, &amp;b);
+    </div>
+
+    <p>
+      The addresses of <code>a</code> and <code>b</code> are passed to
+      the function so their original values can be exchanged.
+    </p>
+  </div>
+
+
+  <h2>5. Using Pointers with Arrays</h2>
+
+  <p>
+    The address of an array element can be stored in a pointer.
+    Pointers can then be used to access array elements. This becomes
+    especially useful when processing an array using functions.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int marks[3] = {70, 80, 90};
+int *ptr = marks;
+
+printf("%d", *ptr);
+    </div>
+
+    <p>
+      The pointer points to the first element of the array, so
+      <code>*ptr</code> gives <code>70</code>.
+    </p>
+  </div>
+
+
+  <h2>6. Pointer Arithmetic</h2>
+
+  <p>
+    Pointers can be incremented and decremented to move through
+    consecutive elements of an array. When a pointer is increased by
+    one, it moves to the next element of the type it points to.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int arr[3] = {10, 20, 30};
+int *ptr = arr;
+
+ptr++;
+    </div>
+
+    <p>
+      After <code>ptr++</code>, the pointer points to the next integer
+      element, which is <code>arr[1]</code>.
+    </p>
+  </div>
+
+
+  <h2>Pointer Increment Depends on Data Type</h2>
+
+  <p>
+    Pointer arithmetic is based on the size of the data type to which
+    the pointer points. Therefore, incrementing a pointer moves it to
+    the next element rather than simply adding one byte to the address.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *p;
+char *c;
+float *f;
+    </div>
+
+    <p>
+      When these pointers are incremented, each one moves to the next
+      element of its own data type.
+    </p>
+  </div>
+
+
+  <h2>7. Comparing Pointer Values</h2>
+
+  <p>
+    Pointer variables can be compared when they point to compatible
+    objects. Comparing pointers is useful when working with elements
+    of the same array or when checking whether a pointer is
+    <code>NULL</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+if (ptr == NULL)
+{
+    printf("Pointer is empty");
+}
+    </div>
+
+    <p>
+      This checks whether <code>ptr</code> contains a null pointer
+      value.
+    </p>
+  </div>
+
+
+  <h2>8. Using Pointers to Work Efficiently with Data</h2>
+
+  <p>
+    Pointers are useful when a function needs to work with the original
+    data rather than making another copy of that data. They are therefore
+    widely used with arrays, functions, structures and dynamic memory.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <p>
+      An array can be processed by passing its address to a function,
+      allowing the function to work with the array elements directly.
+    </p>
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to demonstrate how a pointer can be used to
+    modify the value of an original variable.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Use a pointer to access a variable.</li>
+
+    <li>Modify an original variable through a pointer.</li>
+
+    <li>Understand the relationship between a pointer and its target variable.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Declare an integer variable, store its address in a pointer and
+    assign a new value using the indirection operator.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    When a pointer contains the address of a variable, the expression
+    <code>*ptr</code> refers to the value stored at that address.
+    Assigning a new value to <code>*ptr</code> therefore changes the
+    original variable.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 25;
+    int *ptr;
+
+    // store the address of number in the pointer
+    ptr = &amp;number;
+
+    printf("Before modification = %d\n", number);
+
+    // modify the original variable through the pointer
+    *ptr = 50;
+
+    printf("After modification = %d\n", number);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Before modification = 25
+    </p>
+
+    <p>
+      After modification = 50
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The pointer <code>ptr</code> stores the address of
+    <code>number</code>. Therefore, changing <code>*ptr</code>
+    changes the original variable <code>number</code>.
+  </p>
+
+
+  <h2>Practical Example — Function and Pointer</h2>
+
+  <p>
+    One of the important uses of pointers is passing the address of a
+    variable to a function so that the function can modify the original
+    value.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+void changeValue(int *p)
+{
+    *p = 100;
+}
+    </div>
+
+    <p>
+      The pointer parameter <code>p</code> receives the address of the
+      original variable.
+    </p>
+  </div>
+
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to pass the address of a variable to a function
+    and change its value using a pointer.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+void changeValue(int *p)
+{
+    // change the original value using its address
+    *p = 100;
+}
+
+int main()
+{
+    int number = 25;
+
+    printf("Before function call = %d\n", number);
+
+    // pass the address of number to the function
+    changeValue(&amp;number);
+
+    printf("After function call = %d\n", number);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Before function call = 25
+    </p>
+
+    <p>
+      After function call = 100
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The function receives the address of <code>number</code>, so
+    changing <code>*p</code> changes the original variable. This is
+    the basic idea behind using pointers for call by reference.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Use</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Access Value</strong></td>
+          <td>Use <code>*ptr</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Modify Value</strong></td>
+          <td>Assign through <code>*ptr</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Function</strong></td>
+          <td>Pass an address using a pointer.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Arrays</strong></td>
+          <td>Pointer can move through array elements.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Pointer Arithmetic</strong></td>
+          <td>Increment moves to the next element of its type.</td>
+        </tr>
+
+        <tr>
+          <td><strong>NULL</strong></td>
+          <td>Can be used to represent a pointer that points to no valid object.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What are the main uses of pointers in C?</li>
+
+    <li>How can a pointer modify the value of a variable?</li>
+
+    <li>How are pointers used with functions?</li>
+
+    <li>How are pointers related to arrays?</li>
+
+    <li>What is pointer arithmetic?</li>
+
+    <li>What is the purpose of a NULL pointer?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the different uses of pointers in C with suitable examples.
+    </li>
+
+    <li>
+      Explain how pointers can be used to modify the value of an
+      original variable.
+    </li>
+
+    <li>
+      Explain the use of pointers in functions with a suitable program.
+    </li>
+
+    <li>
+      Explain pointer arithmetic with a suitable example.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the uses of pointers
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=uses+of+pointers+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Uses of Pointers in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for uses of pointers
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for value access, modification, functions,
+        arrays and pointer arithmetic.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 5 — TOPIC 4
+// FILE HANDLING: DIFFERENT MODES OF OPENING A FILE IN C
+// ============================================================
+
+NOTES["m5-file-modes"] = [
+  `
+
+  <p>
+    <strong>File handling</strong> in C is used to store data
+    permanently in a file and to read or write that data whenever
+    required. C provides file-handling functions through the
+    <code>stdio.h</code> library.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+#include &lt;stdio.h&gt;
+
+FILE *fp;
+    </div>
+
+    <p>
+      Here, <code>fp</code> is a file pointer that is used to refer
+      to a file opened by the program.
+    </p>
+  </div>
+
+
+  <h2>File Pointer</h2>
+
+  <p>
+    A <strong>file pointer</strong> is a pointer of type
+    <code>FILE</code> used by C's file-handling functions to keep
+    track of an opened file. It is declared using <code>FILE *</code>
+    and is passed to functions such as <code>fopen()</code> and
+    <code>fclose()</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+    </div>
+
+    <p>
+      <code>fp</code> will be used to refer to the file opened by
+      the program.
+    </p>
+  </div>
+
+
+  <h2>fopen() Function</h2>
+
+  <p>
+    The <strong>fopen()</strong> function is used to open a file.
+    It takes the file name and the required opening mode as arguments
+    and returns a file pointer when the file is opened successfully.
+    If the file cannot be opened, it returns <code>NULL</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+
+fp = fopen("data.txt", "r");
+    </div>
+
+    <p>
+      The file <code>data.txt</code> is opened in read mode.
+    </p>
+  </div>
+
+
+  <h2>Syntax of fopen()</h2>
+
+  <div class="note-flow">
+FILE *pointer_name;
+
+pointer_name = fopen("file_name", "mode");
+  </div>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+fp = fopen("student.txt", "r");
+    </div>
+
+    <p>
+      Here, <code>fp</code> refers to <code>student.txt</code>
+      opened in read mode.
+    </p>
+  </div>
+
+
+  <h2>Checking Whether a File Opened Successfully</h2>
+
+  <p>
+    A program should check the return value of <code>fopen()</code>.
+    If the returned pointer is <code>NULL</code>, the file could not
+    be opened successfully.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "r");
+
+if (fp == NULL)
+{
+    printf("Cannot open file");
+}
+    </div>
+
+    <p>
+      The condition checks whether the file-opening operation failed.
+    </p>
+  </div>
+
+
+  <h2>File Opening Modes</h2>
+
+  <p>
+    The second argument of <code>fopen()</code> specifies how the
+    program wants to use the file. Different modes determine whether
+    the file will be read, written, appended, or opened for both
+    reading and writing.
+  </p>
+
+
+  <h2>1. "r" — Read Mode</h2>
+
+  <p>
+    The <strong>r</strong> mode opens an existing file for reading.
+    The file must already exist. If the file cannot be opened,
+    <code>fopen()</code> returns <code>NULL</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "r");
+    </div>
+
+    <p>
+      The program can read the existing contents of
+      <code>data.txt</code>.
+    </p>
+  </div>
+
+
+  <h2>2. "w" — Write Mode</h2>
+
+  <p>
+    The <strong>w</strong> mode opens a file for writing. If the file
+    already exists, its previous contents are overwritten. If the
+    file does not exist, a new file is created.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "w");
+    </div>
+
+    <p>
+      The program can write new contents to the file. Existing contents,
+      if any, are discarded when the file is opened this way.
+    </p>
+  </div>
+
+
+  <h2>3. "a" — Append Mode</h2>
+
+  <p>
+    The <strong>a</strong> mode opens a file for adding new content at
+    the end. Existing contents are preserved. If the file does not
+    exist, a new file is created.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "a");
+    </div>
+
+    <p>
+      New data can be added without removing the existing contents.
+    </p>
+  </div>
+
+
+  <h2>4. "r+" — Read and Write Mode</h2>
+
+  <p>
+    The <strong>r+</strong> mode opens an existing file for both
+    reading and writing. The file must already exist; it does not
+    create a new file if the file is absent.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "r+");
+    </div>
+
+    <p>
+      The program can read existing contents and also write to the file.
+    </p>
+  </div>
+
+
+  <h2>5. "w+" — Read and Write Mode</h2>
+
+  <p>
+    The <strong>w+</strong> mode opens a file for both reading and
+    writing. If the file exists, its previous contents are overwritten.
+    If it does not exist, a new file is created.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "w+");
+    </div>
+
+    <p>
+      The program can write new contents and read them back, but the
+      old contents are lost when an existing file is opened in this mode.
+    </p>
+  </div>
+
+
+  <h2>6. "a+" — Append and Read Mode</h2>
+
+  <p>
+    The <strong>a+</strong> mode opens a file for reading and for
+    adding new contents at the end. Existing contents are preserved.
+    If the file does not exist, a new file is created.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "a+");
+    </div>
+
+    <p>
+      Existing contents can be read and new contents can be added at
+      the end of the file.
+    </p>
+  </div>
+
+
+  <h2>Comparison of File Opening Modes</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Mode</th>
+          <th>Purpose</th>
+          <th>If File Does Not Exist</th>
+          <th>Existing Contents</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>r</strong></td>
+          <td>Read</td>
+          <td>Cannot open</td>
+          <td>Preserved</td>
+        </tr>
+
+        <tr>
+          <td><strong>w</strong></td>
+          <td>Write</td>
+          <td>Creates file</td>
+          <td>Overwritten</td>
+        </tr>
+
+        <tr>
+          <td><strong>a</strong></td>
+          <td>Append</td>
+          <td>Creates file</td>
+          <td>Preserved</td>
+        </tr>
+
+        <tr>
+          <td><strong>r+</strong></td>
+          <td>Read + Write</td>
+          <td>Cannot open</td>
+          <td>Preserved</td>
+        </tr>
+
+        <tr>
+          <td><strong>w+</strong></td>
+          <td>Read + Write</td>
+          <td>Creates file</td>
+          <td>Overwritten</td>
+        </tr>
+
+        <tr>
+          <td><strong>a+</strong></td>
+          <td>Read + Append</td>
+          <td>Creates file</td>
+          <td>Preserved</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>fclose() Function</h2>
+
+  <p>
+    After finishing the file operation, the file should be closed
+    using <strong>fclose()</strong>. It takes the file pointer as
+    its argument and closes the corresponding opened file.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fclose(fp);
+    </div>
+
+    <p>
+      Here, <code>fp</code> is the file pointer used to refer to the
+      file that needs to be closed.
+    </p>
+  </div>
+
+
+  <h2>Basic File Handling Flow</h2>
+
+  <div class="note-flow">
+Declare FILE pointer
+        ↓
+Open file using fopen()
+        ↓
+Check for NULL
+        ↓
+Read / Write / Append
+        ↓
+Close file using fclose()
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to create a file, write a message into it,
+    close the file, and display a confirmation message.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Declare a file pointer.</li>
+
+    <li>Open a file using <code>fopen()</code>.</li>
+
+    <li>Use write mode to create and write to a file.</li>
+
+    <li>Close a file using <code>fclose()</code>.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Open <code>student.txt</code> in <code>"w"</code> mode, write a
+    short message, check whether the file was opened successfully,
+    and close it after writing.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>"w"</code> mode opens a file for writing. If the file
+    does not exist, it is created. If it already exists, its previous
+    contents are overwritten.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    // open the file in write mode
+    fp = fopen("student.txt", "w");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file\n");
+        return 1;
+    }
+
+    // write data into the file
+    fprintf(fp, "BCA Study Portal - C Programming");
+
+    // close the file
+    fclose(fp);
+
+    printf("Data written successfully\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Data written successfully
+    </p>
+
+  </div>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+BCA Study Portal - C Programming
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The program uses <code>fopen()</code> to create/open the file,
+    <code>fprintf()</code> to write data, and <code>fclose()</code>
+    to close the file. Always check whether <code>fopen()</code>
+    returned <code>NULL</code> before using the file pointer.
+  </p>
+
+
+  <h2>Important Exam Differences</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>r</strong> → Read existing file<br>
+      <strong>w</strong> → Write; old contents are overwritten<br>
+      <strong>a</strong> → Add data at the end<br>
+      <strong>r+</strong> → Read + Write existing file<br>
+      <strong>w+</strong> → Read + Write; old contents are overwritten<br>
+      <strong>a+</strong> → Read + Append; existing contents are preserved
+    </p>
+
+  </div>
+
+
+  <h2>Common Mistakes</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 1
+    </span>
+
+    <p>
+      Forgetting to check <code>fp == NULL</code> can lead to using an
+      invalid file pointer.
+    </p>
+
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 2
+    </span>
+
+    <p>
+      Using <code>"w"</code> when you want to preserve existing
+      contents can accidentally overwrite the file.
+    </p>
+
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 3
+    </span>
+
+    <p>
+      Forgetting <code>fclose()</code> after completing the file
+      operation is bad file-handling practice.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Function / Mode</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>FILE *</strong></td>
+          <td>Declares a file pointer.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fopen()</strong></td>
+          <td>Opens a file using a specified mode.</td>
+        </tr>
+
+        <tr>
+          <td><strong>r</strong></td>
+          <td>Read existing file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>w</strong></td>
+          <td>Write; existing contents are overwritten.</td>
+        </tr>
+
+        <tr>
+          <td><strong>a</strong></td>
+          <td>Append at the end.</td>
+        </tr>
+
+        <tr>
+          <td><strong>r+</strong></td>
+          <td>Read and write an existing file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>w+</strong></td>
+          <td>Read and write; old contents are overwritten.</td>
+        </tr>
+
+        <tr>
+          <td><strong>a+</strong></td>
+          <td>Read and append.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fclose()</strong></td>
+          <td>Closes the opened file.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is file handling in C?</li>
+
+    <li>What is a file pointer?</li>
+
+    <li>What is the purpose of <code>fopen()</code>?</li>
+
+    <li>What happens when <code>fopen()</code> returns <code>NULL</code>?</li>
+
+    <li>What is the difference between <code>"r"</code> and <code>"w"</code>?</li>
+
+    <li>What is the use of append mode <code>"a"</code>?</li>
+
+    <li>Differentiate between <code>"r+"</code> and <code>"w+"</code>.</li>
+
+    <li>What is the purpose of <code>fclose()</code>?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain different modes of opening a file in C with suitable examples.
+    </li>
+
+    <li>
+      Explain the use of <code>fopen()</code> and <code>fclose()</code>
+      with a suitable program.
+    </li>
+
+    <li>
+      Differentiate between <code>r</code>, <code>w</code>,
+      <code>a</code>, <code>r+</code>, <code>w+</code> and
+      <code>a+</code> modes.
+    </li>
+
+    <li>
+      Write a C program to create a file and write data into it.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of file handling and
+        file opening modes in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=file+handling+fopen+modes+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: File Handling in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for file-opening
+        modes will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for FILE pointer, fopen(), file modes,
+        NULL checking and fclose().
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 5 — TOPIC 5
+// READING FROM FILES
+// ============================================================
+
+NOTES["m5-reading-files"] = [
+  `
+
+  <p>
+    Reading from a file means retrieving data that has already been
+    stored in a file. In C, a file is first opened in an appropriate
+    mode and then functions such as <code>fgetc()</code>,
+    <code>fgets()</code> or <code>fscanf()</code> can be used to
+    read its contents.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+
+fp = fopen("student.txt", "r");
+    </div>
+
+    <p>
+      The file <code>student.txt</code> is opened in read mode so that
+      its existing contents can be read.
+    </p>
+  </div>
+
+
+  <h2>Reading Using a File Pointer</h2>
+
+  <p>
+    After a file is opened successfully, the program works with the
+    file through its file pointer. The pointer keeps track of the
+    current position from which the next data will be read.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+
+fp = fopen("data.txt", "r");
+    </div>
+
+    <p>
+      After opening the file, <code>fp</code> is used for subsequent
+      reading operations.
+    </p>
+  </div>
+
+
+  <h2>fgetc() Function</h2>
+
+  <p>
+    The <strong>fgetc()</strong> function reads one character from the
+    current position of an opened file. After reading the character,
+    the file position moves forward to the next character.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int ch;
+
+ch = fgetc(fp);
+    </div>
+
+    <p>
+      One character is read from the file referred to by
+      <code>fp</code>.
+    </p>
+  </div>
+
+
+  <h2>Reading Character by Character</h2>
+
+  <p>
+    A file can be read character by character by repeatedly calling
+    <code>fgetc()</code>. The reading continues until the end of the
+    file is reached.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+while ((ch = fgetc(fp)) != EOF)
+{
+    printf("%c", ch);
+}
+    </div>
+
+    <p>
+      Each character is read and displayed until
+      <code>fgetc()</code> indicates that the end of the file has
+      been reached.
+    </p>
+  </div>
+
+
+  <h2>EOF — End of File</h2>
+
+  <p>
+    <strong>EOF</strong> is used to indicate that the end of the file
+    has been reached during a reading operation. When <code>fgetc()</code>
+    reaches the end of the file, it returns <code>EOF</code>, allowing
+    the loop to stop.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+while ((ch = fgetc(fp)) != EOF)
+{
+    printf("%c", ch);
+}
+    </div>
+
+    <p>
+      The loop continues while the returned character is not
+      <code>EOF</code>.
+    </p>
+  </div>
+
+
+  <h2>Why Use int for fgetc() Result?</h2>
+
+  <p>
+    The value returned by <code>fgetc()</code> is commonly stored in
+    an <code>int</code> variable because the function must be able to
+    represent every possible character value as well as the special
+    <code>EOF</code> value.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int ch;
+
+ch = fgetc(fp);
+    </div>
+
+    <p>
+      The <code>int</code> variable can hold both an input character
+      value and <code>EOF</code>.
+    </p>
+  </div>
+
+
+  <h2>fgets() Function</h2>
+
+  <p>
+    The <strong>fgets()</strong> function is used to read a string or
+    line of text from a file. Unlike <code>fgetc()</code>, which reads
+    one character at a time, <code>fgets()</code> can read multiple
+    characters into a character array.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+char line[100];
+
+fgets(line, sizeof(line), fp);
+    </div>
+
+    <p>
+      A line of text is read from the file into the character array
+      <code>line</code>.
+    </p>
+  </div>
+
+
+  <h2>fscanf() Function</h2>
+
+  <p>
+    The <strong>fscanf()</strong> function is used to read formatted
+    data from a file. It works similarly to <code>scanf()</code>, but
+    the input is taken from a file through the file pointer.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fscanf(fp, "%s %d", name, &amp;age);
+    </div>
+
+    <p>
+      Formatted values are read from the file represented by
+      <code>fp</code>.
+    </p>
+  </div>
+
+
+  <h2>Checking Whether the File Opened Successfully</h2>
+
+  <p>
+    Before reading a file, the program should verify that
+    <code>fopen()</code> returned a valid file pointer. If the file
+    cannot be opened, the function returns <code>NULL</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">⚠️ Example</span>
+
+    <div class="note-flow">
+fp = fopen("student.txt", "r");
+
+if (fp == NULL)
+{
+    printf("Cannot open file\n");
+    return 1;
+}
+    </div>
+
+    <p>
+      This prevents the program from attempting to read from an
+      invalid file pointer.
+    </p>
+  </div>
+
+
+  <h2>Closing the File</h2>
+
+  <p>
+    After all reading operations are finished, the file should be
+    closed using <strong>fclose()</strong>. Closing the file releases
+    the resources associated with the opened file.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fclose(fp);
+    </div>
+
+  </div>
+
+
+  <h2>Basic Reading Flow</h2>
+
+  <div class="note-flow">
+Declare FILE pointer
+        ↓
+Open file using "r"
+        ↓
+Check for NULL
+        ↓
+Read file contents
+        ↓
+Check EOF when required
+        ↓
+Close file
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to open an existing text file and display its
+    contents character by character.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Open a text file in read mode.</li>
+
+    <li>Read characters using <code>fgetc()</code>.</li>
+
+    <li>Use <code>EOF</code> to detect the end of the file.</li>
+
+    <li>Close the file after reading.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Open <code>student.txt</code> using <code>"r"</code> mode, use
+    <code>fgetc()</code> inside a loop, and continue until
+    <code>EOF</code> is returned.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>fgetc()</code> function reads one character at a time
+    from the current file position. Every successful read advances
+    the position to the next character. When the end of the file is
+    reached, <code>fgetc()</code> returns <code>EOF</code>.
+  </p>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+Welcome to BCA Study Portal.
+C Programming is easy with practice.
+  </div>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    // open the file in read mode
+    fp = fopen("student.txt", "r");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file\n");
+        return 1;
+    }
+
+    printf("File Contents:\n");
+
+    // read and display the file character by character
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        printf("%c", ch);
+    }
+
+    // close the file after reading
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      File Contents:
+    </p>
+
+    <p>
+      Welcome to BCA Study Portal.
+    </p>
+
+    <p>
+      C Programming is easy with practice.
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    In this program, <code>fp</code> refers to the opened file and
+    <code>fgetc()</code> reads one character at a time. The loop ends
+    when <code>EOF</code> is returned.
+  </p>
+
+
+  <h2>Practical Example — Reading a Record</h2>
+
+  <p>
+    When a file contains structured records, formatted reading can be
+    performed using <code>fscanf()</code>. This allows values such as
+    names, ages, and marks to be read according to a specified format.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fscanf(fp, "%s %d %f", name, &amp;age, &amp;marks);
+    </div>
+
+    <p>
+      The statement reads a string, an integer and a floating-point
+      value from the file.
+    </p>
+  </div>
+
+
+  <h3>Sample File</h3>
+
+  <div class="note-flow">
+Rahul 20 78.5
+Priya 21 86.0
+Aman 20 81.5
+  </div>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char name[30];
+    int age;
+    float marks;
+
+    // open the record file for reading
+    fp = fopen("students.txt", "r");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file\n");
+        return 1;
+    }
+
+    printf("Student Records:\n");
+
+    // read records until the end of the file
+    while (fscanf(fp, "%29s %d %f", name, &amp;age, &amp;marks) == 3)
+    {
+        printf("Name = %s, Age = %d, Marks = %.1f\n",
+               name, age, marks);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Student Records:
+    </p>
+
+    <p>
+      Name = Rahul, Age = 20, Marks = 78.5
+    </p>
+
+    <p>
+      Name = Priya, Age = 21, Marks = 86.0
+    </p>
+
+    <p>
+      Name = Aman, Age = 20, Marks = 81.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>fscanf()</code> is useful when the file contains data in a
+    known format. The program checks whether all three expected values
+    were successfully read before processing the record.
+  </p>
+
+
+  <h2>Reading Functions at a Glance</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Main Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>fgetc()</strong></td>
+          <td>Reads one character from a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fgets()</strong></td>
+          <td>Reads a line or string from a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fscanf()</strong></td>
+          <td>Reads formatted data from a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>feof()</strong></td>
+          <td>Tests whether the end-of-file indicator is set.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Difference: fgetc() and fgets()</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">📌 Remember</span>
+
+    <p>
+      <strong>fgetc()</strong> → reads one character at a time.
+    </p>
+
+    <p>
+      <strong>fgets()</strong> → reads a string or line into a character array.
+    </p>
+
+  </div>
+
+
+  <h2>Common Mistakes</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 1
+    </span>
+
+    <p>
+      Trying to read from a file without checking whether
+      <code>fopen()</code> returned <code>NULL</code>.
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 2
+    </span>
+
+    <p>
+      Using a character variable for the result of <code>fgetc()</code>
+      can make it impossible to distinguish every valid character value
+      from <code>EOF</code>. Use an <code>int</code> variable when
+      checking for <code>EOF</code>.
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 3
+    </span>
+
+    <p>
+      Forgetting to close the file after completing the reading
+      operation.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Read Mode</strong></td>
+          <td><code>"r"</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>File Pointer</strong></td>
+          <td><code>FILE *fp</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Single Character</strong></td>
+          <td><code>fgetc(fp)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>String / Line</strong></td>
+          <td><code>fgets()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Formatted Data</strong></td>
+          <td><code>fscanf()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>End of File</strong></td>
+          <td><code>EOF</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Close File</strong></td>
+          <td><code>fclose(fp)</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is meant by reading from a file?</li>
+
+    <li>What is the use of <code>fgetc()</code>?</li>
+
+    <li>What is EOF?</li>
+
+    <li>Why is the result of <code>fgetc()</code> commonly stored in an <code>int</code> variable?</li>
+
+    <li>What is the difference between <code>fgetc()</code> and <code>fgets()</code>?</li>
+
+    <li>What is the purpose of <code>fscanf()</code>?</li>
+
+    <li>Why should <code>fopen()</code> be checked for <code>NULL</code>?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the process of reading from a file in C with a suitable program.
+    </li>
+
+    <li>
+      Explain the use of <code>fgetc()</code> and <code>EOF</code>
+      with a suitable example.
+    </li>
+
+    <li>
+      Differentiate between <code>fgetc()</code>,
+      <code>fgets()</code> and <code>fscanf()</code>.
+    </li>
+
+    <li>
+      Write a C program to read and display the contents of a text file.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of reading files in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=reading+from+files+fgetc+fgets+fscanf+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Reading Files in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for reading from
+        files will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for file pointer, fgetc(), EOF, fgets(),
+        fscanf() and fclose().
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 5 — TOPIC 6
+// WRITING FROM FILES
+// ============================================================
+
+NOTES["m5-writing-files"] = [
+  `
+
+  <p>
+    <strong>Writing to a file</strong> means storing data from a C
+    program into a file so that the information can be kept for later
+    use. C provides functions such as <code>fputc()</code>,
+    <code>fputs()</code>, and <code>fprintf()</code> for writing
+    different types of data to a file.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+
+fp = fopen("student.txt", "w");
+    </div>
+
+    <p>
+      The file is opened in write mode so that data can be stored in it.
+    </p>
+  </div>
+
+
+  <h2>Writing Through a File Pointer</h2>
+
+  <p>
+    Once a file has been opened successfully, writing operations are
+    performed using the file pointer rather than the filename. The
+    file pointer identifies the file on which the operation is being
+    performed.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+
+fp = fopen("data.txt", "w");
+
+fprintf(fp, "Hello C");
+    </div>
+
+    <p>
+      Here, <code>fp</code> refers to the file and
+      <code>fprintf()</code> writes the message into it.
+    </p>
+  </div>
+
+
+  <h2>fputc() Function</h2>
+
+  <p>
+    The <strong>fputc()</strong> function writes a single character
+    to a file. It is similar to a character-output function, but
+    instead of displaying the character on the screen, it writes the
+    character to the file represented by the file pointer.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fputc('A', fp);
+    </div>
+
+    <p>
+      The character <code>A</code> is written to the file referred
+      to by <code>fp</code>.
+    </p>
+  </div>
+
+
+  <h2>fputs() Function</h2>
+
+  <p>
+    The <strong>fputs()</strong> function writes a string to a file.
+    It is useful when an entire string needs to be stored instead of
+    writing one character at a time.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fputs("Welcome to C Programming", fp);
+    </div>
+
+    <p>
+      The complete string is written to the file.
+    </p>
+  </div>
+
+
+  <h2>fprintf() Function</h2>
+
+  <p>
+    The <strong>fprintf()</strong> function writes formatted data to
+    a file. It works in a similar way to <code>printf()</code>, but
+    the output is directed to the file specified by the file pointer.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int rollNo = 101;
+float marks = 82.5;
+
+fprintf(fp, "%d %.1f", rollNo, marks);
+    </div>
+
+    <p>
+      The integer and floating-point values are written to the file
+      according to the specified format.
+    </p>
+  </div>
+
+
+  <h2>Opening a File for Writing</h2>
+
+  <p>
+    A file is normally opened using the <code>"w"</code> mode when new
+    contents need to be written. If the file does not exist, it is
+    created. If it already exists, its previous contents are replaced.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "w");
+    </div>
+
+    <p>
+      The file is opened for writing.
+    </p>
+  </div>
+
+
+  <h2>Checking the File Before Writing</h2>
+
+  <p>
+    Before performing a write operation, the return value of
+    <code>fopen()</code> should be checked. If the file cannot be
+    opened, <code>fopen()</code> returns <code>NULL</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">⚠️ Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "w");
+
+if (fp == NULL)
+{
+    printf("Cannot open file\n");
+    return 1;
+}
+    </div>
+
+    <p>
+      This ensures that the program does not try to write using an
+      invalid file pointer.
+    </p>
+  </div>
+
+
+  <h2>Writing Character by Character</h2>
+
+  <p>
+    A string or sequence of characters can be written one character
+    at a time using <code>fputc()</code>. This approach is useful when
+    the program needs control over individual characters.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+char ch;
+
+ch = 'H';
+fputc(ch, fp);
+
+ch = 'i';
+fputc(ch, fp);
+    </div>
+
+    <p>
+      The characters are written individually to the file.
+    </p>
+  </div>
+
+
+  <h2>Writing a String</h2>
+
+  <p>
+    When the complete text is already available as a string,
+    <code>fputs()</code> can be used to write it directly to the file.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+char message[] = "BCA Study Portal";
+
+fputs(message, fp);
+    </div>
+
+    <p>
+      The contents of <code>message</code> are written to the file.
+    </p>
+  </div>
+
+
+  <h2>Writing Formatted Data</h2>
+
+  <p>
+    When multiple values such as names, integers and marks need to be
+    stored in a particular format, <code>fprintf()</code> is useful.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fprintf(fp, "%s %d %.1f", name, rollNo, marks);
+    </div>
+
+    <p>
+      The values are written to the file in the specified order and
+      format.
+    </p>
+  </div>
+
+
+  <h2>Closing the File After Writing</h2>
+
+  <p>
+    After completing all write operations, the file should be closed
+    using <code>fclose()</code>. Closing the file completes the file
+    operation and releases the resources associated with it.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fclose(fp);
+    </div>
+  </div>
+
+
+  <h2>Basic Writing Flow</h2>
+
+  <div class="note-flow">
+Declare FILE pointer
+        ↓
+Open file using fopen()
+        ↓
+Check for NULL
+        ↓
+Write data
+        ↓
+Close file using fclose()
+  </div>
+
+
+  <h2>Writing Functions at a Glance</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Main Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>fputc()</strong></td>
+          <td>Writes one character to a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fputs()</strong></td>
+          <td>Writes a string to a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fprintf()</strong></td>
+          <td>Writes formatted data to a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fclose()</strong></td>
+          <td>Closes the opened file.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to create a text file, write a message into the
+    file using <code>fputs()</code>, and close the file.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Create and open a file in write mode.</li>
+
+    <li>Write a string to the file using <code>fputs()</code>.</li>
+
+    <li>Check whether the file was opened successfully.</li>
+
+    <li>Close the file after writing.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Open <code>message.txt</code> using <code>"w"</code> mode,
+    write a string using <code>fputs()</code>, and then close the file.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>fputs()</code> function writes a string to the file
+    represented by the file pointer. The file must be opened before
+    writing and should be closed after the operation is complete.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    // open the file in write mode
+    fp = fopen("message.txt", "w");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file\n");
+        return 1;
+    }
+
+    // write a message into the file
+    fputs("Welcome to BCA Study Portal.", fp);
+
+    // close the file
+    fclose(fp);
+
+    printf("Data written successfully\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Data written successfully
+    </p>
+
+  </div>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+Welcome to BCA Study Portal.
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The program creates <code>message.txt</code> if it does not already
+    exist. The message is written using <code>fputs()</code> and the
+    file is then closed using <code>fclose()</code>.
+  </p>
+
+
+  <h2>Practical Example — Character Writing</h2>
+
+  <p>
+    The <code>fputc()</code> function can be used when characters need
+    to be written individually. This is the direct counterpart of
+    reading individual characters using <code>fgetc()</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fputc('A', fp);
+fputc('B', fp);
+fputc('C', fp);
+    </div>
+
+    <p>
+      The characters <code>A</code>, <code>B</code> and
+      <code>C</code> are written to the file one by one.
+    </p>
+  </div>
+
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to write three characters into a text file using
+    <code>fputc()</code>.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    // open the file in write mode
+    fp = fopen("letters.txt", "w");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file\n");
+        return 1;
+    }
+
+    // write characters one by one
+    fputc('A', fp);
+    fputc('B', fp);
+    fputc('C', fp);
+
+    fclose(fp);
+
+    printf("Characters written successfully\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Characters written successfully
+    </p>
+
+  </div>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+ABC
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>fputc()</code> writes one character at a time. Multiple calls
+    can therefore be used to build a sequence of characters in a file.
+  </p>
+
+
+  <h2>Practical Example — Formatted Data</h2>
+
+  <p>
+    When a file needs to store values such as student name, roll number,
+    and marks in a readable format, <code>fprintf()</code> can be used
+    to write all the values together.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fprintf(fp, "%s %d %.1f", name, rollNo, marks);
+    </div>
+
+    <p>
+      The values are written according to the specified format.
+    </p>
+  </div>
+
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to store a student's name, roll number, and
+    percentage in a text file using <code>fprintf()</code>.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    char name[] = "Rahul";
+    int rollNo = 101;
+    float percentage = 82.5;
+
+    // open the file in write mode
+    fp = fopen("student.txt", "w");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file\n");
+        return 1;
+    }
+
+    // write formatted student information
+    fprintf(fp, "%s %d %.1f",
+            name,
+            rollNo,
+            percentage);
+
+    fclose(fp);
+
+    printf("Student record written successfully\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Student record written successfully
+    </p>
+
+  </div>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+Rahul 101 82.5
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>fprintf()</code> is useful when different data types need to
+    be written in a particular format. The same formatted data can
+    later be read using a suitable file-reading function.
+  </p>
+
+
+  <h2>fputc(), fputs() and fprintf()</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>What It Writes</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>fputc()</strong></td>
+          <td>One character</td>
+          <td><code>fputc('A', fp);</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>fputs()</strong></td>
+          <td>String</td>
+          <td><code>fputs("Hello", fp);</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>fprintf()</strong></td>
+          <td>Formatted data</td>
+          <td><code>fprintf(fp, "%d", number);</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Writing vs Reading</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Reading</th>
+          <th>Writing</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>fgetc()</code></td>
+          <td><code>fputc()</code></td>
+        </tr>
+
+        <tr>
+          <td><code>fgets()</code></td>
+          <td><code>fputs()</code></td>
+        </tr>
+
+        <tr>
+          <td><code>fscanf()</code></td>
+          <td><code>fprintf()</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Points</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>fgetc()</strong> → reads one character.
+    </p>
+
+    <p>
+      <strong>fputc()</strong> → writes one character.
+    </p>
+
+    <p>
+      <strong>fgets()</strong> → reads a string or line.
+    </p>
+
+    <p>
+      <strong>fputs()</strong> → writes a string.
+    </p>
+
+    <p>
+      <strong>fscanf()</strong> → reads formatted data.
+    </p>
+
+    <p>
+      <strong>fprintf()</strong> → writes formatted data.
+    </p>
+
+  </div>
+
+
+  <h2>Common Mistakes</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 1
+    </span>
+
+    <p>
+      Opening a file in <code>"w"</code> mode without realizing that
+      existing contents will be overwritten.
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 2
+    </span>
+
+    <p>
+      Forgetting to check <code>fp == NULL</code> before writing.
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 3
+    </span>
+
+    <p>
+      Forgetting to close the file after completing the write operation.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Open for Writing</strong></td>
+          <td><code>fopen("file.txt", "w")</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Character</strong></td>
+          <td><code>fputc()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>String</strong></td>
+          <td><code>fputs()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Formatted Data</strong></td>
+          <td><code>fprintf()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Check Failure</strong></td>
+          <td><code>fp == NULL</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Close File</strong></td>
+          <td><code>fclose(fp)</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is meant by writing to a file?</li>
+
+    <li>What is the use of <code>fputc()</code>?</li>
+
+    <li>What is the use of <code>fputs()</code>?</li>
+
+    <li>What is the purpose of <code>fprintf()</code>?</li>
+
+    <li>What is the difference between <code>fputc()</code> and <code>fputs()</code>?</li>
+
+    <li>What happens when a file is opened using <code>"w"</code> mode?</li>
+
+    <li>Why should <code>fopen()</code> be checked for <code>NULL</code>?</li>
+
+    <li>Why should a file be closed after writing?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the process of writing data to a file in C with a suitable program.
+    </li>
+
+    <li>
+      Explain <code>fputc()</code>, <code>fputs()</code> and
+      <code>fprintf()</code> with suitable examples.
+    </li>
+
+    <li>
+      Write a C program to create a file and write text into it.
+    </li>
+
+    <li>
+      Write a C program to store formatted student information in a file.
+    </li>
+
+    <li>
+      Differentiate between the reading and writing functions used in C file handling.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of writing to files
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=writing+to+files+fputc+fputs+fprintf+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Writing to Files in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for writing to
+        files will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for fopen(), file pointer, fputc(),
+        fputs(), fprintf() and fclose().
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
