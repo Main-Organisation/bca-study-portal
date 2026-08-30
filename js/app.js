@@ -1,4 +1,5 @@
 // BCA STUDY PORTAL - Navigation
+
 const topicSearch = document.getElementById("topicSearch");
 const moduleList = document.getElementById("moduleList");
 const notesContainer = document.getElementById("notesContainer");
@@ -11,6 +12,8 @@ const nextBtn = document.getElementById("nextBtn");
 const collapseAllBtn = document.getElementById("collapseAllBtn");
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const sidebar = document.querySelector(".sidebar");
+const doubtMenuBtn = document.getElementById("doubtMenuBtn");
+const doubtContainer = document.getElementById("doubtContainer");
 let currentModuleIndex = -1;
 let currentTopicIndex = -1;
 let currentPageIndex = 0;
@@ -142,6 +145,9 @@ function filterTopics() {
 }
 
 function updatePageDisplay() {
+  notesContainer.hidden = false;
+  doubtContainer.hidden = true;
+  doubtMenuBtn.classList.remove("active");
   const module = SYLLABUS[currentModuleIndex];
   const topic = module.topics[currentTopicIndex];
   const pages = NOTES[topic.id] || [placeholder(topic.title)];
@@ -178,7 +184,36 @@ function updateNavigationButtons() {
     currentTopicIndex === module.topics.length - 1 &&
     currentPageIndex === pages.length - 1;
 }
+function openDoubt() {
 
+  notesContainer.hidden = true;
+  doubtContainer.hidden = false;
+
+  doubtMenuBtn.classList.add("active");
+
+  topicTitle.textContent = "Have Any Doubt?";
+  breadcrumb.textContent = "BCA 1st Year · C Programming";
+  progressText.textContent =
+    "Ask your question and send it to us.";
+
+  pageIndicator.textContent = "Doubt";
+
+  prevBtn.disabled = true;
+  nextBtn.disabled = true;
+
+  document
+    .querySelectorAll(".topic-button")
+    .forEach(button => {
+      button.classList.remove("active");
+    });
+
+  closeAllModules();
+
+  if (window.innerWidth <= 768) {
+    sidebar.classList.remove("mobile-open");
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+  }
+}
 function openTopic(moduleIndex, topicIndex) {
   currentModuleIndex = moduleIndex;
   currentTopicIndex = topicIndex;
@@ -281,6 +316,7 @@ prevBtn.addEventListener("click", goPrevious);
 nextBtn.addEventListener("click", goNext);
 topicSearch.addEventListener("input", filterTopics);
 mobileMenuBtn.addEventListener("click", () => {
+  
   const isOpen = sidebar.classList.toggle("mobile-open");
 
   mobileMenuBtn.setAttribute(
@@ -288,6 +324,7 @@ mobileMenuBtn.addEventListener("click", () => {
     isOpen ? "true" : "false"
   );
 });
+doubtMenuBtn.addEventListener("click", openDoubt);
 
 renderSidebar();
 updateNavigationButtons();

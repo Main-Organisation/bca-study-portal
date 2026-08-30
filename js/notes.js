@@ -22936,6 +22936,458 @@ factorial(5)
   `
 ];
 // ============================================================
+// MODULE 4 — TOPIC 1
+// INTRODUCTION
+// ============================================================
+
+NOTES["m4-introduction"] = [
+  `
+
+  <h2>Introduction to Structure and Union</h2>
+
+  <p>
+    C provides special data types that allow a programmer to group
+    related data and represent complex information in a program.
+    The two important concepts covered in this module are
+    <strong>structures</strong> and <strong>unions</strong>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A student record may contain a name, roll number and marks.
+      These related values can be grouped together using a
+      <strong>structure</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Why Do We Need Structures?</h2>
+
+  <p>
+    A structure allows different types of related data to be stored
+    together under one variable name. This makes a program easier to
+    organize and represent real-world records.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A student can have an integer roll number, a character grade,
+      and a floating-point percentage. A structure can group all
+      these values into one student record.
+    </p>
+
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    Consider a student database. Information such as
+    <strong>Roll Number, Name, Course,</strong> and
+    <strong>Percentage</strong> belongs to the same student.
+    Treating them as one record makes the data easier to manage.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Example
+    </span>
+
+    <p>
+      One student record can be represented as:
+      <strong>Roll No. = 101, Name = Ravi, Percentage = 82.5</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Structure</h2>
+
+  <p>
+    A <strong>structure</strong> is a user-defined data type that groups
+    variables of different data types under one name.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student
+{
+    int rollNo;
+    char grade;
+    float percentage;
+};
+    </div>
+
+    <p>
+      Here, <code>Student</code> contains three related members:
+      <code>rollNo</code>, <code>grade</code> and <code>percentage</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Union</h2>
+
+  <p>
+    A <strong>union</strong> is also a user-defined data type that groups
+    different types of members under one name, but its members share
+    the same memory location.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+union Data
+{
+    int number;
+    float value;
+    char grade;
+};
+    </div>
+
+    <p>
+      In a union, the members share memory, so only one member is normally
+      used to hold a meaningful value at a time.
+    </p>
+
+  </div>
+
+
+  <h2>Structure vs Union</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Structure</th>
+          <th>Union</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Members have separate memory locations.</td>
+          <td>Members share the same memory location.</td>
+        </tr>
+
+        <tr>
+          <td>Multiple members can hold values at the same time.</td>
+          <td>Generally, one member is used at a time.</td>
+        </tr>
+
+        <tr>
+          <td>Useful for representing complete records.</td>
+          <td>Useful when memory needs to be shared among alternatives.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Simple Structure Program</h2>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+
+int main()
+{
+    struct Student s;
+
+    s.rollNo = 101;
+    s.percentage = 82.5;
+
+    // display student record
+    printf("Roll Number = %d\n", s.rollNo);
+    printf("Percentage = %.1f\n", s.percentage);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>Roll Number = 101</p>
+    <p>Percentage = 82.5</p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to define a structure for a student and display
+    the student's roll number and percentage.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the basic idea of a structure.</li>
+
+    <li>Create a structure with members of different data types.</li>
+
+    <li>Store and display values using a structure variable.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Define a structure named <code>Student</code> with an integer
+    roll number and a floating-point percentage.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A structure groups related variables of different data types under
+    one name. A structure variable is then used to store values for
+    those members.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.rollNo);
+
+    printf("Enter percentage: ");
+    scanf("%f", &amp;s.percentage);
+
+    // display the stored student information
+    printf("Roll Number = %d\n", s.rollNo);
+    printf("Percentage = %.1f\n", s.percentage);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter roll number: 101
+    </p>
+
+    <p>
+      Enter percentage: 82.5
+    </p>
+
+    <p>
+      Roll Number = 101
+    </p>
+
+    <p>
+      Percentage = 82.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    A structure is useful when several related values, possibly of
+    different data types, need to be treated as one logical record.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Structure</strong></td>
+          <td>Groups related variables of different data types.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Union</strong></td>
+          <td>Groups members that share the same memory location.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Structure Member</strong></td>
+          <td>A variable declared inside a structure.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Structure Variable</strong></td>
+          <td>Variable used to store a structure record.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a structure in C?</li>
+
+    <li>Why are structures used?</li>
+
+    <li>What is a union in C?</li>
+
+    <li>What is the main difference between a structure and a union?</li>
+
+    <li>What is a structure member?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the concept of structures in C with a suitable example.
+    </li>
+
+    <li>
+      Explain structures and unions and differentiate between them.
+    </li>
+
+    <li>
+      Write a C program to store and display student information
+      using a structure.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly introduction to structures and unions
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=structures+and+unions+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Structures & Unions in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for structures and
+        unions will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of structure, union,
+        members and memory sharing.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //

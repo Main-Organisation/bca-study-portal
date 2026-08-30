@@ -1027,3 +1027,121 @@ body {
   }
 
 }
+/* ==========================================================
+   DOUBT MODULE
+   ========================================================== */
+
+.doubt-module {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+
+  margin-top: 28px;
+  margin-bottom: 25px;
+
+  border: 1px solid #dfe5ed;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(31, 50, 78, 0.05);
+}
+
+/* Left side */
+.doubt-content {
+  padding: 30px 28px;
+
+  background: #f7f9ff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.doubt-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.doubt-content h2 {
+  margin: 0 0 10px;
+
+  color: #263448;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.doubt-content p {
+  margin: 0;
+
+  color: #5f6f84;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.doubt-subtext {
+  margin-top: 10px !important;
+
+  color: #8792a4 !important;
+  font-size: 13px !important;
+}
+
+/* Right side */
+.doubt-form {
+  min-width: 0;
+  background: #ffffff;
+}
+
+.doubt-form iframe {
+  display: block;
+
+  width: 100%;
+  min-height: 520px;
+
+  border: 0;
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  .doubt-module {
+    grid-template-columns: 1fr;
+  }
+
+  .doubt-content {
+    padding: 22px 20px;
+  }
+
+  .doubt-content h2 {
+    font-size: 21px;
+  }
+
+  .doubt-content p {
+    font-size: 14px;
+  }
+
+  .doubt-form iframe {
+    min-height: 650px;
+  }
+}
+/* ==========================================================
+   DOUBT FORM - FULL WIDTH
+   ========================================================== */
+
+.doubt-page .doubt-form-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.doubt-page .doubt-form-container iframe {
+  display: block;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 700px !important;
+  border: 0;
+}

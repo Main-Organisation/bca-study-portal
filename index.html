@@ -24,61 +24,200 @@
 </header>
 
 <main class="app-shell">
+
+  <!-- ==========================================================
+       SIDEBAR
+       ========================================================== -->
+
   <aside class="sidebar" aria-label="Syllabus navigation">
 
-  <div class="sidebar-heading">
-    <span>C PROGRAMMING</span>
-    <button id="collapseAllBtn" class="text-button" type="button">
-      Collapse All
-    </button>
-  </div>
+    <div class="sidebar-heading">
+      <span>C PROGRAMMING</span>
 
-  <!-- Topic Search -->
-  <div class="topic-search">
-    <input
-      type="search"
-      id="topicSearch"
-      placeholder="🔍 Search topics..."
-      aria-label="Search topics"
-    >
-  </div>
+      <button
+        id="collapseAllBtn"
+        class="text-button"
+        type="button">
+        Collapse All
+      </button>
+    </div>
 
-  <div id="moduleList" class="module-list"></div>
 
-</aside>
+    <!-- Topic Search -->
+    <div class="topic-search">
+      <input
+        type="search"
+        id="topicSearch"
+        placeholder="🔍 Search topics..."
+        aria-label="Search topics"
+        autocomplete="off"
+      >
+    </div>
+
+
+    <!-- Syllabus Modules -->
+    <div id="moduleList" class="module-list"></div>
+
+
+    <!-- Doubt Button -->
+    <div class="doubt-sidebar-item">
+
+      <button
+        id="doubtMenuBtn"
+        class="doubt-menu-button"
+        type="button">
+        💬 Have Any Doubt?
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- ==========================================================
+       CONTENT AREA
+       ========================================================== -->
 
   <section class="content-area">
+
     <div class="content-topbar">
-      <span id="breadcrumb" class="breadcrumb">BCA 1st Year · C Programming</span>
+
+      <span id="breadcrumb" class="breadcrumb">
+        BCA 1st Year · C Programming
+      </span>
+
+
+      <!-- Google Translate -->
       <div class="translate-bar">
-      <span class="translate-label">🌐 Language:</span>
-      <div id="google_translate_element"></div>
+
+        <span class="translate-label">
+          🌐 Language:
+        </span>
+
+        <div id="google_translate_element"></div>
+
       </div>
-      <h1 id="topicTitle">Master C Programming — One Concept at a Time</h1>
+
+
+      <h1 id="topicTitle">
+        Master C Programming — One Concept at a Time
+      </h1>
+
 
       <p id="progressText">
         Simple notes, visual explanations and curated learning resources
         to help you understand better and prepare smarter.
       </p>
+
     </div>
 
-    <article id="notesContainer" class="notes-card" aria-live="polite">
+
+    <!-- ==========================================================
+         NORMAL NOTES
+         ========================================================== -->
+
+    <article
+      id="notesContainer"
+      class="notes-card"
+      aria-live="polite">
+
       <div class="welcome-state">
+
         <div class="welcome-hero">
-  <img
-    src="images/welcome.png"
-    alt="Welcome to BCA Study Portal"
-  >
-</div>
+
+          <img
+            src="images/welcome.png"
+            alt="Welcome to BCA Study Portal"
+          >
+
+        </div>
+
       </div>
+
     </article>
 
-    <nav class="pager" aria-label="Notes navigation">
-      <button id="prevBtn" class="pager-button secondary" type="button" disabled>← Previous</button>
-      <div id="pageIndicator" class="page-indicator">Page —</div>
-      <button id="nextBtn" class="pager-button primary" type="button" disabled>Next →</button>
+
+    <!-- ==========================================================
+         DOUBT PAGE
+         ========================================================== -->
+
+    <section
+      id="doubtContainer"
+      class="notes-card doubt-page"
+      aria-label="Have any doubt"
+      hidden>
+
+      <div class="doubt-page-header">
+
+        <span class="breadcrumb">
+          BCA Study Portal
+        </span>
+
+        <h1>
+          💬 Have Any Doubt?
+        </h1>
+
+        <p>
+          Ask your question about C Programming.
+          Your doubt will be collected and reviewed by the teacher.
+        </p>
+
+      </div>
+
+
+      <div class="doubt-form-container">
+
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSe04USh46hM33WdlEsHVnINln6V7-fhZhsHWaKeb8Kkmy9S6w/viewform?embedded=true"
+          title="BCA Study Portal Doubt Form"
+          loading="lazy"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0">
+          Loading…
+        </iframe>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================================
+         PREVIOUS / NEXT
+         ========================================================== -->
+
+    <nav
+      class="pager"
+      aria-label="Notes navigation">
+
+      <button
+        id="prevBtn"
+        class="pager-button secondary"
+        type="button"
+        disabled>
+        ← Previous
+      </button>
+
+
+      <div
+        id="pageIndicator"
+        class="page-indicator">
+        Page —
+      </div>
+
+
+      <button
+        id="nextBtn"
+        class="pager-button primary"
+        type="button"
+        disabled>
+        Next →
+      </button>
+
     </nav>
+
   </section>
+
 </main>
 
 <footer class="site-footer">
