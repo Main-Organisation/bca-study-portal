@@ -664,3 +664,65 @@ button {
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
   }
 }
+/* ==========================================================
+   PRACTICAL PROGRAM CODE BLOCK
+   Lab Manual style
+   ========================================================== */
+
+.program-code {
+  margin: 18px 0 24px;
+  padding: 16px 18px;
+  background: #f8f9ff;
+  border: 1px solid #cfd5ef;
+  border-radius: 4px;
+  box-shadow: none;
+  overflow-x: auto;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #172554;
+
+  white-space: pre;
+  tab-size: 4;
+}
+
+/* Code itself */
+.program-code code {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Comments */
+.program-code .comment {
+  color: #4f7a5a;
+  font-style: italic;
+}
+
+/* Keywords */
+.program-code .keyword {
+  color: #243b9b;
+  font-weight: 600;
+}
+
+/* Strings */
+.program-code .string {
+  color: #9c2f65;
+}
+
+/* Numbers */
+.program-code .number {
+  color: #8a4b08;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .program-code {
+    font-size: 13px;
+    line-height: 1.55;
+    padding: 14px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

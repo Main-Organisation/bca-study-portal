@@ -10650,6 +10650,4340 @@ I = I + 1
   `
 ];
 // ============================================================
+// MODULE 2 — TOPIC 1
+// INTRODUCTION TO C
+// ============================================================
+
+NOTES["m2-introduction-c"] = [
+  `
+
+  <h2>Introduction to C</h2>
+
+  <p>
+    <strong>C</strong> is a general-purpose, procedural programming language
+    used to write programs for solving different types of problems.
+    It is a high-level language that also provides features for working
+    closely with computer hardware.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      C is a programming language used to give instructions to a computer
+      and develop programs in a clear and structured way.
+    </p>
+
+  </div>
+
+
+  <h2>Features of C</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Simple Explanation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Simple</strong></td>
+          <td>
+            C has a relatively small set of keywords and a clear syntax.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Procedural</strong></td>
+          <td>
+            A program can be divided into functions and step-by-step procedures.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Portable</strong></td>
+          <td>
+            C programs can be moved to different systems with suitable
+            changes or recompilation.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Fast and Efficient</strong></td>
+          <td>
+            C programs can execute efficiently and provide good control
+            over system resources.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Structured</strong></td>
+          <td>
+            Programs can be organized into functions and logical blocks.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Middle-Level Features</strong></td>
+          <td>
+            C combines high-level programming features with low-level
+            operations such as pointers and direct memory access.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Rich Operators</strong></td>
+          <td>
+            C provides operators for arithmetic, comparison, logic,
+            assignment and other operations.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Basic C Program Structure</h2>
+
+  <p>
+    A basic C program contains different parts such as header files,
+    the <code>main()</code> function, declarations or statements,
+    and the <code>return</code> statement.
+  </p>
+
+
+  <div class="note-flow">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    // declarations and statements
+
+    return 0;
+}
+  </div>
+
+
+  <h3>1. Header File</h3>
+
+  <p>
+    Header files provide declarations for functions and other definitions
+    used by a program. For example,
+    <code>#include &lt;stdio.h&gt;</code> provides standard input and
+    output functions such as <code>printf()</code> and <code>scanf()</code>.
+  </p>
+
+
+  <h3>2. main() Function</h3>
+
+  <p>
+    The <code>main()</code> function is the entry point of a normal C program.
+    Program execution begins from <code>main()</code>.
+  </p>
+
+
+  <h3>3. Statements</h3>
+
+  <p>
+    Statements are the instructions that perform the required operations
+    of the program.
+  </p>
+
+
+  <h3>4. return 0;</h3>
+
+  <p>
+    The <code>return 0;</code> statement indicates successful completion
+    of the <code>main()</code> function.
+  </p>
+
+
+  <h2>Simple C Program Example</h2>
+
+  <div class="note-flow">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+    int b = 15;
+    int sum = a + b;
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      <strong>Sum = 25</strong>
+    </p>
+
+  </div>
+
+
+  <h2>How the Program Works</h2>
+
+  <ol>
+
+    <li>
+      <code>#include &lt;stdio.h&gt;</code> provides standard input/output
+      functions.
+    </li>
+
+    <li>
+      The program starts from <code>main()</code>.
+    </li>
+
+    <li>
+      Variables <code>a</code> and <code>b</code> store the two numbers.
+    </li>
+
+    <li>
+      <code>sum = a + b</code> calculates their sum.
+    </li>
+
+    <li>
+      <code>printf()</code> displays the result.
+    </li>
+
+    <li>
+      <code>return 0;</code> ends the program successfully.
+    </li>
+
+  </ol>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      The basic idea of a C program is:
+      <strong>Header → main() → Statements → return 0</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>C</strong></td>
+          <td>General-purpose procedural programming language.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Portable</strong></td>
+          <td>Can be adapted to different systems.</td>
+        </tr>
+
+        <tr>
+          <td><strong>main()</strong></td>
+          <td>Program execution starts here.</td>
+        </tr>
+
+        <tr>
+          <td><strong>stdio.h</strong></td>
+          <td>Provides standard input/output functions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>printf()</strong></td>
+          <td>Used to display output.</td>
+        </tr>
+
+        <tr>
+          <td><strong>return 0;</strong></td>
+          <td>Indicates successful completion of main().</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is C?</li>
+
+    <li>Write any four features of C.</li>
+
+    <li>What is the purpose of the main() function?</li>
+
+    <li>What is the use of <code>#include &lt;stdio.h&gt;</code>?</li>
+
+    <li>What is the purpose of <code>return 0;</code>?</li>
+
+    <li>Write the basic structure of a C program.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain C and its important features.
+    </li>
+
+    <li>
+      Explain the basic structure of a C program with a suitable example.
+    </li>
+
+    <li>
+      Write a simple C program to add two numbers and explain its structure.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly introduction to C programming,
+        its features and basic program structure.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=introduction+to+C+programming+features+basic+structure+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Introduction to C Programming — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet covering C features
+        and basic program structure will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of C, its features
+        and basic program structure.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 2
+// FEATURES OF C
+// ============================================================
+
+NOTES["m2-features-c"] = [
+  `
+
+  <h2>Features of C</h2>
+
+  <p>
+    C is a general-purpose programming language that is known for its
+    simple syntax, structured programming approach, portability and
+    efficient execution. It is also useful when a program needs
+    closer control over computer resources.
+  </p>
+
+
+  <h2>Important Features of C</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Simple Explanation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Simple</strong></td>
+          <td>
+            C has a clear syntax and a relatively small set of keywords,
+            making it easier to learn.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Procedural</strong></td>
+          <td>
+            A program can be divided into functions and executed through
+            a logical sequence of steps.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Structured</strong></td>
+          <td>
+            Large programs can be organized into smaller functions and
+            logical blocks.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Portable</strong></td>
+          <td>
+            C programs can be adapted and compiled on different
+            computer systems.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Fast and Efficient</strong></td>
+          <td>
+            C provides efficient execution and can use system resources
+            effectively.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Middle-Level Nature</strong></td>
+          <td>
+            C provides high-level programming features along with
+            low-level features such as pointers and direct memory access.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Rich Operators</strong></td>
+          <td>
+            C provides operators for arithmetic, logical, relational,
+            assignment and other operations.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Modular Programming</strong></td>
+          <td>
+            Functions allow a large program to be divided into smaller
+            reusable parts.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Simple</h2>
+
+  <p>
+    C has a relatively simple syntax and a small set of keywords.
+    This makes its basic programming concepts easier to understand
+    and learn.
+  </p>
+
+
+  <h2>2. Procedural</h2>
+
+  <p>
+    C follows a <strong>procedural approach</strong>. A problem can be
+    solved through a sequence of instructions and functions.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A program can contain separate functions for
+      <strong>input, calculation and output</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>3. Structured</h2>
+
+  <p>
+    C supports structured programming, where a program is divided into
+    smaller logical blocks or functions. This makes programs easier to
+    understand, test and maintain.
+  </p>
+
+
+  <h2>4. Portable</h2>
+
+  <p>
+    A C program can generally be moved to another system and compiled
+    again with suitable changes when required. This makes C more portable
+    than machine-dependent languages.
+  </p>
+
+
+  <h2>5. Fast and Efficient</h2>
+
+  <p>
+    C is known for efficient execution and provides good control over
+    system resources. This is one reason why C is widely used in
+    system-level and performance-sensitive programming.
+  </p>
+
+
+  <h2>6. Middle-Level Nature</h2>
+
+  <p>
+    C is often described as a <strong>middle-level language</strong>
+    because it combines high-level programming features with
+    low-level capabilities.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      C supports normal high-level programming as well as pointers
+      that allow direct work with memory addresses.
+    </p>
+
+  </div>
+
+
+  <h2>7. Rich Operators</h2>
+
+  <p>
+    C provides a wide range of operators for performing different
+    operations such as arithmetic, comparison, logical operations
+    and assignment.
+  </p>
+
+
+  <h2>8. Modular Programming</h2>
+
+  <p>
+    C programs can be divided into functions. Each function can perform
+    a specific task, making the program easier to manage and reuse.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Real-World Example
+    </span>
+
+    <p>
+      Think of a large college application. Instead of putting all the
+      code in one place, different functions can handle
+      <strong>login, marks calculation, result display and file handling</strong>.
+      This is an example of modular programming.
+    </p>
+
+  </div>
+
+
+  <h2>Why is C Still Important?</h2>
+
+  <p>
+    C provides a balance between programming convenience and control
+    over computer resources. It is therefore widely used for areas such
+    as system software, embedded systems and other performance-sensitive
+    applications.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>
+        C = Simple + Procedural + Structured + Portable + Efficient
+      </strong>
+    </p>
+
+    <p>
+      It also provides low-level control through features such as
+      <strong>pointers</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>One-Line Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Simple</strong></td>
+          <td>Clear syntax and relatively small set of keywords.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Procedural</strong></td>
+          <td>Programs follow a sequence of procedures and functions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Structured</strong></td>
+          <td>Program can be divided into logical blocks.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Portable</strong></td>
+          <td>Can be adapted and compiled on different systems.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Efficient</strong></td>
+          <td>Provides fast and efficient execution.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Middle-Level</strong></td>
+          <td>Combines high-level and low-level capabilities.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Rich Operators</strong></td>
+          <td>Supports many types of operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Modular</strong></td>
+          <td>Functions divide programs into manageable parts.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>Write any four features of C.</li>
+
+    <li>Why is C called a procedural language?</li>
+
+    <li>What is meant by portability in C?</li>
+
+    <li>Why is C called a middle-level language?</li>
+
+    <li>What is structured programming in C?</li>
+
+    <li>What is modular programming?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the important features of C.
+    </li>
+
+    <li>
+      Explain why C is called a middle-level and structured programming language.
+    </li>
+
+    <li>
+      Explain the advantages of portability, efficiency and modularity in C.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the important features
+        of C programming.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=features+of+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Features of C Programming — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet covering the important
+        features of C will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of the major features of C.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+
+// ============================================================
+// MODULE 2 — TOPIC 3
+// BASIC C PROGRAM STRUCTURE
+// ============================================================
+
+NOTES["m2-program-structure"] = [
+  `
+
+  <h2>Basic C Program Structure</h2>
+
+  <p>
+    A C program is written using a basic structure that contains
+    header files, the <code>main()</code> function, declarations,
+    statements, and a return statement. Program execution normally
+    starts from the <code>main()</code> function.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      A C program is like a small set of instructions:
+      <strong>include required files → start main() → perform work → return</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Basic Structure of a C Program</h2>
+
+  <div class="note-flow">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    // declarations
+
+    // statements
+
+    return 0;
+}
+  </div>
+
+
+  <h2>Parts of a C Program</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Part</th>
+          <th>Purpose</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Header File</strong></td>
+          <td>
+            Provides declarations for standard functions used by the program.
+          </td>
+          <td><code>#include &lt;stdio.h&gt;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>main()</strong></td>
+          <td>
+            Main function from where program execution begins.
+          </td>
+          <td><code>int main()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Declarations</strong></td>
+          <td>
+            Define variables required by the program.
+          </td>
+          <td><code>int a, b;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Statements</strong></td>
+          <td>
+            Perform the required operations of the program.
+          </td>
+          <td><code>sum = a + b;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>
+            Displays the result to the user.
+          </td>
+          <td><code>printf()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>return 0;</strong></td>
+          <td>
+            Indicates successful completion of the main function.
+          </td>
+          <td><code>return 0;</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Example: Add Two Numbers</h2>
+
+  <div class="note-flow">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+    int b = 15;
+    int sum = a + b;
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}
+  </div>
+
+
+  <h2>Understanding the Program</h2>
+
+  <h3>1. #include &lt;stdio.h&gt;</h3>
+
+  <p>
+    This line includes the standard input/output header file.
+    It provides functions such as <code>printf()</code> used for
+    displaying output.
+  </p>
+
+
+  <h3>2. int main()</h3>
+
+  <p>
+    The <code>main()</code> function is the main entry point of the
+    program. Execution begins from this function.
+  </p>
+
+
+  <h3>3. int a = 10; and int b = 15;</h3>
+
+  <p>
+    These statements declare two integer variables and initialize
+    them with values.
+  </p>
+
+
+  <h3>4. int sum = a + b;</h3>
+
+  <p>
+    This statement calculates the sum of the two numbers and stores
+    the result in the variable <code>sum</code>.
+  </p>
+
+
+  <h3>5. printf("Sum = %d", sum);</h3>
+
+  <p>
+    The <code>printf()</code> function displays the calculated result
+    on the screen.
+  </p>
+
+
+  <h3>6. return 0;</h3>
+
+  <p>
+    This statement ends the <code>main()</code> function and indicates
+    successful completion of the program.
+  </p>
+
+
+  <h2>Program Flow</h2>
+
+  <div class="note-flow">
+Header File
+    ↓
+main()
+    ↓
+Variable Declarations
+    ↓
+Processing / Statements
+    ↓
+Output
+    ↓
+return 0
+    ↓
+Program Ends
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      The most important part to remember is:
+      <strong>Program execution starts from main().</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Part</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>#include</strong></td>
+          <td>Includes required header files.</td>
+        </tr>
+
+        <tr>
+          <td><strong>main()</strong></td>
+          <td>Starting point of program execution.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Declaration</strong></td>
+          <td>Defines required variables.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Statements</strong></td>
+          <td>Perform the required operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>printf()</strong></td>
+          <td>Displays output.</td>
+        </tr>
+
+        <tr>
+          <td><strong>return 0;</strong></td>
+          <td>Ends main() successfully.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is the basic structure of a C program?</li>
+
+    <li>What is the purpose of the <code>main()</code> function?</li>
+
+    <li>What is the use of <code>#include &lt;stdio.h&gt;</code>?</li>
+
+    <li>What is the purpose of <code>printf()</code>?</li>
+
+    <li>What is the use of <code>return 0;</code>?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the basic structure of a C program with a suitable example.
+    </li>
+
+    <li>
+      Write a C program to add two numbers and explain each part of the program.
+    </li>
+
+    <li>
+      Explain the role of header files, main(), statements and return
+      statement in a C program.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the basic structure
+        of a C program.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=basic+structure+of+C+program+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Basic C Program Structure — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the basic
+        C program structure will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of the main parts
+        of a C program.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — C TOKENS
+// ============================================================
+
+NOTES["m2-tokens"] = [
+  `
+
+  <h2>C Tokens</h2>
+
+  <p>
+    A <strong>token</strong> is the smallest meaningful unit of a C program
+    recognized by the compiler. A C program is made up of different types
+    of tokens such as keywords, identifiers, constants, strings, operators
+    and special symbols.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Tokens are the <strong>basic building blocks of a C program</strong>.
+      Just as words and punctuation form a sentence, tokens form a C program.
+    </p>
+
+  </div>
+
+
+  <h2>Example</h2>
+
+  <div class="note-flow">
+int sum = a + b;
+  </div>
+
+  <p>
+    In the above statement:
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>int</code></td>
+          <td>Keyword</td>
+        </tr>
+
+        <tr>
+          <td><code>sum</code></td>
+          <td>Identifier</td>
+        </tr>
+
+        <tr>
+          <td><code>=</code></td>
+          <td>Operator</td>
+        </tr>
+
+        <tr>
+          <td><code>a</code></td>
+          <td>Identifier</td>
+        </tr>
+
+        <tr>
+          <td><code>+</code></td>
+          <td>Operator</td>
+        </tr>
+
+        <tr>
+          <td><code>b</code></td>
+          <td>Identifier</td>
+        </tr>
+
+        <tr>
+          <td><code>;</code></td>
+          <td>Special Symbol / Punctuator</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Types of C Tokens</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Meaning</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Keywords</strong></td>
+          <td>Reserved words with a fixed meaning in C.</td>
+          <td><code>int</code>, <code>if</code>, <code>return</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Identifiers</strong></td>
+          <td>Names given to variables, functions and other program elements.</td>
+          <td><code>sum</code>, <code>main</code>, <code>count</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Constants</strong></td>
+          <td>Fixed values that do not change during program execution.</td>
+          <td><code>10</code>, <code>3.14</code>, <code>'A'</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Strings</strong></td>
+          <td>Sequence of characters written inside double quotes.</td>
+          <td><code>"Hello"</code>, <code>"BCA"</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Operators</strong></td>
+          <td>Symbols used to perform operations.</td>
+          <td><code>+</code>, <code>-</code>, <code>=</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Special Symbols</strong></td>
+          <td>Symbols used to structure and separate parts of a program.</td>
+          <td><code>;</code>, <code>{}</code>, <code>()</code>, <code>[]</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Keywords</h2>
+
+  <p>
+    <strong>Keywords</strong> are reserved words of the C language that
+    have predefined meanings. They cannot normally be used as names of
+    variables or functions.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Examples
+    </span>
+
+    <p>
+      <code>int</code>, <code>if</code>, <code>else</code>,
+      <code>while</code>, <code>return</code>, <code>for</code>
+    </p>
+
+  </div>
+
+
+  <h2>2. Identifiers</h2>
+
+  <p>
+    <strong>Identifiers</strong> are names used to identify program
+    elements such as variables, functions and arrays.
+  </p>
+
+
+  <h3>Rules for Identifiers</h3>
+
+  <ul>
+
+    <li>
+      An identifier can contain letters, digits and underscore.
+    </li>
+
+    <li>
+      It should not begin with a digit.
+    </li>
+
+    <li>
+      Keywords cannot be used as identifiers.
+    </li>
+
+    <li>
+      C identifiers are case-sensitive.
+    </li>
+
+  </ul>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Valid</th>
+          <th>Invalid</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>total</code></td>
+          <td><code>2total</code></td>
+        </tr>
+
+        <tr>
+          <td><code>student_name</code></td>
+          <td><code>student-name</code></td>
+        </tr>
+
+        <tr>
+          <td><code>marks1</code></td>
+          <td><code>int</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>3. Constants</h2>
+
+  <p>
+    <strong>Constants</strong> are fixed values used in a program.
+    Their value remains unchanged while the program is running.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Examples
+    </span>
+
+    <p>
+      Integer: <code>25</code><br>
+      Decimal: <code>3.14</code><br>
+      Character: <code>'A'</code>
+    </p>
+
+  </div>
+
+
+  <h2>4. Strings</h2>
+
+  <p>
+    A <strong>string</strong> is a sequence of characters enclosed in
+    double quotation marks.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Examples
+    </span>
+
+    <p>
+      <code>"Hello"</code><br>
+      <code>"BCA Study Portal"</code>
+    </p>
+
+  </div>
+
+
+  <h2>5. Operators</h2>
+
+  <p>
+    <strong>Operators</strong> are symbols used to perform operations
+    on values or variables.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Example</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>+</code></td>
+          <td><code>a + b</code></td>
+          <td>Addition</td>
+        </tr>
+
+        <tr>
+          <td><code>-</code></td>
+          <td><code>a - b</code></td>
+          <td>Subtraction</td>
+        </tr>
+
+        <tr>
+          <td><code>*</code></td>
+          <td><code>a * b</code></td>
+          <td>Multiplication</td>
+        </tr>
+
+        <tr>
+          <td><code>/</code></td>
+          <td><code>a / b</code></td>
+          <td>Division</td>
+        </tr>
+
+        <tr>
+          <td><code>=</code></td>
+          <td><code>a = 10</code></td>
+          <td>Assignment</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>6. Special Symbols</h2>
+
+  <p>
+    <strong>Special symbols</strong> help define the structure and
+    separation of statements and blocks in a C program.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Common Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>;</code></td>
+          <td>Ends a statement.</td>
+        </tr>
+
+        <tr>
+          <td><code>()</code></td>
+          <td>Used with functions and expressions.</td>
+        </tr>
+
+        <tr>
+          <td><code>{}</code></td>
+          <td>Defines a block of statements.</td>
+        </tr>
+
+        <tr>
+          <td><code>[]</code></td>
+          <td>Used for arrays.</td>
+        </tr>
+
+        <tr>
+          <td><code>,</code></td>
+          <td>Separates items such as variables or function arguments.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Token Type</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Keyword</strong></td>
+          <td>Reserved word</td>
+        </tr>
+
+        <tr>
+          <td><strong>Identifier</strong></td>
+          <td>Name given by programmer</td>
+        </tr>
+
+        <tr>
+          <td><strong>Constant</strong></td>
+          <td>Fixed value</td>
+        </tr>
+
+        <tr>
+          <td><strong>String</strong></td>
+          <td>Characters inside double quotes</td>
+        </tr>
+
+        <tr>
+          <td><strong>Operator</strong></td>
+          <td>Performs an operation</td>
+        </tr>
+
+        <tr>
+          <td><strong>Special Symbol</strong></td>
+          <td>Helps structure the program</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What are tokens in C?</li>
+
+    <li>Write the different types of C tokens.</li>
+
+    <li>What are keywords?</li>
+
+    <li>What are identifiers?</li>
+
+    <li>What are constants?</li>
+
+    <li>What are operators?</li>
+
+    <li>What are special symbols in C?</li>
+
+    <li>Write any four rules for naming identifiers.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define C tokens and explain their different types with examples.
+    </li>
+
+    <li>
+      Explain keywords, identifiers, constants, strings, operators
+      and special symbols with suitable examples.
+    </li>
+
+    <li>
+      Explain the rules for naming identifiers in C.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of C tokens and their
+        different types.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/watch?v=GkQ8diSwWnY"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: C Tokens — Keywords, Identifiers, Constants & Operators
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for C Tokens
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of the six types
+        of C tokens.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 5
+// DATA TYPES
+// ============================================================
+
+NOTES["m2-data-types"] = [
+  `
+
+  <h2>Data Types in C</h2>
+
+  <p>
+    A <strong>data type</strong> tells the compiler what kind of data a
+    variable can store. It also determines the type of value that can be
+    stored and the operations that can be performed on it.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      A data type tells C whether a variable will store a
+      <strong>number, character, decimal value,</strong> or another
+      type of data.
+    </p>
+
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Example
+    </span>
+
+    <p>
+      Think about a student record:
+      <strong>Age</strong> can be an integer,
+      <strong>Percentage</strong> can contain decimal values,
+      and <strong>Grade</strong> can be a character.
+      Different types of data need different data types.
+    </p>
+
+  </div>
+
+
+  <h2>Basic Data Types in C</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Used For</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>int</strong></td>
+          <td>Integer numbers</td>
+          <td><code>25</code>, <code>-10</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>char</strong></td>
+          <td>A single character</td>
+          <td><code>'A'</code>, <code>'5'</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>float</strong></td>
+          <td>Decimal numbers</td>
+          <td><code>3.14</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>double</strong></td>
+          <td>Decimal numbers with higher precision</td>
+          <td><code>12.345678</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>void</strong></td>
+          <td>Indicates no value or no return value</td>
+          <td><code>void function()</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. int</h2>
+
+  <p>
+    The <strong>int</strong> data type is used to store whole numbers
+    without a fractional part.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>int age = 20;</code>
+    </p>
+
+  </div>
+
+
+  <h2>2. char</h2>
+
+  <p>
+    The <strong>char</strong> data type is used to store a single
+    character. Character values are written inside single quotation marks.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>char grade = 'A';</code>
+    </p>
+
+  </div>
+
+
+  <h2>3. float</h2>
+
+  <p>
+    The <strong>float</strong> data type is used to store numbers that
+    contain a decimal or fractional part.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>float percentage = 82.5;</code>
+    </p>
+
+  </div>
+
+
+  <h2>4. double</h2>
+
+  <p>
+    The <strong>double</strong> data type is used for floating-point
+    values when more precision is required than a typical
+    <code>float</code>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>double pi = 3.1415926535;</code>
+    </p>
+
+  </div>
+
+
+  <h2>5. void</h2>
+
+  <p>
+    The <strong>void</strong> type represents the absence of a value.
+    It is commonly used with functions that do not return a value.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>void display()</code>
+    </p>
+
+  </div>
+
+
+  <h2>Example: Using Different Data Types</h2>
+
+  <div class="note-flow">
+int age = 20;
+char grade = 'A';
+float percentage = 82.5;
+double pi = 3.1415926535;
+  </div>
+
+
+  <h2>Why Are Data Types Important?</h2>
+
+  <ul>
+
+    <li>
+      They tell the compiler what kind of data a variable stores.
+    </li>
+
+    <li>
+      They help the compiler allocate suitable memory for data.
+    </li>
+
+    <li>
+      They determine which operations are appropriate for the data.
+    </li>
+
+    <li>
+      They help prevent incorrect use of values.
+    </li>
+
+  </ul>
+
+
+  <h2>Data Type and Variable</h2>
+
+  <p>
+    A variable is declared by writing its <strong>data type</strong>
+    followed by the variable name.
+  </p>
+
+  <div class="note-flow">
+DATA TYPE + VARIABLE NAME + VALUE
+          ↓
+       int age = 20;
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>int</strong></td>
+          <td>Whole numbers</td>
+        </tr>
+
+        <tr>
+          <td><strong>char</strong></td>
+          <td>Single character</td>
+        </tr>
+
+        <tr>
+          <td><strong>float</strong></td>
+          <td>Decimal values</td>
+        </tr>
+
+        <tr>
+          <td><strong>double</strong></td>
+          <td>Decimal values with higher precision</td>
+        </tr>
+
+        <tr>
+          <td><strong>void</strong></td>
+          <td>No value / no return value</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a data type in C?</li>
+
+    <li>Why are data types used in C?</li>
+
+    <li>What is the use of <code>int</code>?</li>
+
+    <li>What is the use of <code>char</code>?</li>
+
+    <li>What is the difference between <code>float</code> and <code>double</code>?</li>
+
+    <li>What is the use of <code>void</code>?</li>
+
+    <li>Write any five basic data types in C.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define data types and explain the basic data types in C with examples.
+    </li>
+
+    <li>
+      Explain int, char, float, double and void with suitable examples.
+    </li>
+
+    <li>
+      Explain why data types are important in C programming.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of basic data types in C.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=data+types+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Data Types in C — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for C data types
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of basic C data types.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 6
+// C OPERATORS AND PRECEDENCE
+// ============================================================
+
+NOTES["m2-operators-precedence"] = [
+  `
+
+  <h2>C Operators</h2>
+
+  <p>
+    An <strong>operator</strong> is a symbol used to perform an operation
+    on one or more values or variables. Operators are an important part
+    of expressions in C.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Operators tell the computer <strong>what operation to perform</strong>,
+      such as add, subtract, compare, assign, or check a condition.
+    </p>
+
+  </div>
+
+
+  <h2>Example</h2>
+
+  <div class="note-flow">
+int sum = a + b;
+  </div>
+
+  <p>
+    Here <code>+</code> is an operator used to add <code>a</code> and
+    <code>b</code>, while <code>=</code> is the assignment operator.
+  </p>
+
+
+  <h2>Types of Operators in C</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Operators</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Arithmetic</strong></td>
+          <td><code>+ - * / %</code></td>
+          <td>Mathematical calculations</td>
+        </tr>
+
+        <tr>
+          <td><strong>Relational</strong></td>
+          <td><code>== != &gt; &lt; &gt;= &lt;=</code></td>
+          <td>Compare two values</td>
+        </tr>
+
+        <tr>
+          <td><strong>Logical</strong></td>
+          <td><code>&amp;&amp; || !</code></td>
+          <td>Combine or reverse conditions</td>
+        </tr>
+
+        <tr>
+          <td><strong>Assignment</strong></td>
+          <td><code>= += -= *= /= %=</code></td>
+          <td>Assign values to variables</td>
+        </tr>
+
+        <tr>
+          <td><strong>Increment / Decrement</strong></td>
+          <td><code>++ --</code></td>
+          <td>Increase or decrease a value by 1</td>
+        </tr>
+
+        <tr>
+          <td><strong>Bitwise</strong></td>
+          <td><code>&amp; | ^ ~ &lt;&lt; &gt;&gt;</code></td>
+          <td>Operate on individual bits</td>
+        </tr>
+
+        <tr>
+          <td><strong>Conditional</strong></td>
+          <td><code>?:</code></td>
+          <td>Short form of a simple if-else expression</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Arithmetic Operators</h2>
+
+  <p>
+    Arithmetic operators are used to perform mathematical calculations.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Operation</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>+</code></td>
+          <td>Addition</td>
+          <td><code>10 + 5 = 15</code></td>
+        </tr>
+
+        <tr>
+          <td><code>-</code></td>
+          <td>Subtraction</td>
+          <td><code>10 - 5 = 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>*</code></td>
+          <td>Multiplication</td>
+          <td><code>10 * 5 = 50</code></td>
+        </tr>
+
+        <tr>
+          <td><code>/</code></td>
+          <td>Division</td>
+          <td><code>10 / 5 = 2</code></td>
+        </tr>
+
+        <tr>
+          <td><code>%</code></td>
+          <td>Remainder</td>
+          <td><code>10 % 3 = 1</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>2. Relational Operators</h2>
+
+  <p>
+    Relational operators compare two values. The result is used as a
+    logical condition.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>==</code></td>
+          <td>Equal to</td>
+          <td><code>a == b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>!=</code></td>
+          <td>Not equal to</td>
+          <td><code>a != b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&gt;</code></td>
+          <td>Greater than</td>
+          <td><code>a &gt; b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&lt;</code></td>
+          <td>Less than</td>
+          <td><code>a &lt; b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&gt;=</code></td>
+          <td>Greater than or equal to</td>
+          <td><code>a &gt;= b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&lt;=</code></td>
+          <td>Less than or equal to</td>
+          <td><code>a &lt;= b</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>3. Logical Operators</h2>
+
+  <p>
+    Logical operators are used to combine or reverse conditions.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>&amp;&amp;</code></td>
+          <td>Logical AND</td>
+          <td><code>a &gt; 5 &amp;&amp; b &lt; 10</code></td>
+        </tr>
+
+        <tr>
+          <td><code>||</code></td>
+          <td>Logical OR</td>
+          <td><code>a &gt; 5 || b &lt; 10</code></td>
+        </tr>
+
+        <tr>
+          <td><code>!</code></td>
+          <td>Logical NOT</td>
+          <td><code>!(a &gt; 5)</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>4. Assignment Operators</h2>
+
+  <p>
+    Assignment operators are used to assign or update values stored
+    in variables.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Example</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>=</code></td>
+          <td><code>a = 10</code></td>
+          <td>Assign 10 to a</td>
+        </tr>
+
+        <tr>
+          <td><code>+=</code></td>
+          <td><code>a += 5</code></td>
+          <td><code>a = a + 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>-=</code></td>
+          <td><code>a -= 5</code></td>
+          <td><code>a = a - 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>*=</code></td>
+          <td><code>a *= 5</code></td>
+          <td><code>a = a * 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>/=</code></td>
+          <td><code>a /= 5</code></td>
+          <td><code>a = a / 5</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>5. Increment and Decrement Operators</h2>
+
+  <p>
+    The <code>++</code> operator increases a value by 1, while the
+    <code>--</code> operator decreases a value by 1.
+  </p>
+
+  <div class="note-flow">
+int a = 5;
+
+a++;
+→ a becomes 6
+
+a--;
+→ a becomes 5
+  </div>
+
+
+  <h3>Pre-Increment and Post-Increment</h3>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Form</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>++a</code></td>
+          <td>Increase first, then use the value.</td>
+        </tr>
+
+        <tr>
+          <td><code>a++</code></td>
+          <td>Use the value first, then increase it.</td>
+        </tr>
+
+        <tr>
+          <td><code>--a</code></td>
+          <td>Decrease first, then use the value.</td>
+        </tr>
+
+        <tr>
+          <td><code>a--</code></td>
+          <td>Use the value first, then decrease it.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>6. Bitwise Operators</h2>
+
+  <p>
+    Bitwise operators work on the individual bits of integer values.
+    They are mainly useful when low-level or bit-level operations are required.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>&amp;</code></td>
+          <td>Bitwise AND</td>
+        </tr>
+
+        <tr>
+          <td><code>|</code></td>
+          <td>Bitwise OR</td>
+        </tr>
+
+        <tr>
+          <td><code>^</code></td>
+          <td>Bitwise XOR</td>
+        </tr>
+
+        <tr>
+          <td><code>~</code></td>
+          <td>Bitwise NOT</td>
+        </tr>
+
+        <tr>
+          <td><code>&lt;&lt;</code></td>
+          <td>Left Shift</td>
+        </tr>
+
+        <tr>
+          <td><code>&gt;&gt;</code></td>
+          <td>Right Shift</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>7. Conditional Operator</h2>
+
+  <p>
+    The <strong>conditional operator</strong> <code>?:</code> is a
+    short form for selecting one of two expressions based on a condition.
+  </p>
+
+  <div class="note-flow">
+condition ? expression1 : expression2
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>max = (a &gt; b) ? a : b;</code>
+    </p>
+
+    <p>
+      If <code>a &gt; b</code> is true, <code>a</code> is assigned;
+      otherwise <code>b</code> is assigned.
+    </p>
+
+  </div>
+
+
+  <h2>Operator Precedence</h2>
+
+  <p>
+    <strong>Operator precedence</strong> determines which operator is
+    evaluated first when an expression contains multiple operators.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Consider:
+      <strong>2 + 3 * 4</strong>
+    </p>
+
+    <p>
+      Multiplication has higher precedence than addition, so:
+      <strong>3 * 4 = 12</strong> is evaluated first.
+    </p>
+
+    <p>
+      Final result:
+      <strong>2 + 12 = 14</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Basic Precedence Order</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Operators</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>1 — Highest</strong></td>
+          <td><code>()</code></td>
+          <td><code>(a + b)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>2</strong></td>
+          <td><code>++ --</code></td>
+          <td><code>++a</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>3</strong></td>
+          <td><code>* / %</code></td>
+          <td><code>a * b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>4</strong></td>
+          <td><code>+ -</code></td>
+          <td><code>a + b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>5</strong></td>
+          <td><code>&lt; &lt;= &gt; &gt;=</code></td>
+          <td><code>a &lt; b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>6</strong></td>
+          <td><code>== !=</code></td>
+          <td><code>a == b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>7</strong></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>a &amp;&amp; b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>8</strong></td>
+          <td><code>||</code></td>
+          <td><code>a || b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>9</strong></td>
+          <td><code>?:</code></td>
+          <td><code>a ? b : c</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>10</strong></td>
+          <td>Assignment operators</td>
+          <td><code>a = b</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Associativity</h2>
+
+  <p>
+    When two operators have the same precedence, <strong>associativity</strong>
+    determines the direction in which they are evaluated.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Multiplication and division have the same precedence and are generally
+      evaluated from <strong>left to right</strong>.
+    </p>
+
+    <p>
+      <strong>20 / 5 * 2</strong>
+      → first <strong>20 / 5 = 4</strong>
+      → then <strong>4 * 2 = 8</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Using Parentheses</h2>
+
+  <p>
+    Parentheses can be used to explicitly control the order of evaluation
+    in an expression.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Expression</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>2 + 3 * 4</code></td>
+          <td><strong>14</strong></td>
+        </tr>
+
+        <tr>
+          <td><code>(2 + 3) * 4</code></td>
+          <td><strong>20</strong></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Easy Rule to Remember
+    </span>
+
+    <p>
+      <strong>
+        Parentheses → Increment/Decrement → Multiplication/Division →
+        Addition/Subtraction → Relational → Logical → Conditional →
+        Assignment
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Arithmetic</strong></td>
+          <td>Performs mathematical calculations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Relational</strong></td>
+          <td>Compares values.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Logical</strong></td>
+          <td>Combines conditions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Assignment</strong></td>
+          <td>Assigns or updates values.</td>
+        </tr>
+
+        <tr>
+          <td><strong>++ / --</strong></td>
+          <td>Increase or decrease by 1.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Conditional</strong></td>
+          <td>Short form of simple if-else selection.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Precedence</strong></td>
+          <td>Determines which operator is evaluated first.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Associativity</strong></td>
+          <td>Determines evaluation direction for equal precedence.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an operator in C?</li>
+
+    <li>Write the different types of operators in C.</li>
+
+    <li>What are arithmetic operators?</li>
+
+    <li>What are relational operators?</li>
+
+    <li>What are logical operators?</li>
+
+    <li>What is the use of the assignment operator?</li>
+
+    <li>What are increment and decrement operators?</li>
+
+    <li>What is operator precedence?</li>
+
+    <li>What is associativity?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the different types of operators in C with suitable examples.
+    </li>
+
+    <li>
+      Explain operator precedence and associativity with suitable examples.
+    </li>
+
+    <li>
+      Evaluate suitable C expressions using the rules of operator precedence.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of C operators,
+        precedence and associativity.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=C+operators+precedence+associativity+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: C Operators & Precedence — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for C operators
+        and precedence will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of C operator categories
+        and precedence.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 7
+// TYPE CONVERSION
+// ============================================================
+
+NOTES["m2-type-conversion"] = [
+  `
+
+  <h2>Type Conversion</h2>
+
+  <p>
+    <strong>Type conversion</strong> is the process of converting a value
+    from one data type to another data type. It is useful when different
+    data types are used together in an expression.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      An integer value can be converted into a floating-point value:
+      <code>int a = 10;</code> → <code>10.0</code>
+    </p>
+
+  </div>
+
+
+  <h2>Types of Type Conversion</h2>
+
+  <p>
+    Type conversion in C is commonly understood in two ways:
+    <strong>Implicit Type Conversion</strong> and
+    <strong>Explicit Type Conversion</strong>.
+  </p>
+
+
+  <h2>1. Implicit Type Conversion</h2>
+
+  <p>
+    <strong>Implicit type conversion</strong> happens automatically by
+    the compiler when values of different data types are used together.
+    The programmer does not explicitly specify the conversion.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int a = 10;
+float b = 2.5;
+
+float result = a + b;
+    </div>
+
+    <p>
+      Here, <code>a</code> is automatically converted to a floating-point
+      value before the addition, so the result can be stored in
+      <code>float</code>.
+    </p>
+
+  </div>
+
+
+  <h2>2. Explicit Type Conversion (Type Casting)</h2>
+
+  <p>
+    <strong>Explicit type conversion</strong> is performed when the
+    programmer deliberately converts a value into another data type
+    using a type cast.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int a = 5;
+int b = 2;
+
+float result = (float)a / b;
+    </div>
+
+    <p>
+      Here, <code>(float)a</code> explicitly converts <code>a</code>
+      into a floating-point value, so the division produces
+      <code>2.5</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Type Casting Syntax</h2>
+
+  <p>
+    The basic syntax for explicit type casting is:
+  </p>
+
+  <div class="note-flow">
+(data_type) expression
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>float x = (float)10;</code>
+    </p>
+
+    <p>
+      The integer value <code>10</code> is explicitly converted to
+      <code>float</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Why is Type Conversion Needed?</h2>
+
+  <p>
+    Type conversion is needed when different types of values must be
+    used together or when the result is required in a particular data type.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int total = 5;
+int count = 2;
+
+float average = (float)total / count;
+    </div>
+
+    <p>
+      Type casting is used here so that the average is calculated as
+      <code>2.5</code> instead of integer division giving <code>2</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Implicit vs Explicit Conversion</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Implicit</th>
+          <th>Explicit</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Performed by</strong></td>
+          <td>Compiler</td>
+          <td>Programmer</td>
+        </tr>
+
+        <tr>
+          <td><strong>Specified by programmer?</strong></td>
+          <td>No</td>
+          <td>Yes</td>
+        </tr>
+
+        <tr>
+          <td><strong>Syntax</strong></td>
+          <td>No special syntax required</td>
+          <td><code>(data_type)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Example</strong></td>
+          <td><code>float x = 10;</code></td>
+          <td><code>float x = (float)10;</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Example: Integer Division</h2>
+
+  <p>
+    When two integer operands are divided using <code>/</code>,
+    the result is an integer. The fractional part is not retained.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int a = 5;
+int b = 2;
+
+int result = a / b;
+    </div>
+
+    <p>
+      Output:
+      <strong>2</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Using Type Casting in Division</h2>
+
+  <p>
+    To obtain a decimal result, one operand can be explicitly converted
+    to <code>float</code>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int a = 5;
+int b = 2;
+
+float result = (float)a / b;
+    </div>
+
+    <p>
+      Output:
+      <strong>2.5</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Possible Loss of Data</h2>
+
+  <p>
+    When a value is converted from a data type that can represent more
+    information to one that can represent less information, some data
+    may be lost.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+float x = 10.75;
+int y = (int)x;
+    </div>
+
+    <p>
+      The fractional part is not retained, so <code>y</code> becomes
+      <strong>10</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Type Conversion</strong></td>
+          <td>Changing a value from one data type to another.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Implicit</strong></td>
+          <td>Conversion performed automatically.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Explicit</strong></td>
+          <td>Conversion performed by the programmer.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Type Casting</strong></td>
+          <td>Explicit conversion using <code>(data_type)</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Integer Division</strong></td>
+          <td>Integer ÷ Integer gives an integer result.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Data Loss</strong></td>
+          <td>Can occur when converting to a less precise type.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is type conversion in C?</li>
+
+    <li>What is implicit type conversion?</li>
+
+    <li>What is explicit type conversion?</li>
+
+    <li>What is type casting?</li>
+
+    <li>Write the syntax of type casting in C.</li>
+
+    <li>What is the difference between implicit and explicit conversion?</li>
+
+    <li>Why is type casting useful in integer division?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain implicit and explicit type conversion with suitable examples.
+    </li>
+
+    <li>
+      Explain type casting in C with suitable examples.
+    </li>
+
+    <li>
+      Explain integer division and show how type casting can be used
+      to obtain a decimal result.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of implicit and explicit
+        type conversion in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=type+conversion+type+casting+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Type Conversion in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for type conversion
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of implicit and explicit
+        type conversion.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 8
+// CONTROL STRUCTURES: if
+// ============================================================
+
+NOTES["m2-if"] = [
+  `
+
+  <h2>Control Structure: if</h2>
+
+  <p>
+    The <strong>if statement</strong> is a decision-making control
+    structure in C. It executes a block of statements only when the
+    given condition is true.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int age = 20;
+
+if (age >= 18)
+    printf("Eligible");
+    </div>
+
+    <p>
+      Here, the message is displayed because the condition
+      <code>age &gt;= 18</code> is true.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of if Statement</h2>
+
+  <div class="note-flow">
+if (condition)
+{
+    statement;
+}
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Key Point
+    </span>
+
+    <p>
+      If the condition is <strong>true</strong>, the statements inside
+      the <code>if</code> block execute. If the condition is false,
+      the block is skipped.
+    </p>
+
+  </div>
+
+
+  <h2>How if Works</h2>
+
+  <div class="note-flow">
+Condition
+    ↓
+TRUE  →  Execute if block
+    ↓
+Continue program
+
+FALSE → Skip if block
+    ↓
+Continue program
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A system may check a condition before performing an action.
+    For example, a college portal can display a message when a
+    student's attendance is at least 75%.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>if (attendance &gt;= 75)</code> → display
+      <strong>"Eligible for exam"</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that accepts a student's attendance percentage
+    and displays a message if the attendance is 75% or above.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the basic use of the <code>if</code> statement.</li>
+
+    <li>Use a relational operator in a condition.</li>
+
+    <li>Execute a statement only when the condition is true.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Check whether the attendance is greater than or equal to 75
+    using the <code>&gt;=</code> operator.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>if</code> statement evaluates a condition and executes
+    its block only when the condition is true. If the condition is
+    false, the program skips the block and continues with the next
+    statement.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float attendance;
+
+    printf("Enter attendance percentage: ");
+    scanf("%f", &amp;attendance);
+
+    // check whether attendance meets the required percentage
+    if (attendance &gt;= 75)
+        printf("Eligible for exam.\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter attendance percentage: 82
+    </p>
+
+    <p>
+      Eligible for exam.
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The <code>if</code> statement does not provide an alternative block
+    when the condition is false. If an alternative action is required,
+    the <code>if-else</code> statement is used.
+  </p>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an if statement in C?</li>
+
+    <li>Write the syntax of the if statement.</li>
+
+    <li>What happens when the condition of an if statement is false?</li>
+
+    <li>Which operators can be used in an if condition?</li>
+
+    <li>Write a simple example of an if statement.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the if statement in C with syntax and example.
+    </li>
+
+    <li>
+      Write a C program using if to check whether a student is eligible
+      for an examination based on attendance.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the if statement
+        in C programming.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=if+statement+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: if Statement in C — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the if statement
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of the if statement,
+        condition and execution flow.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 9
+// CONTROL STRUCTURES: if-else
+// ============================================================
+
+NOTES["m2-if-else"] = [
+  `
+
+  <h2>Control Structure: if-else</h2>
+
+  <p>
+    The <strong>if-else statement</strong> is a decision-making control
+    structure in C. It executes one block of statements when a condition
+    is true and another block when the condition is false.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+if (marks >= 40)
+    printf("Pass");
+else
+    printf("Fail");
+    </div>
+
+    <p>
+      If <code>marks</code> are 40 or more, the program displays
+      <strong>Pass</strong>; otherwise, it displays <strong>Fail</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of if-else</h2>
+
+  <div class="note-flow">
+if (condition)
+{
+    statement;
+}
+else
+{
+    statement;
+}
+  </div>
+
+
+  <h2>How if-else Works</h2>
+
+  <div class="note-flow">
+Condition
+    ↓
+TRUE  →  Execute if block
+    ↓
+Continue
+
+FALSE →  Execute else block
+    ↓
+Continue
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A college result system can check whether a student has passed or failed
+    based on the marks obtained.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>marks &gt;= 40</code> → <strong>Pass</strong>
+    </p>
+
+    <p>
+      Otherwise → <strong>Fail</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that accepts a student's marks and displays
+    whether the student has passed or failed. A student is considered
+    passed if the marks are 40 or above.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the working of the if-else statement.</li>
+
+    <li>Use a relational operator to create a condition.</li>
+
+    <li>Handle two mutually exclusive outcomes.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Use <code>marks &gt;= 40</code> as the condition.
+    Display <strong>Pass</strong> when it is true and
+    <strong>Fail</strong> otherwise.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>if-else</code> statement provides two possible execution
+    paths. If the condition is true, the <code>if</code> block executes;
+    otherwise, the <code>else</code> block executes.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks;
+
+    printf("Enter marks: ");
+    scanf("%d", &amp;marks);
+
+    // check whether the student has passed
+    if (marks &gt;= 40)
+        printf("Pass.\n");
+    else
+        printf("Fail.\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter marks: 72
+    </p>
+
+    <p>
+      Pass.
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The <code>else</code> block executes only when the condition in the
+    <code>if</code> statement is false. The two branches provide
+    alternative outcomes for the same condition.
+  </p>
+
+
+  <h2>Difference Between if and if-else</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>if</th>
+          <th>if-else</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Provides one decision path.</td>
+          <td>Provides two alternative paths.</td>
+        </tr>
+
+        <tr>
+          <td>Executes a block only when condition is true.</td>
+          <td>Executes one of the two blocks.</td>
+        </tr>
+
+        <tr>
+          <td>No alternative block is required.</td>
+          <td>Contains an <code>else</code> block.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>if → condition true</strong>
+    </p>
+
+    <p>
+      <strong>if-else → condition true OR condition false</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an if-else statement in C?</li>
+
+    <li>Write the syntax of if-else.</li>
+
+    <li>What happens when the if condition is false?</li>
+
+    <li>What is the purpose of the else block?</li>
+
+    <li>Write one example of an if-else statement.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the if-else statement with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program to check whether a student has passed or failed
+      using if-else.
+    </li>
+
+    <li>
+      Differentiate between if and if-else statements.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the if-else statement
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=if+else+statement+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: if-else in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for if-else
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of condition,
+        if branch and else branch.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 9
+// CONTROL STRUCTURES: if-else
+// ============================================================
+
+NOTES["m2-if-else"] = [
+  `
+
+  <h2>Control Structure: if-else</h2>
+
+  <p>
+    The <strong>if-else statement</strong> is a decision-making control
+    structure in C. It executes one block of statements when a condition
+    is true and another block when the condition is false.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+if (marks >= 40)
+    printf("Pass");
+else
+    printf("Fail");
+    </div>
+
+    <p>
+      If <code>marks</code> are 40 or more, the program displays
+      <strong>Pass</strong>; otherwise, it displays <strong>Fail</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of if-else</h2>
+
+  <div class="note-flow">
+if (condition)
+{
+    statement;
+}
+else
+{
+    statement;
+}
+  </div>
+
+
+  <h2>How if-else Works</h2>
+
+  <div class="note-flow">
+Condition
+    ↓
+TRUE  →  Execute if block
+    ↓
+Continue
+
+FALSE →  Execute else block
+    ↓
+Continue
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A college result system can check whether a student has passed or failed
+    based on the marks obtained.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>marks &gt;= 40</code> → <strong>Pass</strong>
+    </p>
+
+    <p>
+      Otherwise → <strong>Fail</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that accepts a student's marks and displays
+    whether the student has passed or failed. A student is considered
+    passed if the marks are 40 or above.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the working of the if-else statement.</li>
+
+    <li>Use a relational operator to create a condition.</li>
+
+    <li>Handle two mutually exclusive outcomes.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Use <code>marks &gt;= 40</code> as the condition.
+    Display <strong>Pass</strong> when it is true and
+    <strong>Fail</strong> otherwise.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>if-else</code> statement provides two possible execution
+    paths. If the condition is true, the <code>if</code> block executes;
+    otherwise, the <code>else</code> block executes.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks;
+
+    printf("Enter marks: ");
+    scanf("%d", &amp;marks);
+
+    // check whether the student has passed
+    if (marks &gt;= 40)
+        printf("Pass.\n");
+    else
+        printf("Fail.\n");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter marks: 72
+    </p>
+
+    <p>
+      Pass.
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The <code>else</code> block executes only when the condition in the
+    <code>if</code> statement is false. The two branches provide
+    alternative outcomes for the same condition.
+  </p>
+
+
+  <h2>Difference Between if and if-else</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>if</th>
+          <th>if-else</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Provides one decision path.</td>
+          <td>Provides two alternative paths.</td>
+        </tr>
+
+        <tr>
+          <td>Executes a block only when condition is true.</td>
+          <td>Executes one of the two blocks.</td>
+        </tr>
+
+        <tr>
+          <td>No alternative block is required.</td>
+          <td>Contains an <code>else</code> block.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>if → condition true</strong>
+    </p>
+
+    <p>
+      <strong>if-else → condition true OR condition false</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an if-else statement in C?</li>
+
+    <li>Write the syntax of if-else.</li>
+
+    <li>What happens when the if condition is false?</li>
+
+    <li>What is the purpose of the else block?</li>
+
+    <li>Write one example of an if-else statement.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the if-else statement with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program to check whether a student has passed or failed
+      using if-else.
+    </li>
+
+    <li>
+      Differentiate between if and if-else statements.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the if-else statement
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=if+else+statement+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: if-else in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for if-else
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of condition,
+        if branch and else branch.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
