@@ -15109,28 +15109,39 @@ Largest number = 40</pre>
 
   <h3>Nested if vs if-else</h3>
 
-  <table class="notes-table">
+<div class="note-table-wrap">
+
+  <table class="note-table">
+
     <thead>
       <tr>
         <th>Nested if</th>
         <th>if-else</th>
       </tr>
     </thead>
+
     <tbody>
+
       <tr>
         <td>An if statement is placed inside another if statement.</td>
         <td>Provides two alternative paths based on a condition.</td>
       </tr>
+
       <tr>
         <td>Useful for dependent or step-by-step conditions.</td>
         <td>Useful when one of two alternatives must be selected.</td>
       </tr>
+
       <tr>
         <td>Inner condition depends on the outer condition.</td>
         <td>The else block executes when the if condition is false.</td>
       </tr>
+
     </tbody>
+
   </table>
+
+</div>
 
   <h3>Exam Tip</h3>
 
@@ -15663,8 +15674,11 @@ int main()
 
 
   <h2>while Loop vs if Statement</h2>
+  <div class="note-table-wrap">
 
-  <table class="notes-table">
+  <table class="note-table">
+
+  
     <thead>
       <tr>
         <th>while</th>
@@ -15796,7 +15810,4137 @@ int main()
 
   `
 ];
+// ============================================================
+// MODULE 2 — TOPIC 13
+// CONTROL STRUCTURES: DO-WHILE LOOP
+// ============================================================
 
+NOTES["m2-do-while"] = [
+  `
+  <h2>do-while Loop in C</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>do-while</code> loop is an
+    <strong>exit-controlled loop</strong> in which the loop body executes
+    first and the condition is checked afterward.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A program can ask the user to enter a number and continue asking
+    until the user enters <strong>0</strong>.
+  </div>
+
+
+  <h3>Syntax</h3>
+
+  <pre class="program-code"><code>do
+{
+    statements;
+}
+while (condition);</code></pre>
+
+
+  <h3>How do-while Works</h3>
+
+  <div class="note-flow">
+Execute loop body
+        ↓
+Check condition
+        ↓
+Condition TRUE?
+   ↓              ↓
+  Yes             No
+   ↓              ↓
+Repeat          Exit loop
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    The following program prints the value of <code>i</code> and increases
+    it until <code>i</code> becomes greater than 5.
+  </p>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i = 1;
+
+    do
+    {
+        printf("%d ", i);
+        i++;                // move to the next number
+    }
+    while (i &lt;= 5);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Output</h3>
+
+  <pre class="output-box">1 2 3 4 5</pre>
+
+
+  <h2>Why is do-while Called an Exit-Controlled Loop?</h2>
+
+  <p>
+    The condition of a <code>do-while</code> loop is checked
+    <strong>after</strong> the loop body executes. Therefore, the
+    body always executes at least once.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    Even if the condition is initially false, the statements inside
+    the <code>do</code> block are executed once before the condition
+    is checked.
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A menu-driven program often needs to display the menu at least once
+    before asking whether the user wants to continue.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <strong>Show menu → take choice → perform task → ask again.</strong>
+  </div>
+
+
+  <h2>Practical Example — Input Until Zero</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that repeatedly accepts numbers from the user
+    and displays the entered number until the user enters
+    <strong>0</strong>.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand the working of the <code>do-while</code> loop.</li>
+    <li>Use a sentinel value to terminate repeated input.</li>
+    <li>Understand the difference between entry-controlled and
+        exit-controlled loops.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Read a number inside the loop, display it when it is not zero,
+    and continue while the number is not <code>0</code>.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A <code>do-while</code> loop executes its body first and checks
+    the condition afterward. Therefore, the loop body is guaranteed
+    to execute at least once.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    do
+    {
+        printf("Enter a number (0 to stop): ");
+        scanf("%d", &amp;num);
+
+        if (num != 0)              // 0 is the sentinel, so skip printing it
+            printf("You entered: %d\n", num);
+
+    } while (num != 0);             // condition is checked after the body
+
+    printf("Loop terminated.\n");
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter a number (0 to stop): 5
+You entered: 5
+Enter a number (0 to stop): 8
+You entered: 8
+Enter a number (0 to stop): 0
+Loop terminated.</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    Unlike a <code>while</code> loop, a <code>do-while</code> loop
+    always executes its body at least once because the condition is
+    checked after the body.
+  </p>
+
+
+  <h2>while vs do-while</h2>
+  <div class="note-table-wrap">
+  <table class="note-table">
+    <thead>
+      <tr>
+        <th>while</th>
+        <th>do-while</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Entry-controlled loop.</td>
+        <td>Exit-controlled loop.</td>
+      </tr>
+
+      <tr>
+        <td>Condition is checked before the body.</td>
+        <td>Condition is checked after the body.</td>
+      </tr>
+
+      <tr>
+        <td>May execute zero times.</td>
+        <td>Executes at least once.</td>
+      </tr>
+
+      <tr>
+        <td>Syntax starts with <code>while</code>.</td>
+        <td>Syntax starts with <code>do</code> and ends with <code>while</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li><code>do-while</code> is an exit-controlled loop.</li>
+    <li>The loop body executes before the condition is checked.</li>
+    <li>The body executes at least once.</li>
+    <li>A semicolon is required after the <code>while(condition)</code>.</li>
+    <li>It is useful for menus and input-driven programs.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>do → Execute First → Check Condition → Repeat or Exit</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+  <div class="note-table-wrap">
+  <table class="note-table">
+    <thead>
+      <tr>
+        <th>Concept</th>
+        <th>Remember</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><strong>do-while</strong></td>
+        <td>Exit-controlled loop.</td>
+      </tr>
+
+      <tr>
+        <td><strong>First step</strong></td>
+        <td>Execute the loop body.</td>
+      </tr>
+
+      <tr>
+        <td><strong>Second step</strong></td>
+        <td>Check the condition.</td>
+      </tr>
+
+      <tr>
+        <td><strong>Minimum execution</strong></td>
+        <td>At least once.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a do-while loop in C?</li>
+    <li>Why is do-while called an exit-controlled loop?</li>
+    <li>Write the syntax of a do-while loop.</li>
+    <li>How is do-while different from while?</li>
+    <li>Why does a do-while loop execute at least once?</li>
+    <li>What is a sentinel value?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain the do-while loop with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program using do-while to accept numbers until
+      the user enters 0.
+    </li>
+
+    <li>
+      Differentiate between while and do-while loops.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the do-while loop in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=do+while+loop+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: do-while Loop in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the do-while loop
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of do, condition,
+        repetition and exit.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 14
+// CONTROL STRUCTURES: FOR LOOP
+// ============================================================
+
+NOTES["m2-for"] = [
+  `
+  <h2>For Loop in C</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>for</code> loop is a
+    repetition control structure used to execute a block of statements
+    repeatedly. It is especially useful when the number of iterations
+    or the loop range is known in advance.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A <code>for</code> loop can be used to print numbers from
+    <strong>1 to 5</strong>.
+  </div>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for (i = 1; i &lt;= 5; i++)
+        printf("%d ", i);
+
+    return 0;
+}</code></pre>
+
+  <h3>Output</h3>
+
+  <pre class="output-box">1 2 3 4 5</pre>
+
+
+  <h2>Syntax of for Loop</h2>
+
+  <p>
+    The <code>for</code> loop contains three important parts:
+    <strong>initialization, condition and update</strong>.
+  </p>
+
+  <pre class="program-code"><code>for (initialization; condition; update)
+{
+    statements;
+}</code></pre>
+
+
+  <h3>Example</h3>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>for (i = 1; i &lt;= 5; i++)</code>:
+    <br><br>
+    <strong>Initialization:</strong> <code>i = 1</code><br>
+    <strong>Condition:</strong> <code>i &lt;= 5</code><br>
+    <strong>Update:</strong> <code>i++</code>
+  </div>
+
+
+  <h2>How for Loop Works</h2>
+
+  <div class="note-flow">
+Initialization
+      ↓
+Check Condition
+      ↓
+Condition TRUE?
+   ↓          ↓
+  Yes         No
+   ↓           ↓
+Execute Body  Exit Loop
+   ↓
+Update
+   ↓
+Check Condition Again
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A college application may need to process the records of a fixed
+    number of students. A <code>for</code> loop can repeat the same
+    operation for each student.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <strong>Process student 1 → student 2 → student 3 → ...</strong>
+  </div>
+
+
+  <h2>Practical Example — Sum of Natural Numbers</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to calculate the sum of natural numbers from
+    <strong>1 to N</strong> using a <code>for</code> loop.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand the use of a <code>for</code> loop.</li>
+    <li>Use initialization, condition and update in one loop statement.</li>
+    <li>Calculate a running total using a loop.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Initialize <code>sum</code> to 0 and use a <code>for</code> loop
+    from <code>1</code> to <code>N</code>. Add each value to
+    <code>sum</code>.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A <code>for</code> loop combines initialization, condition checking
+    and updating in a compact structure. It is commonly used when the
+    number of iterations is known or follows a fixed range.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;          // sum stores the running total
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    for (int i = 1; i &lt;= n; i++)   // i runs from 1 to n
+        sum += i;                   // add the current value to sum
+
+    printf("Sum of first %d natural numbers = %d\n", n, sum);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter N: 10
+Sum of first 10 natural numbers = 55</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    A common mistake is using the wrong loop condition or forgetting
+    the update expression. Make sure the loop variable moves toward
+    the stopping condition.
+  </p>
+
+
+  <h2>for Loop vs while Loop</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>for</th>
+          <th>while</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Initialization, condition and update are written together.</td>
+          <td>Initialization and update are usually written separately.</td>
+        </tr>
+
+        <tr>
+          <td>Useful when the loop range is known.</td>
+          <td>Useful when repetition depends mainly on a condition.</td>
+        </tr>
+
+        <tr>
+          <td>Compact loop structure.</td>
+          <td>More flexible when the update logic is complex.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>The <code>for</code> loop is used for repeated execution.</li>
+    <li>It contains initialization, condition and update.</li>
+    <li>The condition is checked before each iteration.</li>
+    <li>If the condition is false initially, the loop body does not execute.</li>
+    <li>The update expression changes the loop variable after each iteration.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>Initialize → Check → Execute → Update → Repeat</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Part</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><strong>Initialization</strong></td>
+          <td>Sets the starting value.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Condition</strong></td>
+          <td>Determines whether the loop continues.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Update</strong></td>
+          <td>Changes the loop variable.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a for loop in C?</li>
+    <li>Write the syntax of a for loop.</li>
+    <li>What are the three parts of a for loop?</li>
+    <li>What is the purpose of initialization?</li>
+    <li>What is the purpose of the update expression?</li>
+    <li>What happens if the condition is false initially?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain the for loop with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program to calculate the sum of natural numbers from
+      1 to N using a for loop.
+    </li>
+
+    <li>
+      Explain the three parts of a for loop with an example.
+    </li>
+
+    <li>
+      Differentiate between for and while loops.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the for loop in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=for+loop+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: for Loop in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the for loop
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of initialization,
+        condition, execution and update.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 15
+// UNCONDITIONAL CONTROL STATEMENT: break
+// ============================================================
+
+NOTES["m2-break"] = [
+  `
+  <h2>break Statement in C</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>break</code> statement is used
+    to immediately terminate the nearest loop or <code>switch-case</code>
+    statement. Program execution continues with the statement that follows
+    the terminated loop or switch.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If a loop contains <code>break</code> when <code>i == 5</code>,
+    the loop stops immediately at 5 and does not continue further.
+  </div>
+
+
+  <h3>Syntax</h3>
+
+  <pre class="program-code"><code>break;</code></pre>
+
+
+  <h3>How break Works</h3>
+
+  <div class="note-flow">
+Loop starts
+    ↓
+Condition checked
+    ↓
+Statement executes
+    ↓
+break encountered?
+   ↓          ↓
+  Yes         No
+   ↓           ↓
+Exit loop    Continue loop
+    ↓
+Next statement
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    In the following example, the loop is stopped when the value of
+    <code>i</code> becomes 3.
+  </p>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for (i = 1; i &lt;= 5; i++)
+    {
+        if (i == 3)
+            break;              // stop the loop when i becomes 3
+
+        printf("%d ", i);
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Output</h3>
+
+  <pre class="output-box">1 2</pre>
+
+
+  <h2>Why is break Used?</h2>
+
+  <p>
+    The <code>break</code> statement is used when the program needs to stop
+    a loop immediately after a particular condition is satisfied.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    While searching for a student's roll number in a list, the search can
+    stop as soon as the required roll number is found.
+  </div>
+
+
+  <h2>break with for Loop</h2>
+
+  <p>
+    When <code>break</code> is used inside a <code>for</code> loop,
+    the loop terminates immediately. The remaining iterations are skipped.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If a loop is set to run from 1 to 10 but <code>break</code> executes
+    at 6, values 6 to 10 are not processed.
+  </div>
+
+
+  <h2>break with while Loop</h2>
+
+  <p>
+    The <code>break</code> statement can also terminate a
+    <code>while</code> loop when a required condition is met.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A program can keep reading numbers until it receives a particular
+    value, then use <code>break</code> to stop the loop.
+  </div>
+
+
+  <h2>break with switch-case</h2>
+
+  <p>
+    In a <code>switch-case</code> statement, <code>break</code> is commonly
+    used to terminate the current case and prevent execution from falling
+    into the next case.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    After executing <code>case 1</code>, <code>break</code> exits the
+    switch instead of continuing to <code>case 2</code>.
+  </div>
+
+
+  <h2>Practical Example — Stop When Number is Found</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to search for the number <strong>7</strong> from
+    1 to 10. Stop the loop when the number 7 is reached using
+    the <code>break</code> statement.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand the purpose of the <code>break</code> statement.</li>
+    <li>Terminate a loop before its normal condition becomes false.</li>
+    <li>Use <code>break</code> with a conditional statement inside a loop.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Use a <code>for</code> loop from 1 to 10. When <code>i == 7</code>,
+    use <code>break</code> to terminate the loop.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>break</code> statement immediately terminates the nearest
+    loop when it is executed. Control then moves to the statement after
+    the loop.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        if (i == 7)             // stop when 7 is reached
+            break;
+
+        printf("%d ", i);
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">1 2 3 4 5 6</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>break</code> terminates only the <strong>nearest loop or
+    switch</strong> in which it appears. It does not simply skip the
+    current iteration; it completely exits the loop.
+  </p>
+
+
+  <h2>break vs continue</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>break</th>
+          <th>continue</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Terminates the loop completely.</td>
+          <td>Skips the current iteration.</td>
+        </tr>
+
+        <tr>
+          <td>Control moves outside the loop.</td>
+          <td>Control moves to the next iteration.</td>
+        </tr>
+
+        <tr>
+          <td>Used when no further repetition is required.</td>
+          <td>Used when one particular iteration should be skipped.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li><code>break</code> immediately terminates the nearest loop or switch.</li>
+    <li>It can be used inside <code>for</code>, <code>while</code> and <code>do-while</code> loops.</li>
+    <li>It is also commonly used with <code>switch-case</code>.</li>
+    <li>After <code>break</code>, control moves to the statement after the loop or switch.</li>
+    <li><code>break</code> is different from <code>continue</code>.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>break = Stop the loop completely</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Purpose</strong></td>
+          <td>Terminate the nearest loop or switch.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Syntax</strong></td>
+          <td><code>break;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Loops</strong></td>
+          <td>for, while, do-while</td>
+        </tr>
+
+        <tr>
+          <td><strong>switch-case</strong></td>
+          <td>Prevents fall-through between cases.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a break statement in C?</li>
+    <li>Write the syntax of break.</li>
+    <li>What happens when break is executed inside a loop?</li>
+    <li>Where can the break statement be used?</li>
+    <li>What is the use of break in switch-case?</li>
+    <li>Differentiate between break and continue.</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain the break statement with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program that uses break to terminate a loop when
+      a particular value is reached.
+    </li>
+
+    <li>
+      Explain the use of break in loops and switch-case.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the break statement
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=break+statement+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: break Statement in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the break statement
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of break, loop termination
+        and switch-case.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 2 — TOPIC 16
+// UNCONDITIONAL CONTROL STATEMENT: continue
+// ============================================================
+
+NOTES["m2-continue"] = [
+  `
+  <h2>continue Statement in C</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>continue</code> statement is
+    used to skip the remaining statements of the current iteration
+    of a loop and move directly to the next iteration.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If a loop is printing numbers from 1 to 5 and <code>continue</code>
+    is used when <code>i == 3</code>, the number 3 is skipped but
+    the loop continues with 4 and 5.
+  </div>
+
+
+  <h3>Syntax</h3>
+
+  <pre class="program-code"><code>continue;</code></pre>
+
+
+  <h3>How continue Works</h3>
+
+  <div class="note-flow">
+Loop starts
+    ↓
+Condition checked
+    ↓
+Execute statements
+    ↓
+continue encountered?
+   ↓          ↓
+  Yes         No
+   ↓           ↓
+Skip remaining
+statements
+   ↓
+Next iteration
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    In the following program, the value 3 is skipped using the
+    <code>continue</code> statement.
+  </p>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for (i = 1; i &lt;= 5; i++)
+    {
+        if (i == 3)
+            continue;           // skip the current iteration
+
+        printf("%d ", i);
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Output</h3>
+
+  <pre class="output-box">1 2 4 5</pre>
+
+
+  <h2>Why is continue Used?</h2>
+
+  <p>
+    The <code>continue</code> statement is used when a particular
+    iteration should be skipped but the loop should continue executing
+    the remaining iterations.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    While processing student records, a program may skip a record
+    that does not satisfy a particular condition and continue with
+    the next student.
+  </div>
+
+
+  <h2>continue with for Loop</h2>
+
+  <p>
+    When <code>continue</code> is used inside a <code>for</code> loop,
+    the remaining statements of the current iteration are skipped.
+    Control then moves to the update expression before the next
+    condition check.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In a loop from 1 to 10, if <code>continue</code> is executed
+    when <code>i == 5</code>, the statements after <code>continue</code>
+    are skipped for 5, but the loop continues with 6.
+  </div>
+
+
+  <h2>continue with while Loop</h2>
+
+  <p>
+    The <code>continue</code> statement can also be used inside a
+    <code>while</code> loop to skip the current iteration and proceed
+    with the next condition check.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A program reading several values can skip unwanted values and
+    continue processing the remaining input.
+  </div>
+
+
+  <h2>Practical Example — Skip Even Numbers</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to print numbers from 1 to 10 while skipping
+    all even numbers using the <code>continue</code> statement.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand the purpose of the <code>continue</code> statement.</li>
+    <li>Skip a particular iteration without terminating the loop.</li>
+    <li>Use <code>continue</code> with a conditional statement.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Use a <code>for</code> loop from 1 to 10. If the number is divisible
+    by 2, use <code>continue</code> to skip that iteration.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>continue</code> statement skips the remaining statements
+    of the current loop iteration. Unlike <code>break</code>, it does
+    not terminate the loop.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        if (i % 2 == 0)          // check for even number
+            continue;             // skip even numbers
+
+        printf("%d ", i);
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">1 3 5 7 9</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The <code>continue</code> statement does not exit the loop.
+    It only skips the current iteration. The loop continues with
+    the next iteration.
+  </p>
+
+
+  <h2>break vs continue</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>break</th>
+          <th>continue</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Terminates the loop completely.</td>
+          <td>Skips only the current iteration.</td>
+        </tr>
+
+        <tr>
+          <td>Control moves outside the loop.</td>
+          <td>Control moves to the next iteration.</td>
+        </tr>
+
+        <tr>
+          <td>Remaining iterations are not executed.</td>
+          <td>Remaining iterations continue normally.</td>
+        </tr>
+
+        <tr>
+          <td>Used when the loop must stop.</td>
+          <td>Used when one iteration must be skipped.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li><code>continue</code> skips the current iteration.</li>
+    <li>It does not terminate the loop completely.</li>
+    <li>It can be used inside <code>for</code>, <code>while</code> and
+        <code>do-while</code> loops.</li>
+    <li>In a <code>for</code> loop, control moves to the update expression
+        after <code>continue</code>.</li>
+    <li><code>continue</code> is different from <code>break</code>.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>continue = Skip this iteration, continue the loop</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Purpose</strong></td>
+          <td>Skip the current iteration.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Syntax</strong></td>
+          <td><code>continue;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Loop status</strong></td>
+          <td>Loop continues.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Difference from break</strong></td>
+          <td>break exits; continue skips.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a continue statement in C?</li>
+    <li>Write the syntax of continue.</li>
+    <li>What happens when continue is executed inside a loop?</li>
+    <li>Does continue terminate a loop?</li>
+    <li>Where can the continue statement be used?</li>
+    <li>Differentiate between break and continue.</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain the continue statement with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program to print numbers from 1 to 10 while skipping
+      even numbers using continue.
+    </li>
+
+    <li>
+      Explain the difference between break and continue with examples.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the continue statement
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=continue+statement+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: continue Statement in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the continue
+        statement will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of continue, skipped
+        iterations and loop continuation.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 3 — TOPIC 1
+// ARRAYS (1-D)
+// ============================================================
+
+NOTES["m3-arrays-1d"] = [
+  `
+  <h2>Arrays (1-D)</h2>
+
+  <p>
+    <strong>Definition:</strong> An array is a collection of elements
+    of the <strong>same data type</strong> stored in
+    <strong>contiguous memory locations</strong>. Each element is
+    identified using an index.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int marks[5];</code>
+    creates an array named <code>marks</code> that can store
+    5 integer values.
+  </div>
+
+
+  <h2>Why Do We Need an Array?</h2>
+
+  <p>
+    Suppose we need to store the marks of five students. Without an
+    array, we would need five separate variables.
+  </p>
+
+  <pre class="program-code"><code>int mark1 = 78;
+int mark2 = 65;
+int mark3 = 91;
+int mark4 = 54;
+int mark5 = 82;</code></pre>
+
+  <p>
+    An array allows us to store all these values using one variable name.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int marks[5];</code>
+    can store all five marks using the single name <code>marks</code>.
+  </div>
+
+
+  <h2>What is a One-Dimensional Array?</h2>
+
+  <p>
+    <strong>Definition:</strong> A one-dimensional array is a linear
+    collection of elements arranged in a single sequence. Each element
+    is accessed using one index.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int marks[5] = {78, 65, 91, 54, 82};</code>
+    stores five integer values in one-dimensional form.
+  </div>
+
+
+  <h2>Characteristics of an Array</h2>
+
+  <ul>
+    <li>All elements have the <strong>same data type</strong>.</li>
+    <li>Elements are stored in a continuous sequence of memory locations.</li>
+    <li>Each element is accessed using an <strong>index</strong>.</li>
+    <li>Array indexing in C starts from <strong>0</strong>.</li>
+    <li>The size of a normally declared fixed-size array is determined at declaration.</li>
+  </ul>
+
+
+  <h2>Array Declaration</h2>
+
+  <p>
+    <strong>Definition:</strong> Array declaration tells the compiler
+    the data type, name and number of elements of the array.
+  </p>
+
+  <pre class="program-code"><code>data_type array_name[size];</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int marks[5];</code>
+    declares an integer array named <code>marks</code> with 5 elements.
+  </div>
+
+
+  <h2>Array Initialization</h2>
+
+  <p>
+    <strong>Definition:</strong> Array initialization means assigning
+    initial values to the array elements.
+  </p>
+
+  <pre class="program-code"><code>int marks[5] = {78, 65, 91, 54, 82};</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    Here the five elements are initialized with
+    <strong>78, 65, 91, 54 and 82</strong>.
+  </div>
+
+
+  <h2>Declaration vs Initialization</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Declaration</th>
+          <th>Initialization</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Creates/defines the array.</td>
+          <td>Assigns initial values.</td>
+        </tr>
+
+        <tr>
+          <td><code>int marks[5];</code></td>
+          <td><code>int marks[5] = {78,65,91,54,82};</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Array Size</h2>
+
+  <p>
+    <strong>Definition:</strong> The size of an array is the total number
+    of elements it can store.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>int marks[5];</code>, the array size is
+    <strong>5</strong>.
+  </div>
+
+  <p>
+    Remember that <strong>array size and last index are different</strong>.
+    For an array of size 5, the last valid index is 4.
+  </p>
+
+
+  <h2>Indexing in an Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Indexing is the method of identifying
+    and accessing individual elements of an array using their position.
+    In C, array indexing starts from <strong>0</strong>.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For <code>int marks[5]</code>, the valid indexes are
+    <strong>0, 1, 2, 3 and 4</strong>.
+  </div>
+
+
+  <h2>Array with Indexes</h2>
+
+  <pre class="program-code"><code>Array:    marks
+
+Index:      0    1    2    3    4
+            ↓    ↓    ↓    ↓    ↓
+
+Value:     78   65   91   54   82</code></pre>
+
+  <div class="simple-box">
+    📌 <strong>Important:</strong>
+    If an array contains <code>n</code> elements, its valid indexes are
+    <strong>0 to n-1</strong>.
+  </div>
+
+
+  <h2>First and Last Index</h2>
+
+  <p>
+    <strong>Definition:</strong> In a one-dimensional array, the first
+    element is always at index <code>0</code> and the last element is
+    at index <code>size - 1</code>.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For <code>int marks[5]</code>:<br><br>
+    First index = <strong>0</strong><br>
+    Last index = <strong>4</strong>
+  </div>
+
+
+  <h2>Accessing Array Elements</h2>
+
+  <p>
+    <strong>Definition:</strong> An individual array element is accessed
+    by writing the array name followed by its index inside square brackets.
+  </p>
+
+  <pre class="program-code"><code>marks[0]
+marks[1]
+marks[2]</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>marks[0] = 78</code>, then <code>marks[0]</code>
+    returns the first element, which is <strong>78</strong>.
+  </div>
+
+
+  <h2>Modifying an Array Element</h2>
+
+  <p>
+    <strong>Definition:</strong> An array element can be changed by
+    assigning a new value to its index.
+  </p>
+
+  <pre class="program-code"><code>marks[2] = 95;</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If the third element was 91, the statement
+    <code>marks[2] = 95;</code> changes it to <strong>95</strong>.
+  </div>
+
+
+  <h2>Traversing an Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Traversing an array means visiting
+    each element of the array one by one.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A <code>for</code> loop can be used to visit every element from
+    index 0 to the last index.
+  </div>
+
+  <pre class="program-code"><code>for (int i = 0; i &lt; 5; i++)
+{
+    printf("%d ", marks[i]);
+}</code></pre>
+
+
+  <h2>Taking Array Input</h2>
+
+  <p>
+    <strong>Definition:</strong> Array elements can be read from the user
+    one by one using a loop and <code>scanf()</code>.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>scanf("%d", &amp;marks[i]);</code>
+    stores the entered value at the current index.
+  </div>
+
+
+  <h2>Displaying Array Elements</h2>
+
+  <p>
+    <strong>Definition:</strong> Array elements can be displayed by
+    accessing each index, usually with the help of a loop.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>printf("%d ", marks[i]);</code>
+    displays the current array element.
+  </div>
+
+
+  <h2>Array and Memory</h2>
+
+  <p>
+    <strong>Definition:</strong> Array elements are stored in consecutive
+    memory locations, which makes sequential access efficient.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If the first element is stored at one memory location, the next
+    element is stored in the next appropriate memory location for that
+    data type.
+  </div>
+
+
+  <h2>Array Initialization with Fewer Values</h2>
+
+  <p>
+    <strong>Definition:</strong> An array can be initialized with fewer
+    values than its declared size. The remaining elements are initialized
+    to zero when the array has static initialization in a declaration
+    such as this.
+  </p>
+
+  <pre class="program-code"><code>int marks[5] = {78, 65};</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    The first two elements receive 78 and 65, while the remaining
+    elements are initialized to <strong>0</strong> in this declaration.
+  </div>
+
+
+  <h2>Initializing All Elements with Zero</h2>
+
+  <p>
+    A simple way to initialize all elements of an array to zero is
+    to provide the first element as zero and let the remaining elements
+    be initialized to zero.
+  </p>
+
+  <pre class="program-code"><code>int marks[5] = {0};</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    The resulting array values are:
+    <strong>0, 0, 0, 0, 0</strong>.
+  </div>
+
+
+  <h2>Array and Loop</h2>
+
+  <p>
+    Arrays and loops are commonly used together because a loop can
+    process every element using its index.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    To print all five elements, the loop can run from
+    <code>i = 0</code> to <code>i &lt; 5</code>.
+  </div>
+
+
+  <h2>Practical Example — Read and Display Array Elements</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept 5 integers from the user and display
+    all the elements of the one-dimensional array.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Declare and initialize a one-dimensional array.</li>
+    <li>Use a loop to accept array elements.</li>
+    <li>Use indexes to access and display array elements.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Use an integer array of size 5. Use one <code>for</code> loop to
+    read the elements and another loop to display them.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Array elements are accessed using indexes starting from 0.
+    A loop provides a convenient way to process each element in sequence.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks[5];
+    int i;
+
+    printf("Enter 5 integers: ");
+
+    // read each array element
+    for (i = 0; i &lt; 5; i++)
+        scanf("%d", &amp;marks[i]);
+
+    printf("Array elements: ");
+
+    // display each array element
+    for (i = 0; i &lt; 5; i++)
+        printf("%d ", marks[i]);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter 5 integers: 78 65 91 54 82
+Array elements: 78 65 91 54 82</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    Remember that for an array of size 5, the indexes are only
+    <code>0</code> through <code>4</code>. Accessing
+    <code>marks[5]</code> is outside the valid range.
+  </p>
+
+
+  <h2>Array Index Out of Bounds</h2>
+
+  <p>
+    <strong>Definition:</strong> An out-of-bounds access occurs when a
+    program tries to access an index outside the valid range of the array.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For <code>int marks[5]</code>, <code>marks[5]</code> is invalid
+    because the last valid element is <code>marks[4]</code>.
+  </div>
+
+
+  <h2>Common Mistakes in Arrays</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Correct Understanding</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Starting index from 1</td>
+          <td>C arrays start from index 0.</td>
+        </tr>
+
+        <tr>
+          <td>Using size as last index</td>
+          <td>Last valid index is size - 1.</td>
+        </tr>
+
+        <tr>
+          <td>Using different data types in one array</td>
+          <td>All elements normally have the same data type.</td>
+        </tr>
+
+        <tr>
+          <td>Using an invalid index</td>
+          <td>Use only valid indexes from 0 to size - 1.</td>
+        </tr>
+
+        <tr>
+          <td>Wrong loop limit</td>
+          <td>For size 5, use indexes 0 to 4.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Finding Sum of Array Elements</h2>
+
+  <p>
+    <strong>Definition:</strong> The sum of an array is obtained by adding
+    all its elements together.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For <code>{10, 20, 30}</code>,
+    sum = <strong>10 + 20 + 30 = 60</strong>.
+  </div>
+
+  <pre class="program-code"><code>int sum = 0;
+
+for (int i = 0; i &lt; 3; i++)
+    sum += arr[i];</code></pre>
+
+
+  <h2>Finding Average of Array Elements</h2>
+
+  <p>
+    <strong>Definition:</strong> The average of array elements is the
+    sum of all elements divided by the number of elements.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For <code>{10, 20, 30}</code>,
+    average = <strong>60 / 3 = 20</strong>.
+  </div>
+
+
+  <h2>Finding Largest Element</h2>
+
+  <p>
+    <strong>Definition:</strong> The largest element is the element
+    having the greatest value among all array elements.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>{12, 45, 23, 67}</code>, the largest element is
+    <strong>67</strong>.
+  </div>
+
+
+  <h2>Finding Smallest Element</h2>
+
+  <p>
+    <strong>Definition:</strong> The smallest element is the element
+    having the lowest value among all array elements.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>{12, 45, 23, 67}</code>, the smallest element is
+    <strong>12</strong>.
+  </div>
+
+
+  <h2>Searching an Element</h2>
+
+  <p>
+    <strong>Definition:</strong> Searching an array means checking its
+    elements to determine whether a particular value is present.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>{10, 25, 30, 45}</code>, searching for
+    <strong>30</strong> finds the value at index <strong>2</strong>.
+  </div>
+
+
+  <h2>Practical Example — Find Sum and Average</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept 5 numbers in a one-dimensional array
+    and calculate their sum and average.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Store multiple values in a one-dimensional array.</li>
+    <li>Traverse an array using a loop.</li>
+    <li>Calculate sum and average from array elements.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Initialize <code>sum</code> to 0. Add every array element to
+    <code>sum</code>, then divide the sum by 5.0.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The sum of array elements can be calculated by traversing the array
+    and adding each element to a running total. The average is obtained
+    by dividing the total by the number of elements.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[5];
+    int i, sum = 0;
+    float average;
+
+    printf("Enter 5 numbers: ");
+
+    // read array elements
+    for (i = 0; i &lt; 5; i++)
+        scanf("%d", &amp;arr[i]);
+
+    // calculate the sum
+    for (i = 0; i &lt; 5; i++)
+        sum += arr[i];
+
+    average = sum / 5.0;     // use 5.0 for floating-point division
+
+    printf("Sum = %d\n", sum);
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter 5 numbers: 10 20 30 40 50
+Sum = 150
+Average = 30.00</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    When a fractional average is required, use a floating-point divisor
+    such as <code>5.0</code> instead of <code>5</code> to avoid
+    unintended integer division.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><strong>Array</strong></td>
+          <td>Collection of same-type elements.</td>
+        </tr>
+
+        <tr>
+          <td><strong>1-D Array</strong></td>
+          <td>Linear collection using one index.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Indexing</strong></td>
+          <td>Starts from 0 in C.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Last Index</strong></td>
+          <td>size - 1</td>
+        </tr>
+
+        <tr>
+          <td><strong>Access</strong></td>
+          <td><code>array[index]</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Traversal</strong></td>
+          <td>Visit every element one by one.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Common Tool</strong></td>
+          <td>Loops are commonly used with arrays.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Invalid Access</strong></td>
+          <td>Index outside 0 to size - 1 is invalid.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is an array?</li>
+    <li>What is a one-dimensional array?</li>
+    <li>Why are arrays used in C?</li>
+    <li>Write the syntax for declaring an array.</li>
+    <li>What is array indexing?</li>
+    <li>Why does array indexing start from 0 in C?</li>
+    <li>What is the last valid index of an array of size 10?</li>
+    <li>What is array traversal?</li>
+    <li>What is an out-of-bounds array access?</li>
+    <li>How are array elements accessed?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Define an array and explain one-dimensional arrays with examples.
+    </li>
+
+    <li>
+      Explain array declaration, initialization and indexing in C.
+    </li>
+
+    <li>
+      Explain how to access, modify and traverse a one-dimensional array.
+    </li>
+
+    <li>
+      Write a C program to read and display elements of a one-dimensional array.
+    </li>
+
+    <li>
+      Write a C program to find the sum and average of array elements.
+    </li>
+
+    <li>
+      Explain common mistakes while working with one-dimensional arrays.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of one-dimensional arrays,
+        indexing and traversal in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=1D+array+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: 1-D Arrays in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for one-dimensional
+        arrays and indexing will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of declaration,
+        initialization, indexing, traversal and basic array operations.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 3 — TOPIC 2
+// ARRAYS (2-D)
+// ============================================================
+
+NOTES["m3-arrays-2d"] = [
+  `
+  <h2>Two-Dimensional Arrays (2-D)</h2>
+
+  <p>
+    <strong>Definition:</strong> A two-dimensional array is an array
+    arranged in the form of <strong>rows and columns</strong>.
+    It is commonly used to represent tables and matrices.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int marks[3][4];</code>
+    creates a 2-D integer array with <strong>3 rows</strong> and
+    <strong>4 columns</strong>.
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A classroom marks table can be represented using a 2-D array,
+    where rows represent students and columns represent subjects.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong><br><br>
+    Row → Student<br>
+    Column → Subject<br>
+    Each cell → Marks of one student in one subject
+  </div>
+
+
+  <h2>2-D Array Representation</h2>
+
+  <pre class="program-code"><code>        Column
+          0    1    2
+       ┌────┬────┬────┐
+Row 0  │ 10 │ 20 │ 30 │
+       ├────┼────┼────┤
+Row 1  │ 40 │ 50 │ 60 │
+       ├────┼────┼────┤
+Row 2  │ 70 │ 80 │ 90 │
+       └────┴────┴────┘</code></pre>
+
+  <div class="simple-box">
+    📌 <strong>Important:</strong>
+    Like 1-D arrays, 2-D array indexes in C start from
+    <strong>0</strong>.
+  </div>
+
+
+  <h2>Rows and Columns</h2>
+
+  <p>
+    <strong>Rows</strong> represent the horizontal entries of the array,
+    while <strong>columns</strong> represent the vertical entries.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>int matrix[3][4]</code>:<br><br>
+    Number of rows = <strong>3</strong><br>
+    Number of columns = <strong>4</strong><br>
+    Total elements = <strong>3 × 4 = 12</strong>
+  </div>
+
+
+  <h2>Declaration of 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> A 2-D array is declared by specifying
+    the data type, array name, number of rows and number of columns.
+  </p>
+
+  <pre class="program-code"><code>data_type array_name[rows][columns];</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int matrix[2][3];</code>
+    declares an integer array with 2 rows and 3 columns.
+  </div>
+
+
+  <h2>Initialization of 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Initialization means assigning values
+    to the elements of a 2-D array when it is declared.
+  </p>
+
+  <pre class="program-code"><code>int matrix[2][3] = {
+    {10, 20, 30},
+    {40, 50, 60}
+};</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    The first row contains <strong>10, 20, 30</strong> and the second
+    row contains <strong>40, 50, 60</strong>.
+  </div>
+
+
+  <h2>Accessing 2-D Array Elements</h2>
+
+  <p>
+    <strong>Definition:</strong> An element of a 2-D array is accessed
+    using two indexes: one for the row and one for the column.
+  </p>
+
+  <pre class="program-code"><code>array_name[row][column]</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For
+    <code>int matrix[2][3] = {{10,20,30},{40,50,60}};</code><br><br>
+
+    <code>matrix[0][0]</code> → <strong>10</strong><br>
+    <code>matrix[0][2]</code> → <strong>30</strong><br>
+    <code>matrix[1][1]</code> → <strong>50</strong>
+  </div>
+
+
+  <h2>2-D Array Indexing</h2>
+
+  <pre class="program-code"><code>        Column Index
+           0    1    2
+        ┌────┬────┬────┐
+Row 0   │ 10 │ 20 │ 30 │
+        ├────┼────┼────┤
+Row 1   │ 40 │ 50 │ 60 │
+        └────┴────┴────┘
+
+matrix[0][0] = 10
+matrix[0][1] = 20
+matrix[0][2] = 30
+
+matrix[1][0] = 40
+matrix[1][1] = 50
+matrix[1][2] = 60</code></pre>
+
+
+  <h2>Nested Loops and 2-D Arrays</h2>
+
+  <p>
+    A 2-D array is commonly processed using <strong>nested loops</strong>.
+    The outer loop controls rows and the inner loop controls columns.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong><br><br>
+    Outer loop → rows<br>
+    Inner loop → columns
+  </div>
+
+  <pre class="program-code"><code>for (int i = 0; i &lt; rows; i++)
+{
+    for (int j = 0; j &lt; columns; j++)
+    {
+        printf("%d ", matrix[i][j]);
+    }
+}</code></pre>
+
+
+  <h2>Taking Input in a 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Input for a 2-D array can be taken
+    element by element using nested loops.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>scanf("%d", &amp;matrix[i][j]);</code>
+    stores the entered value at row <code>i</code> and column
+    <code>j</code>.
+  </div>
+
+
+  <h2>Displaying a 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> A 2-D array can be displayed row by row
+    by using nested loops.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    After printing each row, <code>printf("\n");</code> moves to the
+    next row.
+  </div>
+
+
+  <h2>Practical Example — Read and Display a Matrix</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept a <strong>2 × 3 matrix</strong> from
+    the user and display the matrix in row and column form.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Declare and use a two-dimensional array.</li>
+    <li>Use nested loops to read matrix elements.</li>
+    <li>Use row and column indexes to access array elements.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Use two nested loops. The outer loop should handle rows and the
+    inner loop should handle columns.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A 2-D array stores data in rows and columns. Nested loops provide
+    a convenient way to process every element of the matrix.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int matrix[2][3];
+    int i, j;
+
+    printf("Enter 6 elements: ");
+
+    // read matrix elements row by row
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 3; j++)
+            scanf("%d", &amp;matrix[i][j]);
+    }
+
+    printf("Matrix:\n");
+
+    // display matrix row by row
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 3; j++)
+            printf("%d ", matrix[i][j]);
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter 6 elements: 10 20 30 40 50 60
+Matrix:
+10 20 30
+40 50 60</pre>
+
+
+  <h2>Modifying an Element</h2>
+
+  <p>
+    <strong>Definition:</strong> A particular element of a 2-D array
+    can be changed by assigning a new value to its row and column index.
+  </p>
+
+  <pre class="program-code"><code>matrix[1][2] = 100;</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>matrix[1][2]</code> originally contains 60, the above
+    statement changes it to <strong>100</strong>.
+  </div>
+
+
+  <h2>Traversing a 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Traversing a 2-D array means visiting
+    every element row by row and column by column.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For a 2 × 3 matrix, traversal visits:
+    <strong>[0][0] → [0][1] → [0][2] → [1][0] → [1][1] → [1][2]</strong>
+  </div>
+
+
+  <h2>Matrix Addition</h2>
+
+  <p>
+    <strong>Definition:</strong> Matrix addition is performed by adding
+    corresponding elements of two matrices having the same dimensions.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong><br><br>
+
+    A = 1  2<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;3  4<br><br>
+
+    B = 5  6<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;7  8<br><br>
+
+    Result = 6  8<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 12
+  </div>
+
+
+  <h2>Practical Example — Addition of Two Matrices</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept two <strong>2 × 2 matrices</strong>
+    and calculate their sum.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use two-dimensional arrays to represent matrices.</li>
+    <li>Traverse matrices using nested loops.</li>
+    <li>Add corresponding elements of two matrices.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Read both matrices using nested loops. Add corresponding elements
+    and store the result in a third matrix.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Two matrices can be added when they have the same number of rows
+    and columns. Each element of the first matrix is added to the
+    element at the same position in the second matrix.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[2][2], b[2][2], sum[2][2];
+    int i, j;
+
+    printf("Enter elements of first matrix: ");
+
+    // read first matrix
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            scanf("%d", &amp;a[i][j]);
+    }
+
+    printf("Enter elements of second matrix: ");
+
+    // read second matrix
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            scanf("%d", &amp;b[i][j]);
+    }
+
+    // add corresponding elements
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            sum[i][j] = a[i][j] + b[i][j];
+    }
+
+    printf("Sum of matrices:\n");
+
+    // display the result matrix
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            printf("%d ", sum[i][j]);
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter elements of first matrix: 1 2 3 4
+Enter elements of second matrix: 5 6 7 8
+Sum of matrices:
+6 8
+10 12</pre>
+
+
+  <h2>1-D Array vs 2-D Array</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>1-D Array</th>
+          <th>2-D Array</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Uses one index.</td>
+          <td>Uses two indexes.</td>
+        </tr>
+
+        <tr>
+          <td>Usually represents a linear list.</td>
+          <td>Usually represents rows and columns.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>int a[5];</code></td>
+          <td>Example: <code>int a[3][4];</code></td>
+        </tr>
+
+        <tr>
+          <td>Processed using one loop.</td>
+          <td>Usually processed using nested loops.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Common Mistakes in 2-D Arrays</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Correct Understanding</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Starting indexes from 1</td>
+          <td>Both row and column indexes start from 0.</td>
+        </tr>
+
+        <tr>
+          <td>Using wrong row/column limit</td>
+          <td>For <code>[3][4]</code>, rows are 0–2 and columns are 0–3.</td>
+        </tr>
+
+        <tr>
+          <td>Using one loop only</td>
+          <td>Nested loops are normally used for complete traversal.</td>
+        </tr>
+
+        <tr>
+          <td>Confusing <code>matrix[i][j]</code></td>
+          <td>First index represents row, second represents column.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>A 2-D array stores data in rows and columns.</li>
+    <li>Two indexes are used to access an element.</li>
+    <li>Both indexes start from 0 in C.</li>
+    <li>Nested loops are commonly used to process a 2-D array.</li>
+    <li>Matrix addition requires matrices of the same dimensions.</li>
+    <li>For <code>matrix[rows][columns]</code>, valid row indexes are
+        <code>0</code> to <code>rows - 1</code> and column indexes are
+        <code>0</code> to <code>columns - 1</code>.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>Outer loop → Row</strong><br>
+    <strong>Inner loop → Column</strong><br>
+    <strong>matrix[row][column]</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><strong>2-D Array</strong></td>
+          <td>Data arranged in rows and columns.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Declaration</strong></td>
+          <td><code>data_type name[rows][columns];</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Access</strong></td>
+          <td><code>array[row][column]</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Indexing</strong></td>
+          <td>Starts from 0 for both dimensions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Traversal</strong></td>
+          <td>Usually done with nested loops.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Matrix Addition</strong></td>
+          <td>Add corresponding elements.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a two-dimensional array?</li>
+    <li>Write the syntax for declaring a 2-D array.</li>
+    <li>How are elements of a 2-D array accessed?</li>
+    <li>What are rows and columns in a 2-D array?</li>
+    <li>Why are nested loops used with 2-D arrays?</li>
+    <li>What is the last valid row index of an array declared as <code>int a[3][4]</code>?</li>
+    <li>What is the last valid column index of an array declared as <code>int a[3][4]</code>?</li>
+    <li>What is matrix addition?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Define a two-dimensional array and explain its declaration,
+      initialization and indexing with examples.
+    </li>
+
+    <li>
+      Explain how nested loops are used to input and display a 2-D array.
+    </li>
+
+    <li>
+      Write a C program to read and display a 2 × 3 matrix.
+    </li>
+
+    <li>
+      Write a C program to add two matrices.
+    </li>
+
+    <li>
+      Differentiate between one-dimensional and two-dimensional arrays.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of 2-D arrays,
+        rows, columns and matrix operations in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=2D+array+matrix+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: 2-D Arrays in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for 2-D arrays,
+        indexing and matrix operations will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of rows, columns,
+        indexing, traversal and matrix addition.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 3 — TOPIC 3
+// CHARACTER ARRAYS AND STRINGS
+// ============================================================
+
+NOTES["m3-character-arrays-strings"] = [
+  `
+  <h2>Character Arrays and Strings</h2>
+
+  <p>
+    <strong>Definition:</strong> A character array is an array whose
+    elements are of type <code>char</code>. It can store individual
+    characters and can also be used to store a string.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>char letters[5] = {'A', 'B', 'C', 'D', 'E'};</code>
+    stores five characters in a character array.
+  </div>
+
+
+  <h2>What is a String?</h2>
+
+  <p>
+    <strong>Definition:</strong> A string in C is a sequence of characters
+    terminated by a special character called the
+    <strong>null character <code>\\0</code></strong>.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    The string <strong>"HELLO"</strong> is stored as:
+    <br><br>
+    <code>'H' 'E' 'L' 'L' 'O' '\\0'</code>
+  </div>
+
+
+  <h2>Character Array vs String</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Character Array</th>
+          <th>String</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Array of characters.</td>
+          <td>Character sequence terminated by <code>\\0</code>.</td>
+        </tr>
+
+        <tr>
+          <td>Need not contain <code>\\0</code>.</td>
+          <td>Must end with <code>\\0</code> to be a C string.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>{'A','B','C'}</code></td>
+          <td>Example: <code>"ABC"</code></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Null Character (\\0)</h2>
+
+  <p>
+    <strong>Definition:</strong> The null character <code>\\0</code>
+    marks the end of a string in C. It is automatically added when a
+    string literal is used to initialize a character array with enough
+    space.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>char name[] = "RAM";</code> is stored as:
+    <br><br>
+    <code>'R' 'A' 'M' '\\0'</code>
+    <br><br>
+    Therefore, the array requires space for <strong>4 characters</strong>.
+  </div>
+
+
+  <h2>Declaring a Character Array</h2>
+
+  <p>
+    <strong>Definition:</strong> A character array is declared using
+    the <code>char</code> data type followed by the array name and size.
+  </p>
+
+  <pre class="program-code"><code>char name[20];</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>char name[20];</code> can hold a string of up to
+    <strong>19 characters</strong> plus the null character.
+  </div>
+
+
+  <h2>Initializing a String</h2>
+
+  <p>
+    A string can be initialized using a string literal enclosed in
+    double quotation marks.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>char name[] = "Amit";</code>
+  </div>
+
+  <pre class="program-code"><code>char name[] = "Amit";</code></pre>
+
+
+  <h2>String Indexing</h2>
+
+  <p>
+    <strong>Definition:</strong> Each character in a string is accessed
+    using its index. Like other C arrays, string indexing starts from
+    <strong>0</strong>.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For <code>char name[] = "HELLO";</code>:
+    <br><br>
+    <code>name[0]</code> → <strong>H</strong><br>
+    <code>name[1]</code> → <strong>E</strong><br>
+    <code>name[4]</code> → <strong>O</strong>
+  </div>
+
+
+  <pre class="program-code"><code>String:   H   E   L   L   O   \\0
+Index:    0   1   2   3   4    5</code></pre>
+
+
+  <h2>Accessing a Character</h2>
+
+  <p>
+    An individual character of a string can be accessed by using the
+    string name and its index.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>name[0]</code> gives the first character of the string.
+  </div>
+
+
+  <h2>Modifying a Character</h2>
+
+  <p>
+    An individual character in a character array can be changed by
+    assigning a new character to its index.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>name[0] = 'R';</code>, the first character changes to
+    <strong>R</strong>.
+  </div>
+
+
+  <h2>String Traversal</h2>
+
+  <p>
+    <strong>Definition:</strong> String traversal means visiting each
+    character one by one until the null character <code>\\0</code> is reached.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A loop can continue while <code>name[i] != '\\0'</code>.
+  </div>
+
+  <pre class="program-code"><code>for (int i = 0; name[i] != '\\0'; i++)
+{
+    printf("%c ", name[i]);
+}</code></pre>
+
+
+  <h2>Input of a String</h2>
+
+  <p>
+    A string can be read from the user using functions such as
+    <code>scanf()</code> or <code>fgets()</code>. For a simple
+    space-free word, <code>scanf("%s", name)</code> can be used.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>scanf("%s", name);</code>
+    reads a word such as <strong>Rahul</strong>.
+  </div>
+
+
+  <h2>Output of a String</h2>
+
+  <p>
+    A string can be displayed using <code>printf()</code> with the
+    <code>%s</code> format specifier.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>printf("%s", name);</code>
+    displays the complete string stored in <code>name</code>.
+  </div>
+
+
+  <h2>String Length</h2>
+
+  <p>
+    <strong>Definition:</strong> String length is the number of characters
+    present in the string, excluding the terminating null character
+    <code>\\0</code>.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    The length of <strong>"HELLO"</strong> is <strong>5</strong>,
+    not 6. The sixth position contains <code>\\0</code>.
+  </div>
+
+
+  <h2>String Library Functions</h2>
+
+  <p>
+    C provides commonly used string functions through the
+    <code>string.h</code> header file.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Purpose</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>strlen()</strong></td>
+          <td>Finds the length of a string.</td>
+          <td><code>strlen(name)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>strcpy()</strong></td>
+          <td>Copies one string into another.</td>
+          <td><code>strcpy(b, a)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>strcat()</strong></td>
+          <td>Joins two strings.</td>
+          <td><code>strcat(a, b)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>strcmp()</strong></td>
+          <td>Compares two strings.</td>
+          <td><code>strcmp(a, b)</code></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example — Read and Display a String</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept a student's name and display the name
+    using a character array.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Declare and use a character array.</li>
+    <li>Accept a string from the user.</li>
+    <li>Display a string using <code>printf()</code>.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Declare a character array and use <code>scanf("%s", name)</code>
+    to read a simple name without spaces.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A C string is stored in a character array and ends with the
+    null character <code>\\0</code>. The <code>%s</code> format
+    specifier is used with <code>printf()</code> to display a string.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char name[30];
+
+    printf("Enter your name: ");
+    scanf("%29s", name);
+
+    // display the entered string
+    printf("Name = %s\n", name);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter your name: Rahul
+Name = Rahul</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>scanf("%s", name)</code> reads a word until whitespace.
+    For input containing spaces, functions such as <code>fgets()</code>
+    are more suitable.
+  </p>
+
+
+  <h2>Practical Example — Find String Length</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept a string and find its length using
+    <code>strlen()</code>.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use the <code>string.h</code> header file.</li>
+    <li>Use the <code>strlen()</code> function.</li>
+    <li>Understand that the null character is not counted in string length.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Include <code>string.h</code> and pass the string to
+    <code>strlen()</code>.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>strlen()</code> function returns the number of characters
+    in a string before the terminating null character.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+    char name[30];
+    int length;
+
+    printf("Enter a word: ");
+    scanf("%29s", name);
+
+    length = strlen(name);       // find the number of characters
+
+    printf("Length = %d\n", length);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter a word: COMPUTER
+Length = 8</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>strlen()</code> counts the characters in the string but
+    does not count the terminating <code>\\0</code>.
+  </p>
+
+
+  <h2>Common Mistakes</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Correct Understanding</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Forgetting <code>\\0</code></td>
+          <td>A C string must be null-terminated.</td>
+        </tr>
+
+        <tr>
+          <td>Starting index from 1</td>
+          <td>String indexing starts from 0.</td>
+        </tr>
+
+        <tr>
+          <td>Using <code>%d</code> for a string</td>
+          <td>Use <code>%s</code> for a string.</td>
+        </tr>
+
+        <tr>
+          <td>Array too small</td>
+          <td>Leave space for the null character.</td>
+        </tr>
+
+        <tr>
+          <td>Expecting <code>scanf("%s")</code> to read spaces</td>
+          <td>Use <code>fgets()</code> for input containing spaces.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>A character array stores elements of type <code>char</code>.</li>
+    <li>A C string is a character sequence terminated by <code>\\0</code>.</li>
+    <li>String indexing starts from 0.</li>
+    <li><code>%s</code> is commonly used to read or display strings.</li>
+    <li><code>strlen()</code> returns the string length excluding <code>\\0</code>.</li>
+    <li>The <code>string.h</code> header provides common string functions.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>String = Characters + \\0</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Character Array</strong></td>
+          <td>Array of char elements.</td>
+        </tr>
+
+        <tr>
+          <td><strong>String</strong></td>
+          <td>Character sequence ending with \\0.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Index</strong></td>
+          <td>Starts from 0.</td>
+        </tr>
+
+        <tr>
+          <td><strong>%s</strong></td>
+          <td>String input/output format specifier.</td>
+        </tr>
+
+        <tr>
+          <td><strong>strlen()</strong></td>
+          <td>Returns string length excluding \\0.</td>
+        </tr>
+
+        <tr>
+          <td><strong>string.h</strong></td>
+          <td>Header file for common string functions.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a character array?</li>
+    <li>What is a string in C?</li>
+    <li>What is the null character <code>\\0</code>?</li>
+    <li>Why does a string require an extra position for <code>\\0</code>?</li>
+    <li>How are characters of a string accessed?</li>
+    <li>What is the use of <code>strlen()</code>?</li>
+    <li>What is the purpose of <code>string.h</code>?</li>
+    <li>Differentiate between a character array and a string.</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Define character arrays and strings. Explain their declaration,
+      initialization and indexing with examples.
+    </li>
+
+    <li>
+      Explain the role of the null character in C strings.
+    </li>
+
+    <li>
+      Explain common string functions such as strlen(), strcpy(),
+      strcat() and strcmp().
+    </li>
+
+    <li>
+      Write a C program to read and display a string.
+    </li>
+
+    <li>
+      Write a C program to find the length of a string.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of character arrays,
+        strings and the null character in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=character+array+strings+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Character Arrays & Strings in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for character arrays,
+        strings and string functions will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of character arrays,
+        null character, indexing and string functions.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 3 — TOPIC 4
+// FUNCTIONS: TYPES OF FUNCTIONS
+// ============================================================
+
+NOTES["m3-function-types"] = [
+  `
+  <h2>Functions in C</h2>
+
+  <p>
+    <strong>Definition:</strong> A function is a named block of statements
+    designed to perform a specific task. A program can call the function
+    whenever that task is required.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A function named <code>add()</code> can perform the task of adding
+    two numbers.
+  </div>
+
+
+  <h2>Why Do We Use Functions?</h2>
+
+  <p>
+    Functions divide a large program into smaller, manageable parts.
+    This makes programs easier to understand, test, reuse and maintain.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A student result program can have separate functions such as
+    <code>inputMarks()</code>, <code>calculateTotal()</code> and
+    <code>displayResult()</code>.
+  </div>
+
+
+  <h2>Basic Parts of a Function</h2>
+
+  <p>
+    A function generally involves a <strong>declaration/prototype</strong>,
+    a <strong>definition</strong>, and a <strong>function call</strong>.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Part</th>
+          <th>Purpose</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Function Declaration</strong></td>
+          <td>Tells the compiler about the function.</td>
+          <td><code>int add(int, int);</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Function Definition</strong></td>
+          <td>Contains the actual statements of the function.</td>
+          <td><code>int add(int a, int b) { ... }</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Function Call</strong></td>
+          <td>Requests execution of the function.</td>
+          <td><code>add(10, 20);</code></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Function Declaration</h2>
+
+  <p>
+    <strong>Definition:</strong> A function declaration, also called a
+    function prototype, tells the compiler the function's name,
+    return type and parameters before the function is used.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int add(int, int);</code>
+    declares a function named <code>add</code> that returns an
+    integer and accepts two integer parameters.
+  </div>
+
+
+  <h2>Function Definition</h2>
+
+  <p>
+    <strong>Definition:</strong> A function definition contains the
+    statements that specify what the function actually does.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+  </div>
+
+  <pre class="program-code"><code>int add(int a, int b)
+{
+    return a + b;
+}</code></pre>
+
+
+  <h2>Function Call</h2>
+
+  <p>
+    <strong>Definition:</strong> A function call is an expression used
+    to execute the function and perform its task.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>result = add(10, 20);</code>
+  </div>
+
+
+  <h2>General Function Syntax</h2>
+
+  <pre class="program-code"><code>return_type function_name(parameter_list)
+{
+    // statements
+    return value;
+}</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int square(int n)</code> means the function
+    <code>square</code> accepts an integer and returns an integer.
+  </div>
+
+
+  <h2>Types of Functions in C</h2>
+
+  <p>
+    Functions can be classified based on whether they take arguments
+    and whether they return a value.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Arguments</th>
+          <th>Return Value</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>No arguments, no return value</strong></td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+
+        <tr>
+          <td><strong>Arguments, no return value</strong></td>
+          <td>Yes</td>
+          <td>No</td>
+        </tr>
+
+        <tr>
+          <td><strong>No arguments, returns a value</strong></td>
+          <td>No</td>
+          <td>Yes</td>
+        </tr>
+
+        <tr>
+          <td><strong>Arguments, returns a value</strong></td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>1. No Arguments and No Return Value</h2>
+
+  <p>
+    <strong>Definition:</strong> This type of function does not receive
+    any values from the calling function and does not return a value.
+    It simply performs a specific task.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A function can simply display a welcome message.
+  </div>
+
+  <pre class="program-code"><code>void welcome()
+{
+    printf("Welcome to C Programming!");
+}</code></pre>
+
+
+  <h2>2. Arguments and No Return Value</h2>
+
+  <p>
+    <strong>Definition:</strong> This type of function receives values
+    as arguments but does not return a value to the calling function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A function can receive two numbers and directly display their sum.
+  </div>
+
+  <pre class="program-code"><code>void add(int a, int b)
+{
+    printf("Sum = %d", a + b);
+}</code></pre>
+
+
+  <h2>3. No Arguments but Returns a Value</h2>
+
+  <p>
+    <strong>Definition:</strong> This type of function does not receive
+    arguments but performs a task and returns a value to the caller.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A function can return a fixed integer value.
+  </div>
+
+  <pre class="program-code"><code>int getNumber()
+{
+    return 10;
+}</code></pre>
+
+
+  <h2>4. Arguments and Returns a Value</h2>
+
+  <p>
+    <strong>Definition:</strong> This type of function receives one or
+    more arguments, performs a task and returns the result to the caller.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A function can receive two numbers and return their sum.
+  </div>
+
+  <pre class="program-code"><code>int add(int a, int b)
+{
+    return a + b;
+}</code></pre>
+
+
+  <h2>Most Common Type</h2>
+
+  <p>
+    The function type <strong>arguments + return value</strong> is very
+    commonly used because data can be supplied to the function and the
+    calculated result can be returned to the calling code.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int sum = add(10, 20);</code>
+    passes two values and receives the calculated result.
+  </div>
+
+
+  <h2>Library Functions</h2>
+
+  <p>
+    <strong>Definition:</strong> Library functions are predefined
+    functions provided by C libraries. A programmer can use them
+    without writing their complete implementation.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>printf()</code> and <code>scanf()</code> are commonly used
+    library functions provided through standard headers.
+  </div>
+
+
+  <h2>User-Defined Functions</h2>
+
+  <p>
+    <strong>Definition:</strong> User-defined functions are functions
+    created by the programmer to perform a specific task required by
+    the program.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A programmer can create <code>calculateAverage()</code> to calculate
+    the average marks of a student.
+  </div>
+
+
+  <h2>Library Functions vs User-Defined Functions</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Library Functions</th>
+          <th>User-Defined Functions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Provided by C libraries.</td>
+          <td>Created by the programmer.</td>
+        </tr>
+
+        <tr>
+          <td>Already implemented.</td>
+          <td>Implementation is written by the programmer.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>printf()</code></td>
+          <td>Example: <code>add()</code></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example — Function to Add Two Numbers</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that uses a user-defined function to add two
+    integers and return the result.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand function declaration, definition and function call.</li>
+    <li>Pass arguments to a function.</li>
+    <li>Return a calculated value from a function.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create an <code>add()</code> function that accepts two integers
+    and returns their sum.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A function can receive data through parameters and return a result
+    to the calling function. This helps divide a program into smaller
+    reusable tasks.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b);             // function declaration
+
+int main()
+{
+    int x, y, result;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    result = add(x, y);            // function call
+
+    printf("Sum = %d\n", result);
+
+    return 0;
+}
+
+int add(int a, int b)
+{
+    return a + b;                  // return the calculated sum
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter two numbers: 10 15
+Sum = 25</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The function <code>add()</code> receives two arguments and returns
+    the result. The returned value is stored in <code>result</code>
+    inside <code>main()</code>.
+  </p>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>A function performs a specific task.</li>
+    <li>Functions help divide a large program into smaller parts.</li>
+    <li>A function may accept arguments and may return a value.</li>
+    <li>Function declaration tells the compiler about the function.</li>
+    <li>Function definition contains the actual implementation.</li>
+    <li>Function call executes the function.</li>
+    <li>Library functions are predefined; user-defined functions are created by the programmer.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>Declaration → Definition → Call</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Function Type</th>
+          <th>Arguments</th>
+          <th>Return</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>No arguments, no return</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+
+        <tr>
+          <td>Arguments, no return</td>
+          <td>Yes</td>
+          <td>No</td>
+        </tr>
+
+        <tr>
+          <td>No arguments, return</td>
+          <td>No</td>
+          <td>Yes</td>
+        </tr>
+
+        <tr>
+          <td>Arguments, return</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a function in C?</li>
+    <li>Why are functions used in C?</li>
+    <li>What is a function declaration?</li>
+    <li>What is a function definition?</li>
+    <li>What is a function call?</li>
+    <li>What are library functions?</li>
+    <li>What are user-defined functions?</li>
+    <li>Write the four types of functions based on arguments and return value.</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Define a function and explain its declaration, definition and call.
+    </li>
+
+    <li>
+      Explain the different types of functions in C with suitable examples.
+    </li>
+
+    <li>
+      Differentiate between library functions and user-defined functions.
+    </li>
+
+    <li>
+      Write a C program using a user-defined function to add two numbers.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of functions and their
+        types in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=functions+types+of+functions+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Functions in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for function types
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of declaration,
+        definition, call and the four function types.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
 // ============================================================
 // END OF CURRENT NOTES
 // ============================================================
