@@ -19942,6 +19942,444 @@ Sum = 25</pre>
   `
 ];
 // ============================================================
+// MODULE 3 — TOPIC 5
+// FORMAL AND ACTUAL ARGUMENTS
+// ============================================================
+
+NOTES["m3-formal-actual"] = [
+  `
+  <h2>Formal and Actual Arguments</h2>
+
+  <p>
+    <strong>Definition:</strong> Arguments are values or variables used
+    to pass information to a function. In C, arguments used in the
+    function definition are called <strong>formal parameters</strong>,
+    while the values or variables supplied during the function call
+    are called <strong>actual arguments</strong>.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>add(x, y)</code>, <code>x</code> and <code>y</code> used
+    in the function call are actual arguments. In
+    <code>int add(int a, int b)</code>, <code>a</code> and <code>b</code>
+    are formal parameters.
+  </div>
+
+
+  <h2>Formal Parameters</h2>
+
+  <p>
+    <strong>Definition:</strong> Formal parameters are variables written
+    in the function definition that receive values from the function call.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>int add(int a, int b)</code>, <code>a</code> and
+    <code>b</code> are formal parameters.
+  </div>
+
+  <pre class="program-code"><code>int add(int a, int b)
+{
+    return a + b;
+}</code></pre>
+
+
+  <h2>Actual Arguments</h2>
+
+  <p>
+    <strong>Definition:</strong> Actual arguments are the values or
+    variables supplied when a function is called.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>add(10, 20)</code>, <code>10</code> and <code>20</code>
+    are actual arguments.
+  </div>
+
+  <pre class="program-code"><code>int result = add(10, 20);</code></pre>
+
+
+  <h2>Formal vs Actual Arguments</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Formal Parameters</th>
+          <th>Actual Arguments</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Written in the function definition.</td>
+          <td>Written in the function call.</td>
+        </tr>
+
+        <tr>
+          <td>Receive the values passed to the function.</td>
+          <td>Provide values to the function.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>a, b</code></td>
+          <td>Example: <code>10, 20</code></td>
+        </tr>
+
+        <tr>
+          <td>They are variables.</td>
+          <td>They can be constants, variables or expressions.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>How Arguments Are Matched</h2>
+
+  <p>
+    <strong>Definition:</strong> During a function call, actual arguments
+    are matched with the corresponding formal parameters according to
+    their position.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>add(10, 20)</code>, <code>10</code> is passed to
+    <code>a</code> and <code>20</code> is passed to <code>b</code>.
+  </div>
+
+  <pre class="program-code"><code>int add(int a, int b)
+{
+    return a + b;
+}
+
+add(10, 20);</code></pre>
+
+
+  <h2>Order of Arguments</h2>
+
+  <p>
+    The order of actual arguments is important because each argument
+    corresponds to the formal parameter in the same position.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>subtract(10, 5)</code> is different from
+    <code>subtract(5, 10)</code> because the values are passed in
+    a different order.
+  </div>
+
+
+  <h2>Number of Arguments</h2>
+
+  <p>
+    The number of supplied arguments should correspond to the parameters
+    expected by the function call, subject to the function's declaration
+    and language rules.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If a function is declared as
+    <code>int add(int a, int b)</code>, it expects two integer arguments,
+    such as <code>add(10, 20)</code>.
+  </div>
+
+
+  <h2>Arguments Can Be Variables</h2>
+
+  <p>
+    Actual arguments do not have to be fixed numbers. Variables can also
+    be passed to a function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>add(x, y)</code> passes the current values of
+    <code>x</code> and <code>y</code>.
+  </div>
+
+
+  <h2>Arguments Can Be Expressions</h2>
+
+  <p>
+    An expression can also be supplied as an actual argument. The
+    expression is evaluated and its resulting value is passed to the
+    function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>add(x + 5, y * 2)</code>, the two expressions are evaluated
+    and their values are passed to the function.
+  </div>
+
+
+  <h2>Simple Example</h2>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int multiply(int a, int b)       // a and b are formal parameters
+{
+    return a * b;
+}
+
+int main()
+{
+    int x = 5;
+    int y = 4;
+
+    int result = multiply(x, y); // x and y are actual arguments
+
+    printf("Result = %d\n", result);
+
+    return 0;
+}</code></pre>
+
+  <h3>Output</h3>
+
+  <pre class="output-box">Result = 20</pre>
+
+
+  <h2>Practical Example — Add Two Numbers Using Arguments</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that accepts two integers and passes them to a
+    user-defined function to calculate their sum.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand formal parameters and actual arguments.</li>
+    <li>Pass variables to a user-defined function.</li>
+    <li>Observe how values are matched with function parameters.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create an <code>add()</code> function with two formal parameters.
+    Pass two variables from <code>main()</code> as actual arguments.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Formal parameters appear in the function definition and receive
+    values from the corresponding actual arguments supplied during
+    the function call.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b);             // a and b are formal parameters
+
+int main()
+{
+    int x, y, result;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    result = add(x, y);            // x and y are actual arguments
+
+    printf("Sum = %d\n", result);
+
+    return 0;
+}
+
+int add(int a, int b)
+{
+    return a + b;                  // calculate and return the sum
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter two numbers: 10 25
+Sum = 35</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    Here, <code>x</code> and <code>y</code> are actual arguments in the
+    function call, while <code>a</code> and <code>b</code> are formal
+    parameters in the function definition.
+  </p>
+
+
+  <h2>Easy Way to Remember</h2>
+
+  <div class="simple-box">
+    🎯 <strong>Actual → Gives the value</strong><br><br>
+    <strong>Formal → Receives the value</strong>
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>Formal parameters are written in the function definition.</li>
+    <li>Actual arguments are supplied in the function call.</li>
+    <li>Actual arguments provide values to formal parameters.</li>
+    <li>Arguments are matched according to their position.</li>
+    <li>Actual arguments may be constants, variables or expressions.</li>
+    <li>Formal parameters are local to the function in which they are defined.</li>
+  </ul>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Remember</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Formal Parameter</strong></td>
+          <td>Receives the value.</td>
+          <td><code>a, b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Actual Argument</strong></td>
+          <td>Provides the value.</td>
+          <td><code>10, 20</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Function Definition</strong></td>
+          <td>Contains formal parameters.</td>
+          <td><code>add(int a, int b)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Function Call</strong></td>
+          <td>Contains actual arguments.</td>
+          <td><code>add(10, 20)</code></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What are formal parameters?</li>
+    <li>What are actual arguments?</li>
+    <li>Where are formal parameters written?</li>
+    <li>Where are actual arguments written?</li>
+    <li>How are actual arguments matched with formal parameters?</li>
+    <li>Can variables be used as actual arguments?</li>
+    <li>Differentiate between formal parameters and actual arguments.</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain formal parameters and actual arguments with suitable examples.
+    </li>
+
+    <li>
+      Differentiate between formal and actual arguments in C.
+    </li>
+
+    <li>
+      Write a C program to add two numbers using a function and explain
+      its formal parameters and actual arguments.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of formal and actual
+        arguments in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=formal+and+actual+arguments+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Formal &amp; Actual Arguments — Hindi
+        </a>
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for formal and actual
+        arguments will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of function calls,
+        formal parameters and actual arguments.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
