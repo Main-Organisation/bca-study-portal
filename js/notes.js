@@ -23388,6 +23388,3080 @@ int main()
   `
 ];
 // ============================================================
+// MODULE 4 — TOPIC 2
+// TYPES OF STORAGE CLASSES
+// ============================================================
+
+NOTES["m4-storage-classes"] = [
+  `
+
+  <h2>Storage Classes</h2>
+
+  <p>
+    A <strong>storage class</strong> in C specifies important properties
+    of a variable such as its <strong>scope</strong>, <strong>lifetime</strong>,
+    and how it is stored and accessed by the program.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A variable declared inside a function is normally used only within
+      that function, while a global variable can be accessed from
+      multiple functions.
+    </p>
+
+  </div>
+
+
+  <h2>Types of Storage Classes</h2>
+
+  <p>
+    C provides four commonly studied storage classes:
+    <strong>auto, register, static,</strong> and <strong>extern</strong>.
+  </p>
+
+
+  <h2>1. auto Storage Class</h2>
+
+  <p>
+    The <strong>auto</strong> storage class is the default storage class
+    for local variables declared inside a function or block. The variable
+    exists only while that function or block is executing.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+auto int age = 20;
+    </div>
+
+    <p>
+      Here, <code>age</code> is a local variable with automatic storage
+      duration. The keyword <code>auto</code> is normally omitted because
+      local variables are automatic by default.
+    </p>
+
+  </div>
+
+
+  <h2>2. register Storage Class</h2>
+
+  <p>
+    The <strong>register</strong> storage class requests that a variable
+    be kept in a CPU register for faster access when possible. It is
+    generally used for frequently accessed local variables.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+register int count = 0;
+    </div>
+
+    <p>
+      Here, <code>count</code> is declared as a register variable.
+      The compiler decides whether it can actually place the variable
+      in a CPU register.
+    </p>
+
+  </div>
+
+
+  <h2>3. static Storage Class</h2>
+
+  <p>
+    The <strong>static</strong> storage class allows a local variable
+    to retain its value between function calls. A static local variable
+    is initialized only once and continues to exist for the entire
+    execution of the program.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+static int count = 0;
+count++;
+    </div>
+
+    <p>
+      Each time the function is called, <code>count</code> keeps its
+      previous value instead of starting again from zero.
+    </p>
+
+  </div>
+
+
+  <h2>4. extern Storage Class</h2>
+
+  <p>
+    The <strong>extern</strong> storage class is used to declare a
+    variable that is defined elsewhere, usually as a global variable.
+    It allows different parts of a program to refer to the same variable.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+extern int marks;
+    </div>
+
+    <p>
+      Here, <code>marks</code> is declared as an external variable.
+      Its actual definition is provided elsewhere in the program.
+    </p>
+
+  </div>
+
+
+  <h2>Storage Classes at a Glance</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Storage Class</th>
+          <th>Main Idea</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>auto</strong></td>
+          <td>Default local variable.</td>
+        </tr>
+
+        <tr>
+          <td><strong>register</strong></td>
+          <td>Requests faster access through a CPU register.</td>
+        </tr>
+
+        <tr>
+          <td><strong>static</strong></td>
+          <td>Retains value between function calls.</td>
+        </tr>
+
+        <tr>
+          <td><strong>extern</strong></td>
+          <td>Refers to a variable defined elsewhere.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Scope and Lifetime</h2>
+
+  <p>
+    <strong>Scope</strong> tells where a variable can be accessed, while
+    <strong>lifetime</strong> tells how long the variable exists during
+    program execution.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A local <code>auto</code> variable is available only inside its
+      block, while a <code>static</code> local variable continues to
+      retain its value between calls to the function.
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to demonstrate the use of a static variable by
+    calling the same function multiple times and observing that the
+    variable retains its previous value.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the purpose of the static storage class.</li>
+
+    <li>Observe how a static variable retains its value.</li>
+
+    <li>Understand the difference between repeated function calls
+        and a newly created local variable.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Declare a local variable using <code>static</code>, increase its
+    value on every function call, and call the function three times.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A static local variable is initialized only once and retains its
+    value between function calls. Its scope remains local to the
+    function, but its lifetime extends throughout the execution of
+    the program.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+void counter()
+{
+    static int count = 0;
+
+    // increase the retained value on each function call
+    count++;
+
+    printf("Count = %d\n", count);
+}
+
+int main()
+{
+    // call the same function three times
+    counter();
+    counter();
+    counter();
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Count = 1
+    </p>
+
+    <p>
+      Count = 2
+    </p>
+
+    <p>
+      Count = 3
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    If <code>count</code> were an ordinary local variable instead of
+    <code>static</code>, it would be initialized again whenever the
+    function is called. The static variable retains its previous value.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Storage Class</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>auto</strong></td>
+          <td>Default for local variables.</td>
+        </tr>
+
+        <tr>
+          <td><strong>register</strong></td>
+          <td>Requests fast access through a CPU register.</td>
+        </tr>
+
+        <tr>
+          <td><strong>static</strong></td>
+          <td>Retains value between function calls.</td>
+        </tr>
+
+        <tr>
+          <td><strong>extern</strong></td>
+          <td>Refers to a variable defined elsewhere.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a storage class in C?</li>
+
+    <li>Name the four storage classes in C.</li>
+
+    <li>What is the auto storage class?</li>
+
+    <li>What is the purpose of the register storage class?</li>
+
+    <li>What is the use of the static storage class?</li>
+
+    <li>What is the extern storage class?</li>
+
+    <li>What is the difference between scope and lifetime?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the different storage classes in C with suitable examples.
+    </li>
+
+    <li>
+      Explain the static storage class with a suitable program.
+    </li>
+
+    <li>
+      Differentiate between auto, register, static and extern storage classes.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of storage classes
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=storage+classes+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Storage Classes in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for storage classes
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of auto, register,
+        static and extern.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 3
+// INTRODUCTION TO STRUCTURES
+// ============================================================
+
+NOTES["m4-structures"] = [
+  `
+
+  <h2>Introduction to Structures</h2>
+
+  <p>
+    A <strong>structure</strong> is a user-defined data type in C that
+    allows related variables of different data types to be grouped
+    together under one name.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A student record may contain a roll number, name and percentage.
+      These different values can be grouped into one structure called
+      <code>Student</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Why Use a Structure?</h2>
+
+  <p>
+    Structures are used when different pieces of related information
+    need to be treated as one logical record. They make related data
+    easier to organize and manage.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A student has a <strong>roll number</strong> (int),
+      <strong>percentage</strong> (float), and
+      <strong>grade</strong> (char). A structure can store all three
+      as one student record.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of Structure</h2>
+
+  <div class="note-flow">
+struct structure_name
+{
+    data_type member1;
+    data_type member2;
+    ...
+};
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student
+{
+    int rollNo;
+    float percentage;
+    char grade;
+};
+    </div>
+
+    <p>
+      Here, <code>Student</code> is the structure name and
+      <code>rollNo</code>, <code>percentage</code> and
+      <code>grade</code> are its members.
+    </p>
+
+  </div>
+
+
+  <h2>Structure Members</h2>
+
+  <p>
+    The variables declared inside a structure are called
+    <strong>structure members</strong>. Different members can have
+    different data types.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+int rollNo;
+float percentage;
+char grade;
+    </div>
+
+    <p>
+      Here, <code>rollNo</code>, <code>percentage</code> and
+      <code>grade</code> are structure members.
+    </p>
+
+  </div>
+
+
+  <h2>Declaring a Structure Variable</h2>
+
+  <p>
+    After defining a structure, a variable of that structure type can
+    be declared to store a record.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student s1;
+    </div>
+
+    <p>
+      Here, <code>s1</code> is a structure variable of type
+      <code>struct Student</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Accessing Structure Members</h2>
+
+  <p>
+    The <strong>dot operator (.)</strong> is used to access the members
+    of a structure variable.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+s1.rollNo = 101;
+s1.percentage = 82.5;
+    </div>
+
+    <p>
+      Here, the dot operator is used to access the
+      <code>rollNo</code> and <code>percentage</code> members of
+      the structure variable <code>s1</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Structure Initialization</h2>
+
+  <p>
+    A structure variable can be initialized when it is declared by
+    providing values for its members in the same order in which they
+    are declared.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student s1 = {101, 82.5, 'A'};
+    </div>
+
+    <p>
+      The values are assigned to <code>rollNo</code>,
+      <code>percentage</code> and <code>grade</code>, respectively.
+    </p>
+
+  </div>
+
+
+  <h2>Simple Structure Program</h2>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+
+int main()
+{
+    struct Student s1 = {101, 82.5};
+
+    // display structure members
+    printf("Roll Number = %d\n", s1.rollNo);
+    printf("Percentage = %.1f\n", s1.percentage);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Roll Number = 101
+    </p>
+
+    <p>
+      Percentage = 82.5
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to define a structure named
+    <code>Student</code>, accept a student's roll number and percentage,
+    and display the stored information.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Define a structure with different data types.</li>
+
+    <li>Declare a structure variable.</li>
+
+    <li>Access structure members using the dot operator.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a <code>Student</code> structure with
+    <code>rollNo</code> and <code>percentage</code> members.
+    Use the dot operator to access them.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A structure groups related data under one name. After declaring a
+    structure variable, its individual members can be accessed using
+    the dot operator.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+
+int main()
+{
+    struct Student s1;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s1.rollNo);
+
+    printf("Enter percentage: ");
+    scanf("%f", &amp;s1.percentage);
+
+    // display the stored student information
+    printf("Roll Number = %d\n", s1.rollNo);
+    printf("Percentage = %.1f\n", s1.percentage);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter roll number: 101
+    </p>
+
+    <p>
+      Enter percentage: 82.5
+    </p>
+
+    <p>
+      Roll Number = 101
+    </p>
+
+    <p>
+      Percentage = 82.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    A structure is useful for representing a complete record containing
+    related values of different data types. The dot operator is used to
+    access individual members of a structure variable.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Structure</strong></td>
+          <td>User-defined data type that groups related variables.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Member</strong></td>
+          <td>Variable declared inside a structure.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Structure Variable</strong></td>
+          <td>Variable used to store a structure record.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Dot Operator (.)</strong></td>
+          <td>Used to access structure members.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a structure in C?</li>
+
+    <li>Why are structures used?</li>
+
+    <li>What are structure members?</li>
+
+    <li>How is a structure variable declared?</li>
+
+    <li>Which operator is used to access structure members?</li>
+
+    <li>Write the syntax of a structure.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain structures in C with syntax and suitable example.
+    </li>
+
+    <li>
+      Explain how structure variables and structure members are
+      declared and accessed.
+    </li>
+
+    <li>
+      Write a C program to store and display student information
+      using a structure.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of structures in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=structure+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Structure in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for structures
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of structure definition,
+        members, variables and member access.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 4
+// ADVANTAGES OF STRUCTURES
+// ============================================================
+
+NOTES["m4-advantages"] = [
+  `
+
+  
+
+  <p>
+    Structures make it easier to organize and manage related data
+    in a C program. They allow different types of data to be grouped
+    together as one logical record.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A student record can contain an integer roll number, a floating-point
+      percentage and a character grade inside one structure.
+    </p>
+
+  </div>
+
+
+  <h2>1. Groups Related Data</h2>
+
+  <p>
+    A structure groups related variables under one name, making the
+    data easier to understand and manage.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+    </div>
+
+    <p>
+      Both <code>rollNo</code> and <code>percentage</code> belong to the
+      same student record.
+    </p>
+
+  </div>
+
+
+  <h2>2. Stores Different Data Types</h2>
+
+  <p>
+    A structure can contain members of different data types. This makes
+    it suitable for representing real-world records.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student
+{
+    int rollNo;
+    char grade;
+    float percentage;
+};
+    </div>
+
+    <p>
+      Here, <code>int</code>, <code>char</code> and <code>float</code>
+      members are grouped together.
+    </p>
+
+  </div>
+
+
+  <h2>3. Represents Real-World Records</h2>
+
+  <p>
+    Structures are useful for representing real-world entities such as
+    students, employees, books and products.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Example
+    </span>
+
+    <p>
+      An employee record can contain employee ID, name and salary as
+      members of one structure.
+    </p>
+
+  </div>
+
+
+  <h2>4. Improves Program Organization</h2>
+
+  <p>
+    Grouping related information into a structure makes a program
+    easier to read and organize.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Instead of managing separate variables such as
+      <code>rollNo</code>, <code>percentage</code> and <code>grade</code>
+      for many students, a structure can represent each student as
+      one record.
+    </p>
+
+  </div>
+
+
+  <h2>5. Makes Data Handling Easier</h2>
+
+  <p>
+    Structure variables can be passed to functions, returned from
+    functions, and used to store multiple records.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A function can receive a <code>struct Student</code> variable
+      and display or process its information.
+    </p>
+
+  </div>
+
+
+  <h2>6. Useful for Multiple Records</h2>
+
+  <p>
+    An array of structures can be used when the same type of record
+    is required for multiple items.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student students[50];
+    </div>
+
+    <p>
+      This can store information for 50 students using the same
+      structure type.
+    </p>
+
+  </div>
+
+
+  <h2>Advantages at a Glance</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Advantage</th>
+          <th>What It Provides</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Related Data</strong></td>
+          <td>Groups related variables under one name.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Different Data Types</strong></td>
+          <td>Allows different types of members in one record.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Real-World Representation</strong></td>
+          <td>Represents entities such as students and employees.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Better Organization</strong></td>
+          <td>Makes related information easier to manage.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Function Support</strong></td>
+          <td>Structure data can be passed to functions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Multiple Records</strong></td>
+          <td>Arrays of structures can store many records.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program using a structure to store the details of a
+    student and display the record.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand how structures organize related information.</li>
+
+    <li>Store values of different data types in one record.</li>
+
+    <li>Display a complete record using a structure variable.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a structure named <code>Student</code> containing a roll
+    number, grade and percentage.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Structures group related data into a single logical record.
+    This is useful for storing information about real-world entities
+    where different data types are required.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    char grade;
+    float percentage;
+};
+
+int main()
+{
+    struct Student s1;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s1.rollNo);
+
+    printf("Enter grade: ");
+    scanf(" %c", &amp;s1.grade);
+
+    printf("Enter percentage: ");
+    scanf("%f", &amp;s1.percentage);
+
+    // display all student information together
+    printf("Roll Number = %d\n", s1.rollNo);
+    printf("Grade = %c\n", s1.grade);
+    printf("Percentage = %.1f\n", s1.percentage);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter roll number: 101
+    </p>
+
+    <p>
+      Enter grade: A
+    </p>
+
+    <p>
+      Enter percentage: 82.5
+    </p>
+
+    <p>
+      Roll Number = 101
+    </p>
+
+    <p>
+      Grade = A
+    </p>
+
+    <p>
+      Percentage = 82.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The main advantage shown in this program is that values of different
+    data types are grouped together as one student record.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Point</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Grouping</strong></td>
+          <td>Related data can be grouped together.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Different Types</strong></td>
+          <td>Different data types can be members of one structure.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Real-World Data</strong></td>
+          <td>Useful for representing records.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Organization</strong></td>
+          <td>Makes data easier to manage.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Multiple Records</strong></td>
+          <td>Arrays of structures can store many records.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What are the advantages of structures in C?</li>
+
+    <li>How do structures help in organizing data?</li>
+
+    <li>Can a structure contain different data types?</li>
+
+    <li>Why are structures useful for real-world records?</li>
+
+    <li>How can multiple records be stored using structures?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the advantages of structures in C with suitable examples.
+    </li>
+
+    <li>
+      Explain how structures help in organizing related data.
+    </li>
+
+    <li>
+      Write a C program to store and display student details using
+      a structure.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the advantages
+        and uses of structures in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=advantages+of+structures+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Advantages of Structures in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the advantages
+        of structures will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of the major advantages
+        of structures.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 5
+// ACCESSING ELEMENTS OF A STRUCTURE
+// ============================================================
+
+NOTES["m4-accessing-elements"] = [
+  `
+
+ 
+
+  <p>
+    The individual members of a structure variable are accessed using
+    the <strong>dot operator (.)</strong>. The structure variable is
+    written first, followed by a dot and the required member name.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+student.rollNo
+student.percentage
+    </div>
+
+    <p>
+      Here, <code>student</code> is the structure variable and
+      <code>rollNo</code> and <code>percentage</code> are its members.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax</h2>
+
+  <div class="note-flow">
+structure_variable.member_name
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>s1.rollNo</code> accesses the <code>rollNo</code> member
+      of the structure variable <code>s1</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Reading a Structure Member</h2>
+
+  <p>
+    A structure member can be used to read its stored value just like
+    an ordinary variable.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+printf("%d", s1.rollNo);
+    </div>
+
+    <p>
+      The value stored in <code>rollNo</code> of <code>s1</code>
+      is displayed.
+    </p>
+
+  </div>
+
+
+  <h2>Updating a Structure Member</h2>
+
+  <p>
+    A structure member can also be assigned a new value using the
+    dot operator.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+s1.rollNo = 105;
+    </div>
+
+    <p>
+      The <code>rollNo</code> member of <code>s1</code> is changed to
+      <code>105</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Accessing Different Members</h2>
+
+  <p>
+    Each member is accessed separately using the same structure
+    variable followed by the dot operator.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+s1.rollNo
+s1.name
+s1.percentage
+    </div>
+
+    <p>
+      Each statement accesses a different member of the same structure
+      variable.
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to define a structure for a student, accept
+    the student's roll number and percentage, and then display these
+    values by accessing the structure members.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Use the dot operator to access structure members.</li>
+
+    <li>Read values into individual structure members.</li>
+
+    <li>Display stored values using a structure variable.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a structure named <code>Student</code> and use
+    <code>s1.rollNo</code> and <code>s1.percentage</code> to access
+    its members.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The dot operator is used with a structure variable to access its
+    individual members. Each member can be read, assigned, or passed
+    to a function separately.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+
+int main()
+{
+    struct Student s1;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s1.rollNo);
+
+    printf("Enter percentage: ");
+    scanf("%f", &amp;s1.percentage);
+
+    // access and display individual structure members
+    printf("Roll Number = %d\n", s1.rollNo);
+    printf("Percentage = %.1f\n", s1.percentage);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter roll number: 101
+    </p>
+
+    <p>
+      Enter percentage: 82.5
+    </p>
+
+    <p>
+      Roll Number = 101
+    </p>
+
+    <p>
+      Percentage = 82.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The dot operator is used when a normal structure variable is used
+    to access its members. Pointer-based structure access using
+    <code>-&gt;</code> is a separate concept and is covered with pointers.
+  </p>
+
+
+  <h2>Common Mistake</h2>
+
+  <p>
+    Students often forget to write the structure variable before the
+    dot operator. The member name alone is not enough to identify which
+    structure record should be accessed.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Example
+    </span>
+
+    <p>
+      <strong>Incorrect:</strong> <code>rollNo</code>
+    </p>
+
+    <p>
+      <strong>Correct:</strong> <code>s1.rollNo</code>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Dot Operator</strong></td>
+          <td>Used to access members of a structure variable.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Syntax</strong></td>
+          <td><code>structure_variable.member_name</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Read Member</strong></td>
+          <td>Use the member expression to obtain its value.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Update Member</strong></td>
+          <td>Assign a new value using the member expression.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>Which operator is used to access a structure member?</li>
+
+    <li>Write the syntax for accessing a structure member.</li>
+
+    <li>How do you access the roll number of a student structure variable?</li>
+
+    <li>How can a structure member be updated?</li>
+
+    <li>What is the difference between a structure variable and a structure member?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain how structure members are accessed using the dot operator
+      with suitable examples.
+    </li>
+
+    <li>
+      Write a C program to accept and display student information using
+      structure members.
+    </li>
+
+    <li>
+      Explain how to read and modify individual members of a structure.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of accessing structure
+        members in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=accessing+structure+members+dot+operator+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Accessing Structure Members in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for accessing
+        structure members will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of structure variable,
+        member and dot operator.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 6
+// NESTED STRUCTURES
+// ============================================================
+
+NOTES["m4-nested-structures"] = [
+  `
+
+  
+
+  <p>
+    A <strong>nested structure</strong> is a structure that contains
+    another structure as one of its members. It is useful when a record
+    contains another related record.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A student record may contain personal information and an address.
+      The address itself can be represented using another structure.
+    </p>
+
+  </div>
+
+
+  <h2>Why Use Nested Structures?</h2>
+
+  <p>
+    Nested structures help organize complex information by dividing it
+    into smaller related structures. This makes a large record easier
+    to understand and manage.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A <code>Student</code> structure can contain an
+      <code>Address</code> structure for storing city and PIN code.
+    </p>
+
+  </div>
+
+
+  <h2>Simple Structure Inside Another Structure</h2>
+
+  <div class="note-flow">
+struct Address
+{
+    char city[30];
+    int pinCode;
+};
+
+struct Student
+{
+    int rollNo;
+    struct Address address;
+};
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Here, <code>address</code> is a member of <code>Student</code>,
+      and its type is <code>struct Address</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Accessing Nested Structure Members</h2>
+
+  <p>
+    A member inside the nested structure is accessed by using the dot
+    operator twice: first for the outer structure member and then for
+    the inner structure member.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+student.address.pinCode
+student.address.city
+    </div>
+
+    <p>
+      Here, <code>student</code> is the outer structure variable,
+      <code>address</code> is its nested structure member, and
+      <code>pinCode</code> and <code>city</code> are members of
+      the nested structure.
+    </p>
+
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A company employee record may contain employee details and a separate
+    address record. The address can be stored as a nested structure
+    inside the employee structure.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🌍 Example
+    </span>
+
+    <p>
+      Employee → Name, ID, Address → City, PIN Code.
+    </p>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program using nested structures to store a student's
+    roll number, city and PIN code, and display all the information.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Understand the concept of nested structures.</li>
+
+    <li>Define one structure as a member of another structure.</li>
+
+    <li>Access members of a nested structure using the dot operator.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    First create an <code>Address</code> structure. Then use
+    <code>struct Address</code> as a member inside the
+    <code>Student</code> structure.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    In a nested structure, one structure is included as a member of
+    another structure. The inner structure members are accessed through
+    the outer structure variable using the dot operator.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Address
+{
+    char city[30];
+    int pinCode;
+};
+
+struct Student
+{
+    int rollNo;
+    struct Address address;
+};
+
+int main()
+{
+    struct Student s1;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s1.rollNo);
+
+    printf("Enter city: ");
+    scanf("%29s", s1.address.city);
+
+    printf("Enter PIN code: ");
+    scanf("%d", &amp;s1.address.pinCode);
+
+    // display student and nested address information
+    printf("Roll Number = %d\n", s1.rollNo);
+    printf("City = %s\n", s1.address.city);
+    printf("PIN Code = %d\n", s1.address.pinCode);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter roll number: 101
+    </p>
+
+    <p>
+      Enter city: Jaipur
+    </p>
+
+    <p>
+      Enter PIN code: 302001
+    </p>
+
+    <p>
+      Roll Number = 101
+    </p>
+
+    <p>
+      City = Jaipur
+    </p>
+
+    <p>
+      PIN Code = 302001
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The expression <code>s1.address.pinCode</code> first accesses the
+    <code>address</code> member of <code>s1</code> and then accesses
+    the <code>pinCode</code> member inside that nested structure.
+  </p>
+
+
+  <h2>Important Point</h2>
+
+  <p>
+    Nested structures are useful when a single record contains smaller
+    records that have their own related data.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Example
+    </span>
+
+    <p>
+      <code>Student → Address → City, PIN Code</code>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Nested Structure</strong></td>
+          <td>A structure used as a member of another structure.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Outer Structure</strong></td>
+          <td>The structure containing another structure.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Inner Structure</strong></td>
+          <td>The structure used as a member inside the outer structure.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Member Access</strong></td>
+          <td>Use the dot operator through the outer structure member.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Example</strong></td>
+          <td><code>student.address.city</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a nested structure?</li>
+
+    <li>Why are nested structures used?</li>
+
+    <li>How is one structure included inside another structure?</li>
+
+    <li>How do you access a member of a nested structure?</li>
+
+    <li>Write an example of a nested structure.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain nested structures in C with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program using a nested structure to store student
+      and address information.
+    </li>
+
+    <li>
+      Explain how members of a nested structure are accessed.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of nested structures
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=nested+structures+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Nested Structures in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for nested structures
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of outer structure,
+        inner structure and member access.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 7
+// ARRAY OF STRUCTURES
+// ============================================================
+
+NOTES["m4-array-structures"] = [
+  `
+
+  <p>
+    An <strong>array of structures</strong> is an array whose elements
+    are structure variables of the same structure type. It is useful
+    for storing multiple records of the same kind.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+struct Student students[50];
+    </div>
+
+    <p>
+      Here, <code>students</code> can store records of 50 students.
+    </p>
+  </div>
+
+
+  <h2>Why Use an Array of Structures?</h2>
+
+  <p>
+    A single structure variable stores one record, while an array of
+    structures can store many similar records together. This is useful
+    for student, employee, book, and product records.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <p>
+      Instead of creating <code>s1</code>, <code>s2</code>, and
+      <code>s3</code> separately, an array can store all three student
+      records as <code>students[0]</code>, <code>students[1]</code>,
+      and <code>students[2]</code>.
+    </p>
+  </div>
+
+
+  <h2>Declaration</h2>
+
+  <p>
+    An array of structures is declared by placing the array name and
+    size after the structure type.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+struct Student students[3];
+    </div>
+
+    <p>
+      This creates an array that can store three
+      <code>struct Student</code> records.
+    </p>
+  </div>
+
+
+  <h2>Accessing Elements</h2>
+
+  <p>
+    An individual structure in the array is accessed using its index,
+    and its member is then accessed using the dot operator.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+students[0].rollNo
+students[1].percentage
+    </div>
+
+    <p>
+      The index selects the required student record and the dot operator
+      accesses its member.
+    </p>
+  </div>
+
+
+  <h2>Using a Loop</h2>
+
+  <p>
+    A loop can be used to read or display all records in an array of
+    structures. This avoids writing the same statements repeatedly.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+for (int i = 0; i < 3; i++)
+    printf("%d", students[i].rollNo);
+    </div>
+
+    <p>
+      The loop accesses the roll number of each student one by one.
+    </p>
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A college system may need to store information for many students.
+    An array of structures can keep all student records under one
+    common structure type.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">🌍 Example</span>
+
+    <p>
+      <code>students[0]</code> → Student 1<br>
+      <code>students[1]</code> → Student 2<br>
+      <code>students[2]</code> → Student 3
+    </p>
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to store the roll number and percentage of three
+    students using an array of structures and display all the records.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Declare an array of structures.</li>
+
+    <li>Store multiple records using one structure type.</li>
+
+    <li>Use a loop to access and display structure records.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a <code>Student</code> structure and declare an array of
+    three students. Use a <code>for</code> loop to read and display
+    the values.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    An array of structures combines the features of arrays and
+    structures. Each array element is a complete structure record,
+    and individual members are accessed using the index and dot operator.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+
+int main()
+{
+    struct Student students[3];
+    int i;
+
+    // read details of three students
+    for (i = 0; i &lt; 3; i++)
+    {
+        printf("Enter roll number for student %d: ", i + 1);
+        scanf("%d", &amp;students[i].rollNo);
+
+        printf("Enter percentage: ");
+        scanf("%f", &amp;students[i].percentage);
+    }
+
+    printf("\nStudent Records:\n");
+
+    // display all student records
+    for (i = 0; i &lt; 3; i++)
+    {
+        printf("Roll Number = %d, Percentage = %.1f\n",
+               students[i].rollNo,
+               students[i].percentage);
+    }
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter roll number for student 1: 101
+    </p>
+
+    <p>
+      Enter percentage: 82.5
+    </p>
+
+    <p>
+      Enter roll number for student 2: 102
+    </p>
+
+    <p>
+      Enter percentage: 76.0
+    </p>
+
+    <p>
+      Enter roll number for student 3: 103
+    </p>
+
+    <p>
+      Enter percentage: 88.5
+    </p>
+
+    <p><strong>Student Records:</strong></p>
+
+    <p>
+      Roll Number = 101, Percentage = 82.5
+    </p>
+
+    <p>
+      Roll Number = 102, Percentage = 76.0
+    </p>
+
+    <p>
+      Roll Number = 103, Percentage = 88.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    Each element of the array is a complete structure record.
+    For example, <code>students[1].rollNo</code> accesses the roll
+    number of the second student.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Array of Structures</strong></td>
+          <td>Stores multiple structure records of the same type.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Declaration</strong></td>
+          <td><code>struct Student students[3];</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Array Element</strong></td>
+          <td>Each element is one complete structure record.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Member Access</strong></td>
+          <td><code>students[i].rollNo</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Loop</strong></td>
+          <td>Useful for processing multiple records.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an array of structures?</li>
+
+    <li>Why is an array of structures used?</li>
+
+    <li>Write the syntax for declaring an array of structures.</li>
+
+    <li>How do you access a structure member in an array?</li>
+
+    <li>Why are loops useful with arrays of structures?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain an array of structures with declaration and suitable example.
+    </li>
+
+    <li>
+      Write a C program to store and display multiple student records
+      using an array of structures.
+    </li>
+
+    <li>
+      Explain how structure members are accessed in an array of structures.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of arrays of structures
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=array+of+structures+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Array of Structures in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for arrays of
+        structures will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of structure array,
+        indexing, member access and loops.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 4 — TOPIC 8
+// FUNCTIONS AND STRUCTURES
+// ============================================================
+
+NOTES["m4-functions-structures"] = [
+  `
+
+  <p>
+    Structures and functions can be used together to make a program
+    more organized and reusable. A structure variable can be passed
+    to a function so that the function can access or process the
+    related data stored in the structure.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      A <code>Student</code> structure can be passed to a function
+      named <code>displayStudent()</code> to display the student's
+      details.
+    </p>
+
+  </div>
+
+
+  <h2>Passing a Structure to a Function</h2>
+
+  <p>
+    A structure variable can be passed to a function just like other
+    variables. The called function receives a copy of the structure
+    and can use its members.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+displayStudent(s1);
+    </div>
+
+    <p>
+      Here, <code>s1</code> is a structure variable passed to the
+      function <code>displayStudent()</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Function Parameter for a Structure</h2>
+
+  <p>
+    The parameter of a function can be declared using the structure
+    type. This allows the function to receive a complete structure
+    record.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+void displayStudent(struct Student s)
+{
+    printf("%d", s.rollNo);
+}
+    </div>
+
+    <p>
+      The function receives a <code>struct Student</code> variable
+      as its parameter and accesses its member using the dot operator.
+    </p>
+
+  </div>
+
+
+  <h2>Accessing Structure Members Inside a Function</h2>
+
+  <p>
+    Once a structure variable is available inside a function, its
+    members can be accessed using the dot operator in the same way
+    as in <code>main()</code>.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+s.rollNo
+s.percentage
+    </div>
+
+    <p>
+      These expressions access individual members of the structure
+      variable <code>s</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Why Use Structures with Functions?</h2>
+
+  <p>
+    Combining structures and functions helps divide a program into
+    smaller tasks. One function can accept a record, process it, or
+    display it, while other parts of the program remain unchanged.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      In a student management program, one function can read student
+      details and another function can display those details.
+    </p>
+
+  </div>
+
+
+  <h2>Structure and Function Flow</h2>
+
+  <div class="note-flow">
+Structure Variable
+       ↓
+Function Call
+       ↓
+Structure Parameter
+       ↓
+Process / Display Members
+       ↓
+Result
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to create a student structure and pass a structure
+    variable to a function that displays the student's roll number and
+    percentage.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Pass a structure variable to a function.</li>
+
+    <li>Define a function that accepts a structure as a parameter.</li>
+
+    <li>Access structure members inside a function.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Define a <code>Student</code> structure, create a structure variable,
+    and pass it to a function named <code>displayStudent()</code>.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A structure can be passed to a function as an argument. When a
+    structure is passed by value, the function receives a copy of the
+    structure and can access its members using the dot operator.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int rollNo;
+    float percentage;
+};
+
+void displayStudent(struct Student s)
+{
+    // display the members received from the structure
+    printf("Roll Number = %d\n", s.rollNo);
+    printf("Percentage = %.1f\n", s.percentage);
+}
+
+int main()
+{
+    struct Student s1;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s1.rollNo);
+
+    printf("Enter percentage: ");
+    scanf("%f", &amp;s1.percentage);
+
+    // pass the complete structure to the function
+    displayStudent(s1);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Enter roll number: 101
+    </p>
+
+    <p>
+      Enter percentage: 82.5
+    </p>
+
+    <p>
+      Roll Number = 101
+    </p>
+
+    <p>
+      Percentage = 82.5
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    In this program, <code>s1</code> is passed to
+    <code>displayStudent()</code>. The function receives the structure
+    and accesses its members using <code>s.rollNo</code> and
+    <code>s.percentage</code>.
+  </p>
+
+
+  <h2>Returning a Structure from a Function</h2>
+
+  <p>
+    A function can also return a complete structure to the calling
+    function. The return type of the function is declared as the
+    corresponding structure type.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+struct Student createStudent()
+{
+    struct Student s = {101, 82.5};
+    return s;
+}
+    </div>
+
+    <p>
+      The function creates a <code>Student</code> structure and returns
+      it to the calling function.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Structure as Argument</strong></td>
+          <td>A structure variable can be passed to a function.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Structure Parameter</strong></td>
+          <td>Function parameter can be declared as a structure type.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Member Access</strong></td>
+          <td>Use the dot operator inside the function.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Return Structure</strong></td>
+          <td>A function can return a complete structure.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>How can a structure variable be passed to a function?</li>
+
+    <li>How is a structure parameter declared?</li>
+
+    <li>How are structure members accessed inside a function?</li>
+
+    <li>Can a function return a structure?</li>
+
+    <li>Why are structures used with functions?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain how structures can be passed to functions with a suitable
+      example.
+    </li>
+
+    <li>
+      Write a C program to pass a structure variable to a function and
+      display its members.
+    </li>
+
+    <li>
+      Explain how a function can return a structure.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of passing structures
+        to functions in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=passing+structure+to+function+in+C+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Structures and Functions in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for structures
+        and functions will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of structure arguments,
+        parameters, member access and return values.
+      </p>
+
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
