@@ -20380,6 +20380,788 @@ Sum = 35</pre>
   `
 ];
 // ============================================================
+// MODULE 3 — TOPIC 6
+// PARAMETER PASSING IN FUNCTIONS
+// ============================================================
+
+NOTES["m3-parameter-passing"] = [
+  `
+  <h2>Parameter Passing in Functions</h2>
+
+  <p>
+    <strong>Definition:</strong> Parameter passing is the process of
+    providing data from the calling function to the parameters of the
+    called function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>add(x, y)</code>, the values of <code>x</code> and
+    <code>y</code> are passed to the corresponding parameters of
+    the <code>add()</code> function.
+  </div>
+
+
+  <h2>Why is Parameter Passing Needed?</h2>
+
+  <p>
+    Functions often need data from the calling program to perform their
+    task. Parameter passing provides that data to the function.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A function that calculates the square of a number needs the number
+    to be passed to it.
+  </div>
+
+
+  <h2>Basic Parameter Passing</h2>
+
+  <p>
+    A function can receive one or more parameters and use them inside
+    its body.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>square(int n)</code>, <code>n</code> is the parameter that
+    receives the value supplied during the function call.
+  </div>
+
+  <pre class="program-code"><code>int square(int n)
+{
+    return n * n;
+}</code></pre>
+
+
+  <h2>Parameter Passing Flow</h2>
+
+  <div class="note-flow">
+Calling Function
+       ↓
+Actual Arguments
+       ↓
+Function Call
+       ↓
+Formal Parameters
+       ↓
+Function Executes
+       ↓
+Result / Action
+  </div>
+
+
+  <h2>Example</h2>
+
+  <p>
+    In the following example, the values of <code>x</code> and
+    <code>y</code> are passed to <code>a</code> and <code>b</code>.
+  </p>
+
+  <pre class="program-code"><code>int add(int a, int b)
+{
+    return a + b;
+}
+
+int result = add(x, y);</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Mapping:</strong><br><br>
+    <code>x</code> → <code>a</code><br>
+    <code>y</code> → <code>b</code>
+  </div>
+
+
+  <h2>Ways of Passing Parameters</h2>
+
+  <p>
+    In C programming, parameter passing is commonly discussed in terms
+    of <strong>passing values</strong> and <strong>using addresses</strong>
+    to allow a function to work with the caller's data.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>What is Passed?</th>
+          <th>Effect on Original Variable</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Call by Value</strong></td>
+          <td>Value of the variable</td>
+          <td>Changes inside function do not change the original variable.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Address-based passing</strong></td>
+          <td>Address of the variable</td>
+          <td>Function can modify the original variable.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <div class="simple-box">
+    📌 <strong>Important:</strong>
+    Detailed <strong>Call by Value</strong> and
+    <strong>Call by Reference</strong> concepts are covered separately
+    in the next two topics.
+  </div>
+
+
+  <h2>Parameter Passing and Data Flow</h2>
+
+  <p>
+    The direction of data flow depends on how the function is called
+    and how its parameters are used.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    A value can be supplied to a function, processed there, and the
+    result can be returned to the calling function.
+  </div>
+
+
+  <h2>Returning a Value</h2>
+
+  <p>
+    A function may return a calculated value to the calling function.
+    This allows the calling code to use the result after the function
+    completes.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>result = add(10, 20);</code> stores the value returned by
+    <code>add()</code> in <code>result</code>.
+  </div>
+
+
+  <h2>Practical Example — Passing Parameters to a Function</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that accepts two numbers, passes them to a
+    user-defined function, and displays their product.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand how parameters are passed to a function.</li>
+    <li>Pass actual arguments to formal parameters.</li>
+    <li>Return the calculated result to the calling function.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create a function <code>multiply()</code> with two integer parameters.
+    Pass the two input variables during the function call.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    When a function is called, the arguments supplied by the caller are
+    associated with the parameters defined by the called function.
+    The function then uses those parameters to perform its task.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int multiply(int a, int b);       // function declaration
+
+int main()
+{
+    int x, y, result;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    result = multiply(x, y);      // pass actual arguments
+
+    printf("Product = %d\n", result);
+
+    return 0;
+}
+
+int multiply(int a, int b)
+{
+    return a * b;                 // calculate and return product
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter two numbers: 6 8
+Product = 48</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    Here, <code>x</code> and <code>y</code> are the actual arguments,
+    while <code>a</code> and <code>b</code> are the formal parameters.
+    The function receives the data, performs the multiplication and
+    returns the result.
+  </p>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>Parameter passing transfers data to a called function.</li>
+    <li>Actual arguments are supplied during the function call.</li>
+    <li>Formal parameters receive the supplied data inside the function.</li>
+    <li>Arguments are matched with parameters according to their position.</li>
+    <li>A function may process the parameters and return a result.</li>
+    <li>Call by Value and Call by Reference are studied separately.</li>
+  </ul>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Parameter Passing</strong></td>
+          <td>Providing data to a function.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Actual Argument</strong></td>
+          <td>Value or variable supplied in function call.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Formal Parameter</strong></td>
+          <td>Variable that receives the supplied data.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Return Value</strong></td>
+          <td>Result sent back to the calling function.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is parameter passing in functions?</li>
+    <li>Why are parameters passed to a function?</li>
+    <li>What is the difference between an actual argument and a formal parameter?</li>
+    <li>How are arguments associated with parameters?</li>
+    <li>What is the role of a return value?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain parameter passing in functions with a suitable example.
+    </li>
+
+    <li>
+      Explain the relationship between actual arguments and formal
+      parameters during a function call.
+    </li>
+
+    <li>
+      Write a C program to pass two values to a function and return
+      the calculated result.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of parameter passing
+        in C functions.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=parameter+passing+in+C+functions+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Parameter Passing in C — Hindi
+        </a>
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for parameter passing
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of actual arguments,
+        formal parameters and return values.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
+// MODULE 3 — TOPIC 7
+// CALL BY VALUE
+// ============================================================
+
+NOTES["m3-call-by-value"] = [
+  `
+  <h2>Call by Value</h2>
+
+  <p>
+    <strong>Definition:</strong> In call by value, a copy of the actual
+    argument's value is passed to the function. The function works on
+    this separate copy.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>x = 10</code> is passed to a function, the function receives
+    a copy of the value <strong>10</strong>. Changing the parameter inside
+    the function does not change the original <code>x</code>.
+  </div>
+
+
+  <h2>How Call by Value Works</h2>
+
+  <p>
+    The value of the actual argument is copied into the formal parameter.
+    Both variables therefore hold separate values.
+  </p>
+
+  <div class="note-flow">
+Original Variable
+      ↓
+Copy of Value
+      ↓
+Formal Parameter
+      ↓
+Function Works on Copy
+      ↓
+Original Variable Unchanged
+  </div>
+
+
+  <h3>Example</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+void change(int a)
+{
+    a = 20;                 // change only the local copy
+}
+
+int main()
+{
+    int x = 10;
+
+    change(x);              // pass value of x
+
+    printf("x = %d\n", x);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Output</h3>
+
+  <pre class="output-box">x = 10</pre>
+
+  <div class="simple-box">
+    📌 <strong>Why?</strong>
+    The function changed its own parameter <code>a</code>, not the
+    original variable <code>x</code>.
+  </div>
+
+
+  <h2>Memory Idea</h2>
+
+  <p>
+    In call by value, the formal parameter gets a separate copy of the
+    value supplied by the caller.
+  </p>
+
+  <pre class="program-code"><code>Before function call:
+
+x = 10
+
+
+After calling change(x):
+
+Original variable       Function parameter
+     x = 10                  a = 10
+
+     ↓ copy of value ↓
+
+Changing a to 20:
+
+x = 10                  a = 20</code></pre>
+
+
+  <h2>Important Characteristics</h2>
+
+  <ul>
+    <li>A copy of the value is passed to the function.</li>
+    <li>The formal parameter is separate from the original variable.</li>
+    <li>Changes to the parameter do not affect the original variable.</li>
+    <li>It is useful when the function only needs to use a value.</li>
+  </ul>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    Imagine giving someone a photocopy of a document. They can write on
+    the copy, but the original document remains unchanged.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    Original document = original variable<br>
+    Photocopy = copied value passed to the function
+  </div>
+
+
+  <h2>Practical Example — Swap Using Call by Value</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to demonstrate that swapping two values inside a
+    function using call by value does not change the original values
+    in the calling function.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand how values are copied into function parameters.</li>
+    <li>Observe that changes to formal parameters do not affect originals.</li>
+    <li>Differentiate between local parameter changes and caller variables.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Pass two integer variables to a function and swap the received
+    parameters using a temporary variable.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    In call by value, the function receives copies of the arguments.
+    Therefore, swapping the formal parameters changes only those copies
+    and the original variables remain unchanged.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+void swap(int a, int b)
+{
+    int temp;
+
+    temp = a;               // store a temporarily
+    a = b;
+    b = temp;               // swap the copied values
+}
+
+int main()
+{
+    int x = 10, y = 20;
+
+    printf("Before function call: x = %d, y = %d\n", x, y);
+
+    swap(x, y);             // pass values of x and y
+
+    printf("After function call: x = %d, y = %d\n", x, y);
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Before function call: x = 10, y = 20
+After function call: x = 10, y = 20</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The swap occurs only inside the function because <code>a</code> and
+    <code>b</code> are copies. The original <code>x</code> and
+    <code>y</code> remain unchanged.
+  </p>
+
+
+  <h2>Call by Value vs Original Variables</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Inside Function</th>
+          <th>Calling Function</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Works with formal parameter.</td>
+          <td>Contains original variable.</td>
+        </tr>
+
+        <tr>
+          <td>Parameter contains a copy of the value.</td>
+          <td>Original value remains unchanged by parameter assignment.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>a = 20</code></td>
+          <td>Original <code>x</code> can remain <code>10</code>.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Call by Value vs Call by Reference</h2>
+
+  <p>
+    <strong>Definition:</strong> Call by value passes a value to a
+    function, while the commonly used "call by reference" technique in C
+    passes an address using a pointer so the function can work with the
+    caller's original variable.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong><br><br>
+    Call by Value → <code>change(x)</code><br>
+    Address-based modification → <code>change(&amp;x)</code>
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>Call by value passes a copy of the argument's value.</li>
+    <li>The function works on its own parameter.</li>
+    <li>Changing the parameter does not change the original variable.</li>
+    <li>It is simple and safe when the original data should remain unchanged.</li>
+    <li>To modify the caller's variable in C, an address/pointer technique is used.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>Call by Value = Copy goes to the function</strong><br>
+    <strong>Change in copy ≠ Change in original</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>What is passed?</strong></td>
+          <td>Copy of the value.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Parameter</strong></td>
+          <td>Separate from original variable.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Original variable</strong></td>
+          <td>Not changed by parameter assignment.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Typical example</strong></td>
+          <td>Swap using ordinary parameters does not swap originals.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is call by value?</li>
+    <li>What is passed to a function in call by value?</li>
+    <li>Does changing a formal parameter change the original variable?</li>
+    <li>Why does the original variable remain unchanged?</li>
+    <li>Write a simple example of call by value.</li>
+    <li>What happens when two variables are swapped using call by value?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain call by value with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program to demonstrate call by value using a swap function.
+    </li>
+
+    <li>
+      Explain why changes made to formal parameters do not affect the
+      original variables in call by value.
+    </li>
+
+    <li>
+      Differentiate between call by value and the address-based technique
+      commonly called call by reference in C.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of call by value in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=call+by+value+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Call by Value in C — Hindi
+        </a>
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for call by value
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of value copying,
+        formal parameters and original variables.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
+// ============================================================
 // END OF CURRENT NOTES
 // ============================================================
 //
