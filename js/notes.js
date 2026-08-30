@@ -15480,6 +15480,322 @@ Wednesday</pre>
 
   `
 ];
+// ============================================================
+// MODULE 2 — TOPIC 12
+// CONTROL STRUCTURES: WHILE LOOP
+// ============================================================
+
+NOTES["m2-while"] = [
+  `
+  <h2>While Loop in C</h2>
+
+  <p>
+    <strong>Definition:</strong> The <code>while</code> loop is an
+    <strong>entry-controlled loop</strong> that repeatedly executes a
+    block of statements as long as the given condition remains true.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>i &lt;= 5</code>, the loop can print the numbers from
+    1 to 5. The condition is checked before every iteration.
+  </div>
+
+
+  <h3>Syntax</h3>
+
+  <pre class="program-code"><code>while (condition)
+{
+    statements;
+}</code></pre>
+
+
+  <h3>How while Loop Works</h3>
+
+  <div class="note-flow">
+Initialize variable
+        ↓
+Check condition
+        ↓
+Condition TRUE?
+   ↓              ↓
+  Yes             No
+   ↓              ↓
+Execute body    Exit loop
+   ↓
+Update variable
+   ↓
+Check condition again
+  </div>
+
+
+  <h3>Example</h3>
+
+  <p>
+    To print numbers from 1 to 5, initialize <code>i</code> to 1 and
+    continue the loop while <code>i &lt;= 5</code>.
+  </p>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i = 1;
+
+    while (i &lt;= 5)
+    {
+        printf("%d ", i);
+        i++;                // move to the next number
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Output</h3>
+
+  <pre class="output-box">1 2 3 4 5</pre>
+
+
+  <h2>Why is while Called an Entry-Controlled Loop?</h2>
+
+  <p>
+    A <code>while</code> loop checks its condition <strong>before</strong>
+    executing the loop body. Therefore, if the condition is false at the
+    beginning, the loop body will not execute.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>i = 10</code> and the condition is
+    <code>i &lt;= 5</code>, the condition is false initially, so nothing
+    inside the loop is executed.
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A program may continue asking for information while a particular
+    condition is true. For example, a system can keep processing items
+    while items are still available.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <strong>While balance is greater than 0 → continue processing.</strong>
+  </div>
+
+
+  <h2>Practical Example — Printing Numbers from 1 to N</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to print all integers from <strong>1 to N</strong>
+    using a <code>while</code> loop.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand the use of the <code>while</code> loop.</li>
+    <li>Initialize and update a loop counter correctly.</li>
+    <li>Understand entry-controlled loop execution.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Initialize the counter to <code>1</code>, print it, and increment it
+    until it becomes greater than <code>N</code>.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A <code>while</code> loop checks its condition before each iteration.
+    If the condition is true, the loop body executes; otherwise, the loop
+    ends.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i = 1;          // i is the loop counter, starting at 1
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    while (i &lt;= n)       // repeat while i has not exceeded n
+    {
+        printf("%d ", i);
+        i++;               // move to the next number
+    }
+
+    printf("\n");
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter N: 10
+1 2 3 4 5 6 7 8 9 10</pre>
+
+
+  <h3>Note</h3>
+
+  <p>
+    A common mistake is forgetting to update the loop variable.
+    For example, forgetting <code>i++</code> can create an
+    <strong>infinite loop</strong> because the condition may never become
+    false.
+  </p>
+
+
+  <h2>while Loop vs if Statement</h2>
+
+  <table class="notes-table">
+    <thead>
+      <tr>
+        <th>while</th>
+        <th>if</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Used for repeated execution.</td>
+        <td>Used for decision making.</td>
+      </tr>
+
+      <tr>
+        <td>May execute many times.</td>
+        <td>Normally executes at most once.</td>
+      </tr>
+
+      <tr>
+        <td>Condition is checked before every iteration.</td>
+        <td>Condition is checked once when the statement is reached.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li><code>while</code> is an entry-controlled loop.</li>
+    <li>The condition is checked before the loop body executes.</li>
+    <li>The loop may execute zero or more times.</li>
+    <li>The loop variable should be updated properly.</li>
+    <li>Forgetting the update can cause an infinite loop.</li>
+  </ul>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="simple-box">
+    🎯 <strong>Remember:</strong><br><br>
+    <strong>Initialize → Check → Execute → Update → Repeat</strong>
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a while loop in C?</li>
+    <li>Why is while called an entry-controlled loop?</li>
+    <li>Write the syntax of a while loop.</li>
+    <li>What happens if the while condition is false initially?</li>
+    <li>What is an infinite loop?</li>
+    <li>Write one example of a while loop.</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Explain the while loop with syntax and suitable example.
+    </li>
+
+    <li>
+      Write a C program to print numbers from 1 to N using a while loop.
+    </li>
+
+    <li>
+      Explain how an entry-controlled loop works with the help of a
+      while loop.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the while loop in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=while+loop+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: while Loop in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the while loop
+        will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of initialization,
+        condition, execution and update.
+      </p>
+    </div>
+
+  </div>
+
+  `
+];
 
 // ============================================================
 // END OF CURRENT NOTES
