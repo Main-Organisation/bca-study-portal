@@ -8,14 +8,16 @@
 
 const SOLUTIONS = {};
 
-
 // ==========================================================
 // MODULE 1 — ALGORITHM
 // ==========================================================
 
 SOLUTIONS["s-m1-algorithm"] = [
 
+  // ========================================================
   // Exercise 1
+  // ========================================================
+
   `
   <h2>Algorithm — Exercise 1</h2>
 
@@ -29,7 +31,7 @@ SOLUTIONS["s-m1-algorithm"] = [
 
   <ol>
     <li>Start</li>
-    <li>Input two numbers A and B</li>
+    <li>Input A and B</li>
     <li>Calculate SUM = A + B</li>
     <li>Display SUM</li>
     <li>Stop</li>
@@ -38,25 +40,16 @@ SOLUTIONS["s-m1-algorithm"] = [
   <h3>Explanation</h3>
 
   <p>
-    The algorithm accepts two numbers, adds them, and displays the
-    calculated sum.
+    The algorithm takes two numbers as input, adds them,
+    and displays the sum.
   </p>
-
-  <h3>Expected Result</h3>
-
-  <div class="note-callout">
-    <p>
-      If A = 10 and B = 15
-    </p>
-
-    <p>
-      <strong>SUM = 25</strong>
-    </p>
-  </div>
   `,
 
 
+  // ========================================================
   // Exercise 2
+  // ========================================================
+
   `
   <h2>Algorithm — Exercise 2</h2>
 
@@ -80,19 +73,289 @@ SOLUTIONS["s-m1-algorithm"] = [
   <h3>Explanation</h3>
 
   <p>
-    The algorithm compares the two input values and displays
-    the greater number.
+    The algorithm compares the two input values and
+    displays the greater number.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 3
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to find the area of a rectangle.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input length and width</li>
+    <li>Calculate AREA = length × width</li>
+    <li>Display AREA</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm accepts the length and width of a rectangle,
+    calculates its area, and displays the result.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 4
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to calculate the simple interest.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input Principal, Rate and Time</li>
+    <li>Calculate SI = (Principal × Rate × Time) / 100</li>
+    <li>Display SI</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm takes the principal amount, rate of interest,
+    and time as input and applies the simple interest formula.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 5
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to check whether a number is even or odd.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input N</li>
+    <li>Calculate N % 2</li>
+    <li>If the remainder is 0, display "Even"</li>
+    <li>Otherwise, display "Odd"</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm uses the modulus operator to find the remainder
+    after dividing the number by 2. A remainder of 0 means the
+    number is even; otherwise it is odd.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 6
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to check whether a number is positive,
+    negative, or zero.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input N</li>
+    <li>If N is greater than 0, display "Positive"</li>
+    <li>Else if N is less than 0, display "Negative"</li>
+    <li>Otherwise, display "Zero"</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm checks the value of N against zero and identifies
+    whether the number is positive, negative, or zero.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 7
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to find the largest of three numbers.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input A, B and C</li>
+    <li>Compare A, B and C</li>
+    <li>If A is greater than or equal to B and C, display A</li>
+    <li>Else if B is greater than or equal to A and C, display B</li>
+    <li>Otherwise, display C</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm compares all three input values and identifies
+    the greatest number.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 8
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to calculate the factorial of a number.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input N</li>
+    <li>Set FACT = 1</li>
+    <li>Repeat from 1 to N and multiply FACT by each number</li>
+    <li>Display FACT</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm initializes the factorial value to 1 and
+    repeatedly multiplies it by each number from 1 to N.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 9
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to reverse a given number.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input N</li>
+    <li>Set REV = 0</li>
+    <li>Extract the last digit of N</li>
+    <li>Add the digit to REV</li>
+    <li>Remove the last digit from N</li>
+    <li>Repeat until N becomes 0</li>
+    <li>Display REV</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm repeatedly extracts the last digit of the number
+    and builds the reversed number using those digits.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 10
+  // ========================================================
+
+  `
+  <h2>Algorithm — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write an algorithm to find the sum of the first N natural numbers.
+  </p>
+
+  <h3>Algorithm</h3>
+
+  <ol>
+    <li>Start</li>
+    <li>Input N</li>
+    <li>Set SUM = 0</li>
+    <li>Repeat from 1 to N and add each number to SUM</li>
+    <li>Display SUM</li>
+    <li>Stop</li>
+  </ol>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The algorithm starts with a sum of zero and adds each natural
+    number from 1 to N. The final value is displayed as the result.
   </p>
   `
 
 ];
-
-
 // ==========================================================
 // MODULE 1 — FLOWCHART
 // ==========================================================
 
 SOLUTIONS["s-m1-flowchart"] = [
+
+  // ========================================================
+  // Exercise 1
+  // ========================================================
 
   `
   <h2>Flowchart — Exercise 1</h2>
@@ -103,15 +366,303 @@ SOLUTIONS["s-m1-flowchart"] = [
     Draw a flowchart to add two numbers.
   </p>
 
+  <h3>Flowchart</h3>
+
   <div class="solution-image">
-    <!-- Flowchart image will be inserted here -->
+    <img
+      src="images/flowchart-add-two-numbers.png"
+      alt="Flowchart to add two numbers"
+    >
   </div>
 
   <h3>Explanation</h3>
 
   <p>
-    The flowchart starts by accepting two numbers, performs the
-    addition, displays the result, and then stops.
+    The flowchart starts by taking two numbers as input, adds them,
+    displays the sum, and then stops.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 2
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to find the largest of two numbers.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-largest-two.png"
+      alt="Flowchart to find the largest of two numbers"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart accepts two numbers, compares them, and displays
+    the greater number.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 3
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to calculate the area of a rectangle.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-rectangle-area.png"
+      alt="Flowchart to calculate area of a rectangle"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart takes the length and width as input, calculates
+    the area using length × width, displays the result, and stops.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 4
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to calculate simple interest.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-simple-interest.png"
+      alt="Flowchart to calculate simple interest"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart accepts the principal amount, rate and time,
+    applies the simple interest formula, displays the result,
+    and stops.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 5
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to check whether a number is even or odd.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-even-odd.png"
+      alt="Flowchart to check whether a number is even or odd"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart divides the number by 2 and checks the remainder.
+    A remainder of 0 indicates an even number; otherwise the number
+    is odd.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 6
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to check whether a number is positive,
+    negative, or zero.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-positive-negative-zero.png"
+      alt="Flowchart to check positive negative or zero"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart compares the input number with zero and determines
+    whether it is positive, negative, or zero.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 7
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to find the largest of three numbers.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-largest-three.png"
+      alt="Flowchart to find the largest of three numbers"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart compares the three input values and determines
+    which one is the largest.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 8
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to calculate the factorial of a number.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-factorial.png"
+      alt="Flowchart to calculate factorial"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart initializes the factorial value, repeatedly
+    multiplies it by the numbers from 1 to N, and displays the result.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 9
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to reverse a given number.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-reverse-number.png"
+      alt="Flowchart to reverse a number"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart repeatedly extracts the last digit of the number
+    and constructs the reversed number until the original number
+    becomes zero.
+  </p>
+  `,
+
+
+  // ========================================================
+  // Exercise 10
+  // ========================================================
+
+  `
+  <h2>Flowchart — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Draw a flowchart to find the sum of the first N natural numbers.
+  </p>
+
+  <h3>Flowchart</h3>
+
+  <div class="solution-image">
+    <img
+      src="images/flowchart-sum-natural-numbers.png"
+      alt="Flowchart to find sum of first N natural numbers"
+    >
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The flowchart starts with SUM = 0 and repeatedly adds the
+    natural numbers from 1 to N. The final sum is then displayed.
   </p>
   `
 

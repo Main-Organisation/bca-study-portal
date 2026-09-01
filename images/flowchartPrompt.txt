@@ -1,0 +1,76 @@
+Create a clean, modern academic infographic for [FLOWCHART NAME / PROBLEM] 
+for a BCA 1st-year student notes website.
+
+VISUAL STYLE:
+- Clean educational infographic style
+- Professional but simple and student-friendly
+- Light/white background
+- Minimal, uncluttered design
+- Plenty of white space
+- Flat/vector-style illustrations
+- Crisp, sharp, high-resolution graphics
+- Consistent visual language across all BCA Study Portal diagrams
+
+LAYOUT:
+- Use a tall/vertical layout suitable for placing inside a web notes card
+- Arrange the flowchart from top to bottom
+- Keep all steps centered and evenly spaced
+- Use balanced margins on all sides
+- No element should touch or cross the image edges
+- Keep the complete flowchart comfortably inside the image boundaries
+- Make the image responsive and suitable for embedding directly into a web-based notes page
+
+FLOWCHART STYLE:
+- Use standard flowchart symbols wherever appropriate:
+  - Terminator / oval → Start and End
+  - Parallelogram → Input / Output
+  - Rectangle → Process / Calculation
+  - Diamond → Decision / Condition
+- Use clear downward arrows between steps
+- Arrows must be centered, clean and visually consistent
+- Keep the logical execution order obvious from top to bottom
+- Use the correct standard symbol for each operation
+
+CARDS / SHAPES:
+- Soft pastel backgrounds
+- Thin clean outlines
+- One visually distinct color for different types of steps where appropriate
+- Consistent border radius, spacing and proportions
+- Use small topic-appropriate vector icons inside circular icon areas when suitable
+
+TYPOGRAPHY:
+- Large, bold, highly readable heading
+- Clean modern sans-serif font
+- Dark navy/blue main text
+- Short, simple descriptions
+- Correct spelling and grammar
+- Avoid unnecessary text
+- Do not overcrowd the infographic
+
+ICONS:
+- Simple educational/vector icons
+- Topic-appropriate
+- Consistent illustration style
+- Clean outlines with subtle colors
+- No photorealistic images
+
+CONTENT:
+- Title: "[FLOWCHART NAME / PROBLEM]"
+- Show the complete logical flow of the problem
+- Include concise labels inside each flowchart step
+- Use simple wording suitable for a BCA 1st-year student
+- Do not add steps that are not required by the problem
+- Make sure the flowchart logic is technically correct
+
+
+IMPORTANT:
+- Keep the image visually consistent with the existing BCA Study Portal diagrams.
+- Prioritize technical correctness and readability.
+- Do not introduce a completely different design style.
+- The final image must look like part of the same BCA Study Portal infographic series.
+Size: 
+- Keep Width: 1536 px
+- Keep Height: 1024 px
+- Keep Aspect ratio: 3:2
+FLOWCHART TO CREATE:
+[WRITE ONLY THE FLOWCHART NAME / PROBLEM HERE]
