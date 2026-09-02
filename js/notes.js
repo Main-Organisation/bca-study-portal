@@ -2153,8 +2153,7 @@ NOTES["m1-architecture"] = [
     Instruction Set Architecture, commonly called <strong>ISA</strong>,
     is the interface between software and the processor hardware.
   </p>
-  <p>Instruction Set Architecture (ISA) defines the design and the visible 
-  features of a processor. In other words, it specifies which instructions the processor can understand, which registers it uses, what the data formats look like, and what addressing methods (the ways to access memory and data) are available — all of this is part of ISA.</p>
+  <p>Instruction Set Architecture (ISA) defines the design and the visible features of a processor. In other words, it specifies which instructions the processor can understand, which registers it uses, what the data formats look like, and what addressing methods (the ways to access memory and data) are available — all of this is part of ISA.</p>
 
   <p>
     It defines the instructions that a processor can understand, the
