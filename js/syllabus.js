@@ -49,6 +49,7 @@ const SYLLABUS = [
       { id: "m2-for", title: "Control Structures: for" },
       { id: "m2-break", title: "Unconditional control statements: break" },
       { id: "m2-continue", title: "Unconditional control statements: continue" },
+      { id: "assignment-1-unit-1-2", title: "📝 Assignment 1 — Unit 1 & Unit 2", type: "assignment"}
       
     ]
   },

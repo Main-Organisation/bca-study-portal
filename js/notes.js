@@ -32358,6 +32358,152 @@ Technology + Economy + National Security
 
 `
 ];
+NOTES["assignment-1-unit-1-2"] = [
+  `
+  <article class="assignment-card">
+
+    <div class="assignment-header">
+      <div class="assignment-badge">📝 ASSIGNMENT 1</div>
+
+      <h2>
+        Introduction to Computer, Programming & Algorithms
+        + C Basics, Operators & Loops
+      </h2>
+
+      <p class="assignment-meta">
+        <strong>Units Covered:</strong> Unit 1 & Unit 2
+      </p>
+
+      <div class="assignment-instruction">
+        <strong>Instructions:</strong>
+        Answer all questions in detail. Use suitable examples,
+        diagrams, algorithms, flowcharts or C programs wherever required.
+      </div>
+    </div>
+
+    <section class="assignment-question">
+      <h3>Q1. Explain the evolution of computers and describe the major generations of computers.</h3>
+
+      <p>
+        Explain the concept of computer generations and discuss the major
+        technology used in each generation. Cover the First, Second, Third,
+        Fourth and Fifth Generations of computers.
+      </p>
+
+      <p>
+        For each generation, explain its major hardware technology,
+        important characteristics, approximate time period and suitable
+        examples. Also explain how technologies such as vacuum tubes,
+        transistors, integrated circuits and microprocessors contributed
+        to the evolution of computers.
+      </p>
+    </section>
+
+
+    <section class="assignment-question">
+      <h3>Q2. What is an algorithm? Explain its characteristics and complexity with a suitable example.</h3>
+
+      <p>
+        Define an algorithm in simple and technical terms. Explain the
+        important characteristics of a good algorithm such as input,
+        output, definiteness, finiteness and effectiveness.
+      </p>
+
+      <p>
+        Explain the concept of time complexity and space complexity and
+        introduce the basic complexity notations O(1), O(n) and O(n²)
+        with suitable examples.
+      </p>
+
+      <p>
+        Finally, write an algorithm to find the largest of three numbers
+        and explain the steps of your algorithm.
+      </p>
+    </section>
+
+
+    <section class="assignment-question">
+      <h3>Q3. Explain the basic structure of a C program and the role of C tokens and data types.</h3>
+
+      <p>
+        Describe the general structure of a C program and explain the
+        purpose of important sections such as preprocessor directives,
+        the <code>main()</code> function, variable declarations,
+        statements and the return statement.
+      </p>
+
+      <p>
+        Explain C tokens and discuss the major categories of tokens:
+        keywords, identifiers, constants, string literals, operators
+        and special symbols or punctuators with suitable examples.
+      </p>
+
+      <p>
+        Also explain basic data types in C such as
+        <code>int</code>, <code>char</code>, <code>float</code> and
+        <code>double</code> with suitable examples.
+      </p>
+    </section>
+
+
+    <section class="assignment-question">
+      <h3>Q4. Explain C operators and precedence with suitable examples.</h3>
+
+      <p>
+        Explain the major types of operators used in C, including
+        arithmetic, relational, logical, assignment,
+        increment/decrement and conditional operators.
+      </p>
+
+      <p>
+        Explain operator precedence and associativity and describe why
+        they are important when multiple operators are used in an
+        expression.
+      </p>
+
+      <p>Evaluate the following expressions and explain the order in which the operators are applied:</p>
+
+      <pre class="program-code notranslate"><code>int a = 10, b = 5, c = 2;
+
+int x = a + b * c;
+int y = (a + b) * c;
+int z = a &gt; b &amp;&amp; b &gt; c;</code></pre>
+
+      <p>
+        Also explain how the use of parentheses can change the result
+        of an expression.
+      </p>
+    </section>
+
+
+    <section class="assignment-question">
+      <h3>Q5. Explain control structures in C and differentiate between selection and looping statements.</h3>
+
+      <p>
+        Explain the concept of control structures and why they are
+        required in programming. Discuss
+        <code>if</code>, <code>if-else</code>, nested
+        <code>if</code>, <code>switch-case</code>,
+        <code>while</code>, <code>do-while</code>,
+        <code>for</code>, <code>break</code> and
+        <code>continue</code> with suitable examples.
+      </p>
+
+      <p>
+        Clearly differentiate between selection statements,
+        looping statements and unconditional control statements.
+      </p>
+
+      <p>
+        Finally, write a C program using nested
+        <code>if</code> to find the largest of three numbers and explain
+        how the control flows through the program.
+      </p>
+    </section>
+
+  </article>
+  `
+];
 // ============================================================
 // END OF CURRENT NOTES
 // ============================================================
