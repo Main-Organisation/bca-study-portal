@@ -9,6 +9,7 @@ const SYLLABUS = [
     shortTitle: "Module 1",
     topics: [
       { id: "m1-introduction-components", title: "Introduction to Computer and components of a computer system" },
+      {id: "case-study-semiconductor-processors", title: "📌 Case Study: From Transistor to Modern Processors",type: "case-study"},
       { id: "m1-architecture", title: "Architecture" },
       { id: "m1-software-hardware", title: "Definition of software and hardware" },
       { id: "m1-programming-languages", title: "Types of programming languages" },
@@ -23,6 +24,7 @@ const SYLLABUS = [
       { id: "m1-flowchart-definition", title: "Flowchart — Definition" },
       { id: "m1-flowchart-symbols", title: "Symbols used in writing the flowchart" },
       { id: "m1-simple-problems", title: "Writing algorithms and flow-charts of simple problems" }
+      
     ]
   },
   {
@@ -46,7 +48,8 @@ const SYLLABUS = [
       { id: "m2-do-while", title: "Control Structures: do-while" },
       { id: "m2-for", title: "Control Structures: for" },
       { id: "m2-break", title: "Unconditional control statements: break" },
-      { id: "m2-continue", title: "Unconditional control statements: continue" }
+      { id: "m2-continue", title: "Unconditional control statements: continue" },
+      
     ]
   },
   {

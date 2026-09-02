@@ -31852,7 +31852,7 @@ Rahul 101 82.5
 
   `
 ];
-NOTES["m2-semiconductor-journey"] = [
+NOTES["case-study-semiconductor-processors"] = [
 `
 <h2>Semiconductor Journey — From Transistor to Modern AI Chips</h2>
 
