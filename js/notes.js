@@ -2147,387 +2147,20 @@ NOTES["m1-architecture"] = [
   </div>
 
 
-  <h2>Instruction Set Architecture (ISA)</h2>
+  
 
-  <p>
-    Instruction Set Architecture, commonly called <strong>ISA</strong>,
-    is the interface between software and the processor hardware.
-  </p>
-  <p>Instruction Set Architecture (ISA) defines the design and the visible features of a processor. In other words, it specifies which instructions the processor can understand, which registers it uses, what the data formats look like, and what addressing methods (the ways to access memory and data) are available — all of this is part of ISA.</p>
+  
 
-  <p>
-    It defines the instructions that a processor can understand, the
-    available registers, data formats, memory addressing methods, and
-    other programmer-visible features of the processor.
-  </p>
+  
+  
+  
 
-  <p>
-    Examples of instruction set architectures mentioned in the study
-    material include <strong>x86, ARM, MIPS, and RISC-V</strong>.
-  </p>
+  
 
+  
 
-  <h2>Von Neumann Architecture</h2>
 
-  <p>
-    Von Neumann Architecture is based on the
-    <strong>stored-program concept</strong>. In this architecture,
-    program instructions and data are stored in the same memory.
-  </p>
-
-  <p>
-    The CPU fetches instructions from memory, one after another,
-    and executes them.
-  </p>
-
-
-  <div class="note-flow">
-
-INPUT
-   ↓
-MEMORY
-   ↕
-CPU
-(ALU + CU + REGISTERS)
-   ↓
-OUTPUT
-
-All connected through the System Bus
-
-  </div>
-
-
-  <h3>Key Features of Von Neumann Architecture</h3>
-
-  <ul>
-
-    <li>
-      A single memory is used for both programs and data.
-    </li>
-
-    <li>
-      Instructions are fetched and executed sequentially.
-    </li>
-
-    <li>
-      CPU, memory, and input/output devices communicate through buses.
-    </li>
-
-    <li>
-      The Fetch–Decode–Execute cycle is used to process instructions.
-    </li>
-
-    <li>
-      The shared path between CPU and memory can create a performance
-      limitation known as the Von Neumann bottleneck.
-    </li>
-
-  </ul>
-
-
-  <div class="note-callout">
-    <span class="note-callout-title">💡 In Simple Words</span>
-
-    <p>
-      In Von Neumann architecture, <strong>program instructions and data
-      use the same memory</strong>. The CPU takes an instruction from
-      memory, understands it, executes it, and then moves to the next one.
-    </p>
-  </div>
-
-
-  <h2>Functional Units of a Computer System</h2>
-
-  <p>
-    A computer system can be understood through five important functional
-    units:
-  </p>
-
-  <ol>
-
-    <li><strong>Input Unit</strong></li>
-
-    <li><strong>Memory Unit</strong></li>
-
-    <li><strong>Arithmetic Logic Unit (ALU)</strong></li>
-
-    <li><strong>Control Unit (CU)</strong></li>
-
-    <li><strong>Output Unit</strong></li>
-
-  </ol>
-
-
-  <div class="note-table-wrap">
-
-    <table class="note-table">
-
-      <thead>
-        <tr>
-          <th>Functional Unit</th>
-          <th>Main Function</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-        <tr>
-          <td><strong>Input Unit</strong></td>
-          <td>Accepts data and instructions from the user.</td>
-        </tr>
-
-        <tr>
-          <td><strong>Memory Unit</strong></td>
-          <td>Stores data, instructions, and results.</td>
-        </tr>
-
-        <tr>
-          <td><strong>ALU</strong></td>
-          <td>Performs arithmetic and logical operations.</td>
-        </tr>
-
-        <tr>
-          <td><strong>Control Unit</strong></td>
-          <td>Controls and coordinates all operations.</td>
-        </tr>
-
-        <tr>
-          <td><strong>Output Unit</strong></td>
-          <td>Presents processed information to the user.</td>
-        </tr>
-
-      </tbody>
-
-    </table>
-
-  </div>
-
-
-  <h2>CPU Organization</h2>
-
-  <p>
-    CPU organization describes the internal structure of the processor
-    and the way its different units work together.
-  </p>
-
-  <p>
-    The main components of CPU organization include:
-  </p>
-
-  <ul>
-
-    <li>
-      <strong>Arithmetic Logic Unit (ALU)</strong>
-    </li>
-
-    <li>
-      <strong>Control Unit (CU)</strong>
-    </li>
-
-    <li>
-      <strong>Registers</strong>
-    </li>
-
-    <li>
-      <strong>Cache Memory</strong>
-    </li>
-
-    <li>
-      <strong>Internal data paths and buses</strong>
-    </li>
-
-  </ul>
-
-
-  <div class="note-callout">
-    <span class="note-callout-title">💡 In Simple Words</span>
-
-    <p>
-      The CPU is made of several internal parts. The
-      <strong>ALU calculates</strong>, the <strong>Control Unit controls</strong>,
-      and <strong>registers temporarily hold data and instructions</strong>.
-    </p>
-  </div>
-
-
-  <h2>Arithmetic Logic Unit (ALU)</h2>
-
-  <p>
-    The Arithmetic Logic Unit is responsible for performing arithmetic
-    and logical operations inside the CPU.
-  </p>
-
-
-  <h3>Arithmetic Operations</h3>
-
-  <ul>
-
-    <li>Addition</li>
-    <li>Subtraction</li>
-    <li>Multiplication</li>
-    <li>Division</li>
-    <li>Increment</li>
-    <li>Decrement</li>
-
-  </ul>
-
-
-  <h3>Logical Operations</h3>
-
-  <ul>
-
-    <li>AND</li>
-    <li>OR</li>
-    <li>NOT</li>
-    <li>XOR</li>
-    <li>Comparison</li>
-    <li>Shift and Rotate operations</li>
-
-  </ul>
-
-
-  <div class="note-table-wrap">
-
-    <table class="note-table">
-
-      <thead>
-        <tr>
-          <th>Operation Type</th>
-          <th>Examples</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-        <tr>
-          <td><strong>Arithmetic</strong></td>
-          <td>+, −, ×, ÷, Increment, Decrement</td>
-        </tr>
-
-        <tr>
-          <td><strong>Logical</strong></td>
-          <td>AND, OR, NOT, XOR</td>
-        </tr>
-
-        <tr>
-          <td><strong>Comparison</strong></td>
-          <td>Equal, Greater than, Less than</td>
-        </tr>
-
-      </tbody>
-
-    </table>
-
-  </div>
-
-
-  <h2>Control Unit (CU)</h2>
-
-  <p>
-    The Control Unit manages and coordinates the activities of the
-    computer system. It controls the flow of instructions and data
-    between the CPU, memory, and input/output devices.
-  </p>
-
-
-  <h3>Main Functions of Control Unit</h3>
-
-  <ol>
-
-    <li>
-      <strong>Fetch:</strong>
-      Gets the required instruction from memory.
-    </li>
-
-    <li>
-      <strong>Decode:</strong>
-      Interprets the instruction and identifies the operation to perform.
-    </li>
-
-    <li>
-      <strong>Execute:</strong>
-      Sends appropriate control signals to the required units.
-    </li>
-
-  </ol>
-
-
-  <div class="note-callout">
-
-    <span class="note-callout-title">
-      📌 Remember
-    </span>
-
-    <p>
-      The Control Unit <strong>controls and coordinates</strong>
-      operations. It does not perform arithmetic calculations itself.
-    </p>
-
-  </div>
-
-
-  <h2>Registers and Their Types</h2>
-
-  <p>
-    Registers are small, high-speed storage locations inside the CPU.
-    They temporarily hold data, instructions, addresses, and intermediate
-    results during instruction execution.
-  </p>
-
-
-  <h3>Common Registers</h3>
-
-  <div class="note-table-wrap">
-
-    <table class="note-table">
-
-      <thead>
-        <tr>
-          <th>Register</th>
-          <th>Function</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-        <tr>
-          <td><strong>PC — Program Counter</strong></td>
-          <td>Stores the address of the next instruction.</td>
-        </tr>
-
-        <tr>
-          <td><strong>IR — Instruction Register</strong></td>
-          <td>Stores the current instruction.</td>
-        </tr>
-
-        <tr>
-          <td><strong>ACC — Accumulator</strong></td>
-          <td>Stores results produced by ALU operations.</td>
-        </tr>
-
-        <tr>
-          <td><strong>MAR — Memory Address Register</strong></td>
-          <td>Stores the memory address being accessed.</td>
-        </tr>
-
-        <tr>
-          <td><strong>MDR — Memory Data Register</strong></td>
-          <td>Stores data being transferred to or from memory.</td>
-        </tr>
-
-        <tr>
-          <td><strong>Flag / PSW Register</strong></td>
-          <td>Stores status information such as zero, carry, and sign flags.</td>
-        </tr>
-
-      </tbody>
-
-    </table>
-
-  </div>
-
-
-  <h2>Memory Organization</h2>
+  <h2>Memoryyyyyy Organization</h2>
 
   <p>
     Memory organization explains how computer memory is arranged and
@@ -32218,6 +31851,512 @@ Rahul 101 82.5
   </div>
 
   `
+];
+NOTES["m2-semiconductor-journey"] = [
+`
+<h2>Semiconductor Journey — From Transistor to Modern AI Chips</h2>
+
+<p>
+The development of modern computers and processors is closely connected
+with the evolution of semiconductor technology. From the invention of
+the transistor to today's AI processors, semiconductor technology has
+become an important part of computing, electronics, business and
+national security.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">🌍 Why Study This?</span>
+  <p>
+    A processor is not created only through programming. It depends on
+    semiconductor technology, chip design and highly advanced
+    manufacturing processes. Understanding this journey helps us see
+    how software, hardware and modern computing are connected.
+  </p>
+</div>
+
+
+<h2>1. 1947 — The Transistor</h2>
+
+<p>
+In 1947, scientists at Bell Labs developed the transistor. It became
+one of the fundamental building blocks of modern electronics.
+</p>
+
+<p>
+Earlier computers relied heavily on vacuum tubes, which were large,
+generated considerable heat and were less reliable. Transistors made
+electronic systems smaller, more efficient and more reliable.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">💡 Key Idea</span>
+  <p>
+    <strong>Vacuum Tubes → Transistors → Smaller and More Reliable Electronics</strong>
+  </p>
+</div>
+
+
+<h2>2. 1958–1959 — Integrated Circuit</h2>
+
+<p>
+The next challenge was that computers required a large number of
+electronic components. Putting individual components together would
+make systems increasingly complex.
+</p>
+
+<p>
+Jack Kilby and Robert Noyce made important breakthroughs in the
+development of the integrated circuit (IC).
+</p>
+
+<p>
+An integrated circuit allowed multiple electronic components to be
+placed together on a small semiconductor chip.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">💡 Key Idea</span>
+  <p>
+    <strong>Many Electronic Components → One Small Chip</strong>
+  </p>
+</div>
+
+
+<h2>3. 1960s — Silicon Valley</h2>
+
+<p>
+During the 1960s, semiconductor companies and technology companies
+expanded rapidly in California. This ecosystem became widely associated
+with Silicon Valley.
+</p>
+
+<p>
+The region later became an important center for semiconductor and
+technology innovation.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">🚀 Technology Ecosystem</span>
+  <p>
+    Companies such as Intel, AMD, NVIDIA and Qualcomm became important
+    names in the semiconductor and computing industry.
+  </p>
+</div>
+
+
+<h2>4. 1971 — Intel 4004</h2>
+
+<p>
+In 1971, Intel introduced the Intel 4004, widely recognized as the first
+commercially available microprocessor.
+</p>
+
+<p>
+The microprocessor made it possible to place the central processing
+function of a computer into a single chip.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">🧠 Key Idea</span>
+  <p>
+    <strong>CPU Functions → Microprocessor → Computing on a Single Chip</strong>
+  </p>
+</div>
+
+
+<h2>5. Moore's Law</h2>
+
+<p>
+As semiconductor technology developed, the number of transistors that
+could be placed on a chip increased rapidly.
+</p>
+
+<p>
+This trend is commonly associated with <strong>Moore's Law</strong>.
+Increasing transistor density contributed to processors becoming more
+powerful and capable over time.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">📈 General Trend</span>
+  <p>
+    <strong>More Transistors → Greater Computing Capability</strong>
+  </p>
+</div>
+
+
+<h2>6. Taiwan Enters the Semiconductor Industry</h2>
+
+<p>
+Taiwan developed semiconductor capabilities through government support,
+technology transfer, training and research.
+</p>
+
+<p>
+The Industrial Technology Research Institute (ITRI) played an important
+role in developing Taiwan's semiconductor capabilities.
+</p>
+
+<p>
+Taiwan's semiconductor ecosystem eventually became one of the most
+important manufacturing centers in the world.
+</p>
+
+
+<h2>7. Morris Chang and a New Business Model</h2>
+
+<p>
+Morris Chang had extensive experience in the semiconductor industry,
+including senior leadership experience at Texas Instruments.
+</p>
+
+<p>
+He recognized that semiconductor companies did not necessarily need to
+own their own manufacturing factories.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">💡 Important Idea</span>
+  <p>
+    A company can focus on <strong>chip design</strong> while another
+    specialized company focuses on <strong>chip manufacturing</strong>.
+  </p>
+</div>
+
+
+<h2>8. 1987 — TSMC and the Foundry Model</h2>
+
+<p>
+In 1987, Taiwan Semiconductor Manufacturing Company (TSMC) was founded
+under Morris Chang's leadership.
+</p>
+
+<p>
+TSMC developed the <strong>pure-play foundry model</strong>, in which
+the company focuses primarily on manufacturing semiconductor chips
+designed by other companies.
+</p>
+
+<div class="note-flow">
+Fabless Company
+      ↓
+Chip Design
+      ↓
+Foundry
+      ↓
+Chip Manufacturing
+</div>
+
+
+<h2>9. Fabless vs Foundry</h2>
+
+<div class="note-table-wrap">
+
+<table class="note-table">
+
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Main Responsibility</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+  <td><strong>Fabless</strong></td>
+  <td>Designs the chip but does not primarily manufacture it.</td>
+</tr>
+
+<tr>
+  <td><strong>Foundry</strong></td>
+  <td>Manufactures chips designed by other companies.</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="note-callout">
+  <span class="note-callout-title">💡 Example</span>
+
+  <p>
+    A company such as NVIDIA can concentrate heavily on chip architecture
+    and software, while a foundry such as TSMC manufactures the physical
+    chips.
+  </p>
+</div>
+
+
+<h2>10. Why the Foundry Model Was Important</h2>
+
+<p>
+Building an advanced semiconductor fabrication facility requires
+extremely high capital investment, specialized equipment, advanced
+manufacturing processes and highly skilled engineers.
+</p>
+
+<p>
+The foundry model allowed companies to focus on chip design without
+having to build and operate their own advanced fabrication facilities.
+</p>
+
+<div class="note-flow">
+Chip Idea
+      ↓
+Chip Design
+      ↓
+Specialized Foundry
+      ↓
+Manufacturing
+      ↓
+Finished Processor / Chip
+</div>
+
+
+<h2>11. NVIDIA and the Rise of GPUs</h2>
+
+<p>
+NVIDIA focused strongly on GPU architecture and its software ecosystem.
+Graphics processing later became increasingly important for data centers
+and artificial intelligence.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">🚀 Evolution</span>
+
+  <p>
+    <strong>Gaming → Data Centers → Artificial Intelligence</strong>
+  </p>
+</div>
+
+
+<h2>12. Apple — Chip Design and Manufacturing</h2>
+
+<p>
+Apple developed its own processor designs for products such as iPhone
+and Mac computers.
+</p>
+
+<p>
+However, designing a processor and manufacturing that processor are
+different activities. Apple can focus on chip design while specialized
+manufacturing partners produce the physical chips.
+</p>
+
+<div class="note-flow">
+Apple
+  ↓
+Chip Design
+  ↓
+Foundry Partner
+  ↓
+Manufacturing
+  ↓
+Apple Device
+</div>
+
+
+<h2>13. Intel — Design + Manufacturing</h2>
+
+<p>
+Intel historically operated with a vertically integrated model in
+which it designed processors and manufactured many of them in its own
+fabrication facilities.
+</p>
+
+<p>
+As semiconductor manufacturing became increasingly complex, every new
+generation required advanced lithography, equipment, materials,
+investment and manufacturing expertise.
+</p>
+
+<p>
+This created significant challenges for companies trying to maintain
+leadership in both chip design and manufacturing.
+</p>
+
+
+<h2>14. The Changing Semiconductor Landscape</h2>
+
+<p>
+As semiconductor manufacturing became more specialized, the industry
+increasingly involved separate companies focusing on design,
+manufacturing and other parts of the semiconductor supply chain.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">🔄 Industry Transformation</span>
+
+  <p>
+    <strong>Integrated Model → Specialized Design + Specialized Manufacturing</strong>
+  </p>
+
+</div>
+
+
+<h2>15. China and Semiconductor Competition</h2>
+
+<p>
+Semiconductors are now important not only for commercial products but
+also for artificial intelligence, data centers, communications,
+satellites and modern defense systems.
+</p>
+
+<p>
+As a result, countries including China have invested heavily in
+developing semiconductor capabilities.
+</p>
+
+
+<h2>16. Why Taiwan Became Strategically Important</h2>
+
+<p>
+Advanced semiconductor manufacturing became highly concentrated in a
+small number of locations. Taiwan, particularly through TSMC, became
+one of the most important locations for advanced chip manufacturing.
+</p>
+
+<p>
+This means that semiconductor manufacturing is connected not only with
+business and technology but also with supply-chain security and
+geopolitics.
+</p>
+
+<div class="note-callout">
+  <span class="note-callout-title">🌐 Three Dimensions</span>
+
+  <p>
+    <strong>Technology + Economy + National Security</strong>
+  </p>
+
+</div>
+
+
+<h2>17. United States and Semiconductor Manufacturing</h2>
+
+<p>
+The United States has major semiconductor design and technology
+companies, while advanced manufacturing has become distributed across
+different regions.
+</p>
+
+<p>
+To increase domestic semiconductor manufacturing capacity and diversify
+supply chains, the United States introduced semiconductor manufacturing
+incentives and supported new fabrication facilities.
+</p>
+
+<p>
+TSMC has also invested in semiconductor manufacturing facilities in
+Arizona.
+</p>
+
+
+<h2>18. The Semiconductor Supply Chain</h2>
+
+<div class="note-flow">
+Research & Innovation
+      ↓
+Chip Architecture
+      ↓
+Chip Design
+      ↓
+EDA / Design Tools
+      ↓
+Semiconductor Manufacturing
+      ↓
+Packaging & Testing
+      ↓
+Finished Chip
+      ↓
+Computer / Smartphone / Server / AI System
+</div>
+
+
+<h2>19. The Big Picture</h2>
+
+<div class="note-flow">
+1947 — Transistor
+      ↓
+1958–59 — Integrated Circuit
+      ↓
+1960s — Semiconductor Ecosystem
+      ↓
+1971 — Intel 4004
+      ↓
+1970s — Taiwan Semiconductor Capability
+      ↓
+1987 — TSMC
+      ↓
+Fabless + Foundry Model
+      ↓
+GPU & Advanced Processor Revolution
+      ↓
+AI + Data Centers + Smartphones
+      ↓
+Global Semiconductor Supply Chain
+      ↓
+Technology + Economy + National Security
+</div>
+
+
+<h2>Quick Revision</h2>
+
+<div class="note-callout">
+
+  <span class="note-callout-title">🧠 Remember the Chain</span>
+
+  <p>
+    <strong>
+      Transistor → IC → Microprocessor → Specialized Chip Design
+      → Foundry Manufacturing → AI & Modern Computing
+    </strong>
+  </p>
+
+</div>
+
+
+<h2>Exam-Oriented Questions</h2>
+
+<h3>Short Answer Questions</h3>
+
+<ol class="exam-list">
+  <li>What is a transistor?</li>
+  <li>What is an integrated circuit?</li>
+  <li>What is a microprocessor?</li>
+  <li>What is Moore's Law?</li>
+  <li>What is a semiconductor foundry?</li>
+  <li>What is a fabless semiconductor company?</li>
+  <li>What is the pure-play foundry model?</li>
+</ol>
+
+<h3>Long Answer Questions</h3>
+
+<ol class="exam-list">
+  <li>
+    Explain the evolution of semiconductor technology from transistor
+    to microprocessor.
+  </li>
+
+  <li>
+    Explain the difference between a fabless semiconductor company
+    and a semiconductor foundry.
+  </li>
+
+  <li>
+    Explain how the foundry model changed the semiconductor industry.
+  </li>
+
+  <li>
+    Why are semiconductors important for modern computing and
+    national security?
+  </li>
+</ol>
+
+`
 ];
 // ============================================================
 // END OF CURRENT NOTES
