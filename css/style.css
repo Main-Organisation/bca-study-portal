@@ -1174,3 +1174,582 @@ body {
   border-color: #2b66d9;
   background: #eaf1ff;
 }
+/* =========================================================
+   ABOUT PAGE
+   ========================================================= */
+
+.about-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.about-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 14px;
+  border: 1px solid #d7def7;
+  border-radius: 999px;
+  background: #f4f7ff;
+  color: #3557a8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.about-hero h2 {
+  margin: 0 auto 18px;
+  max-width: 800px;
+  color: #172b4d;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.about-hero p {
+  max-width: 820px;
+  margin: 0 auto;
+  color: #53627a;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.about-card {
+  margin-bottom: 28px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e1e7f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(23, 43, 77, 0.06);
+}
+
+.about-card h2 {
+  margin: 0 0 16px;
+  color: #172b4d;
+  font-size: 28px;
+}
+
+.about-card p {
+  margin: 0 0 15px;
+  color: #4d5d73;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Features */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.about-feature {
+  padding: 22px;
+  background: #f8faff;
+  border: 1px solid #e1e7f0;
+  border-radius: 12px;
+}
+
+.about-feature h3 {
+  margin: 0 0 10px;
+  color: #1d365f;
+  font-size: 19px;
+}
+
+.about-feature p {
+  margin: 0;
+  font-size: 15px;
+}
+
+
+/* Learning flow */
+
+.learning-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.learning-flow span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 11px 16px;
+  background: #f4f7ff;
+  border: 1px solid #d7def7;
+  border-radius: 10px;
+  color: #244a92;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+/* Student note */
+
+.about-note {
+  background: #f8faff;
+  border-left: 4px solid #4169b8;
+}
+
+
+/* Footer */
+
+.site-footer {
+  padding: 28px 24px;
+  background: #172b4d;
+  color: #ffffff;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #dbe6ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .about-page {
+    padding: 38px 16px 50px;
+  }
+
+  .about-hero h2 {
+    font-size: 32px;
+  }
+
+  .about-hero p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .about-card {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .about-card h2 {
+    font-size: 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-flow {
+    flex-direction: column;
+  }
+
+  .learning-flow span {
+    width: 100%;
+  }
+
+  .learning-flow span:nth-child(even) {
+    min-width: 0;
+    padding: 2px 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .site-footer {
+    padding: 24px 16px;
+  }
+
+}
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+.contact-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+}
+
+.contact-hero {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.contact-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 14px;
+  border: 1px solid #d7def7;
+  border-radius: 999px;
+  background: #f4f7ff;
+  color: #3557a8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.contact-hero h2 {
+  margin: 0 auto 18px;
+  max-width: 800px;
+  color: #172b4d;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.contact-hero p {
+  max-width: 820px;
+  margin: 0 auto;
+  color: #53627a;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.contact-card {
+  margin-bottom: 28px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e1e7f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(23, 43, 77, 0.06);
+}
+
+.contact-card h2 {
+  margin: 0 0 16px;
+  color: #172b4d;
+  font-size: 28px;
+}
+
+.contact-card p {
+  margin: 0 0 15px;
+  color: #4d5d73;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.contact-card p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Contact feature cards */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.contact-feature {
+  padding: 22px;
+  background: #f8faff;
+  border: 1px solid #e1e7f0;
+  border-radius: 12px;
+}
+
+.contact-feature h3 {
+  margin: 0 0 10px;
+  color: #1d365f;
+  font-size: 19px;
+}
+
+.contact-feature p {
+  margin: 0;
+  font-size: 15px;
+}
+
+
+/* Contact information note */
+
+.contact-note {
+  background: #f8faff;
+  border-left: 4px solid #4169b8;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .contact-page {
+    padding: 38px 16px 50px;
+  }
+
+  .contact-hero h2 {
+    font-size: 32px;
+  }
+
+  .contact-hero p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .contact-card {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .contact-card h2 {
+    font-size: 24px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+/* =========================================================
+   PRIVACY POLICY PAGE
+   ========================================================= */
+
+.privacy-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+}
+
+.privacy-hero {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.privacy-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 14px;
+  border: 1px solid #d7def7;
+  border-radius: 999px;
+  background: #f4f7ff;
+  color: #3557a8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.privacy-hero h2 {
+  margin: 0 auto 18px;
+  color: #172b4d;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.privacy-hero p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #53627a;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.privacy-hero .privacy-updated {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #718096;
+}
+
+.privacy-card {
+  margin-bottom: 24px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e1e7f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(23, 43, 77, 0.06);
+}
+
+.privacy-card h2 {
+  margin: 0 0 16px;
+  color: #172b4d;
+  font-size: 25px;
+}
+
+.privacy-card p {
+  margin: 0 0 15px;
+  color: #4d5d73;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.privacy-card p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-card a {
+  color: #244a92;
+  font-weight: 600;
+}
+
+.privacy-note {
+  background: #f8faff;
+  border-left: 4px solid #4169b8;
+}
+
+@media (max-width: 768px) {
+
+  .privacy-page {
+    padding: 38px 16px 50px;
+  }
+
+  .privacy-hero h2 {
+    font-size: 32px;
+  }
+
+  .privacy-hero p {
+    font-size: 16px;
+  }
+
+  .privacy-card {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .privacy-card h2 {
+    font-size: 23px;
+  }
+
+  .privacy-card p {
+    font-size: 15px;
+  }
+
+}
+/* =========================================================
+   DISCLAIMER PAGE
+   ========================================================= */
+
+.disclaimer-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+}
+
+.disclaimer-hero {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.disclaimer-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 14px;
+  border: 1px solid #d7def7;
+  border-radius: 999px;
+  background: #f4f7ff;
+  color: #3557a8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.disclaimer-hero h2 {
+  margin: 0 auto 18px;
+  max-width: 820px;
+  color: #172b4d;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.disclaimer-hero p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #53627a;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.disclaimer-hero .disclaimer-updated {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #718096;
+}
+
+.disclaimer-card {
+  margin-bottom: 24px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e1e7f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(23, 43, 77, 0.06);
+}
+
+.disclaimer-card h2 {
+  margin: 0 0 16px;
+  color: #172b4d;
+  font-size: 25px;
+}
+
+.disclaimer-card p {
+  margin: 0 0 15px;
+  color: #4d5d73;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.disclaimer-card p:last-child {
+  margin-bottom: 0;
+}
+
+.disclaimer-card a {
+  color: #244a92;
+  font-weight: 600;
+}
+
+.disclaimer-note {
+  background: #f8faff;
+  border-left: 4px solid #4169b8;
+}
+
+@media (max-width: 768px) {
+
+  .disclaimer-page {
+    padding: 38px 16px 50px;
+  }
+
+  .disclaimer-hero h2 {
+    font-size: 32px;
+  }
+
+  .disclaimer-hero p {
+    font-size: 16px;
+  }
+
+  .disclaimer-card {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .disclaimer-card h2 {
+    font-size: 23px;
+  }
+
+  .disclaimer-card p {
+    font-size: 15px;
+  }
+
+}
