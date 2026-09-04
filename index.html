@@ -1,281 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>BCA Study Portal | BCA 1st Year C Programming Notes</title>
 
-<meta
-  name="description"
-  content="BCA Study Portal provides simple, exam-oriented notes, practical programs, algorithms, flowcharts, assignments and learning resources for BCA 1st Year C Programming."
->
-
-<link rel="canonical" href="https://bcastudyportal.in/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BCA Study Portal - syllabus-based notes for BCA students.">
-  <title>BCA Study Portal</title>
+
+  <title>BCA Study Portal | BCA 1st Year C Programming Notes</title>
+
+  <meta
+    name="description"
+    content="BCA Study Portal provides simple, exam-oriented notes, practical programs, algorithms, flowcharts, assignments and learning resources for BCA 1st Year C Programming."
+  >
+
+  <link rel="canonical" href="https://bcastudyportal.in/">
+
   <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- C CODE STYLING -->
+  <style>
+
+    .program-code {
+      position: relative;
+      background: #f8f8f8 !important;
+      border: 1px solid #e2e2e8;
+      border-radius: 10px;
+      padding: 16px !important;
+      overflow-x: auto;
+      font-family: "Consolas", "Courier New", monospace;
+      line-height: 1.6;
+    }
+
+    .program-code pre {
+      margin: 0;
+      white-space: pre;
+      background: transparent;
+    }
+
+    .program-code code {
+      font-family: "Consolas", "Courier New", monospace;
+      color: #1f2937 !important;
+    }
+
+    .c-preprocessor {
+      color: #dc2626 !important;
+      font-weight: 600;
+    }
+
+    .c-keyword {
+      color: #7c3aed !important;
+      font-weight: 600;
+    }
+
+    .c-type {
+      color: #2563eb !important;
+      font-weight: 600;
+    }
+
+    .c-string {
+      color: #b45309 !important;
+    }
+
+    .c-number {
+      color: #0891b2 !important;
+    }
+
+    .c-comment {
+      color: #15803d !important;
+      font-style: italic;
+    }
+
+    .c-function {
+      color: #0f766e !important;
+      font-weight: 500;
+    }
+
+    .c-operator {
+      color: #374151 !important;
+    }
+
+    .code-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .code-language {
+      font-weight: 600;
+      color: #555 !important;
+    }
+
+    .copy-code-btn {
+      border: 1px solid #d6d6df;
+      background: #fff;
+      border-radius: 7px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .copy-code-btn:hover {
+      background: #f1f1f7;
+    }
+
+  </style>
+
 </head>
+
 <body>
-<header class="site-header">
-  <button id="mobileMenuBtn" class="mobile-menu-btn" type="button"
-        aria-label="Open syllabus menu"
-        aria-expanded="false">
-  ☰
-</button>
-  <div class="brand">
-    <div class="brand-icon" aria-hidden="true">🎓</div>
-    <div>
-      <h1>BCA Study Portal</h1>
-      <p>BCA 1st Year · C Programming</p>
+  <header class="site-header">
+    <button
+      id="mobileMenuBtn"
+      class="mobile-menu-btn"
+      type="button"
+      aria-label="Open syllabus menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true">🎓</div>
+      <div>
+        <h1>BCA Study Portal</h1>
+        <p>BCA 1st Year · C Programming</p>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="app-shell">
-
-  <!-- ==========================================================
-       SIDEBAR
-       ========================================================== -->
-
-  <aside class="sidebar" aria-label="Syllabus navigation">
-
-  <!-- ================= C PROGRAMMING ================= -->
-  
-  <div class="sidebar-heading">
-  <span>C PROGRAMMING</span>
-  <button id="collapseAllBtn" class="text-button" type="button">
-    Collapse All
-  </button>
-</div>
-
-<!-- Search -->
-<div class="topic-search">
-  <input
-    type="text"
-    id="topicSearch"
-    placeholder="🔎 Search topics..."
-    autocomplete="off"
-  >
-</div>
-
-<div id="moduleList" class="module-list"></div>
- 
-
-<!-- ================= C SOLUTIONS ================= -->
-<div class="sidebar-heading solutions-heading">
-  <span>C SOLUTIONS</span>
-  <button id="collapseAllSolutionsBtn" class="text-button" type="button">
-    Collapse All
-  </button>
-</div>
-
-<div id="solutionModuleList" class="module-list"></div>
-
-<!-- ================= DOUBT ================= -->
-<div class="doubt-menu">
-  <button
-    id="doubtMenuBtn"
-    class="doubt-menu-button"
-    type="button"
-  >
-    💬 Have Any Doubt?
-  </button>
-</div>
-
-</aside>
-
-  <!-- ==========================================================
-       CONTENT AREA
-       ========================================================== -->
-
-  <section class="content-area">
-
-    <div class="content-topbar">
-
-      <span id="breadcrumb" class="breadcrumb">
-        BCA 1st Year · C Programming
-      </span>
-
-
-      <!-- Google Translate -->
-      <div class="translate-bar">
-
-        <span class="translate-label">
-          🌐 Language:
-        </span>
-
-        <div id="google_translate_element"></div>
-
+  <main class="app-shell">
+    <aside class="sidebar" aria-label="Syllabus navigation">
+      <div class="sidebar-heading">
+        <span>C PROGRAMMING</span>
+        <button id="collapseAllBtn" class="text-button" type="button">
+          Collapse All
+        </button>
       </div>
 
+      <div class="topic-search">
+        <input
+          type="text"
+          id="topicSearch"
+          placeholder="🔎 Search topics..."
+          autocomplete="off"
+        >
+      </div>
 
-      <h1 id="topicTitle">
-        Master C Programming — One Concept at a Time
-      </h1>
+      <div id="moduleList" class="module-list"></div>
 
+      <div class="sidebar-heading solutions-heading">
+        <span>C SOLUTIONS</span>
+        <button id="collapseAllSolutionsBtn" class="text-button" type="button">
+          Collapse All
+        </button>
+      </div>
 
-      <p id="progressText">
-        Simple notes, visual explanations and curated learning resources
-        to help you understand better and prepare smarter.
-      </p>
+      <div id="solutionModuleList" class="module-list"></div>
 
-    </div>
+      <div class="doubt-menu">
+        <button id="doubtMenuBtn" class="doubt-menu-button" type="button">
+          💬 Have Any Doubt?
+        </button>
+      </div>
+    </aside>
 
+    <section class="content-area">
+      <div class="content-topbar">
+        <span id="breadcrumb" class="breadcrumb">
+          BCA 1st Year · C Programming
+        </span>
 
-    <!-- ==========================================================
-         NORMAL NOTES
-         ========================================================== -->
-
-    <article
-      id="notesContainer"
-      class="notes-card"
-      aria-live="polite">
-
-      <div class="welcome-state">
-
-        <div class="welcome-hero">
-
-          <img
-            src="images/welcome.png"
-            alt="Welcome to BCA Study Portal"
-          >
-
+        <div class="translate-bar">
+          <span class="translate-label">🌐 Language:</span>
+          <div id="google_translate_element"></div>
         </div>
 
-      </div>
-
-    </article>
-
-
-    <!-- ==========================================================
-         DOUBT PAGE
-         ========================================================== -->
-
-    <section
-      id="doubtContainer"
-      class="notes-card doubt-page"
-      aria-label="Have any doubt"
-      hidden>
-
-      <div class="doubt-page-header">
-
-        <span class="breadcrumb">
-          BCA Study Portal
-        </span>
-
-        <h1>
-          💬 Have Any Doubt?
+        <h1 id="topicTitle">
+          Master C Programming — One Concept at a Time
         </h1>
 
-        <p>
-          Ask your question about C Programming.
-          Your doubt will be collected and reviewed by the teacher.
+        <p id="progressText">
+          Simple notes, visual explanations and curated learning resources
+          to help you understand better and prepare smarter.
         </p>
-
       </div>
 
+      <article
+        id="notesContainer"
+        class="notes-card"
+        aria-live="polite"
+      >
+        <div class="welcome-state">
+          <div class="welcome-hero">
+            <img
+              src="images/welcome.png"
+              alt="Welcome to BCA Study Portal"
+            >
+          </div>
+        </div>
+      </article>
 
-      <div class="doubt-form-container">
+      <section
+        id="doubtContainer"
+        class="notes-card doubt-page"
+        aria-label="Have any doubt"
+        hidden
+      >
+        <div class="doubt-page-header">
+          <span class="breadcrumb">BCA Study Portal</span>
+          <h1>💬 Have Any Doubt?</h1>
+          <p>
+            Ask your question about C Programming.
+            Your doubt will be collected and reviewed by the teacher.
+          </p>
+        </div>
 
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSe04USh46hM33WdlEsHVnINln6V7-fhZhsHWaKeb8Kkmy9S6w/viewform?embedded=true"
-          title="BCA Study Portal Doubt Form"
-          loading="lazy"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0">
-          Loading…
-        </iframe>
+        <div class="doubt-form-container">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSe04USh46hM33WdlEsHVnINln6V7-fhZhsHWaKeb8Kkmy9S6w/viewform?embedded=true"
+            title="BCA Study Portal Doubt Form"
+            loading="lazy"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Loading…
+          </iframe>
+        </div>
+      </section>
 
-      </div>
+      <nav class="pager" aria-label="Notes navigation">
+        <button
+          id="prevBtn"
+          class="pager-button secondary"
+          type="button"
+          disabled
+        >
+          ← Previous
+        </button>
 
+        <div id="pageIndicator" class="page-indicator">
+          Page —
+        </div>
+
+        <button
+          id="nextBtn"
+          class="pager-button primary"
+          type="button"
+          disabled
+        >
+          Next →
+        </button>
+      </nav>
     </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 BCA Study Portal. All rights reserved.</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </footer>
+
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          includedLanguages: "en,hi",
+          autoDisplay: false
+        },
+        "google_translate_element"
+      );
+    }
+  </script>
+
+  <script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  ></script>
+
+  <!-- Site JavaScript -->
+  <script src="js/syllabus.js"></script>
+  <script src="js/notes.js"></script>
+  <script src="js/solution-syllabus.js"></script>
+  <script src="js/c-solutions.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Highlight.js -->
+  
 
 
-    <!-- ==========================================================
-         PREVIOUS / NEXT
-         ========================================================== -->
+<script>
+(function () {
 
-    <nav
-      class="pager"
-      aria-label="Notes navigation">
+  const C_KEYWORDS = new Set([
+    "auto",
+    "break",
+    "case",
+    "char",
+    "const",
+    "continue",
+    "default",
+    "do",
+    "double",
+    "else",
+    "enum",
+    "extern",
+    "float",
+    "for",
+    "goto",
+    "if",
+    "int",
+    "long",
+    "register",
+    "return",
+    "short",
+    "signed",
+    "sizeof",
+    "static",
+    "struct",
+    "switch",
+    "typedef",
+    "union",
+    "unsigned",
+    "void",
+    "volatile",
+    "while"
+  ]);
 
-      <button
-        id="prevBtn"
-        class="pager-button secondary"
-        type="button"
-        disabled>
-        ← Previous
-      </button>
+  const C_TYPES = new Set([
+    "char",
+    "double",
+    "float",
+    "int",
+    "long",
+    "short",
+    "signed",
+    "unsigned",
+    "void"
+  ]);
 
 
-      <div
-        id="pageIndicator"
-        class="page-indicator">
-        Page —
-      </div>
+  function escapeHTML(text) {
 
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
 
-      <button
-        id="nextBtn"
-        class="pager-button primary"
-        type="button"
-        disabled>
-        Next →
-      </button>
-
-    </nav>
-
-  </section>
-
-</main>
-
-<!-- =========================================================
-     SITE FOOTER
-     ========================================================= -->
-
-<footer class="site-footer">
-
-  <p>
-    © 2026 BCA Study Portal. All rights reserved.
-  </p>
-
-  <div class="footer-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="disclaimer.html">Disclaimer</a>
-</div>
-
-</footer>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'en',
-        includedLanguages: 'en,hi',
-        autoDisplay: false
-      },
-      'google_translate_element'
-    );
   }
+
+
+  function highlightC(codeText) {
+
+    let result = "";
+    let i = 0;
+
+    while (i < codeText.length) {
+
+      /* =========================
+         Single-line comment
+         ========================= */
+
+      if (
+        codeText[i] === "/" &&
+        codeText[i + 1] === "/"
+      ) {
+
+        let start = i;
+
+        while (
+          i < codeText.length &&
+          codeText[i] !== "\n"
+        ) {
+          i++;
+        }
+
+        result +=
+          '<span class="c-comment">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         Multi-line comment
+         ========================= */
+
+      if (
+        codeText[i] === "/" &&
+        codeText[i + 1] === "*"
+      ) {
+
+        let start = i;
+
+        i += 2;
+
+        while (
+          i < codeText.length &&
+          !(
+            codeText[i] === "*" &&
+            codeText[i + 1] === "/"
+          )
+        ) {
+          i++;
+        }
+
+        i += 2;
+
+        result +=
+          '<span class="c-comment">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         Preprocessor
+         ========================= */
+
+      if (
+        codeText[i] === "#" &&
+        (i === 0 || codeText[i - 1] === "\n")
+      ) {
+
+        let start = i;
+
+        while (
+          i < codeText.length &&
+          codeText[i] !== "\n"
+        ) {
+          i++;
+        }
+
+        result +=
+          '<span class="c-preprocessor">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         String / Character
+         ========================= */
+
+      if (
+        codeText[i] === '"' ||
+        codeText[i] === "'"
+      ) {
+
+        const quote = codeText[i];
+        let start = i;
+
+        i++;
+
+        while (i < codeText.length) {
+
+          if (codeText[i] === "\\") {
+            i += 2;
+            continue;
+          }
+
+          if (codeText[i] === quote) {
+            i++;
+            break;
+          }
+
+          i++;
+        }
+
+        result +=
+          '<span class="c-string">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         Number
+         ========================= */
+
+      if (/[0-9]/.test(codeText[i])) {
+
+        let start = i;
+
+        while (
+          i < codeText.length &&
+          /[A-Za-z0-9._]/.test(codeText[i])
+        ) {
+          i++;
+        }
+
+        result +=
+          '<span class="c-number">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         Identifier / Keyword
+         ========================= */
+
+      if (/[A-Za-z_]/.test(codeText[i])) {
+
+        let start = i;
+
+        i++;
+
+        while (
+          i < codeText.length &&
+          /[A-Za-z0-9_]/.test(codeText[i])
+        ) {
+          i++;
+        }
+
+        const word = codeText.slice(start, i);
+
+        /* Look ahead for function call */
+        let j = i;
+
+        while (
+          j < codeText.length &&
+          (codeText[j] === " " ||
+           codeText[j] === "\t")
+        ) {
+          j++;
+        }
+
+        if (C_TYPES.has(word)) {
+
+          result +=
+            '<span class="c-type">' +
+            escapeHTML(word) +
+            '</span>';
+
+        } else if (C_KEYWORDS.has(word)) {
+
+          result +=
+            '<span class="c-keyword">' +
+            escapeHTML(word) +
+            '</span>';
+
+        } else if (codeText[j] === "(") {
+
+          result +=
+            '<span class="c-function">' +
+            escapeHTML(word) +
+            '</span>';
+
+        } else {
+
+          result += escapeHTML(word);
+
+        }
+
+        continue;
+      }
+
+
+      /* =========================
+         Everything else
+         ========================= */
+
+      const char = codeText[i];
+
+      if ("+-*/%=<>!&|^~?:".includes(char)) {
+
+        result +=
+          '<span class="c-operator">' +
+          escapeHTML(char) +
+          '</span>';
+
+      } else {
+
+        result += escapeHTML(char);
+
+      }
+
+      i++;
+
+    }
+
+    return result;
+  }
+
+
+  function enhanceCodeBlocks() {
+
+    document.querySelectorAll(".program-code").forEach(function (block) {
+
+      if (block.dataset.enhanced === "true") {
+        return;
+      }
+
+      const codeText = block.textContent.trim();
+
+      block.innerHTML = "";
+
+
+      /* =========================
+         Toolbar
+         ========================= */
+
+      const toolbar = document.createElement("div");
+      toolbar.className = "code-toolbar";
+
+      const language = document.createElement("span");
+      language.className = "code-language";
+      language.textContent = "C";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = "copy-code-btn";
+      copyButton.type = "button";
+      copyButton.textContent = "📋 Copy";
+
+      toolbar.appendChild(language);
+      toolbar.appendChild(copyButton);
+
+      block.appendChild(toolbar);
+
+
+      /* =========================
+         Code
+         ========================= */
+
+      const pre = document.createElement("pre");
+      const code = document.createElement("code");
+
+      code.innerHTML = highlightC(codeText);
+
+      pre.appendChild(code);
+      block.appendChild(pre);
+
+
+      /* =========================
+         Copy
+         ========================= */
+
+      copyButton.addEventListener("click", async function () {
+
+        try {
+
+          await navigator.clipboard.writeText(codeText);
+
+          copyButton.textContent = "✅ Copied";
+
+          setTimeout(function () {
+            copyButton.textContent = "📋 Copy";
+          }, 1500);
+
+        } catch (error) {
+
+          copyButton.textContent = "❌ Failed";
+
+          setTimeout(function () {
+            copyButton.textContent = "📋 Copy";
+          }, 1500);
+
+        }
+
+      });
+
+
+      block.dataset.enhanced = "true";
+
+    });
+
+  }
+
+
+  /* First load */
+  enhanceCodeBlocks();
+
+
+  /* Dynamic topic/solution changes */
+  const notesContainer =
+    document.getElementById("notesContainer");
+
+  if (notesContainer) {
+
+    const observer = new MutationObserver(function () {
+      enhanceCodeBlocks();
+    });
+
+    observer.observe(notesContainer, {
+      childList: true,
+      subtree: true
+    });
+
+  }
+
+})();
 </script>
-
-<script
-  type="text/javascript"
-  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-
-<script src="js/syllabus.js"></script>
-<script src="js/notes.js"></script>
-
-<script src="js/solution-syllabus.js"></script>
-<script src="js/c-solutions.js"></script>
-
-<script src="js/app.js"></script>
-
 </body>
 </html>
-
-
