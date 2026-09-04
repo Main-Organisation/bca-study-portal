@@ -370,7 +370,7 @@ SOLUTIONS["s-m1-flowchart"] = [
 
   <div class="solution-image">
     <img
-      src="images/flowchart-add-two-numbers.png"
+      src="images/flowchart-add.png"
       alt="Flowchart to add two numbers"
     >
   </div>
@@ -401,7 +401,7 @@ SOLUTIONS["s-m1-flowchart"] = [
 
   <div class="solution-image">
     <img
-      src="images/flowchart-largest-two.png"
+      src="images/Largest_Between_two.png"
       alt="Flowchart to find the largest of two numbers"
     >
   </div>
@@ -432,7 +432,7 @@ SOLUTIONS["s-m1-flowchart"] = [
 
   <div class="solution-image">
     <img
-      src="images/flowchart-rectangle-area.png"
+      src="images/calculate_the_are_of_rectangle.png"
       alt="Flowchart to calculate area of a rectangle"
     >
   </div>
@@ -463,7 +463,7 @@ SOLUTIONS["s-m1-flowchart"] = [
 
   <div class="solution-image">
     <img
-      src="images/flowchart-simple-interest.png"
+      src="images/flow_Calculate_Simple_Interest.png"
       alt="Flowchart to calculate simple interest"
     >
   </div>
@@ -495,7 +495,7 @@ SOLUTIONS["s-m1-flowchart"] = [
 
   <div class="solution-image">
     <img
-      src="images/flowchart-even-odd.png"
+      src="images/flowchart_to_check_whether_a_number_is_even_or_odd.png"
       alt="Flowchart to check whether a number is even or odd"
     >
   </div>
@@ -528,7 +528,7 @@ SOLUTIONS["s-m1-flowchart"] = [
 
   <div class="solution-image">
     <img
-      src="images/flowchart-positive-negative-zero.png"
+      src="images/flowchart_to_check_whether_a_number_is_positive_negative_zero.png"
       alt="Flowchart to check positive negative or zero"
     >
   </div>

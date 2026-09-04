@@ -1,4 +1,4 @@
-Create a clean, modern academic infographic for a BCA 1st-year student notes website.
+Create a clean, modern academic flowchart-even-odd for a BCA 1st-year student notes website.
 
 VISUAL STYLE:
 - Clean educational infographic style
@@ -18,6 +18,19 @@ LAYOUT:
 - No elements should touch or cross the edges
 - Maintain balanced margins on all sides
 - Design the image so it can be displayed responsively inside a notes card
+Size :
+
+- Dimensions: 1536 x 1024
+
+- Width : 1536 pixels
+
+- Height : 1024 pixels
+
+- Horizontal Resolution : 96 dpi
+
+- Vertical Resolution: 96 dpi
+
+- Bit Depth : 24
 
 CARDS/PANELS:
 - Rounded rectangular boxes
@@ -43,23 +56,28 @@ ICONS:
 - Avoid photorealistic images
 
 FLOWCHART / PROCESS IMAGES:
-- Use clear downward arrows between steps
-- Arrows should be centered and visually consistent
-- Steps should be easy to follow from top to bottom
-- Each step should contain a clear title and a short explanation
-- Example style:
-  INPUT
-  ↓
-  PROCESSING
-  ↓
-  OUTPUT
-  ↓
-  STORAGE
+A flowchart must follow standard rules for direction, symbols, and connections to remain clear and easy to read. [1, 2]  
+Direction and Flow 
 
-REFERENCE:
-Use the previously approved "INPUT → PROCESSING → OUTPUT → STORAGE"
-infographic as the visual reference for size, spacing, card proportions,
-icons, typography, pastel colors, arrows, and overall academic appearance.
+• Top to bottom: Flow should generally move from top to bottom or left to right. 
+• Use arrows: Connect every shape with arrow lines to show the exact path of the process. 
+• No crossing lines: Keep lines neat and avoid letting arrows cross or overlap each other. [1, 3, 4]  
+
+Standard Symbols 
+
+• Oval (Terminator): Marks the start and end points of a process. 
+• Rectangle (Process): Represents actions, tasks, or calculations. 
+• Diamond (Decision): Shows a choice point that branches into paths like "Yes" and "No". 
+• Parallelogram (Input/Output): Indicates data entering or leaving the system. [1, 4, 5]  
+
+Core Rules 
+
+• Single start: Every chart needs a clear start point. 
+• Labeled branches: Label every exit path from a decision diamond clearly. 
+• Keep it simple: Limit the chart to one page and remove unnecessary details. [1, 4]  
+
+
+
 
 IMPORTANT:
 - Keep the image visually consistent with the existing BCA Study Portal notes.
