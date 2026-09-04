@@ -20625,9 +20625,4005 @@ int main()
 
 ];
 
-SOLUTIONS["s-m5-pointer-idea"] = [];
-SOLUTIONS["s-m5-defining-pointers"] = [];
-SOLUTIONS["s-m5-use-pointers"] = [];
-SOLUTIONS["s-m5-file-modes"] = [];
-SOLUTIONS["s-m5-reading-files"] = [];
-SOLUTIONS["s-m5-writing-files"] = [];
+SOLUTIONS["s-m5-pointer-idea"] = [
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a pointer to an integer variable and
+    display the value of the variable and its address.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 25;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Value = %d\\n", number);
+    printf("Address = %p\\n", (void *)ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer stores the address of another variable. The address-of
+    operator <code>&amp;</code> obtains the address of <code>number</code>,
+    and that address is stored in <code>ptr</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Value = 25</strong></p>
+    <p><strong>Address = 0x7ff...</strong></p>
+    <p>The exact address depends on the system.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to access the value of a variable using a pointer
+    and the dereference operator <code>*</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 50;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Variable value = %d\\n", number);
+    printf("Pointer value = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The dereference operator <code>*</code> accesses the value stored at
+    the memory address held by the pointer. Therefore, <code>*ptr</code>
+    gives the value of <code>number</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Variable value = 50</strong></p>
+    <p><strong>Pointer value = 50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to take an integer from the user and display its
+    value using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number;
+    int *ptr;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;number);
+
+    ptr = &amp;number;
+
+    printf("Value using pointer = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer <code>ptr</code> stores the address of the input variable.
+    Dereferencing it with <code>*ptr</code> retrieves the variable's value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 75</p>
+    <p><strong>Value using pointer = 75</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to modify the value of a variable using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 10;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Before modification = %d\\n", number);
+
+    *ptr = 100;
+
+    printf("After modification = %d\\n", number);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer can be used not only to read a variable but also to modify it.
+    Assigning a new value to <code>*ptr</code> changes the original variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Before modification = 10</strong></p>
+    <p><strong>After modification = 100</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use pointers with two integer variables and
+    calculate their sum.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 20;
+    int b = 30;
+
+    int *p1 = &amp;a;
+    int *p2 = &amp;b;
+
+    int sum;
+
+    sum = *p1 + *p2;
+
+    printf("First number = %d\\n", *p1);
+    printf("Second number = %d\\n", *p2);
+    printf("Sum = %d\\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Two pointers are used to access the values of two integer variables.
+    The dereferenced values are then added to calculate the sum.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>First number = 20</strong></p>
+    <p><strong>Second number = 30</strong></p>
+    <p><strong>Sum = 50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the larger of two numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+    int *p1, *p2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    p1 = &amp;a;
+    p2 = &amp;b;
+
+    if (*p1 &gt; *p2)
+        printf("Larger number = %d\\n", *p1);
+    else if (*p2 &gt; *p1)
+        printf("Larger number = %d\\n", *p2);
+    else
+        printf("Both numbers are equal.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointers provide access to the original variables, and their
+    dereferenced values are compared using an <code>if-else</code> statement.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 45 72</p>
+    <p><strong>Larger number = 72</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to swap two numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void swap(int *x, int *y)
+{
+    int temp;
+
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("Before swap: a = %d, b = %d\\n", a, b);
+
+    swap(&amp;a, &amp;b);
+
+    printf("After swap: a = %d, b = %d\\n", a, b);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The addresses of <code>a</code> and <code>b</code> are passed to the
+    function. Because the function receives pointers, it can modify the
+    original variables directly.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 10 20</p>
+    <p><strong>Before swap: a = 10, b = 20</strong></p>
+    <p><strong>After swap: a = 20, b = 10</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use a pointer with a floating-point variable
+    and display its value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float price = 99.50;
+    float *ptr;
+
+    ptr = &amp;price;
+
+    printf("Price = %.2f\\n", price);
+    printf("Price using pointer = %.2f\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Pointers are not limited to integers. A pointer can store the address
+    of a variable of a compatible data type, such as <code>float</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Price = 99.50</strong></p>
+    <p><strong>Price using pointer = 99.50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate that a pointer stores the address
+    of a variable and can be used to access that variable.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 100;
+    int *ptr = &amp;number;
+
+    printf("Value of number = %d\\n", number);
+    printf("Address of number = %p\\n",
+           (void *)&amp;number);
+    printf("Address stored in ptr = %p\\n",
+           (void *)ptr);
+    printf("Value using ptr = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The address stored in <code>ptr</code> points to the same memory
+    location as the address of <code>number</code>. Dereferencing the
+    pointer gives the value stored at that location.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Value of number = 100</strong></p>
+    <p><strong>Address of number = 0x7ff...</strong></p>
+    <p><strong>Address stored in ptr = 0x7ff...</strong></p>
+    <p><strong>Value using ptr = 100</strong></p>
+    <p>The exact address depends on the system.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate a simple real-world style use of
+    pointers by updating a student's marks through a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks = 75;
+    int *ptr;
+
+    ptr = &amp;marks;
+
+    printf("Original Marks = %d\\n", marks);
+
+    // Update marks through pointer
+    *ptr = *ptr + 10;
+
+    printf("Updated Marks = %d\\n", marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer stores the address of the marks variable. By using
+    <code>*ptr</code>, the program directly updates the original marks.
+    This demonstrates why pointers are useful when a function or another
+    part of a program needs to modify existing data.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Original Marks = 75</strong></p>
+    <p><strong>Updated Marks = 85</strong></p>
+  </div>
+  `
+
+];
+SOLUTIONS["s-m5-defining-pointers"] = [
+
+  `
+  <h2>Defining Pointers — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to declare an integer pointer, store the address of
+    an integer variable in it and display the value using the pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 25;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Value = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The declaration <code>int *ptr</code> defines a pointer that can store
+    the address of an integer variable. The address of <code>number</code>
+    is assigned using the address-of operator <code>&amp;</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Value = 25</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define a pointer to a floating-point variable
+    and display its value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float price = 125.50;
+    float *ptr;
+
+    ptr = &amp;price;
+
+    printf("Price = %.2f\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer must be declared with a compatible data type. Here,
+    <code>float *ptr</code> stores the address of the floating-point
+    variable <code>price</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Price = 125.50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define a character pointer and display the
+    character stored in a variable.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char grade = 'A';
+    char *ptr;
+
+    ptr = &amp;grade;
+
+    printf("Grade = %c\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The declaration <code>char *ptr</code> creates a pointer suitable for
+    storing the address of a character variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Grade = A</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to initialize a pointer at the time of declaration
+    and display the value of the variable.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 100;
+    int *ptr = &amp;number;
+
+    printf("Number = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer can be initialized when it is declared. In this example,
+    <code>ptr</code> immediately stores the address of <code>number</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Number = 100</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define two integer pointers and display the
+    values of two variables through them.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+    int b = 20;
+
+    int *p1 = &amp;a;
+    int *p2 = &amp;b;
+
+    printf("First value = %d\\n", *p1);
+    printf("Second value = %d\\n", *p2);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Multiple pointers can be declared independently. Each pointer stores
+    the address of its corresponding variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>First value = 10</strong></p>
+    <p><strong>Second value = 20</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define a pointer and assign it the address of
+    different variables one after another.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 15;
+    int b = 30;
+
+    int *ptr;
+
+    ptr = &amp;a;
+    printf("First value = %d\\n", *ptr);
+
+    ptr = &amp;b;
+    printf("Second value = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer variable can be reassigned to another variable of the same
+    compatible type. After reassignment, dereferencing the pointer accesses
+    the new variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>First value = 15</strong></p>
+    <p><strong>Second value = 30</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define a pointer and initialize it with
+    <code>NULL</code>. Check whether the pointer is NULL before using it.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int *ptr = NULL;
+
+    if (ptr == NULL)
+    {
+        printf("Pointer is NULL.\\n");
+    }
+    else
+    {
+        printf("Pointer contains an address.\\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A <code>NULL</code> pointer does not point to a valid object for
+    dereferencing. Checking a pointer before using it can help avoid
+    invalid memory access.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Pointer is NULL.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define an integer pointer and display both the
+    address stored in the pointer and the value at that address.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 75;
+    int *ptr = &amp;number;
+
+    printf("Address stored in pointer = %p\\n",
+           (void *)ptr);
+
+    printf("Value at address = %d\\n",
+           *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer stores the memory address of <code>number</code>.
+    The dereference operator <code>*</code> accesses the value stored
+    at that address.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Address stored in pointer = 0x7ff...</strong></p>
+    <p><strong>Value at address = 75</strong></p>
+    <p>The exact memory address depends on the system.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define pointers for integer, float and character
+    variables and display their values.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 50;
+    float price = 75.25;
+    char grade = 'B';
+
+    int *iptr = &amp;number;
+    float *fptr = &amp;price;
+    char *cptr = &amp;grade;
+
+    printf("Integer = %d\\n", *iptr);
+    printf("Float = %.2f\\n", *fptr);
+    printf("Character = %c\\n", *cptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Pointer declarations use a data type corresponding to the type of
+    object whose address they store. This example demonstrates
+    <code>int *</code>, <code>float *</code> and <code>char *</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Integer = 50</strong></p>
+    <p><strong>Float = 75.25</strong></p>
+    <p><strong>Character = B</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Defining Pointers — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to define an integer pointer and use it to update
+    a variable after initialization.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks = 70;
+    int *ptr = &amp;marks;
+
+    printf("Original marks = %d\\n", marks);
+
+    *ptr = 85;
+
+    printf("Updated marks = %d\\n", marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Once the pointer has been initialized with the variable's address,
+    assigning a value to <code>*ptr</code> changes the original variable.
+    This demonstrates the practical purpose of defining and initializing
+    a pointer.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Original marks = 70</strong></p>
+    <p><strong>Updated marks = 85</strong></p>
+  </div>
+  `
+
+];
+
+SOLUTIONS["s-m5-pointer-idea"] = [
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a pointer to an integer variable and
+    display the value of the variable and its address.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 25;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Value = %d\\n", number);
+    printf("Address = %p\\n", (void *)ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer stores the address of another variable. The address-of
+    operator <code>&amp;</code> obtains the address of <code>number</code>,
+    and that address is stored in <code>ptr</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Value = 25</strong></p>
+    <p><strong>Address = 0x7ff...</strong></p>
+    <p>The exact address depends on the system.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to access the value of a variable using a pointer
+    and the dereference operator <code>*</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 50;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Variable value = %d\\n", number);
+    printf("Pointer value = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The dereference operator <code>*</code> accesses the value stored at
+    the memory address held by the pointer. Therefore, <code>*ptr</code>
+    gives the value of <code>number</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Variable value = 50</strong></p>
+    <p><strong>Pointer value = 50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to take an integer from the user and display its
+    value using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number;
+    int *ptr;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;number);
+
+    ptr = &amp;number;
+
+    printf("Value using pointer = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer <code>ptr</code> stores the address of the input variable.
+    Dereferencing it with <code>*ptr</code> retrieves the variable's value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 75</p>
+    <p><strong>Value using pointer = 75</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to modify the value of a variable using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 10;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Before modification = %d\\n", number);
+
+    *ptr = 100;
+
+    printf("After modification = %d\\n", number);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer can be used not only to read a variable but also to modify it.
+    Assigning a new value to <code>*ptr</code> changes the original variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Before modification = 10</strong></p>
+    <p><strong>After modification = 100</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use pointers with two integer variables and
+    calculate their sum.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 20;
+    int b = 30;
+
+    int *p1 = &amp;a;
+    int *p2 = &amp;b;
+
+    int sum;
+
+    sum = *p1 + *p2;
+
+    printf("First number = %d\\n", *p1);
+    printf("Second number = %d\\n", *p2);
+    printf("Sum = %d\\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Two pointers are used to access the values of two integer variables.
+    The dereferenced values are then added to calculate the sum.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>First number = 20</strong></p>
+    <p><strong>Second number = 30</strong></p>
+    <p><strong>Sum = 50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the larger of two numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+    int *p1, *p2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    p1 = &amp;a;
+    p2 = &amp;b;
+
+    if (*p1 &gt; *p2)
+        printf("Larger number = %d\\n", *p1);
+    else if (*p2 &gt; *p1)
+        printf("Larger number = %d\\n", *p2);
+    else
+        printf("Both numbers are equal.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointers provide access to the original variables, and their
+    dereferenced values are compared using an <code>if-else</code> statement.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 45 72</p>
+    <p><strong>Larger number = 72</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to swap two numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void swap(int *x, int *y)
+{
+    int temp;
+
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("Before swap: a = %d, b = %d\\n", a, b);
+
+    swap(&amp;a, &amp;b);
+
+    printf("After swap: a = %d, b = %d\\n", a, b);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The addresses of <code>a</code> and <code>b</code> are passed to the
+    function. Because the function receives pointers, it can modify the
+    original variables directly.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 10 20</p>
+    <p><strong>Before swap: a = 10, b = 20</strong></p>
+    <p><strong>After swap: a = 20, b = 10</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use a pointer with a floating-point variable
+    and display its value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float price = 99.50;
+    float *ptr;
+
+    ptr = &amp;price;
+
+    printf("Price = %.2f\\n", price);
+    printf("Price using pointer = %.2f\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Pointers are not limited to integers. A pointer can store the address
+    of a variable of a compatible data type, such as <code>float</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Price = 99.50</strong></p>
+    <p><strong>Price using pointer = 99.50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate that a pointer stores the address
+    of a variable and can be used to access that variable.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 100;
+    int *ptr = &amp;number;
+
+    printf("Value of number = %d\\n", number);
+    printf("Address of number = %p\\n",
+           (void *)&amp;number);
+    printf("Address stored in ptr = %p\\n",
+           (void *)ptr);
+    printf("Value using ptr = %d\\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The address stored in <code>ptr</code> points to the same memory
+    location as the address of <code>number</code>. Dereferencing the
+    pointer gives the value stored at that location.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Value of number = 100</strong></p>
+    <p><strong>Address of number = 0x7ff...</strong></p>
+    <p><strong>Address stored in ptr = 0x7ff...</strong></p>
+    <p><strong>Value using ptr = 100</strong></p>
+    <p>The exact address depends on the system.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Pointer: Idea of Pointers — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate a simple real-world style use of
+    pointers by updating a student's marks through a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks = 75;
+    int *ptr;
+
+    ptr = &amp;marks;
+
+    printf("Original Marks = %d\\n", marks);
+
+    // Update marks through pointer
+    *ptr = *ptr + 10;
+
+    printf("Updated Marks = %d\\n", marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer stores the address of the marks variable. By using
+    <code>*ptr</code>, the program directly updates the original marks.
+    This demonstrates why pointers are useful when a function or another
+    part of a program needs to modify existing data.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Original Marks = 75</strong></p>
+    <p><strong>Updated Marks = 85</strong></p>
+  </div>
+  `
+
+];
+SOLUTIONS["s-m5-use-pointers"] = [
+
+  `
+  <h2>Use of Pointers — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to modify the value of an integer variable using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number;
+    int *ptr;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;number);
+
+    ptr = &amp;number;
+
+    printf("Original value = %d\\n", number);
+
+    *ptr = *ptr + 20;
+
+    printf("Updated value = %d\\n", number);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer stores the address of <code>number</code>. Using
+    <code>*ptr</code>, the program can directly modify the original variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 30</p>
+    <p><strong>Original value = 30</strong></p>
+    <p><strong>Updated value = 50</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to swap two numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b)
+{
+    int temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("Before swap: a = %d, b = %d\\n", a, b);
+
+    swap(&amp;a, &amp;b);
+
+    printf("After swap: a = %d, b = %d\\n", a, b);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The addresses of the two variables are passed to <code>swap()</code>.
+    The function changes the original values through the pointers.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 10 20</p>
+    <p><strong>Before swap: a = 10, b = 20</strong></p>
+    <p><strong>After swap: a = 20, b = 10</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the sum and difference of two numbers
+    using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+    int *p1, *p2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    p1 = &amp;a;
+    p2 = &amp;b;
+
+    printf("Sum = %d\\n", *p1 + *p2);
+    printf("Difference = %d\\n", *p1 - *p2);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointers provide access to the values stored in <code>a</code>
+    and <code>b</code>. The dereferenced values are used in arithmetic expressions.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 25 10</p>
+    <p><strong>Sum = 35</strong></p>
+    <p><strong>Difference = 15</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest of three numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c;
+    int *p1, *p2, *p3;
+    int largest;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    p1 = &amp;a;
+    p2 = &amp;b;
+    p3 = &amp;c;
+
+    largest = *p1;
+
+    if (*p2 &gt; largest)
+        largest = *p2;
+
+    if (*p3 &gt; largest)
+        largest = *p3;
+
+    printf("Largest number = %d\\n", largest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Pointers are used to access the three input values. Their dereferenced
+    values are compared to determine the largest number.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter three numbers: 45 92 67</p>
+    <p><strong>Largest number = 92</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the square of a number using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number;
+    int *ptr;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;number);
+
+    ptr = &amp;number;
+
+    printf("Square = %d\\n", (*ptr) * (*ptr));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer is used to access the input value. The dereferenced value
+    is multiplied by itself to calculate the square.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12</p>
+    <p><strong>Square = 144</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the sum of all elements of an integer array
+    using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[5];
+    int *ptr;
+    int i;
+    int sum = 0;
+
+    printf("Enter 5 numbers:\\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    ptr = arr;
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        sum += *(ptr + i);
+    }
+
+    printf("Sum = %d\\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The array name gives the address of its first element. Pointer arithmetic
+    is then used to access each array element through <code>*(ptr + i)</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 5 numbers:</p>
+    <p>10 20 30 40 50</p>
+    <p><strong>Sum = 150</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest element in an array using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[5];
+    int *ptr;
+    int i;
+    int largest;
+
+    printf("Enter 5 numbers:\\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    ptr = arr;
+    largest = *ptr;
+
+    for (i = 1; i &lt; 5; i++)
+    {
+        if (*(ptr + i) &gt; largest)
+        {
+            largest = *(ptr + i);
+        }
+    }
+
+    printf("Largest element = %d\\n", largest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Pointer arithmetic allows the program to access each array element.
+    The largest value is tracked while traversing the array.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 5 numbers:</p>
+    <p>12 45 8 72 31</p>
+    <p><strong>Largest element = 72</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the even and odd elements in an array using
+    a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[6];
+    int *ptr;
+    int i;
+    int even = 0;
+    int odd = 0;
+
+    printf("Enter 6 numbers:\\n");
+
+    for (i = 0; i &lt; 6; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    ptr = arr;
+
+    for (i = 0; i &lt; 6; i++)
+    {
+        if (*(ptr + i) % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+
+    printf("Even numbers = %d\\n", even);
+    printf("Odd numbers = %d\\n", odd);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each array element is accessed through pointer arithmetic. The modulo
+    operator determines whether the value is even or odd.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 6 numbers:</p>
+    <p>10 15 20 25 30 35</p>
+    <p><strong>Even numbers = 3</strong></p>
+    <p><strong>Odd numbers = 3</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to reverse an array using two pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[5];
+    int *left;
+    int *right;
+    int temp;
+    int i;
+
+    printf("Enter 5 numbers:\\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    left = arr;
+    right = arr + 4;
+
+    while (left &lt; right)
+    {
+        temp = *left;
+        *left = *right;
+        *right = temp;
+
+        left++;
+        right--;
+    }
+
+    printf("Reversed array:\\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    One pointer starts at the first element and another at the last element.
+    Their values are swapped while the pointers move toward each other.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 5 numbers:</p>
+    <p>10 20 30 40 50</p>
+    <p><strong>Reversed array:</strong></p>
+    <p><strong>50 40 30 20 10</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Use of Pointers — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the average of array elements using
+    a pointer and a function.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+float calculateAverage(int *ptr, int size)
+{
+    int i;
+    int sum = 0;
+
+    for (i = 0; i &lt; size; i++)
+    {
+        sum += *(ptr + i);
+    }
+
+    return (float)sum / size;
+}
+
+int main()
+{
+    int arr[5];
+    int i;
+    float average;
+
+    printf("Enter 5 numbers:\\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    average = calculateAverage(arr, 5);
+
+    printf("Average = %.2f\\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The array address is passed to the function through a pointer.
+    The function uses pointer arithmetic to access every element and
+    calculates the average.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 5 numbers:</p>
+    <p>70 80 90 60 100</p>
+    <p><strong>Average = 80.00</strong></p>
+  </div>
+  `
+
+];
+SOLUTIONS["s-m5-file-modes"] = [
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a file and write text into it using the
+    <code>w</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("student.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    fprintf(fp, "BCA Study Portal\\n");
+
+    fclose(fp);
+
+    printf("File created and data written successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>w</code> mode opens a file for writing. If the file does not
+    exist, it can be created. Existing contents are replaced when the file
+    is opened for writing.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File created and data written successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to open an existing file in <code>r</code> mode and
+    read its contents character by character.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("student.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    printf("File contents:\\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>r</code> mode opens an existing file for reading.
+    <code>fgetc()</code> reads one character at a time until
+    <code>EOF</code> is reached.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>BCA Study Portal</p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to append new text to an existing file using the
+    <code>a</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("student.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    fprintf(fp, "C Programming Notes\\n");
+
+    fclose(fp);
+
+    printf("Data appended successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>a</code> mode opens a file for appending. New data is written
+    at the end of the existing file instead of replacing its contents.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Data appended successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use the <code>r+</code> mode to read from and
+    write to an existing file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("student.txt", "r+");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    printf("Existing content:\\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fprintf(fp, "New Line\\n");
+
+    fclose(fp);
+
+    printf("\\nData processing completed.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>r+</code> mode allows both reading and writing on an existing
+    file. The file must already exist. The exact effect of writing also
+    depends on the current file position.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Existing content:</strong></p>
+    <p>BCA Study Portal</p>
+    <p><strong>Data processing completed.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a new file for both reading and writing
+    using the <code>w+</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char text[100];
+
+    fp = fopen("data.txt", "w+");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    fprintf(fp, "Welcome to File Handling.");
+
+    rewind(fp);
+
+    fgets(text, sizeof(text), fp);
+
+    printf("File content = %s\\n", text);
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>w+</code> mode opens a file for both reading and writing.
+    The file can be created if it does not exist, while existing contents
+    are discarded when the file is opened.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File content = Welcome to File Handling.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use the <code>a+</code> mode to append data to a
+    file and then read the file contents.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("notes.txt", "a+");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    fprintf(fp, "Pointers are important in C.\\n");
+
+    rewind(fp);
+
+    printf("File contents:\\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>a+</code> mode allows both reading and appending. New data
+    is added at the end of the file, while reading can be performed after
+    repositioning the file position as needed.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>Pointers are important in C.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a file can be opened using the
+    <code>r</code> mode before reading it.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("record.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File does not exist or cannot be opened.\\n");
+    }
+    else
+    {
+        printf("File opened successfully.\\n");
+        fclose(fp);
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    <code>fopen()</code> returns <code>NULL</code> when the file cannot be
+    opened successfully. Checking this result prevents the program from
+    trying to use an invalid file pointer.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File opened successfully.</strong></p>
+    <p>
+      If the file does not exist, the program displays an appropriate
+      error message instead.
+    </p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate the use of the <code>w</code> mode
+    for storing student information in a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+    float marks;
+
+    fp = fopen("student_record.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;roll);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;marks);
+
+    fprintf(fp,
+            "Roll = %d\\nName = %s\\nMarks = %.2f\\n",
+            roll,
+            name,
+            marks);
+
+    fclose(fp);
+
+    printf("\\nStudent record saved successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>w</code> mode is useful when a program needs to create a new
+    file or replace the contents of an existing file with fresh data.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks: 88</p>
+    <p><strong>Student record saved successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to append multiple student names to a file using
+    the <code>a</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char name[50];
+    int i;
+
+    fp = fopen("students.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    for (i = 0; i &lt; 3; i++)
+    {
+        printf("Enter student name: ");
+        scanf("%49s", name);
+
+        fprintf(fp, "%s\\n", name);
+    }
+
+    fclose(fp);
+
+    printf("Student names appended successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program opens the file in append mode so that newly entered names
+    are added after the existing data. Existing contents are preserved.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter student name: Rahul</p>
+    <p>Enter student name: Priya</p>
+    <p>Enter student name: Amit</p>
+    <p><strong>Student names appended successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>File Handling: File Opening Modes — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program that demonstrates choosing a file opening mode
+    using a menu and performs the corresponding file operation.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int choice;
+
+    printf("1. Write file\\n");
+    printf("2. Read file\\n");
+    printf("3. Append file\\n");
+
+    printf("Enter choice: ");
+    scanf("%d", &amp;choice);
+
+    if (choice == 1)
+    {
+        fp = fopen("menu.txt", "w");
+
+        if (fp == NULL)
+        {
+            printf("Unable to open file.\\n");
+            return 1;
+        }
+
+        fprintf(fp, "Data written using w mode.\\n");
+
+        fclose(fp);
+
+        printf("Write operation completed.\\n");
+    }
+    else if (choice == 2)
+    {
+        int ch;
+
+        fp = fopen("menu.txt", "r");
+
+        if (fp == NULL)
+        {
+            printf("File could not be opened.\\n");
+            return 1;
+        }
+
+        printf("File contents:\\n");
+
+        while ((ch = fgetc(fp)) != EOF)
+        {
+            putchar(ch);
+        }
+
+        fclose(fp);
+    }
+    else if (choice == 3)
+    {
+        fp = fopen("menu.txt", "a");
+
+        if (fp == NULL)
+        {
+            printf("Unable to open file.\\n");
+            return 1;
+        }
+
+        fprintf(fp, "Data appended using a mode.\\n");
+
+        fclose(fp);
+
+        printf("Append operation completed.\\n");
+    }
+    else
+    {
+        printf("Invalid choice.\\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This example combines the commonly used text-file opening modes.
+    The program selects <code>w</code>, <code>r</code> or <code>a</code>
+    according to the user's choice and then performs the corresponding
+    operation.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>1. Write file</p>
+    <p>2. Read file</p>
+    <p>3. Append file</p>
+    <p>Enter choice: 1</p>
+    <p><strong>Write operation completed.</strong></p>
+  </div>
+  `
+
+];
+SOLUTIONS["s-m5-reading-files"] = [
+
+  `
+  <h2>Reading from Files — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to open a text file in read mode and display its
+    contents character by character using <code>fgetc()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("data.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    printf("File contents:\\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>fgetc()</code> function reads one character at a time from
+    the file. Reading continues until the end-of-file indicator
+    <code>EOF</code> is reached.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>Welcome to C Programming.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read a line from a text file using
+    <code>fgets()</code> and display it.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char line[100];
+
+    fp = fopen("data.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    if (fgets(line, sizeof(line), fp) != NULL)
+    {
+        printf("First line:\\n");
+        printf("%s", line);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>fgets()</code> function reads a line or a specified maximum
+    number of characters from a file. It is useful for line-based text reading.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>First line:</strong></p>
+    <p>Welcome to C Programming.</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read a file line by line using <code>fgets()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char line[100];
+
+    fp = fopen("notes.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    printf("File contents:\\n");
+
+    while (fgets(line, sizeof(line), fp) != NULL)
+    {
+        printf("%s", line);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The loop repeatedly calls <code>fgets()</code> until it returns
+    <code>NULL</code>, allowing the complete text file to be read one
+    line at a time.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>C Programming</p>
+    <p>Pointers</p>
+    <p>Structures</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read integer values from a text file using
+    <code>fscanf()</code> and calculate their sum.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int sum = 0;
+
+    fp = fopen("numbers.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    while (fscanf(fp, "%d", &amp;number) == 1)
+    {
+        sum += number;
+    }
+
+    fclose(fp);
+
+    printf("Sum = %d\\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    <code>fscanf()</code> reads formatted data from a file. Here, each
+    integer is read and added to <code>sum</code> until no more integers
+    can be read.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>The file contains:</p>
+    <p>10 20 30 40 50</p>
+    <p><strong>Sum = 150</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of characters present in a text
+    file using <code>fgetc()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+    int count = 0;
+
+    fp = fopen("data.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        count++;
+    }
+
+    fclose(fp);
+
+    printf("Number of characters = %d\\n", count);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Every successful call to <code>fgetc()</code> returns one character.
+    The program increments a counter for each character until
+    <code>EOF</code> is encountered.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>If the file contains:</p>
+    <p>Hello</p>
+    <p><strong>Number of characters = 5</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of lines in a text file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+    int lines = 0;
+
+    fp = fopen("notes.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        if (ch == '\n')
+        {
+            lines++;
+        }
+    }
+
+    fclose(fp);
+
+    printf("Number of lines = %d\\n", lines);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each newline character represents the end of a line. The program counts
+    newline characters while reading the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>If the file contains 4 lines,</p>
+    <p><strong>Number of lines = 4</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read student records containing roll number,
+    name and marks from a file using <code>fscanf()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+    float marks;
+
+    fp = fopen("students.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    printf("Student Records:\\n");
+
+    while (fscanf(fp, "%d %49s %f",
+                  &amp;roll,
+                  name,
+                  &amp;marks) == 3)
+    {
+        printf("Roll = %d\\n", roll);
+        printf("Name = %s\\n", name);
+        printf("Marks = %.2f\\n", marks);
+        printf("------------------\\n");
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Formatted records can be read from a text file using
+    <code>fscanf()</code>. The loop continues only when all three expected
+    values are successfully read.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Student Records:</strong></p>
+    <p>Roll = 101</p>
+    <p>Name = Rahul</p>
+    <p>Marks = 88.00</p>
+    <p>------------------</p>
+    <p>Roll = 102</p>
+    <p>Name = Priya</p>
+    <p>Marks = 92.00</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to search for a particular word in a text file
+    using line-by-line reading.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char line[200];
+    char word[50];
+    int found = 0;
+
+    fp = fopen("notes.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    printf("Enter word to search: ");
+    scanf("%49s", word);
+
+    while (fgets(line, sizeof(line), fp) != NULL)
+    {
+        if (strstr(line, word) != NULL)
+        {
+            found = 1;
+            break;
+        }
+    }
+
+    fclose(fp);
+
+    if (found)
+        printf("Word found in file.\\n");
+    else
+        printf("Word not found.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The file is read line by line and <code>strstr()</code> checks whether
+    the searched word occurs within the current line.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter word to search: pointer</p>
+    <p><strong>Word found in file.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest integer stored in a text file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int largest;
+
+    fp = fopen("numbers.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    if (fscanf(fp, "%d", &amp;largest) != 1)
+    {
+        printf("No numbers found in file.\\n");
+        fclose(fp);
+        return 0;
+    }
+
+    while (fscanf(fp, "%d", &amp;number) == 1)
+    {
+        if (number &gt; largest)
+        {
+            largest = number;
+        }
+    }
+
+    fclose(fp);
+
+    printf("Largest number = %d\\n", largest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The first number is used as the initial largest value. Every remaining
+    number is then compared with it, and the largest value is updated when
+    necessary.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>The file contains:</p>
+    <p>25 80 15 92 47</p>
+    <p><strong>Largest number = 92</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Reading from Files — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read a student result file and calculate the
+    average marks of all students stored in it.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+    float marks;
+    float total = 0;
+    float average;
+    int count = 0;
+
+    fp = fopen("results.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\\n");
+        return 1;
+    }
+
+    while (fscanf(fp, "%d %49s %f",
+                  &amp;roll,
+                  name,
+                  &amp;marks) == 3)
+    {
+        total += marks;
+        count++;
+    }
+
+    fclose(fp);
+
+    if (count == 0)
+    {
+        printf("No records found.\\n");
+        return 0;
+    }
+
+    average = total / count;
+
+    printf("Number of students = %d\\n", count);
+    printf("Average marks = %.2f\\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program reads each student record from the file, adds the marks
+    to <code>total</code>, counts the records and finally calculates the
+    average marks.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>If the file contains 3 student records with marks 80, 90 and 85:</p>
+    <p><strong>Number of students = 3</strong></p>
+    <p><strong>Average marks = 85.00</strong></p>
+  </div>
+  `
+
+];
+SOLUTIONS["s-m5-writing-files"] = [
+
+  `
+  <h2>Writing from Files — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a text file and write a simple message
+    into it using <code>fprintf()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("message.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    fprintf(fp, "Welcome to BCA Study Portal.\\n");
+
+    fclose(fp);
+
+    printf("Data written successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The file is opened in <code>w</code> mode and <code>fprintf()</code>
+    writes formatted text into it. Finally, <code>fclose()</code> closes
+    the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Data written successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to take a student's name and roll number from the
+    user and save the information into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+
+    fp = fopen("student.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;roll);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    fprintf(fp, "Roll Number: %d\\n", roll);
+    fprintf(fp, "Name: %s\\n", name);
+
+    fclose(fp);
+
+    printf("Student record saved successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program accepts student details and uses <code>fprintf()</code>
+    to write formatted information into the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p><strong>Student record saved successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to write multiple numbers into a file using a loop.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int i;
+
+    fp = fopen("numbers.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        fprintf(fp, "%d\\n", i);
+    }
+
+    fclose(fp);
+
+    printf("Numbers written successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The loop generates numbers from 1 to 10, and each number is written
+    to a new line in the file using <code>fprintf()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Numbers written successfully.</strong></p>
+    <p>File contains:</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>...</p>
+    <p>10</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store five integer values entered by the user
+    into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int i;
+
+    fp = fopen("values.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    printf("Enter 5 numbers:\\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;number);
+        fprintf(fp, "%d\\n", number);
+    }
+
+    fclose(fp);
+
+    printf("Values stored successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each input value is immediately written to the file. The loop repeats
+    five times to store all five numbers.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 5 numbers:</p>
+    <p>10 20 30 40 50</p>
+    <p><strong>Values stored successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the multiplication table of a number
+    in a text file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int i;
+
+    fp = fopen("table.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;number);
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        fprintf(fp,
+                "%d x %d = %d\\n",
+                number,
+                i,
+                number * i);
+    }
+
+    fclose(fp);
+
+    printf("Multiplication table saved successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program generates the multiplication table using a loop and writes
+    each line into the file with <code>fprintf()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p><strong>Multiplication table saved successfully.</strong></p>
+    <p>File contains:</p>
+    <p>5 x 1 = 5</p>
+    <p>5 x 2 = 10</p>
+    <p>...</p>
+    <p>5 x 10 = 50</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to save employee details such as ID, name and
+    salary into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int id;
+    char name[50];
+    float salary;
+
+    fp = fopen("employee.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    printf("Enter employee ID: ");
+    scanf("%d", &amp;id);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    printf("Enter salary: ");
+    scanf("%f", &amp;salary);
+
+    fprintf(fp, "Employee ID: %d\\n", id);
+    fprintf(fp, "Name: %s\\n", name);
+    fprintf(fp, "Salary: %.2f\\n", salary);
+
+    fclose(fp);
+
+    printf("Employee record saved successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Multiple data types can be written to a text file using formatted
+    output. Each value is written with a suitable format specifier.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID: 501</p>
+    <p>Enter name: Amit</p>
+    <p>Enter salary: 45000</p>
+    <p><strong>Employee record saved successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to write the first 10 even numbers into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int i;
+
+    fp = fopen("even.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        fprintf(fp, "%d\\n", i * 2);
+    }
+
+    fclose(fp);
+
+    printf("Even numbers written successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The expression <code>i * 2</code> generates even numbers. Each result
+    is written to a separate line in the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Even numbers written successfully.</strong></p>
+    <p>File contains:</p>
+    <p>2 4 6 8 10 12 14 16 18 20</p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to append a new line of text to an existing file
+    using <code>fputs()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("notes.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    fputs("New C Programming topic added.\\n", fp);
+
+    fclose(fp);
+
+    printf("New data appended successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>fputs()</code> function writes a string to a file.
+    Opening the file with <code>a</code> mode places the new text at the
+    end of the existing contents.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>New data appended successfully.</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the marks of five students in a file and
+    calculate the total marks while writing them.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int marks;
+    int total = 0;
+    int i;
+
+    fp = fopen("marks.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    printf("Enter marks of 5 students:\\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;marks);
+
+        fprintf(fp, "%d\\n", marks);
+
+        total += marks;
+    }
+
+    fclose(fp);
+
+    printf("Marks saved successfully.\\n");
+    printf("Total marks = %d\\n", total);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Every entered mark is written to the file. At the same time, the
+    program adds the values to calculate their total.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter marks of 5 students:</p>
+    <p>80 75 90 85 70</p>
+    <p><strong>Marks saved successfully.</strong></p>
+    <p><strong>Total marks = 400</strong></p>
+  </div>
+  `,
+
+
+  `
+  <h2>Writing from Files — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a complete student result file containing
+    roll number, name, marks, total and average for a student.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    int roll;
+    char name[50];
+
+    int math;
+    int cProgramming;
+    int computer;
+
+    int total;
+    float average;
+
+    fp = fopen("result.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\\n");
+        return 1;
+    }
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;roll);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    printf("Enter marks in Mathematics, C Programming and Computer: ");
+    scanf("%d %d %d",
+          &amp;math,
+          &amp;cProgramming,
+          &amp;computer);
+
+    total = math + cProgramming + computer;
+    average = total / 3.0;
+
+    fprintf(fp, "=============================\\n");
+    fprintf(fp, "        STUDENT RESULT\\n");
+    fprintf(fp, "=============================\\n");
+
+    fprintf(fp, "Roll     : %d\\n", roll);
+    fprintf(fp, "Name     : %s\\n", name);
+
+    fprintf(fp, "Math     : %d\\n", math);
+    fprintf(fp, "C        : %d\\n", cProgramming);
+    fprintf(fp, "Computer : %d\\n", computer);
+
+    fprintf(fp, "Total    : %d\\n", total);
+    fprintf(fp, "Average  : %.2f\\n", average);
+
+    fclose(fp);
+
+    printf("\\nStudent result saved successfully.\\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This final example combines user input, arithmetic operations and
+    formatted file writing. The complete student result is stored in
+    <code>result.txt</code> using <code>fprintf()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Priya</p>
+    <p>Enter marks in Mathematics, C Programming and Computer: 90 88 92</p>
+    <p><strong>Student result saved successfully.</strong></p>
+    <p><strong>File contains:</strong></p>
+    <p>=============================</p>
+    <p>        STUDENT RESULT</p>
+    <p>=============================</p>
+    <p>Roll     : 101</p>
+    <p>Name     : Priya</p>
+    <p>Math     : 90</p>
+    <p>C        : 88</p>
+    <p>Computer : 92</p>
+    <p>Total    : 270</p>
+    <p>Average  : 90.00</p>
+  </div>
+  `
+
+];
