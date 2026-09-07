@@ -680,7 +680,6 @@ function updateSolutionPageDisplay() {
   updateNavigationButtons();
 }
 
-
 // ==========================================================
 // NAVIGATION BUTTON STATE
 // ==========================================================
@@ -702,26 +701,19 @@ function updateNavigationButtons() {
       return;
     }
 
-
     const module =
-      SOLUTION_SYLLABUS[
-        currentSolutionModuleIndex
-      ];
+      SOLUTION_SYLLABUS[currentSolutionModuleIndex];
 
     const topic =
-      module.topics[
-        currentSolutionTopicIndex
-      ];
+      module.topics[currentSolutionTopicIndex];
 
     const pages =
       SOLUTIONS[topic.id] || [""];
-
 
     prevBtn.disabled =
       currentSolutionModuleIndex === 0 &&
       currentSolutionTopicIndex === 0 &&
       currentSolutionPageIndex === 0;
-
 
     nextBtn.disabled =
       currentSolutionModuleIndex ===
@@ -739,12 +731,16 @@ function updateNavigationButtons() {
   // C PROGRAMMING MODE
   // --------------------------------------------------------
 
+  // HOME SCREEN
   if (
     currentModuleIndex < 0 ||
     currentTopicIndex < 0
   ) {
     prevBtn.disabled = true;
-    nextBtn.disabled = true;
+
+    // Home page se first topic open karne ke liye
+    nextBtn.disabled = false;
+
     return;
   }
 
@@ -772,6 +768,72 @@ function updateNavigationButtons() {
       module.topics.length - 1 &&
     currentPageIndex ===
       pages.length - 1;
+}
+
+ 
+
+  function updateNavigationButtons() {
+
+  /* =========================
+     HOME / WELCOME SCREEN
+     ========================= */
+
+  if (currentModuleIndex < 0) {
+    prevBtn.disabled = true;
+
+    // Home page par Next active rahega
+    nextBtn.disabled = false;
+
+    return;
+  }
+
+
+  /* =========================
+     C PROGRAMMING / NORMAL TOPIC
+     ========================= */
+
+  if (!solutionMode) {
+
+    const module = SYLLABUS[currentModuleIndex];
+    const topic = module.topics[currentTopicIndex];
+    const pages = NOTES[topic.id] || [""];
+
+    prevBtn.disabled =
+      currentModuleIndex === 0 &&
+      currentTopicIndex === 0 &&
+      currentPageIndex === 0;
+
+    nextBtn.disabled =
+      currentModuleIndex === SYLLABUS.length - 1 &&
+      currentTopicIndex === module.topics.length - 1 &&
+      currentPageIndex === pages.length - 1;
+
+    return;
+  }
+
+
+  /* =========================
+     C SOLUTIONS
+     ========================= */
+
+  const solutionModule =
+    SOLUTION_SYLLABUS[currentSolutionModuleIndex];
+
+  const solutionTopic =
+    solutionModule.topics[currentSolutionTopicIndex];
+
+  const solutionPages =
+    SOLUTIONS[solutionTopic.id] || [""];
+
+  prevBtn.disabled =
+    currentSolutionModuleIndex === 0 &&
+    currentSolutionTopicIndex === 0 &&
+    currentSolutionPageIndex === 0;
+
+  nextBtn.disabled =
+    currentSolutionModuleIndex === SOLUTION_SYLLABUS.length - 1 &&
+    currentSolutionTopicIndex === solutionModule.topics.length - 1 &&
+    currentSolutionPageIndex === solutionPages.length - 1;
 }
 
 
