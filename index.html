@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>BCA Study Portal | BCA 1st Year C Programming Notes</title>
+  <title>BCA Study Portal — Notes &amp; Practicals</title>
 
   <meta
     name="description"
-    content="BCA Study Portal provides simple, exam-oriented notes, practical programs, algorithms, flowcharts, assignments and learning resources for BCA 1st Year C Programming."
+    content="Syllabus-aligned BCA notes, practicals, and learning resources for programming and analytical subjects."
   >
 
   <link rel="canonical" href="https://bcastudyportal.in/">
@@ -18,11 +18,11 @@
   <meta property="og:type" content="website">
   <meta
     property="og:title"
-    content="BCA Study Portal | BCA 1st Year C Programming"
+    content="BCA Study Portal — Notes & Practicals"
   >
   <meta
     property="og:description"
-    content="Simple, exam-oriented C Programming notes, algorithms, flowcharts, practical programs and exercises for BCA 1st Year students."
+    content="Syllabus-aligned BCA notes, practicals, and learning resources for programming and analytical subjects."
   >
   <meta property="og:url" content="https://bcastudyportal.in/">
   <meta property="og:site_name" content="BCA Study Portal">
@@ -32,7 +32,7 @@
   >
 
   <!-- Basic Browser/Theme Information -->
-  <meta name="theme-color" content="#6d5dfc">
+  <meta name="theme-color" content="#1f2a3a">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -41,7 +41,7 @@
     "@type": "WebSite",
     "name": "BCA Study Portal",
     "url": "https://bcastudyportal.in/",
-    "description": "BCA 1st Year C Programming notes, practical programs, algorithms, flowcharts and exercises.",
+    "description": "Syllabus-aligned BCA notes, practicals, and learning resources for programming and analytical subjects.",
     "inLanguage": "en"
   }
   </script>
@@ -159,6 +159,27 @@
 
 <body>
   <header class="site-header">
+    <a class="brand" href="home.html">
+      <div class="brand-icon" aria-hidden="true">🎓</div>
+      <div>
+        <h1>BCA Study Portal</h1>
+        <p id="headerSubjectLabel">C Programming</p>
+      </div>
+    </a>
+
+    <div class="header-search">
+      <label class="visually-hidden" for="topicSearch">Search</label>
+      <input
+        type="text"
+        id="topicSearch"
+        placeholder="Search notes..."
+        aria-label="Search notes"
+        autocomplete="off"
+      >
+    </div>
+  </header>
+
+  <nav class="subject-nav" aria-label="Subjects">
     <button
       id="mobileMenuBtn"
       class="mobile-menu-btn"
@@ -169,43 +190,57 @@
       ☰
     </button>
 
-    <div class="brand">
-      <div class="brand-icon" aria-hidden="true">🎓</div>
-      <div>
-        <h1>BCA Study Portal</h1>
-        <p>BCA 1st Year · C Programming</p>
-      </div>
-    </div>
-  </header>
+    <div id="subjectNavList" class="subject-nav-list"></div>
+  </nav>
 
   <main class="app-shell">
     <aside class="sidebar" aria-label="Syllabus navigation">
-      <div class="sidebar-heading">
-        <span>C PROGRAMMING</span>
-        <button id="collapseAllBtn" class="text-button" type="button">
-          Collapse All
-        </button>
-      </div>
-
-      <div class="topic-search">
-        <input
-          type="text"
-          id="topicSearch"
-          placeholder="🔎 Search topics..."
-          autocomplete="off"
+      <div class="sidebar-tools">
+        <nav
+          id="learningModeToggle"
+          class="learning-mode-toggle"
+          aria-label="Learning mode"
         >
+          <button
+            type="button"
+            class="mode-button active"
+            data-mode="notes"
+            aria-pressed="true"
+          >
+            Notes
+          </button>
+          <button
+            type="button"
+            class="mode-button"
+            data-mode="practical"
+            aria-pressed="false"
+          >
+            Practical
+          </button>
+        </nav>
       </div>
 
-      <div id="moduleList" class="module-list"></div>
+      <div id="notesSidebarPanel">
+        <div class="sidebar-heading">
+          <span id="notesSidebarTitle">C PROGRAMMING</span>
+          <button id="collapseAllBtn" class="text-button" type="button">
+            Collapse All
+          </button>
+        </div>
 
-      <div class="sidebar-heading solutions-heading">
-        <span>C SOLUTIONS</span>
-        <button id="collapseAllSolutionsBtn" class="text-button" type="button">
-          Collapse All
-        </button>
+        <div id="moduleList" class="module-list"></div>
       </div>
 
-      <div id="solutionModuleList" class="module-list"></div>
+      <div id="practicalSidebarPanel" hidden>
+        <div class="sidebar-heading solutions-heading">
+          <span id="practicalSidebarTitle">C SOLUTIONS</span>
+          <button id="collapseAllSolutionsBtn" class="text-button" type="button">
+            Collapse All
+          </button>
+        </div>
+
+        <div id="solutionModuleList" class="module-list"></div>
+      </div>
 
       <div class="doubt-menu">
         <button id="doubtMenuBtn" class="doubt-menu-button" type="button">
@@ -260,7 +295,7 @@
           <span class="breadcrumb">BCA Study Portal</span>
           <h1>💬 Have Any Doubt?</h1>
           <p>
-            Ask your question about C Programming.
+            <span id="doubtSubjectCopy">Ask your question about C Programming.</span>
             Your doubt will be collected and reviewed by the teacher.
           </p>
         </div>
@@ -305,11 +340,32 @@
     </section>
   </main>
 
+  <div id="floatingPager" class="floating-pager" hidden>
+    <button
+      id="floatPrevBtn"
+      class="floating-pager-button is-prev"
+      type="button"
+      aria-label="Previous"
+      disabled
+    >
+      ←
+    </button>
+    <button
+      id="floatNextBtn"
+      class="floating-pager-button is-next"
+      type="button"
+      aria-label="Next"
+      disabled
+    >
+      →
+    </button>
+  </div>
+
   <footer class="site-footer">
     <p>© 2026 BCA Study Portal. All rights reserved.</p>
 
     <div class="footer-links">
-      <a href="index.html">Home</a>
+      <a href="home.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact Us</a>
       <a href="privacy.html">Privacy Policy</a>
@@ -341,6 +397,11 @@
   <script src="js/notes.js"></script>
   <script src="js/solution-syllabus.js"></script>
   <script src="js/c-solutions.js"></script>
+  <script src="js/time-series-notes.js"></script>
+  <script src="js/time-series-practical-syllabus.js"></script>
+  <script src="js/time-series-practical.js"></script>
+  <script src="js/subject-catalog.js"></script>
+  <script src="js/subjects.js"></script>
   <script src="js/app.js"></script>
 
   <!-- Highlight.js -->
@@ -654,6 +715,311 @@
   }
 
 
+  const PYTHON_KEYWORDS = new Set([
+    "False",
+    "None",
+    "True",
+    "and",
+    "as",
+    "assert",
+    "async",
+    "await",
+    "break",
+    "class",
+    "continue",
+    "def",
+    "del",
+    "elif",
+    "else",
+    "except",
+    "finally",
+    "for",
+    "from",
+    "global",
+    "if",
+    "import",
+    "in",
+    "is",
+    "lambda",
+    "nonlocal",
+    "not",
+    "or",
+    "pass",
+    "raise",
+    "return",
+    "try",
+    "while",
+    "with",
+    "yield"
+  ]);
+
+  const PYTHON_BUILTINS = new Set([
+    "abs",
+    "bool",
+    "dict",
+    "enumerate",
+    "filter",
+    "float",
+    "format",
+    "hasattr",
+    "int",
+    "isinstance",
+    "len",
+    "list",
+    "map",
+    "max",
+    "min",
+    "open",
+    "print",
+    "range",
+    "reversed",
+    "round",
+    "set",
+    "sorted",
+    "str",
+    "sum",
+    "tuple",
+    "type",
+    "zip"
+  ]);
+
+
+  function highlightPython(codeText) {
+
+    let result = "";
+    let i = 0;
+
+    function startsPythonString(index) {
+
+      let p = index;
+
+      if (
+        p < codeText.length &&
+        "fFrRbBuU".includes(codeText[p])
+      ) {
+        p++;
+
+        if (
+          p < codeText.length &&
+          "fFrRbBuU".includes(codeText[p])
+        ) {
+          p++;
+        }
+      }
+
+      const triple = codeText.slice(p, p + 3);
+
+      if (triple === '"""' || triple === "'''") {
+        return { prefixEnd: p, quote: triple, triple: true };
+      }
+
+      if (codeText[p] === '"' || codeText[p] === "'") {
+        return { prefixEnd: p, quote: codeText[p], triple: false };
+      }
+
+      return null;
+    }
+
+    while (i < codeText.length) {
+
+      /* =========================
+         Comment
+         ========================= */
+
+      if (codeText[i] === "#") {
+
+        let start = i;
+
+        while (
+          i < codeText.length &&
+          codeText[i] !== "\n"
+        ) {
+          i++;
+        }
+
+        result +=
+          '<span class="c-comment">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         String
+         ========================= */
+
+      const stringInfo = startsPythonString(i);
+
+      if (stringInfo) {
+
+        let start = i;
+        i = stringInfo.prefixEnd;
+
+        if (stringInfo.triple) {
+          i += 3;
+
+          while (
+            i < codeText.length &&
+            codeText.slice(i, i + 3) !== stringInfo.quote
+          ) {
+            i++;
+          }
+
+          if (i < codeText.length) {
+            i += 3;
+          }
+
+        } else {
+
+          const quote = stringInfo.quote;
+          i++;
+
+          while (i < codeText.length) {
+
+            if (codeText[i] === "\\") {
+              i += 2;
+              continue;
+            }
+
+            if (codeText[i] === quote) {
+              i++;
+              break;
+            }
+
+            i++;
+          }
+        }
+
+        result +=
+          '<span class="c-string">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         Number
+         ========================= */
+
+      if (/[0-9]/.test(codeText[i])) {
+
+        let start = i;
+
+        while (
+          i < codeText.length &&
+          /[A-Za-z0-9._]/.test(codeText[i])
+        ) {
+          i++;
+        }
+
+        result +=
+          '<span class="c-number">' +
+          escapeHTML(codeText.slice(start, i)) +
+          '</span>';
+
+        continue;
+      }
+
+
+      /* =========================
+         Identifier / Keyword
+         ========================= */
+
+      if (/[A-Za-z_]/.test(codeText[i])) {
+
+        let start = i;
+
+        i++;
+
+        while (
+          i < codeText.length &&
+          /[A-Za-z0-9_]/.test(codeText[i])
+        ) {
+          i++;
+        }
+
+        const word = codeText.slice(start, i);
+
+        let j = i;
+
+        while (
+          j < codeText.length &&
+          (codeText[j] === " " ||
+           codeText[j] === "\t")
+        ) {
+          j++;
+        }
+
+        if (PYTHON_KEYWORDS.has(word)) {
+
+          result +=
+            '<span class="c-keyword">' +
+            escapeHTML(word) +
+            '</span>';
+
+        } else if (PYTHON_BUILTINS.has(word) || codeText[j] === "(") {
+
+          result +=
+            '<span class="c-function">' +
+            escapeHTML(word) +
+            '</span>';
+
+        } else {
+
+          result += escapeHTML(word);
+
+        }
+
+        continue;
+      }
+
+
+      /* =========================
+         Everything else
+         ========================= */
+
+      const char = codeText[i];
+
+      if ("+-*/%=<>!&|^~?:@".includes(char)) {
+
+        result +=
+          '<span class="c-operator">' +
+          escapeHTML(char) +
+          '</span>';
+
+      } else {
+
+        result += escapeHTML(char);
+
+      }
+
+      i++;
+
+    }
+
+    return result;
+  }
+
+
+  function getCodeLanguage(block) {
+
+    const marked =
+      (block.getAttribute("data-language") || "")
+        .toLowerCase()
+        .trim();
+
+    if (marked === "python" || marked === "py") {
+      return "python";
+    }
+
+    return "c";
+  }
+
+
   function enhanceCodeBlocks() {
 
     document.querySelectorAll(".program-code").forEach(function (block) {
@@ -662,8 +1028,10 @@
         return;
       }
 
+      const languageName = getCodeLanguage(block);
       const codeText = block.textContent.trim();
 
+      block.classList.add("notranslate");
       block.innerHTML = "";
 
 
@@ -676,7 +1044,8 @@
 
       const language = document.createElement("span");
       language.className = "code-language";
-      language.textContent = "C";
+      language.textContent =
+        languageName === "python" ? "Python" : "C";
 
       const copyButton = document.createElement("button");
       copyButton.className = "copy-code-btn";
@@ -696,7 +1065,10 @@
       const pre = document.createElement("pre");
       const code = document.createElement("code");
 
-      code.innerHTML = highlightC(codeText);
+      code.innerHTML =
+        languageName === "python"
+          ? highlightPython(codeText)
+          : highlightC(codeText);
 
       pre.appendChild(code);
       block.appendChild(pre);

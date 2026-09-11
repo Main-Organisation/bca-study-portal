@@ -9,11 +9,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>About Us | BCA Study Portal</title>
+  <title>About Us — BCA Study Portal</title>
 
   <meta
     name="description"
-    content="Learn about BCA Study Portal, an educational platform created to help BCA students understand programming concepts through notes, examples, practicals, assignments and learning resources."
+    content="Learn about Mr. Vivek Saxena, educator and AI research scholar behind the BCA Study Portal."
   >
 
   <link
@@ -36,12 +36,12 @@
 
   <meta
     property="og:title"
-    content="About Us | BCA Study Portal"
+    content="About Us — BCA Study Portal"
   >
 
   <meta
     property="og:description"
-    content="Learn about BCA Study Portal and how it helps BCA students with programming notes, practicals, assignments and learning resources."
+    content="Learn about Mr. Vivek Saxena, educator and AI research scholar behind the BCA Study Portal."
   >
 
   <meta
@@ -56,13 +56,13 @@
 
   <meta
     property="og:image"
-    content="https://bcastudyportal.in/images/welcome.png"
+    content="https://bcastudyportal.in/images/vivek-saxena.jpg"
   >
 
   <!-- Theme Color -->
   <meta
     name="theme-color"
-    content="#6d5dfc"
+    content="#1f2a3a"
   >
 
   <!-- Structured Data -->
@@ -70,9 +70,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "About Us | BCA Study Portal",
+    "name": "About Us — BCA Study Portal",
     "url": "https://bcastudyportal.in/about.html",
-    "description": "Learn about BCA Study Portal, an educational platform created to help BCA students understand programming concepts through notes, examples, practicals, assignments and learning resources.",
+    "description": "Learn about Mr. Vivek Saxena, educator and AI research scholar behind the BCA Study Portal.",
     "isPartOf": {
       "@type": "WebSite",
       "name": "BCA Study Portal",
@@ -85,7 +85,7 @@
   <!-- Main Stylesheet -->
   <link
     rel="stylesheet"
-    href="css/style.css"
+    href="css/style.css?v=about-24c"
   >
 
 </head>
@@ -95,14 +95,14 @@
   <header class="site-header">
     <div class="site-header-inner">
 
-      <div class="brand">
-        <div class="brand-icon">🎓</div>
+      <a class="brand" href="home.html">
+        <div class="brand-icon" aria-hidden="true">🎓</div>
 
         <div>
-          <h1>BCA Study Portal</h1>
-          <p>BCA 1st Year · C Programming</p>
+          <p class="site-title">BCA Study Portal</p>
+          <p>BCA 1st Year</p>
         </div>
-      </div>
+      </a>
 
     </div>
   </header>
@@ -111,78 +111,48 @@
   <main class="about-page">
 
     <section class="about-hero">
-      <span class="about-label">ABOUT BCA STUDY PORTAL</span>
+      <span class="about-label">ABOUT US</span>
 
-      <h2>
-        Making Programming Concepts
-        Easier to Understand
-      </h2>
-
-      <p>
-        BCA Study Portal is an educational platform designed to help
-        BCA students learn programming and computer fundamentals in
-        a simple, structured and practical way.
-      </p>
+      <h1>About Us</h1>
     </section>
 
 
-    <section class="about-card">
+    <section class="about-card about-profile" aria-labelledby="educator-name">
 
-      <h2>Our Purpose</h2>
+      <div class="about-profile-photo">
+        <img
+          src="images/vivek-saxena.jpg"
+          alt="Mr. Vivek Saxena"
+          width="280"
+          height="350"
+        >
+      </div>
 
-      <p>
-        Many students understand a topic better when theory, examples
-        and practical applications are available together. BCA Study
-        Portal is created with this approach in mind.
-      </p>
+      <div class="about-profile-copy">
+        <h2 id="educator-name">Mr. Vivek Saxena</h2>
 
-      <p>
-        The portal brings together structured study notes, visual
-        explanations, practical programming examples, assignments,
-        case studies and curated learning resources in one place.
-      </p>
+        <p class="about-role">
+          Educator • Researcher • AI &amp; Data Enthusiast
+        </p>
 
-    </section>
+        <p>
+          Mr. Vivek Saxena has over 15 years of experience in training,
+          development, and research. He is a full-stack data professional
+          and research scholar in Artificial Intelligence, with expertise
+          spanning data, programming, research, and emerging technologies.
+        </p>
 
+        <p>
+          He has experience working with more than 15 programming and
+          technology languages and continuously explores new tools and
+          methodologies to solve practical problems and support learning.
+        </p>
 
-    <section class="about-card">
-
-      <h2>What You Can Learn Here</h2>
-
-      <div class="about-grid">
-
-        <div class="about-feature">
-          <h3>📘 Study Notes</h3>
-          <p>
-            Simple and structured explanations of important BCA
-            concepts for easier learning and revision.
-          </p>
-        </div>
-
-        <div class="about-feature">
-          <h3>💻 Practical Programs</h3>
-          <p>
-            Programming examples designed to help students connect
-            theoretical concepts with practical implementation.
-          </p>
-        </div>
-
-        <div class="about-feature">
-          <h3>📝 Assignments</h3>
-          <p>
-            Concept-based questions that encourage students to
-            understand and explain what they have learned.
-          </p>
-        </div>
-
-        <div class="about-feature">
-          <h3>📌 Case Studies</h3>
-          <p>
-            Real-world technology connections that help students
-            relate academic concepts to practical applications.
-          </p>
-        </div>
-
+        <p>
+          Through the BCA Study Portal, he shares his knowledge, research
+          experience, and technical expertise with students, helping them
+          learn concepts in a structured, practical, and accessible way.
+        </p>
       </div>
 
     </section>
@@ -190,26 +160,12 @@
 
     <section class="about-card">
 
-      <h2>Our Learning Approach</h2>
+      <h2>Technical Expertise</h2>
 
       <p>
-        The portal follows a concept-first learning approach:
-      </p>
-
-      <div class="learning-flow">
-        <span>Concept</span>
-        <span>→</span>
-        <span>Example</span>
-        <span>→</span>
-        <span>Practice</span>
-        <span>→</span>
-        <span>Application</span>
-      </div>
-
-      <p>
-        The goal is not only to help students prepare for examinations,
-        but also to develop a stronger understanding of programming
-        and computer science fundamentals.
+        Mr. Vivek Saxena has hands-on experience with more than 15
+        programming and technology languages, including C, C++,
+        Python, Data Science, Machine Learning, and Deep Learning.
       </p>
 
     </section>
@@ -217,13 +173,13 @@
 
     <section class="about-card">
 
-      <h2>Who Is This Portal For?</h2>
+      <h2>Artificial Intelligence &amp; Machine Learning</h2>
 
       <p>
-        BCA students who are beginning their programming journey,
-        preparing for examinations, practising C programming, or
-        looking for an organized way to revise their concepts can
-        use this portal as a learning resource.
+        For the last 8 years, he has been working extensively in
+        Artificial Intelligence, Machine Learning, and Deep Learning,
+        with a focus on applying data and intelligent technologies to
+        practical problems, research, and learning.
       </p>
 
     </section>
@@ -231,26 +187,12 @@
 
     <section class="about-card">
 
-      <h2>Our Goal</h2>
+      <h2>About the Portal</h2>
 
       <p>
-        Our goal is to make technical education easier to access,
-        easier to understand and more connected to practical learning.
-        We aim to continuously improve the portal with useful
-        educational content and student-focused learning resources.
-      </p>
-
-    </section>
-
-
-    <section class="about-card about-note">
-
-      <h2>A Note for Students</h2>
-
-      <p>
-        Use this portal as a learning aid, but do not depend only on
-        notes. Read, practise, write programs, solve problems and
-        build your own understanding of every concept.
+        The BCA Study Portal is designed to provide structured,
+        syllabus-aligned notes, practicals, and learning resources
+        in an accessible format.
       </p>
 
     </section>
@@ -264,8 +206,11 @@
     </p>
 
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
+      <a href="home.html">Home</a>
+      <a href="about.html" aria-current="page">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
     </div>
   </footer>
 

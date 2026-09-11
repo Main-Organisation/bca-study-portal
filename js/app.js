@@ -1,6 +1,7 @@
 // BCA STUDY PORTAL - Navigation
+// Multi-subject study portal.
 // Supports:
-// 1. C Programming Notes
+// 1. Subject notes (C Programming, Time Series, and later subjects)
 // 2. C Solutions / Exercises
 // 3. Topic Search
 // 4. Previous / Next Navigation
@@ -26,6 +27,9 @@ const topicTitle =
 const breadcrumb =
   document.getElementById("breadcrumb");
 
+const headerSubjectLabel =
+  document.getElementById("headerSubjectLabel");
+
 const progressText =
   document.getElementById("progressText");
 
@@ -37,6 +41,15 @@ const prevBtn =
 
 const nextBtn =
   document.getElementById("nextBtn");
+
+const floatingPager =
+  document.getElementById("floatingPager");
+
+const floatPrevBtn =
+  document.getElementById("floatPrevBtn");
+
+const floatNextBtn =
+  document.getElementById("floatNextBtn");
 
 const collapseAllBtn =
   document.getElementById("collapseAllBtn");
@@ -56,6 +69,9 @@ const doubtMenuBtn =
 const doubtContainer =
   document.getElementById("doubtContainer");
 
+const subjectNavList =
+  document.getElementById("subjectNavList");
+
 
 // ==========================================================
 // MAIN NOTES STATE
@@ -64,6 +80,218 @@ const doubtContainer =
 let currentModuleIndex = -1;
 let currentTopicIndex = -1;
 let currentPageIndex = 0;
+
+const initialNotesHTML = notesContainer.innerHTML;
+const initialTopicTitle = topicTitle.textContent;
+const initialProgressText = progressText.textContent;
+const initialPageIndicator = pageIndicator.textContent;
+
+let activeSyllabus = SYLLABUS;
+let activeNotes = NOTES;
+let activePracticalSyllabus = SOLUTION_SYLLABUS;
+let activePracticalSolutions = SOLUTIONS;
+
+
+function getActiveSubject() {
+  return SUBJECTS.find(item => item.id === currentSubjectId) || SUBJECTS[0];
+}
+
+
+function getSubjectIdFromQuery() {
+  try {
+    const requested = new URLSearchParams(window.location.search).get(
+      "subject"
+    );
+
+    if (!requested) {
+      return null;
+    }
+
+    const match = SUBJECTS.find(item => item.id === requested);
+
+    return match ? match.id : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+
+function applySubjectFromQuery() {
+  const requestedId = getSubjectIdFromQuery();
+
+  if (!requestedId) {
+    currentSubjectId = "c-programming";
+    applyActiveSubject(getActiveSubject());
+    return;
+  }
+
+  currentSubjectId = requestedId;
+  applyActiveSubject(getActiveSubject());
+}
+
+
+function getAcademicUnitLabel(module) {
+  if (!module || !module.id) {
+    return "";
+  }
+
+  const subject = getActiveSubject();
+  const unitMap = subject && subject.notesUnitByModuleId;
+
+  if (!unitMap) {
+    return "";
+  }
+
+  return unitMap[module.id] || "";
+}
+
+
+function applyActiveSubject(subject) {
+  activeSyllabus = subject.syllabus || [];
+  activeNotes = subject.notes || {};
+  activePracticalSyllabus = subject.practicalSyllabus || [];
+  activePracticalSolutions = subject.practicalSolutions || {};
+}
+
+
+function getWelcomeTitle(subject) {
+  const active = subject || getActiveSubject();
+
+  if (active && active.welcomeTitle) {
+    return active.welcomeTitle;
+  }
+
+  const title = (active && active.title) || "BCA Study Portal";
+
+  return `Master ${title} — One Concept at a Time`;
+}
+
+
+function getSubjectBreadcrumb(subject) {
+  const active = subject || getActiveSubject();
+  const title = (active && active.title) || "BCA Study Portal";
+
+  return `BCA 1st Year · ${title}`;
+}
+
+
+function updateSubjectBreadcrumb(subject) {
+  if (!breadcrumb) return;
+
+  breadcrumb.textContent = getSubjectBreadcrumb(subject);
+}
+
+
+function updateHeaderSubjectLabel(subject) {
+  if (!headerSubjectLabel) return;
+
+  const active = subject || getActiveSubject();
+
+  headerSubjectLabel.textContent =
+    (active && active.title) || "";
+}
+
+
+function updateDocumentTitle(subject) {
+  const onHome =
+    activeLearningMode === "notes" &&
+    currentModuleIndex < 0 &&
+    currentSolutionModuleIndex < 0;
+
+  if (onHome) {
+    document.title = "BCA Study Portal — Notes & Practicals";
+    return;
+  }
+
+  const active = subject || getActiveSubject();
+  const title = (active && active.title) || "BCA Study Portal";
+
+  document.title = `BCA Study Portal — ${title}`;
+}
+
+
+function updateDoubtCopy(subject) {
+  const doubtSubjectCopy =
+    document.getElementById("doubtSubjectCopy");
+
+  if (!doubtSubjectCopy) return;
+
+  const active = subject || getActiveSubject();
+  const title = (active && active.title) || "this subject";
+
+  doubtSubjectCopy.textContent =
+    `Ask your question about ${title}.`;
+}
+
+
+function hasActiveTopics() {
+  return activeSyllabus.some(
+    module => module.topics && module.topics.length > 0
+  );
+}
+
+
+function hasActivePracticalTopics() {
+  return activePracticalSyllabus.some(
+    module => module.topics && module.topics.length > 0
+  );
+}
+
+
+function getFirstSyllabusPosition(syllabus) {
+  if (!syllabus) {
+    return null;
+  }
+
+  for (let moduleIndex = 0; moduleIndex < syllabus.length; moduleIndex++) {
+    const module = syllabus[moduleIndex];
+
+    if (module && module.topics && module.topics.length > 0) {
+      return {
+        moduleIndex,
+        topicIndex: 0
+      };
+    }
+  }
+
+  return null;
+}
+
+
+function hasStoredNotesTopic() {
+  const module = activeSyllabus[currentModuleIndex];
+
+  return !!(
+    module &&
+    module.topics &&
+    module.topics[currentTopicIndex]
+  );
+}
+
+
+function hasStoredPracticalTopic() {
+  const module =
+    activePracticalSyllabus[currentSolutionModuleIndex];
+
+  return !!(
+    module &&
+    module.topics &&
+    module.topics[currentSolutionTopicIndex]
+  );
+}
+
+
+function hideDoubtView() {
+  notesContainer.hidden = false;
+
+  if (doubtContainer) {
+    doubtContainer.hidden = true;
+  }
+
+  if (doubtMenuBtn) {
+    doubtMenuBtn.classList.remove("active");
+  }
+}
 
 
 // ==========================================================
@@ -76,16 +304,47 @@ let currentSolutionModuleIndex = -1;
 let currentSolutionTopicIndex = -1;
 let currentSolutionPageIndex = 0;
 
+let activeLearningMode = "notes";
+
 
 // ==========================================================
 // MAIN NOTES HELPERS
 // ==========================================================
 
-function getTotalTopics() {
-  return SYLLABUS.reduce(
-    (sum, module) => sum + module.topics.length,
+function countSyllabusTopics(syllabus) {
+  return (syllabus || []).reduce(
+    (sum, module) => sum + (module.topics ? module.topics.length : 0),
     0
   );
+}
+
+
+function getTotalTopics() {
+  return countSyllabusTopics(activeSyllabus);
+}
+
+
+function countAcademicGroups(subject) {
+  if (!subject) {
+    return 0;
+  }
+
+  if (subject.notesUnitByModuleId) {
+    return new Set(Object.values(subject.notesUnitByModuleId)).size;
+  }
+
+  return (subject.syllabus || []).length;
+}
+
+
+function getSubjectStructureLabel(subject) {
+  const groupCount = countAcademicGroups(subject);
+
+  if (subject && subject.notesUnitByModuleId) {
+    return `${groupCount} Academic Unit${groupCount === 1 ? "" : "s"}`;
+  }
+
+  return `${groupCount} Module${groupCount === 1 ? "" : "s"}`;
 }
 
 
@@ -93,7 +352,7 @@ function getGlobalTopicNumber(moduleIndex, topicIndex) {
   let number = 0;
 
   for (let i = 0; i < moduleIndex; i++) {
-    number += SYLLABUS[i].topics.length;
+    number += activeSyllabus[i].topics.length;
   }
 
   return number + topicIndex + 1;
@@ -236,14 +495,40 @@ function clearAllActiveTopics() {
 
 
 // ==========================================================
-// RENDER C PROGRAMMING SIDEBAR
+// RENDER NOTES SIDEBAR
 // ==========================================================
 
 function renderSidebar() {
 
   moduleList.innerHTML = "";
 
-  SYLLABUS.forEach((module, moduleIndex) => {
+  let currentUnitGroup = null;
+  let currentUnitLabel = "";
+
+  activeSyllabus.forEach((module, moduleIndex) => {
+
+    const unitLabel = getAcademicUnitLabel(module);
+    const parent = moduleList;
+
+    if (unitLabel) {
+      if (!currentUnitGroup || currentUnitLabel !== unitLabel) {
+        currentUnitGroup = document.createElement("section");
+        currentUnitGroup.className = "academic-unit-group";
+
+        const unitHeading = document.createElement("p");
+        unitHeading.className = "academic-unit-label";
+        unitHeading.textContent = unitLabel;
+
+        currentUnitGroup.appendChild(unitHeading);
+        moduleList.appendChild(currentUnitGroup);
+        currentUnitLabel = unitLabel;
+      }
+    } else {
+      currentUnitGroup = null;
+      currentUnitLabel = "";
+    }
+
+    const listParent = currentUnitGroup || parent;
 
     const wrapper =
       document.createElement("section");
@@ -262,9 +547,13 @@ function renderSidebar() {
       "false"
     );
 
+    const visibleTitle = unitLabel
+      ? module.title
+      : `${module.number}. ${module.title}`;
+
     moduleButton.innerHTML = `
       <span class="module-title">
-        ${module.number}. ${module.title}
+        ${visibleTitle}
       </span>
 
       <span
@@ -320,7 +609,6 @@ function renderSidebar() {
 
         solutionMode = false;
 
-        closeAllSolutionModules();
         closeAllMainModules();
 
         if (!isOpen) {
@@ -341,7 +629,7 @@ function renderSidebar() {
       topicList
     );
 
-    moduleList.appendChild(wrapper);
+    listParent.appendChild(wrapper);
   });
 }
 
@@ -354,7 +642,16 @@ function renderSolutionSidebar() {
 
   solutionModuleList.innerHTML = "";
 
-  SOLUTION_SYLLABUS.forEach(
+  if (!hasActivePracticalTopics()) {
+    const emptyState = document.createElement("p");
+    emptyState.className = "practical-empty-state";
+    emptyState.textContent =
+      "Practical exercises will be added soon.";
+    solutionModuleList.appendChild(emptyState);
+    return;
+  }
+
+  activePracticalSyllabus.forEach(
     (module, moduleIndex) => {
 
       const wrapper =
@@ -436,7 +733,6 @@ function renderSolutionSidebar() {
 
           solutionMode = true;
 
-          closeAllMainModules();
           closeAllSolutionModules();
 
           if (!isOpen) {
@@ -465,20 +761,168 @@ function renderSolutionSidebar() {
 
 
 // ==========================================================
-// SEARCH — C PROGRAMMING ONLY
+// LEARNING MODE — NOTES | PRACTICAL
 // ==========================================================
 
-function filterTopics() {
+function applyLearningModeUI() {
+  const isNotes = activeLearningMode === "notes";
+  const notesPanel = document.getElementById("notesSidebarPanel");
+  const practicalPanel = document.getElementById("practicalSidebarPanel");
 
-  if (!topicSearch) return;
+  if (notesPanel) {
+    notesPanel.hidden = !isNotes;
+  }
 
-  const searchTerm =
-    topicSearch.value
-      .trim()
-      .toLowerCase();
+  if (practicalPanel) {
+    practicalPanel.hidden = isNotes;
+  }
+
+  document.querySelectorAll(".mode-button").forEach(button => {
+    const isActive = button.dataset.mode === activeLearningMode;
+
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+
+  if (topicSearch) {
+    if (isNotes) {
+      topicSearch.placeholder = "Search notes...";
+      topicSearch.setAttribute("aria-label", "Search notes");
+    } else {
+      topicSearch.placeholder = "Search practicals...";
+      topicSearch.setAttribute("aria-label", "Search practicals");
+    }
+  }
+}
 
 
-  moduleList
+function showNotesWelcomeDisplay() {
+  solutionMode = false;
+  hideDoubtView();
+
+  notesContainer.innerHTML = initialNotesHTML;
+  topicTitle.textContent = getWelcomeTitle();
+  updateSubjectBreadcrumb();
+  progressText.textContent = initialProgressText;
+  pageIndicator.textContent = initialPageIndicator;
+
+  updateActiveTopic();
+  updateNavigationButtons();
+  updateDocumentTitle();
+}
+
+
+function showPracticalIdleDisplay() {
+  solutionMode = false;
+  hideDoubtView();
+
+  const subject = getActiveSubject();
+  const heading =
+    (subject && subject.practicalTitle) || "PRACTICAL";
+
+  if (!hasActivePracticalTopics()) {
+    notesContainer.innerHTML =
+      '<div class="welcome-state"><p>Practical exercises will be added soon.</p></div>';
+    progressText.textContent =
+      "Practical exercises will be added soon.";
+  } else {
+    notesContainer.innerHTML =
+      '<div class="welcome-state"><p>Choose a practical from the sidebar to begin.</p></div>';
+    progressText.textContent = initialProgressText;
+  }
+
+  topicTitle.textContent = heading;
+  updateSubjectBreadcrumb();
+  pageIndicator.textContent = "—";
+
+  updateActiveSolutionTopic();
+  updateNavigationButtons();
+}
+
+
+function restoreNotesContent() {
+  solutionMode = false;
+  hideDoubtView();
+  closeAllMainModules();
+  openCurrentMainModule();
+  updateActiveTopic();
+  updatePageDisplay();
+}
+
+
+function restorePracticalContent() {
+  solutionMode = true;
+  hideDoubtView();
+  closeAllSolutionModules();
+  openCurrentSolutionModule();
+  updateActiveSolutionTopic();
+  updateSolutionPageDisplay();
+}
+
+
+function syncContentToLearningMode() {
+  if (activeLearningMode === "notes") {
+    if (hasStoredNotesTopic()) {
+      restoreNotesContent();
+    } else {
+      showNotesWelcomeDisplay();
+    }
+    return;
+  }
+
+  if (hasStoredPracticalTopic()) {
+    restorePracticalContent();
+  } else {
+    showPracticalIdleDisplay();
+  }
+}
+
+
+function setLearningMode(mode) {
+  if (mode !== "notes" && mode !== "practical") {
+    return;
+  }
+
+  activeLearningMode = mode;
+
+  applyLearningModeUI();
+
+  if (topicSearch) {
+    topicSearch.value = "";
+  }
+
+  resetTopicTreeDisplay(moduleList);
+  resetTopicTreeDisplay(solutionModuleList);
+  filterTopics();
+  syncContentToLearningMode();
+}
+
+
+// ==========================================================
+// SEARCH — ACTIVE NOTES SYLLABUS
+// ==========================================================
+
+function resetTopicTreeDisplay(listRoot) {
+  if (!listRoot) return;
+
+  listRoot.querySelectorAll(".module-item").forEach(moduleItem => {
+    moduleItem.style.display = "";
+
+    moduleItem.querySelectorAll(".topic-button").forEach(topicButton => {
+      topicButton.style.display = "";
+    });
+  });
+
+  listRoot.querySelectorAll(".academic-unit-group").forEach(group => {
+    group.style.display = "";
+  });
+}
+
+
+function filterTopicTree(listRoot, searchTerm) {
+  if (!listRoot) return;
+
+  listRoot
     .querySelectorAll(".module-item")
     .forEach(moduleItem => {
 
@@ -552,11 +996,37 @@ function filterTopics() {
         );
       }
     });
+
+  listRoot.querySelectorAll(".academic-unit-group").forEach(group => {
+    const hasVisibleModule = [...group.querySelectorAll(".module-item")].some(
+      item => item.style.display !== "none"
+    );
+
+    group.style.display = hasVisibleModule ? "" : "none";
+  });
+}
+
+
+function filterTopics() {
+
+  if (!topicSearch) return;
+
+  const searchTerm =
+    topicSearch.value
+      .trim()
+      .toLowerCase();
+
+  const listRoot =
+    activeLearningMode === "practical"
+      ? solutionModuleList
+      : moduleList;
+
+  filterTopicTree(listRoot, searchTerm);
 }
 
 
 // ==========================================================
-// DISPLAY C PROGRAMMING NOTE
+// DISPLAY NOTES
 // ==========================================================
 
 function updatePageDisplay() {
@@ -566,18 +1036,22 @@ function updatePageDisplay() {
   doubtContainer.hidden = true;
 
   if (doubtMenuBtn) {
-  doubtMenuBtn.classList.remove("active");
-}
+    doubtMenuBtn.classList.remove("active");
+  }
 
 
   const module =
-    SYLLABUS[currentModuleIndex];
+    activeSyllabus[currentModuleIndex];
+
+  if (!module || !module.topics || !module.topics[currentTopicIndex]) {
+    return;
+  }
 
   const topic =
     module.topics[currentTopicIndex];
 
   const pages =
-    NOTES[topic.id] ||
+    activeNotes[topic.id] ||
     [placeholder(topic.title)];
 
 
@@ -589,8 +1063,7 @@ function updatePageDisplay() {
     topic.title;
 
 
-  breadcrumb.textContent =
-    `${module.shortTitle} · C Programming`;
+  updateSubjectBreadcrumb();
 
 
   progressText.textContent =
@@ -609,6 +1082,7 @@ function updatePageDisplay() {
 
 
   updateNavigationButtons();
+  updateDocumentTitle();
 }
 
 
@@ -623,14 +1097,18 @@ function updateSolutionPageDisplay() {
   doubtContainer.hidden = true;
 
   if (doubtMenuBtn) {
-  doubtMenuBtn.classList.remove("active");
-}
+    doubtMenuBtn.classList.remove("active");
+  }
 
 
   const module =
-    SOLUTION_SYLLABUS[
+    activePracticalSyllabus[
       currentSolutionModuleIndex
     ];
+
+  if (!module || !module.topics || !module.topics[currentSolutionTopicIndex]) {
+    return;
+  }
 
   const topic =
     module.topics[
@@ -639,7 +1117,7 @@ function updateSolutionPageDisplay() {
 
 
   const pages =
-    SOLUTIONS[topic.id] || [
+    activePracticalSolutions[topic.id] || [
       `
         <h2>${topic.title}</h2>
 
@@ -661,8 +1139,7 @@ function updateSolutionPageDisplay() {
     topic.title;
 
 
-  breadcrumb.textContent =
-    `${module.shortTitle} · C Solutions`;
+  updateSubjectBreadcrumb();
 
 
   progressText.textContent =
@@ -678,74 +1155,301 @@ function updateSolutionPageDisplay() {
 
 
   updateNavigationButtons();
+  updateDocumentTitle();
 }
 
 // ==========================================================
 // NAVIGATION BUTTON STATE
 // ==========================================================
 
+function getSyllabusTopicTitle(syllabus, position) {
+  if (!position || !syllabus) {
+    return "";
+  }
+
+  const module = syllabus[position.moduleIndex];
+
+  if (!module || !module.topics || !module.topics[position.topicIndex]) {
+    return "";
+  }
+
+  return module.topics[position.topicIndex].title || "";
+}
+
+
+function resetPagerLabels() {
+  prevBtn.textContent = "← Previous";
+  nextBtn.textContent = "Next →";
+  prevBtn.removeAttribute("title");
+  nextBtn.removeAttribute("title");
+  prevBtn.setAttribute("aria-label", "Previous");
+  nextBtn.setAttribute("aria-label", "Next");
+}
+
+
+function setPagerButtonLabel(button, visibleLabel, accessibleName) {
+  button.textContent = visibleLabel;
+  button.setAttribute("aria-label", accessibleName);
+
+  if (accessibleName && accessibleName !== "Previous" && accessibleName !== "Next") {
+    button.title = accessibleName;
+  } else {
+    button.removeAttribute("title");
+  }
+}
+
+
+function updatePagerDestinationLabels() {
+  resetPagerLabels();
+
+  if (activeLearningMode === "practical") {
+    if (!hasStoredPracticalTopic()) {
+      return;
+    }
+
+    const solutionModule =
+      activePracticalSyllabus[currentSolutionModuleIndex];
+    const solutionTopic =
+      solutionModule.topics[currentSolutionTopicIndex];
+    const solutionPages =
+      activePracticalSolutions[solutionTopic.id] || [""];
+
+    if (!prevBtn.disabled && currentSolutionPageIndex === 0) {
+      const previousTitle = getSyllabusTopicTitle(
+        activePracticalSyllabus,
+        getPreviousPracticalPosition()
+      );
+
+      if (previousTitle) {
+        setPagerButtonLabel(
+          prevBtn,
+          `← ${previousTitle}`,
+          `Previous: ${previousTitle}`
+        );
+      }
+    }
+
+    if (
+      !nextBtn.disabled &&
+      currentSolutionPageIndex === solutionPages.length - 1
+    ) {
+      const nextTitle = getSyllabusTopicTitle(
+        activePracticalSyllabus,
+        getNextPracticalPosition()
+      );
+
+      if (nextTitle) {
+        setPagerButtonLabel(
+          nextBtn,
+          `${nextTitle} →`,
+          `Next: ${nextTitle}`
+        );
+      }
+    }
+
+    return;
+  }
+
+  if (!hasStoredNotesTopic()) {
+    return;
+  }
+
+  const module = activeSyllabus[currentModuleIndex];
+  const topic = module.topics[currentTopicIndex];
+  const pages = activeNotes[topic.id] || [""];
+
+  if (!prevBtn.disabled && currentPageIndex === 0) {
+    const previousTitle = getSyllabusTopicTitle(
+      activeSyllabus,
+      getPreviousPosition()
+    );
+
+    if (previousTitle) {
+      setPagerButtonLabel(
+        prevBtn,
+        `← ${previousTitle}`,
+        `Previous: ${previousTitle}`
+      );
+    }
+  }
+
+  if (!nextBtn.disabled && currentPageIndex === pages.length - 1) {
+    const nextTitle = getSyllabusTopicTitle(
+      activeSyllabus,
+      getNextPosition()
+    );
+
+    if (nextTitle) {
+      setPagerButtonLabel(
+        nextBtn,
+        `${nextTitle} →`,
+        `Next: ${nextTitle}`
+      );
+    }
+  }
+}
+
+
 function updateNavigationButtons() {
 
-  /* =========================
-     HOME / WELCOME SCREEN
-     ========================= */
+  if (activeLearningMode === "practical") {
 
-  if (currentModuleIndex < 0) {
-    prevBtn.disabled = true;
+    if (!hasStoredPracticalTopic()) {
+      prevBtn.disabled = true;
+      nextBtn.disabled = !getFirstSyllabusPosition(activePracticalSyllabus);
+      updatePagerDestinationLabels();
+      syncFloatingPager();
+      return;
+    }
 
-    // Home page par Next active rahega
-    nextBtn.disabled = false;
+    const solutionModule =
+      activePracticalSyllabus[currentSolutionModuleIndex];
 
-    return;
-  }
+    const solutionTopic =
+      solutionModule.topics[currentSolutionTopicIndex];
 
-
-  /* =========================
-     C PROGRAMMING / NORMAL TOPIC
-     ========================= */
-
-  if (!solutionMode) {
-
-    const module = SYLLABUS[currentModuleIndex];
-    const topic = module.topics[currentTopicIndex];
-    const pages = NOTES[topic.id] || [""];
+    const solutionPages =
+      activePracticalSolutions[solutionTopic.id] || [""];
 
     prevBtn.disabled =
-      currentModuleIndex === 0 &&
-      currentTopicIndex === 0 &&
-      currentPageIndex === 0;
+      currentSolutionModuleIndex === 0 &&
+      currentSolutionTopicIndex === 0 &&
+      currentSolutionPageIndex === 0;
 
     nextBtn.disabled =
-      currentModuleIndex === SYLLABUS.length - 1 &&
-      currentTopicIndex === module.topics.length - 1 &&
-      currentPageIndex === pages.length - 1;
+      currentSolutionModuleIndex === activePracticalSyllabus.length - 1 &&
+      currentSolutionTopicIndex === solutionModule.topics.length - 1 &&
+      currentSolutionPageIndex === solutionPages.length - 1;
 
+    updatePagerDestinationLabels();
+    syncFloatingPager();
     return;
   }
 
 
-  /* =========================
-     C SOLUTIONS
-     ========================= */
+  if (!hasStoredNotesTopic()) {
+    prevBtn.disabled = true;
+    nextBtn.disabled = !getFirstSyllabusPosition(activeSyllabus);
+    updatePagerDestinationLabels();
+    syncFloatingPager();
+    return;
+  }
 
-  const solutionModule =
-    SOLUTION_SYLLABUS[currentSolutionModuleIndex];
 
-  const solutionTopic =
-    solutionModule.topics[currentSolutionTopicIndex];
-
-  const solutionPages =
-    SOLUTIONS[solutionTopic.id] || [""];
+  const module = activeSyllabus[currentModuleIndex];
+  const topic = module.topics[currentTopicIndex];
+  const pages = activeNotes[topic.id] || [""];
 
   prevBtn.disabled =
-    currentSolutionModuleIndex === 0 &&
-    currentSolutionTopicIndex === 0 &&
-    currentSolutionPageIndex === 0;
+    currentModuleIndex === 0 &&
+    currentTopicIndex === 0 &&
+    currentPageIndex === 0;
 
   nextBtn.disabled =
-    currentSolutionModuleIndex === SOLUTION_SYLLABUS.length - 1 &&
-    currentSolutionTopicIndex === solutionModule.topics.length - 1 &&
-    currentSolutionPageIndex === solutionPages.length - 1;
+    currentModuleIndex === activeSyllabus.length - 1 &&
+    currentTopicIndex === module.topics.length - 1 &&
+    currentPageIndex === pages.length - 1;
+
+  updatePagerDestinationLabels();
+  syncFloatingPager();
+}
+
+
+function getReaderNavSignature() {
+  return [
+    activeLearningMode,
+    currentModuleIndex,
+    currentTopicIndex,
+    currentPageIndex,
+    currentSolutionModuleIndex,
+    currentSolutionTopicIndex,
+    currentSolutionPageIndex,
+    solutionMode
+  ].join(":");
+}
+
+
+function prefersReducedMotion() {
+  return (
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
+
+function scrollToReaderTop() {
+  const target =
+    document.querySelector(".content-topbar") ||
+    topicTitle ||
+    document.querySelector(".content-area");
+
+  const behavior = prefersReducedMotion() ? "auto" : "smooth";
+
+  if (!target) {
+    window.scrollTo({ top: 0, behavior });
+    return;
+  }
+
+  const header = document.querySelector(".site-header");
+  const subjectNav = document.querySelector(".subject-nav");
+  const offset =
+    (header ? header.offsetHeight : 0) +
+    (subjectNav ? subjectNav.offsetHeight : 0) +
+    8;
+
+  const top = Math.max(
+    0,
+    target.getBoundingClientRect().top + window.pageYOffset - offset
+  );
+
+  window.scrollTo({ top, behavior });
+}
+
+
+function maybeScrollAfterNavigation(beforeSignature) {
+  if (getReaderNavSignature() === beforeSignature) {
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(scrollToReaderTop);
+  });
+}
+
+
+function syncFloatingPager() {
+  if (!floatingPager || !floatPrevBtn || !floatNextBtn) {
+    return;
+  }
+
+  const doubtOpen = doubtContainer && !doubtContainer.hidden;
+  const topicActive =
+    activeLearningMode === "practical"
+      ? hasStoredPracticalTopic()
+      : hasStoredNotesTopic();
+
+  floatingPager.hidden = doubtOpen || !topicActive;
+
+  floatPrevBtn.disabled = prevBtn.disabled;
+  floatNextBtn.disabled = nextBtn.disabled;
+
+  const prevLabel = prevBtn.getAttribute("aria-label") || "Previous";
+  const nextLabel = nextBtn.getAttribute("aria-label") || "Next";
+
+  floatPrevBtn.setAttribute("aria-label", prevLabel);
+  floatNextBtn.setAttribute("aria-label", nextLabel);
+
+  if (prevBtn.title) {
+    floatPrevBtn.title = prevBtn.title;
+  } else {
+    floatPrevBtn.removeAttribute("title");
+  }
+
+  if (nextBtn.title) {
+    floatNextBtn.title = nextBtn.title;
+  } else {
+    floatNextBtn.removeAttribute("title");
+  }
 }
 
 
@@ -772,8 +1476,8 @@ function openDoubt() {
     "Have Any Doubt?";
 
 
-  breadcrumb.textContent =
-    "BCA 1st Year · C Programming";
+  updateSubjectBreadcrumb();
+  updateDoubtCopy();
 
 
   progressText.textContent =
@@ -788,13 +1492,16 @@ function openDoubt() {
 
   nextBtn.disabled = true;
 
+  updatePagerDestinationLabels();
+  syncFloatingPager();
+
 
   clearAllActiveTopics();
 
   closeAllModules();
 
 
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 900) {
 
     sidebar.classList.remove(
       "mobile-open"
@@ -809,13 +1516,19 @@ function openDoubt() {
 
 
 // ==========================================================
-// OPEN C PROGRAMMING TOPIC
+// OPEN NOTES TOPIC
 // ==========================================================
 
 function openTopic(
   moduleIndex,
   topicIndex
 ) {
+
+  const module = activeSyllabus[moduleIndex];
+
+  if (!module || !module.topics || !module.topics[topicIndex]) {
+    return;
+  }
 
   solutionMode = false;
 
@@ -828,8 +1541,6 @@ function openTopic(
 
   currentPageIndex = 0;
 
-
-  closeAllSolutionModules();
 
   closeAllMainModules();
 
@@ -844,7 +1555,7 @@ function openTopic(
   updatePageDisplay();
 
 
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 900) {
 
     sidebar.classList.remove(
       "mobile-open"
@@ -867,6 +1578,12 @@ function openSolutionTopic(
   topicIndex
 ) {
 
+  const module = activePracticalSyllabus[moduleIndex];
+
+  if (!module || !module.topics || !module.topics[topicIndex]) {
+    return;
+  }
+
   solutionMode = true;
 
 
@@ -879,8 +1596,6 @@ function openSolutionTopic(
   currentSolutionPageIndex =
     0;
 
-
-  closeAllMainModules();
 
   closeAllSolutionModules();
 
@@ -895,7 +1610,7 @@ function openSolutionTopic(
   updateSolutionPageDisplay();
 
 
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 900) {
 
     sidebar.classList.remove(
       "mobile-open"
@@ -916,7 +1631,11 @@ function openSolutionTopic(
 function getNextPosition() {
 
   const module =
-    SYLLABUS[currentModuleIndex];
+    activeSyllabus[currentModuleIndex];
+
+  if (!module || !module.topics) {
+    return null;
+  }
 
 
   if (
@@ -936,7 +1655,7 @@ function getNextPosition() {
 
   if (
     currentModuleIndex <
-    SYLLABUS.length - 1
+    activeSyllabus.length - 1
   ) {
 
     return {
@@ -980,7 +1699,7 @@ function getPreviousPosition() {
       moduleIndex,
 
       topicIndex:
-        SYLLABUS[
+        activeSyllabus[
           moduleIndex
         ].topics.length - 1
     };
@@ -991,22 +1710,86 @@ function getPreviousPosition() {
 }
 
 
+function getNextPracticalPosition() {
+  const module =
+    activePracticalSyllabus[currentSolutionModuleIndex];
+
+  if (!module || !module.topics) {
+    return null;
+  }
+
+  if (currentSolutionTopicIndex < module.topics.length - 1) {
+    return {
+      moduleIndex: currentSolutionModuleIndex,
+      topicIndex: currentSolutionTopicIndex + 1
+    };
+  }
+
+  if (currentSolutionModuleIndex < activePracticalSyllabus.length - 1) {
+    return {
+      moduleIndex: currentSolutionModuleIndex + 1,
+      topicIndex: 0
+    };
+  }
+
+  return null;
+}
+
+
+function getPreviousPracticalPosition() {
+  if (currentSolutionTopicIndex > 0) {
+    return {
+      moduleIndex: currentSolutionModuleIndex,
+      topicIndex: currentSolutionTopicIndex - 1
+    };
+  }
+
+  if (currentSolutionModuleIndex > 0) {
+    const moduleIndex = currentSolutionModuleIndex - 1;
+
+    return {
+      moduleIndex,
+      topicIndex:
+        activePracticalSyllabus[moduleIndex].topics.length - 1
+    };
+  }
+
+  return null;
+}
+
+
 // ==========================================================
 // NEXT
 // ==========================================================
 
 function goNext() {
+  const before = getReaderNavSignature();
 
-  // --------------------------------------------------------
-  // C SOLUTIONS
-  // --------------------------------------------------------
+  try {
 
-  if (solutionMode) {
+  if (activeLearningMode === "practical") {
+
+    if (!hasStoredPracticalTopic()) {
+      const firstPractical = getFirstSyllabusPosition(activePracticalSyllabus);
+
+      if (firstPractical) {
+        openSolutionTopic(
+          firstPractical.moduleIndex,
+          firstPractical.topicIndex
+        );
+      }
+
+      return;
+    }
 
     const module =
-      SOLUTION_SYLLABUS[
+      activePracticalSyllabus[
         currentSolutionModuleIndex
       ];
+
+    if (!module || !module.topics || !module.topics[currentSolutionTopicIndex]) {
+      return;
+    }
 
     const topic =
       module.topics[
@@ -1014,7 +1797,7 @@ function goNext() {
       ];
 
     const pages =
-      SOLUTIONS[topic.id] || [""];
+      activePracticalSolutions[topic.id] || [""];
 
 
     // Next page within current solution
@@ -1049,7 +1832,7 @@ function goNext() {
     // Next solution module
     if (
       currentSolutionModuleIndex <
-      SOLUTION_SYLLABUS.length - 1
+      activePracticalSyllabus.length - 1
     ) {
 
       openSolutionTopic(
@@ -1064,25 +1847,32 @@ function goNext() {
 
 
   // --------------------------------------------------------
-  // C PROGRAMMING
+  // NOTES / ACTIVE SUBJECT
   // --------------------------------------------------------
 
-  if (currentModuleIndex < 0) {
+  if (!hasStoredNotesTopic()) {
+    const firstTopic = getFirstSyllabusPosition(activeSyllabus);
 
-    openTopic(0, 0);
+    if (firstTopic) {
+      openTopic(firstTopic.moduleIndex, firstTopic.topicIndex);
+    }
 
     return;
   }
 
 
   const module =
-    SYLLABUS[currentModuleIndex];
+    activeSyllabus[currentModuleIndex];
+
+  if (!module || !module.topics || !module.topics[currentTopicIndex]) {
+    return;
+  }
 
   const topic =
     module.topics[currentTopicIndex];
 
   const pages =
-    NOTES[topic.id] || [""];
+    activeNotes[topic.id] || [""];
 
 
   // Next page within topic
@@ -1111,6 +1901,9 @@ function goNext() {
       next.topicIndex
     );
   }
+  } finally {
+    maybeScrollAfterNavigation(before);
+  }
 }
 
 
@@ -1119,12 +1912,15 @@ function goNext() {
 // ==========================================================
 
 function goPrevious() {
+  const before = getReaderNavSignature();
 
-  // --------------------------------------------------------
-  // C SOLUTIONS
-  // --------------------------------------------------------
+  try {
 
-  if (solutionMode) {
+  if (activeLearningMode === "practical") {
+
+    if (!hasStoredPracticalTopic()) {
+      return;
+    }
 
     if (
       currentSolutionPageIndex > 0
@@ -1154,7 +1950,7 @@ function goPrevious() {
 
 
       const previousModule =
-        SOLUTION_SYLLABUS[
+        activePracticalSyllabus[
           currentSolutionModuleIndex
         ];
 
@@ -1166,7 +1962,7 @@ function goPrevious() {
 
 
       const previousPages =
-        SOLUTIONS[
+        activePracticalSolutions[
           previousTopic.id
         ] || [""];
 
@@ -1191,7 +1987,7 @@ function goPrevious() {
 
 
       const previousModule =
-        SOLUTION_SYLLABUS[
+        activePracticalSyllabus[
           previousModuleIndex
         ];
 
@@ -1213,7 +2009,7 @@ function goPrevious() {
 
 
       const previousPages =
-        SOLUTIONS[
+        activePracticalSolutions[
           previousTopic.id
         ] || [""];
 
@@ -1231,7 +2027,7 @@ function goPrevious() {
 
 
   // --------------------------------------------------------
-  // C PROGRAMMING
+  // NOTES / ACTIVE SUBJECT
   // --------------------------------------------------------
 
   if (currentModuleIndex < 0) {
@@ -1266,7 +2062,7 @@ function goPrevious() {
 
 
   const previousTopic =
-    SYLLABUS[
+    activeSyllabus[
       previous.moduleIndex
     ].topics[
       previous.topicIndex
@@ -1274,7 +2070,7 @@ function goPrevious() {
 
 
   const previousPages =
-    NOTES[
+    activeNotes[
       previousTopic.id
     ] || [""];
 
@@ -1284,11 +2080,14 @@ function goPrevious() {
 
 
   updatePageDisplay();
+  } finally {
+    maybeScrollAfterNavigation(before);
+  }
 }
 
 
 // ==========================================================
-// MAIN SIDEBAR CLICK
+// NOTES SIDEBAR CLICK
 // ==========================================================
 
 moduleList.addEventListener(
@@ -1352,7 +2151,7 @@ solutionModuleList.addEventListener(
 
 
 // ==========================================================
-// COLLAPSE ALL — C PROGRAMMING
+// COLLAPSE ALL — NOTES SIDEBAR
 // ==========================================================
 
 collapseAllBtn.addEventListener(
@@ -1391,6 +2190,14 @@ nextBtn.addEventListener(
   goNext
 );
 
+if (floatPrevBtn) {
+  floatPrevBtn.addEventListener("click", goPrevious);
+}
+
+if (floatNextBtn) {
+  floatNextBtn.addEventListener("click", goNext);
+}
+
 
 // ==========================================================
 // SEARCH
@@ -1402,6 +2209,208 @@ if (topicSearch) {
     "input",
     filterTopics
   );
+}
+
+
+const learningModeToggle =
+  document.getElementById("learningModeToggle");
+
+if (learningModeToggle) {
+  learningModeToggle.addEventListener("click", event => {
+    const modeButton = event.target.closest(".mode-button");
+
+    if (!modeButton) return;
+
+    setLearningMode(modeButton.dataset.mode);
+  });
+}
+
+
+// ==========================================================
+// SUBJECT NAVIGATION
+// ==========================================================
+
+function renderSubjectNav() {
+  if (!subjectNavList) return;
+
+  subjectNavList.innerHTML = "";
+
+  SUBJECTS.forEach(subject => {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "subject-nav-item";
+    button.dataset.subjectId = subject.id;
+    button.textContent = subject.title;
+
+    if (subject.id === currentSubjectId) {
+      button.classList.add("active");
+      button.setAttribute("aria-current", "true");
+    }
+
+    subjectNavList.appendChild(button);
+  });
+}
+
+
+function renderSubjectCards() {
+  const grid = document.getElementById("subjectCardGrid");
+
+  if (!grid) {
+    return;
+  }
+
+  grid.innerHTML = "";
+
+  SUBJECTS.forEach(subject => {
+    const card = document.createElement("button");
+    const isActive = subject.id === currentSubjectId;
+    const topicCount = countSyllabusTopics(subject.syllabus);
+    const practicalCount = countSyllabusTopics(subject.practicalSyllabus);
+    const structureLabel = getSubjectStructureLabel(subject);
+    const description =
+      subject.description ||
+      "Syllabus-aligned notes and practicals.";
+
+    card.type = "button";
+    card.className = "subject-card";
+    card.dataset.subjectId = subject.id;
+    card.setAttribute(
+      "aria-label",
+      `Start learning ${subject.title}`
+    );
+
+    if (isActive) {
+      card.classList.add("is-active");
+      card.setAttribute("aria-current", "true");
+    }
+
+    const title = document.createElement("span");
+    title.className = "subject-card-title";
+    title.textContent = subject.title;
+
+    const copy = document.createElement("span");
+    copy.className = "subject-card-description";
+    copy.textContent = description;
+
+    const meta = document.createElement("span");
+    meta.className = "subject-card-meta";
+    meta.textContent =
+      `${structureLabel} · ${topicCount} Topics · ${practicalCount} Practicals`;
+
+    const action = document.createElement("span");
+    action.className = "subject-card-action";
+    action.textContent = "Start Learning";
+
+    card.append(title, copy, meta, action);
+    grid.appendChild(card);
+  });
+}
+
+
+function openSubjectFromHome(subjectId) {
+  activeLearningMode = "notes";
+  setCurrentSubject(subjectId);
+  setLearningMode("notes");
+}
+
+
+function showWelcomeState() {
+  currentModuleIndex = -1;
+  currentTopicIndex = -1;
+  currentPageIndex = 0;
+  solutionMode = false;
+  currentSolutionModuleIndex = -1;
+  currentSolutionTopicIndex = -1;
+  currentSolutionPageIndex = 0;
+
+  notesContainer.hidden = false;
+
+  if (doubtContainer) {
+    doubtContainer.hidden = true;
+  }
+
+  if (doubtMenuBtn) {
+    doubtMenuBtn.classList.remove("active");
+  }
+
+  notesContainer.innerHTML = initialNotesHTML;
+  topicTitle.textContent = getWelcomeTitle();
+  updateSubjectBreadcrumb();
+  progressText.textContent = initialProgressText;
+  pageIndicator.textContent = initialPageIndicator;
+
+  clearAllActiveTopics();
+  closeAllModules();
+  updateDocumentTitle();
+}
+
+
+function setCurrentSubject(subjectId) {
+  const subject = SUBJECTS.find(item => item.id === subjectId);
+
+  if (!subject) return;
+
+  const alreadyActive = currentSubjectId === subjectId;
+
+  currentSubjectId = subjectId;
+
+  subjectNavList
+    .querySelectorAll(".subject-nav-item")
+    .forEach(button => {
+      const isActive = button.dataset.subjectId === subjectId;
+
+      button.classList.toggle("active", isActive);
+
+      if (isActive) {
+        button.setAttribute("aria-current", "true");
+      } else {
+        button.removeAttribute("aria-current");
+      }
+    });
+
+  if (alreadyActive) return;
+
+  applyActiveSubject(subject);
+
+  updateHeaderSubjectLabel(subject);
+  updateDocumentTitle(subject);
+  updateDoubtCopy(subject);
+
+  const notesSidebarTitle =
+    document.getElementById("notesSidebarTitle");
+
+  if (notesSidebarTitle) {
+    notesSidebarTitle.textContent = subject.title.toUpperCase();
+  }
+
+  const practicalSidebarTitle =
+    document.getElementById("practicalSidebarTitle");
+
+  if (practicalSidebarTitle) {
+    practicalSidebarTitle.textContent =
+      subject.practicalTitle || "PRACTICAL";
+  }
+
+  if (topicSearch) {
+    topicSearch.value = "";
+  }
+
+  showWelcomeState();
+  renderSidebar();
+  renderSolutionSidebar();
+  setLearningMode(activeLearningMode);
+}
+
+
+if (subjectNavList) {
+  subjectNavList.addEventListener("click", event => {
+    const subjectButton = event.target.closest(".subject-nav-item");
+
+    if (!subjectButton) return;
+
+    setCurrentSubject(subjectButton.dataset.subjectId);
+  });
 }
 
 
@@ -1443,8 +2452,21 @@ if (doubtMenuBtn) {
 // INITIALIZE
 // ==========================================================
 
+applySubjectFromQuery();
+
+renderSubjectNav();
+
+updateHeaderSubjectLabel();
+updateDocumentTitle();
+updateDoubtCopy();
+
 renderSidebar();
 
 renderSolutionSidebar();
+
+applyLearningModeUI();
+
+updateSubjectBreadcrumb();
+topicTitle.textContent = getWelcomeTitle();
 
 updateNavigationButtons();
