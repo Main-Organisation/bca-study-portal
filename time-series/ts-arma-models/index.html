@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Autoregressive Moving Average (ARMA) Models | Time Series</title>
+ <meta name="description" content="An ARMA model combines an autoregressive (AR)     part with a moving average (MA) part.     The current observation is allowed to depend on previous values     and on previous error terms (shocks). ARMA is written     ARMA(p, q), where p is the AR order and q is the MA order." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-arma-models/" />
+ <meta property="og:title" content="Autoregressive Moving Average (ARMA) Models" />
+ <meta property="og:description" content="An ARMA model combines an autoregressive (AR)     part with a moving average (MA) part.     The current observation is allowed to depend on previous values     and on previous error terms (shocks). ARMA is written     ARMA(p, q), where p is the AR order and q is the MA order." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-arma-models/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Autoregressive Moving Average (ARMA) Models" />
+ <meta name="twitter:description" content="An ARMA model combines an autoregressive (AR)     part with a moving average (MA) part.     The current observation is allowed to depend on previous values     and on previous error terms (shocks). ARMA is written     ARMA(p, q), where p is the AR order and q is the MA order." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Autoregressive Moving Average (ARMA) Models","item":"https://bcastudyportal.in/time-series/ts-arma-models/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-arma-models/","name":"Autoregressive Moving Average (ARMA) Models","description":"An ARMA model combines an autoregressive (AR)     part with a moving average (MA) part.     The current observation is allowed to depend on previous values     and on previous error terms (shocks). ARMA is written     ARMA(p, q), where p is the AR order and q is the MA order.","mainEntity":{"@type":"CreativeWork","name":"Autoregressive Moving Average (ARMA) Models","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Autoregressive Moving Average (ARMA) Models</div>
+  <div class="meta">Subject: Time Series • Module: 4 Introduction to Autoregressive Models and Forecasting • Type: Notes</div>
+  <h1>Autoregressive Moving Average (ARMA) Models</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Autoregressive Moving Average (ARMA) Models</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    An <strong>ARMA</strong> model combines an <strong>autoregressive (AR)</strong>
+    part with a <strong>moving average (MA)</strong> part.
+    The current observation is allowed to depend on previous values
+    <em>and</em> on previous error terms (shocks). ARMA is written
+    ARMA(p, q), where p is the AR order and q is the MA order.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      This month's sales may depend on last month's sales (AR) and on
+      last month's unexpected shock, such as a one-off festival leftover
+      (MA).
+    </p>
+  </div>
+
+
+  <h2>Autoregressive (AR) Part</h2>
+
+  <p>
+    In an AR model, the current value depends partly on previous values
+    of the same series, plus a random error.
+  </p>
+
+  <p>
+    A simple <strong>AR(1)</strong> intuition is:
+  </p>
+
+  <p>
+    X<sub>t</sub> = c + φ X<sub>t−1</sub> + ε<sub>t</sub>
+  </p>
+
+  <ul>
+    <li><strong>X<sub>t</sub></strong> = value at time t</li>
+    <li><strong>X<sub>t−1</sub></strong> = previous value</li>
+    <li><strong>c</strong> = constant term</li>
+    <li><strong>φ</strong> (phi) = AR coefficient (how strongly yesterday feeds today)</li>
+    <li><strong>ε<sub>t</sub></strong> = random error (shock) at time t</li>
+  </ul>
+
+  <p>
+    If |φ| is large (but less than 1 in a weakly stationary AR(1)),
+    the series is persistent: high values tend to stay high for a while.
+  </p>
+
+
+  <h2>Moving Average (MA) Part</h2>
+
+  <p>
+    In an MA model, the current value depends on the current error and
+    on past error terms, not directly on past observed levels.
+  </p>
+
+  <p>
+    A simple <strong>MA(1)</strong> intuition is:
+  </p>
+
+  <p>
+    X<sub>t</sub> = μ + ε<sub>t</sub> + θ ε<sub>t−1</sub>
+  </p>
+
+  <ul>
+    <li><strong>μ</strong> (mu) = mean level</li>
+    <li><strong>ε<sub>t</sub></strong> = shock at time t</li>
+    <li><strong>ε<sub>t−1</sub></strong> = previous shock</li>
+    <li><strong>θ</strong> (theta) = MA coefficient</li>
+  </ul>
+
+  <p>
+    An MA(1) shock affects today and, through θ, the next period, then
+    dies out. That is different from AR persistence through past
+    <em>values</em>.
+  </p>
+
+
+  <h2>ARMA(p, q)</h2>
+
+  <p>
+    <strong>p</strong> is the number of lagged values in the AR part.
+    <strong>q</strong> is the number of lagged errors in the MA part.
+    ARMA(1, 1) uses one lagged value and one lagged error. Small p and q
+    are preferred unless the data clearly need more.
+  </p>
+
+  <p>
+    Conceptually, ARMA is suitable when the series is
+    <strong>stationary</strong> and shows a mix of value-dependence and
+    shock-dependence. Stationarity here means that the typical level,
+    the amount of variation, and the lag-dependence pattern stay
+    reasonably stable over the sample. If the level wanders strongly,
+    ARIMA (next topic) brings in differencing. That extra step is not
+    part of a basic ARMA definition.
+  </p>
+
+
+  <h2>AR vs MA vs ARMA</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Depends on</th>
+          <th>Simple reading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>AR</strong></td>
+          <td>Past values of the series</td>
+          <td>Today follows yesterday's level, plus noise</td>
+        </tr>
+        <tr>
+          <td><strong>MA</strong></td>
+          <td>Past error terms / shocks</td>
+          <td>Today is affected by a recent unexpected shock</td>
+        </tr>
+        <tr>
+          <td><strong>ARMA</strong></td>
+          <td>Past values and past errors</td>
+          <td>Both persistence and leftover shocks matter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Exam Note</span>
+    <p>
+      ARMA = Autoregressive + Moving Average, for a series that is
+      already (approximately) stationary. Do not confuse ARMA with ARIMA.
+    </p>
+  </div>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>AR uses lagged values; MA uses lagged errors; ARMA uses both.</li>
+    <li>p is the AR order; q is the MA order.</li>
+    <li>ARMA is a model for stationary behaviour, not a cure for every trend.</li>
+    <li>ACF/PACF can suggest small p or q; residual checks still decide adequacy.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-autocorrelation/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-arima-models/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

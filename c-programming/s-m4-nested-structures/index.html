@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Nested Structures — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a structure Address containing     city and PIN code, and include it inside a Student structure.     Display all student details." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m4-nested-structures/" />
+ <meta property="og:title" content="Nested Structures — Exercises" />
+ <meta property="og:description" content="Write a C program to create a structure Address containing     city and PIN code, and include it inside a Student structure.     Display all student details." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m4-nested-structures/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Nested Structures — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a structure Address containing     city and PIN code, and include it inside a Student structure.     Display all student details." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Nested Structures — Exercises","item":"https://bcastudyportal.in/c-programming/s-m4-nested-structures/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m4-nested-structures/","name":"Nested Structures — Exercises","description":"Write a C program to create a structure Address containing     city and PIN code, and include it inside a Student structure.     Display all student details.","mainEntity":{"@type":"CreativeWork","name":"Nested Structures — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Nested Structures — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Practical</div>
+  <h1>Nested Structures — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Nested Structures — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a structure <code>Address</code> containing
+    city and PIN code, and include it inside a <code>Student</code> structure.
+    Display all student details.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Address
+{
+    char city[50];
+    int pin;
+};
+
+struct Student
+{
+    int roll;
+    char name[50];
+    struct Address address;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter city: ");
+    scanf("%49s", s.address.city);
+
+    printf("Enter PIN code: ");
+    scanf("%d", &amp;s.address.pin);
+
+    // Access nested structure members
+    printf("\nRoll = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("City = %s\n", s.address.city);
+    printf("PIN = %d\n", s.address.pin);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A nested structure is a structure used as a member of another structure.
+    Here, <code>Address</code> is nested inside <code>Student</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter city: Jaipur</p>
+    <p>Enter PIN code: 302001</p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>City = Jaipur</strong></p>
+    <p><strong>PIN = 302001</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store a student's date of birth using a nested
+    <code>Date</code> structure inside a <code>Student</code> structure.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+struct Student
+{
+    int roll;
+    char name[50];
+    struct Date dob;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter date of birth (day month year): ");
+    scanf("%d %d %d",
+          &amp;s.dob.day,
+          &amp;s.dob.month,
+          &amp;s.dob.year);
+
+    // Display nested date members
+    printf("\nRoll = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("Date of Birth = %02d/%02d/%d\n",
+           s.dob.day,
+           s.dob.month,
+           s.dob.year);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>Date</code> structure becomes a member of <code>Student</code>.
+    Its members are accessed using multiple dot operators such as
+    <code>s.dob.year</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Priya</p>
+    <p>Enter date of birth (day month year): 15 8 2005</p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Priya</strong></p>
+    <p><strong>Date of Birth = 15/08/2005</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store employee details with a nested
+    <code>Address</code> structure containing city and state.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Address
+{
+    char city[50];
+    char state[50];
+};
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+    struct Address address;
+};
+
+int main()
+{
+    struct Employee emp;
+
+    printf("Enter employee ID: ");
+    scanf("%d", &amp;emp.id);
+
+    printf("Enter name: ");
+    scanf("%49s", emp.name);
+
+    printf("Enter salary: ");
+    scanf("%f", &amp;emp.salary);
+
+    printf("Enter city: ");
+    scanf("%49s", emp.address.city);
+
+    printf("Enter state: ");
+    scanf("%49s", emp.address.state);
+
+    // Display employee record
+    printf("\nEmployee ID = %d\n", emp.id);
+    printf("Name = %s\n", emp.name);
+    printf("Salary = %.2f\n", emp.salary);
+    printf("City = %s\n", emp.address.city);
+    printf("State = %s\n", emp.address.state);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Nested structures help group sub-records within a larger record.
+    Here, employee information contains a separate address record.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID: 501</p>
+    <p>Enter name: Amit</p>
+    <p>Enter salary: 45000</p>
+    <p>Enter city: Jaipur</p>
+    <p>Enter state: Rajasthan</p>
+    <p><strong>Employee ID = 501</strong></p>
+    <p><strong>Name = Amit</strong></p>
+    <p><strong>Salary = 45000.00</strong></p>
+    <p><strong>City = Jaipur</strong></p>
+    <p><strong>State = Rajasthan</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a <code>Student</code> structure containing
+    a nested <code>Marks</code> structure for three subjects. Calculate
+    the total and average marks.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Marks
+{
+    int math;
+    int cProgramming;
+    int computer;
+};
+
+struct Student
+{
+    int roll;
+    char name[50];
+    struct Marks marks;
+};
+
+int main()
+{
+    struct Student s;
+    int total;
+    float average;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks in three subjects: ");
+    scanf("%d %d %d",
+          &amp;s.marks.math,
+          &amp;s.marks.cProgramming,
+          &amp;s.marks.computer);
+
+    // Calculate total using nested members
+    total = s.marks.math +
+            s.marks.cProgramming +
+            s.marks.computer;
+
+    average = total / 3.0;
+
+    printf("Total = %d\n", total);
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The nested <code>Marks</code> structure keeps subject marks together.
+    Members are accessed through expressions such as <code>s.marks.math</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks in three subjects: 80 90 85</p>
+    <p><strong>Total = 255</strong></p>
+    <p><strong>Average = 85.00</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store product information along with a nested
+    <code>ManufactureDate</code> structure and display the complete record.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+struct Product
+{
+    int id;
+    char name[50];
+    float price;
+    struct Date manufactureDate;
+};
+
+int main()
+{
+    struct Product p;
+
+    printf("Enter product ID: ");
+    scanf("%d", &amp;p.id);
+
+    printf("Enter product name: ");
+    scanf("%49s", p.name);
+
+    printf("Enter price: ");
+    scanf("%f", &amp;p.price);
+
+    printf("Enter manufacture date: ");
+    scanf("%d %d %d",
+          &amp;p.manufactureDate.day,
+          &amp;p.manufactureDate.month,
+          &amp;p.manufactureDate.year);
+
+    // Display product details
+    printf("\nProduct ID = %d\n", p.id);
+    printf("Name = %s\n", p.name);
+    printf("Price = %.2f\n", p.price);
+    printf("Manufacture Date = %02d/%02d/%d\n",
+           p.manufactureDate.day,
+           p.manufactureDate.month,
+           p.manufactureDate.year);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A nested structure is useful when one record contains another logical
+    record. Here, the product contains a separate date record.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter product ID: 201</p>
+    <p>Enter product name: Keyboard</p>
+    <p>Enter price: 800</p>
+    <p>Enter manufacture date: 10 6 2026</p>
+    <p><strong>Product ID = 201</strong></p>
+    <p><strong>Name = Keyboard</strong></p>
+    <p><strong>Price = 800.00</strong></p>
+    <p><strong>Manufacture Date = 10/06/2026</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to compare the marks of two students when the
+    marks are stored inside a nested structure.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Marks
+{
+    float marks;
+};
+
+struct Student
+{
+    int roll;
+    char name[50];
+    struct Marks result;
+};
+
+int main()
+{
+    struct Student s1, s2;
+
+    printf("Enter first student roll, name and marks: ");
+    scanf("%d %49s %f",
+          &amp;s1.roll,
+          s1.name,
+          &amp;s1.result.marks);
+
+    printf("Enter second student roll, name and marks: ");
+    scanf("%d %49s %f",
+          &amp;s2.roll,
+          s2.name,
+          &amp;s2.result.marks);
+
+    // Compare nested marks members
+    if (s1.result.marks &gt; s2.result.marks)
+        printf("%s has higher marks.\n", s1.name);
+    else if (s2.result.marks &gt; s1.result.marks)
+        printf("%s has higher marks.\n", s2.name);
+    else
+        printf("Both students have equal marks.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Nested members can be used in expressions and conditions just like
+    ordinary structure members. The complete access path is
+    <code>s1.result.marks</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first student roll, name and marks: 101 Rahul 75</p>
+    <p>Enter second student roll, name and marks: 102 Priya 88</p>
+    <p><strong>Priya has higher marks.</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store an employee's joining date using a nested
+    date structure and calculate the number of years since joining based
+    on the current year.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+struct Employee
+{
+    int id;
+    char name[50];
+    struct Date joiningDate;
+};
+
+int main()
+{
+    struct Employee emp;
+    int currentYear, years;
+
+    printf("Enter employee ID: ");
+    scanf("%d", &amp;emp.id);
+
+    printf("Enter name: ");
+    scanf("%49s", emp.name);
+
+    printf("Enter joining date (day month year): ");
+    scanf("%d %d %d",
+          &amp;emp.joiningDate.day,
+          &amp;emp.joiningDate.month,
+          &amp;emp.joiningDate.year);
+
+    printf("Enter current year: ");
+    scanf("%d", &amp;currentYear);
+
+    // Calculate approximate years of service
+    years = currentYear - emp.joiningDate.year;
+
+    printf("\nEmployee = %s\n", emp.name);
+    printf("Joining Date = %02d/%02d/%d\n",
+           emp.joiningDate.day,
+           emp.joiningDate.month,
+           emp.joiningDate.year);
+    printf("Years of Service = %d\n", years);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A nested date structure allows date information to remain grouped
+    inside the employee record. Its members can be accessed using
+    multiple dot operators.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID: 501</p>
+    <p>Enter name: Amit</p>
+    <p>Enter joining date (day month year): 10 7 2021</p>
+    <p>Enter current year: 2026</p>
+    <p><strong>Employee = Amit</strong></p>
+    <p><strong>Joining Date = 10/07/2021</strong></p>
+    <p><strong>Years of Service = 5</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an <code>Address</code> structure and
+    include it inside a <code>Customer</code> structure. Modify the
+    customer's city after input and display the updated record.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Address
+{
+    char city[50];
+    char state[50];
+};
+
+struct Customer
+{
+    int id;
+    char name[50];
+    struct Address address;
+};
+
+int main()
+{
+    struct Customer c;
+
+    printf("Enter customer ID: ");
+    scanf("%d", &amp;c.id);
+
+    printf("Enter name: ");
+    scanf("%49s", c.name);
+
+    printf("Enter city: ");
+    scanf("%49s", c.address.city);
+
+    printf("Enter state: ");
+    scanf("%49s", c.address.state);
+
+    // Modify nested structure member
+    printf("Enter updated city: ");
+    scanf("%49s", c.address.city);
+
+    printf("\nCustomer ID = %d\n", c.id);
+    printf("Name = %s\n", c.name);
+    printf("City = %s\n", c.address.city);
+    printf("State = %s\n", c.address.state);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Nested structure members can also be modified directly. The expression
+    <code>c.address.city</code> accesses the city member inside the
+    nested address structure.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter customer ID: 1001</p>
+    <p>Enter name: Ravi</p>
+    <p>Enter city: Delhi</p>
+    <p>Enter state: Delhi</p>
+    <p>Enter updated city: Jaipur</p>
+    <p><strong>Customer ID = 1001</strong></p>
+    <p><strong>Name = Ravi</strong></p>
+    <p><strong>City = Jaipur</strong></p>
+    <p><strong>State = Delhi</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass a structure containing a nested structure
+    to a function and display its details.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Address
+{
+    char city[50];
+    int pin;
+};
+
+struct Student
+{
+    int roll;
+    char name[50];
+    struct Address address;
+};
+
+void displayStudent(struct Student s)
+{
+    // Access nested structure members
+    printf("Roll = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("City = %s\n", s.address.city);
+    printf("PIN = %d\n", s.address.pin);
+}
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter city: ");
+    scanf("%49s", s.address.city);
+
+    printf("Enter PIN code: ");
+    scanf("%d", &amp;s.address.pin);
+
+    // Pass complete structure to function
+    displayStudent(s);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure containing another structure can be passed to a function
+    just like other structure variables. The function can access nested
+    members using the complete member path.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Neha</p>
+    <p>Enter city: Jaipur</p>
+    <p>Enter PIN code: 302001</p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Neha</strong></p>
+    <p><strong>City = Jaipur</strong></p>
+    <p><strong>PIN = 302001</strong></p>
+  </div>
+  
+
+  <h2>Nested Structures — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a complete employee record using nested
+    structures for address and joining date. Display the formatted record.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Address
+{
+    char city[50];
+    char state[50];
+};
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+    struct Address address;
+    struct Date joiningDate;
+};
+
+int main()
+{
+    struct Employee emp;
+
+    printf("Enter employee ID: ");
+    scanf("%d", &amp;emp.id);
+
+    printf("Enter name: ");
+    scanf("%49s", emp.name);
+
+    printf("Enter salary: ");
+    scanf("%f", &amp;emp.salary);
+
+    printf("Enter city and state: ");
+    scanf("%49s %49s",
+          emp.address.city,
+          emp.address.state);
+
+    printf("Enter joining date (day month year): ");
+    scanf("%d %d %d",
+          &amp;emp.joiningDate.day,
+          &amp;emp.joiningDate.month,
+          &amp;emp.joiningDate.year);
+
+    // Display complete nested record
+    printf("\n-----------------------------\n");
+    printf("       EMPLOYEE RECORD\n");
+    printf("-----------------------------\n");
+    printf("ID            : %d\n", emp.id);
+    printf("Name          : %s\n", emp.name);
+    printf("Salary        : %.2f\n", emp.salary);
+    printf("City          : %s\n", emp.address.city);
+    printf("State         : %s\n", emp.address.state);
+    printf("Joining Date  : %02d/%02d/%d\n",
+           emp.joiningDate.day,
+           emp.joiningDate.month,
+           emp.joiningDate.year);
+    printf("-----------------------------\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This example combines multiple nested structures inside one main
+    structure. The employee record contains separate address and date
+    records, demonstrating how complex information can be organized
+    hierarchically.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID: 501</p>
+    <p>Enter name: Amit</p>
+    <p>Enter salary: 45000</p>
+    <p>Enter city and state: Jaipur Rajasthan</p>
+    <p>Enter joining date (day month year): 10 7 2021</p>
+    <p><strong>-----------------------------</strong></p>
+    <p><strong>       EMPLOYEE RECORD</strong></p>
+    <p><strong>-----------------------------</strong></p>
+    <p><strong>ID            : 501</strong></p>
+    <p><strong>Name          : Amit</strong></p>
+    <p><strong>Salary        : 45000.00</strong></p>
+    <p><strong>City          : Jaipur</strong></p>
+    <p><strong>State         : Rajasthan</strong></p>
+    <p><strong>Joining Date  : 10/07/2021</strong></p>
+    <p><strong>-----------------------------</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m4-accessing-elements/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m4-array-structures/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

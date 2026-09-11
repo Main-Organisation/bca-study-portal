@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>C Operators and precedence | C Programming</title>
+ <meta name="description" content="An operator is a symbol used to perform an operation     on one or more values or variables. Operators are an important part     of expressions in C." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m2-operators-precedence/" />
+ <meta property="og:title" content="C Operators and precedence" />
+ <meta property="og:description" content="An operator is a symbol used to perform an operation     on one or more values or variables. Operators are an important part     of expressions in C." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m2-operators-precedence/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="C Operators and precedence" />
+ <meta name="twitter:description" content="An operator is a symbol used to perform an operation     on one or more values or variables. Operators are an important part     of expressions in C." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"C Operators and precedence","item":"https://bcastudyportal.in/c-programming/m2-operators-precedence/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m2-operators-precedence/","name":"C Operators and precedence","description":"An operator is a symbol used to perform an operation     on one or more values or variables. Operators are an important part     of expressions in C.","mainEntity":{"@type":"CreativeWork","name":"C Operators and precedence","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / C Operators and precedence</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Notes</div>
+  <h1>C Operators and precedence</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>C Operators</h2>
+
+  <p>
+    An <strong>operator</strong> is a symbol used to perform an operation
+    on one or more values or variables. Operators are an important part
+    of expressions in C.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Operators tell the computer <strong>what operation to perform</strong>,
+      such as add, subtract, compare, assign, or check a condition.
+    </p>
+
+  </div>
+
+
+  <h2>Example</h2>
+
+  <div class="note-flow">
+int sum = a + b;
+  </div>
+
+  <p>
+    Here <code>+</code> is an operator used to add <code>a</code> and
+    <code>b</code>, while <code>=</code> is the assignment operator.
+  </p>
+
+
+  <h2>Types of Operators in C</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Operators</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Arithmetic</strong></td>
+          <td><code>+ - * / %</code></td>
+          <td>Mathematical calculations</td>
+        </tr>
+
+        <tr>
+          <td><strong>Relational</strong></td>
+          <td><code>== != &gt; &lt; &gt;= &lt;=</code></td>
+          <td>Compare two values</td>
+        </tr>
+
+        <tr>
+          <td><strong>Logical</strong></td>
+          <td><code>&amp;&amp; || !</code></td>
+          <td>Combine or reverse conditions</td>
+        </tr>
+
+        <tr>
+          <td><strong>Assignment</strong></td>
+          <td><code>= += -= *= /= %=</code></td>
+          <td>Assign values to variables</td>
+        </tr>
+
+        <tr>
+          <td><strong>Increment / Decrement</strong></td>
+          <td><code>++ --</code></td>
+          <td>Increase or decrease a value by 1</td>
+        </tr>
+
+        <tr>
+          <td><strong>Bitwise</strong></td>
+          <td><code>&amp; | ^ ~ &lt;&lt; &gt;&gt;</code></td>
+          <td>Operate on individual bits</td>
+        </tr>
+
+        <tr>
+          <td><strong>Conditional</strong></td>
+          <td><code>?:</code></td>
+          <td>Short form of a simple if-else expression</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Arithmetic Operators</h2>
+
+  <p>
+    Arithmetic operators are used to perform mathematical calculations.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Operation</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>+</code></td>
+          <td>Addition</td>
+          <td><code>10 + 5 = 15</code></td>
+        </tr>
+
+        <tr>
+          <td><code>-</code></td>
+          <td>Subtraction</td>
+          <td><code>10 - 5 = 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>*</code></td>
+          <td>Multiplication</td>
+          <td><code>10 * 5 = 50</code></td>
+        </tr>
+
+        <tr>
+          <td><code>/</code></td>
+          <td>Division</td>
+          <td><code>10 / 5 = 2</code></td>
+        </tr>
+
+        <tr>
+          <td><code>%</code></td>
+          <td>Remainder</td>
+          <td><code>10 % 3 = 1</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>2. Relational Operators</h2>
+
+  <p>
+    Relational operators compare two values. The result is used as a
+    logical condition.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>==</code></td>
+          <td>Equal to</td>
+          <td><code>a == b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>!=</code></td>
+          <td>Not equal to</td>
+          <td><code>a != b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&gt;</code></td>
+          <td>Greater than</td>
+          <td><code>a &gt; b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&lt;</code></td>
+          <td>Less than</td>
+          <td><code>a &lt; b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&gt;=</code></td>
+          <td>Greater than or equal to</td>
+          <td><code>a &gt;= b</code></td>
+        </tr>
+
+        <tr>
+          <td><code>&lt;=</code></td>
+          <td>Less than or equal to</td>
+          <td><code>a &lt;= b</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>3. Logical Operators</h2>
+
+  <p>
+    Logical operators are used to combine or reverse conditions.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>&amp;&amp;</code></td>
+          <td>Logical AND</td>
+          <td><code>a &gt; 5 &amp;&amp; b &lt; 10</code></td>
+        </tr>
+
+        <tr>
+          <td><code>||</code></td>
+          <td>Logical OR</td>
+          <td><code>a &gt; 5 || b &lt; 10</code></td>
+        </tr>
+
+        <tr>
+          <td><code>!</code></td>
+          <td>Logical NOT</td>
+          <td><code>!(a &gt; 5)</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>4. Assignment Operators</h2>
+
+  <p>
+    Assignment operators are used to assign or update values stored
+    in variables.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Example</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>=</code></td>
+          <td><code>a = 10</code></td>
+          <td>Assign 10 to a</td>
+        </tr>
+
+        <tr>
+          <td><code>+=</code></td>
+          <td><code>a += 5</code></td>
+          <td><code>a = a + 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>-=</code></td>
+          <td><code>a -= 5</code></td>
+          <td><code>a = a - 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>*=</code></td>
+          <td><code>a *= 5</code></td>
+          <td><code>a = a * 5</code></td>
+        </tr>
+
+        <tr>
+          <td><code>/=</code></td>
+          <td><code>a /= 5</code></td>
+          <td><code>a = a / 5</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>5. Increment and Decrement Operators</h2>
+
+  <p>
+    The <code>++</code> operator increases a value by 1, while the
+    <code>--</code> operator decreases a value by 1.
+  </p>
+
+  <div class="note-flow">
+int a = 5;
+
+a++;
+→ a becomes 6
+
+a--;
+→ a becomes 5
+  </div>
+
+
+  <h3>Pre-Increment and Post-Increment</h3>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Form</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>++a</code></td>
+          <td>Increase first, then use the value.</td>
+        </tr>
+
+        <tr>
+          <td><code>a++</code></td>
+          <td>Use the value first, then increase it.</td>
+        </tr>
+
+        <tr>
+          <td><code>--a</code></td>
+          <td>Decrease first, then use the value.</td>
+        </tr>
+
+        <tr>
+          <td><code>a--</code></td>
+          <td>Use the value first, then decrease it.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>6. Bitwise Operators</h2>
+
+  <p>
+    Bitwise operators work on the individual bits of integer values.
+    They are mainly useful when low-level or bit-level operations are required.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>&amp;</code></td>
+          <td>Bitwise AND</td>
+        </tr>
+
+        <tr>
+          <td><code>|</code></td>
+          <td>Bitwise OR</td>
+        </tr>
+
+        <tr>
+          <td><code>^</code></td>
+          <td>Bitwise XOR</td>
+        </tr>
+
+        <tr>
+          <td><code>~</code></td>
+          <td>Bitwise NOT</td>
+        </tr>
+
+        <tr>
+          <td><code>&lt;&lt;</code></td>
+          <td>Left Shift</td>
+        </tr>
+
+        <tr>
+          <td><code>&gt;&gt;</code></td>
+          <td>Right Shift</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>7. Conditional Operator</h2>
+
+  <p>
+    The <strong>conditional operator</strong> <code>?:</code> is a
+    short form for selecting one of two expressions based on a condition.
+  </p>
+
+  <div class="note-flow">
+condition ? expression1 : expression2
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      <code>max = (a &gt; b) ? a : b;</code>
+    </p>
+
+    <p>
+      If <code>a &gt; b</code> is true, <code>a</code> is assigned;
+      otherwise <code>b</code> is assigned.
+    </p>
+
+  </div>
+
+
+  <h2>Operator Precedence</h2>
+
+  <p>
+    <strong>Operator precedence</strong> determines which operator is
+    evaluated first when an expression contains multiple operators.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Consider:
+      <strong>2 + 3 * 4</strong>
+    </p>
+
+    <p>
+      Multiplication has higher precedence than addition, so:
+      <strong>3 * 4 = 12</strong> is evaluated first.
+    </p>
+
+    <p>
+      Final result:
+      <strong>2 + 12 = 14</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Basic Precedence Order</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Operators</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>1 — Highest</strong></td>
+          <td><code>()</code></td>
+          <td><code>(a + b)</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>2</strong></td>
+          <td><code>++ --</code></td>
+          <td><code>++a</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>3</strong></td>
+          <td><code>* / %</code></td>
+          <td><code>a * b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>4</strong></td>
+          <td><code>+ -</code></td>
+          <td><code>a + b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>5</strong></td>
+          <td><code>&lt; &lt;= &gt; &gt;=</code></td>
+          <td><code>a &lt; b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>6</strong></td>
+          <td><code>== !=</code></td>
+          <td><code>a == b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>7</strong></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>a &amp;&amp; b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>8</strong></td>
+          <td><code>||</code></td>
+          <td><code>a || b</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>9</strong></td>
+          <td><code>?:</code></td>
+          <td><code>a ? b : c</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>10</strong></td>
+          <td>Assignment operators</td>
+          <td><code>a = b</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Associativity</h2>
+
+  <p>
+    When two operators have the same precedence, <strong>associativity</strong>
+    determines the direction in which they are evaluated.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Multiplication and division have the same precedence and are generally
+      evaluated from <strong>left to right</strong>.
+    </p>
+
+    <p>
+      <strong>20 / 5 * 2</strong>
+      → first <strong>20 / 5 = 4</strong>
+      → then <strong>4 * 2 = 8</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Using Parentheses</h2>
+
+  <p>
+    Parentheses can be used to explicitly control the order of evaluation
+    in an expression.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Expression</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>2 + 3 * 4</code></td>
+          <td><strong>14</strong></td>
+        </tr>
+
+        <tr>
+          <td><code>(2 + 3) * 4</code></td>
+          <td><strong>20</strong></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      🧠 Easy Rule to Remember
+    </span>
+
+    <p>
+      <strong>
+        Parentheses → Increment/Decrement → Multiplication/Division →
+        Addition/Subtraction → Relational → Logical → Conditional →
+        Assignment
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Arithmetic</strong></td>
+          <td>Performs mathematical calculations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Relational</strong></td>
+          <td>Compares values.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Logical</strong></td>
+          <td>Combines conditions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Assignment</strong></td>
+          <td>Assigns or updates values.</td>
+        </tr>
+
+        <tr>
+          <td><strong>++ / --</strong></td>
+          <td>Increase or decrease by 1.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Conditional</strong></td>
+          <td>Short form of simple if-else selection.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Precedence</strong></td>
+          <td>Determines which operator is evaluated first.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Associativity</strong></td>
+          <td>Determines evaluation direction for equal precedence.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an operator in C?</li>
+
+    <li>Write the different types of operators in C.</li>
+
+    <li>What are arithmetic operators?</li>
+
+    <li>What are relational operators?</li>
+
+    <li>What are logical operators?</li>
+
+    <li>What is the use of the assignment operator?</li>
+
+    <li>What are increment and decrement operators?</li>
+
+    <li>What is operator precedence?</li>
+
+    <li>What is associativity?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the different types of operators in C with suitable examples.
+    </li>
+
+    <li>
+      Explain operator precedence and associativity with suitable examples.
+    </li>
+
+    <li>
+      Evaluate suitable C expressions using the rules of operator precedence.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of C operators,
+        precedence and associativity.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/results?search_query=C+operators+precedence+associativity+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: C Operators & Precedence — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for C operators
+        and precedence will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of C operator categories
+        and precedence.
+      </p>
+
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m2-data-types/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m2-type-conversion/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Passing Arrays to Functions — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to pass a one-dimensional array to a function     and display all its elements." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m3-passing-arrays/" />
+ <meta property="og:title" content="Passing Arrays to Functions — Exercises" />
+ <meta property="og:description" content="Write a C program to pass a one-dimensional array to a function     and display all its elements." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m3-passing-arrays/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Passing Arrays to Functions — Exercises" />
+ <meta name="twitter:description" content="Write a C program to pass a one-dimensional array to a function     and display all its elements." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Passing Arrays to Functions — Exercises","item":"https://bcastudyportal.in/c-programming/s-m3-passing-arrays/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m3-passing-arrays/","name":"Passing Arrays to Functions — Exercises","description":"Write a C program to pass a one-dimensional array to a function     and display all its elements.","mainEntity":{"@type":"CreativeWork","name":"Passing Arrays to Functions — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Passing Arrays to Functions — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Practical</div>
+  <h1>Passing Arrays to Functions — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Passing Arrays to Functions — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass a one-dimensional array to a function
+    and display all its elements.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void displayArray(int arr[], int n)
+{
+    int i;
+
+    // Display array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+}
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Pass array and size to the function
+    printf("Array: ");
+    displayArray(arr, n);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    An array can be passed to a function by providing its name.
+    The function receives access to the array elements along with its size.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 30 40 50</p>
+    <p><strong>Array: 10 20 30 40 50</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and calculate the
+    sum of all its elements.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int arraySum(int arr[], int n)
+{
+    int i, sum = 0;
+
+    // Add every array element
+    for (i = 0; i &lt; n; i++)
+    {
+        sum = sum + arr[i];
+    }
+
+    return sum;
+}
+
+int main()
+{
+    int arr[100], n, i, result;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Pass array to the function
+    result = arraySum(arr, n);
+
+    printf("Sum = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives the array and its size and processes each
+    element to calculate the total.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 5 15 10</p>
+    <p><strong>Sum = 60</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and find its largest
+    and smallest elements.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void findValues(int arr[], int n, int *largest, int *smallest)
+{
+    int i;
+
+    // Initialize using the first element
+    *largest = arr[0];
+    *smallest = arr[0];
+
+    // Compare remaining elements
+    for (i = 1; i &lt; n; i++)
+    {
+        if (arr[i] &gt; *largest)
+            *largest = arr[i];
+
+        if (arr[i] &lt; *smallest)
+            *smallest = arr[i];
+    }
+}
+
+int main()
+{
+    int arr[100], n, i;
+    int largest, smallest;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Pass array and addresses of result variables
+    findValues(arr, n, &amp;largest, &amp;smallest);
+
+    printf("Largest = %d\n", largest);
+    printf("Smallest = %d\n", smallest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The array is passed to the function for processing, while pointers
+    are used to return the largest and smallest values.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 12 45 7 30 18</p>
+    <p><strong>Largest = 45</strong></p>
+    <p><strong>Smallest = 7</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and calculate its average.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+float arrayAverage(int arr[], int n)
+{
+    int i, sum = 0;
+
+    // Calculate total of array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        sum = sum + arr[i];
+    }
+
+    return (float)sum / n;
+}
+
+int main()
+{
+    int arr[100], n, i;
+    float average;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Pass array to the function
+    average = arrayAverage(arr, n);
+
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function calculates the sum of all elements and divides it by
+    the number of elements to obtain the average.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 30 40 50</p>
+    <p><strong>Average = 30.00</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and count the number
+    of even and odd elements.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void countEvenOdd(int arr[], int n, int *even, int *odd)
+{
+    int i;
+
+    *even = 0;
+    *odd = 0;
+
+    // Classify each element
+    for (i = 0; i &lt; n; i++)
+    {
+        if (arr[i] % 2 == 0)
+            (*even)++;
+        else
+            (*odd)++;
+    }
+}
+
+int main()
+{
+    int arr[100], n, i;
+    int even, odd;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Pass array and result addresses
+    countEvenOdd(arr, n, &amp;even, &amp;odd);
+
+    printf("Even elements = %d\n", even);
+    printf("Odd elements = %d\n", odd);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function examines every array element and uses pointer parameters
+    to return the two counts.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 6</p>
+    <p>Enter 6 elements: 10 15 22 7 18 9</p>
+    <p><strong>Even elements = 3</strong></p>
+    <p><strong>Odd elements = 3</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and search for
+    a given element using linear search.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int searchElement(int arr[], int n, int search)
+{
+    int i;
+
+    // Search elements one by one
+    for (i = 0; i &lt; n; i++)
+    {
+        if (arr[i] == search)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+    int arr[100], n, i, search, position;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &amp;search);
+
+    // Pass array to search function
+    position = searchElement(arr, n, search);
+
+    if (position != -1)
+        printf("Element found at index %d.\n", position);
+    else
+        printf("Element not found.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function checks each array element and returns its index when
+    the required element is found. It returns <code>-1</code> if no match exists.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 25 30 45 50</p>
+    <p>Enter element to search: 30</p>
+    <p><strong>Element found at index 2.</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and display its
+    elements in reverse order.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void displayReverse(int arr[], int n)
+{
+    int i;
+
+    // Start from the last array element
+    for (i = n - 1; i &gt;= 0; i--)
+    {
+        printf("%d ", arr[i]);
+    }
+}
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    printf("Reverse order: ");
+
+    // Pass array to the function
+    displayReverse(arr, n);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives the array and starts accessing it from the
+    last valid index, producing the reverse order.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 30 40 50</p>
+    <p><strong>Reverse order: 50 40 30 20 10</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and replace every
+    negative element with zero.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void replaceNegative(int arr[], int n)
+{
+    int i;
+
+    // Replace negative values
+    for (i = 0; i &lt; n; i++)
+    {
+        if (arr[i] &lt; 0)
+        {
+            arr[i] = 0;
+        }
+    }
+}
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Pass array for modification
+    replaceNegative(arr, n);
+
+    printf("Modified array: ");
+
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The array is passed to the function, which modifies its elements.
+    Therefore, the changes are visible in <code>main()</code> as well.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 -5 20 -8 15</p>
+    <p><strong>Modified array: 10 0 20 0 15</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array to a function and sort its elements
+    in ascending order using Bubble Sort.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void sortArray(int arr[], int n)
+{
+    int i, j, temp;
+
+    // Perform Bubble Sort
+    for (i = 0; i &lt; n - 1; i++)
+    {
+        for (j = 0; j &lt; n - i - 1; j++)
+        {
+            if (arr[j] &gt; arr[j + 1])
+            {
+                // Swap adjacent elements
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Pass array to sorting function
+    sortArray(arr, n);
+
+    printf("Sorted array: ");
+
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The sorting function directly rearranges the elements of the passed
+    array. Bubble Sort compares adjacent elements and swaps them when
+    they are in the wrong order.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 40 10 30 5 25</p>
+    <p><strong>Sorted array: 5 10 25 30 40</strong></p>
+  </div>
+  
+
+  <h2>Passing Arrays to Functions — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an array of student marks to a function
+    and calculate the average, highest and lowest marks.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void analyzeMarks(
+    int marks[],
+    int n,
+    float *average,
+    int *highest,
+    int *lowest)
+{
+    int i, sum = 0;
+
+    // Initialize highest and lowest
+    *highest = marks[0];
+    *lowest = marks[0];
+
+    // Process all marks
+    for (i = 0; i &lt; n; i++)
+    {
+        sum = sum + marks[i];
+
+        if (marks[i] &gt; *highest)
+            *highest = marks[i];
+
+        if (marks[i] &lt; *lowest)
+            *lowest = marks[i];
+    }
+
+    *average = (float)sum / n;
+}
+
+int main()
+{
+    int marks[100], n, i;
+    int highest, lowest;
+    float average;
+
+    printf("Enter number of students: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter marks: ");
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;marks[i]);
+    }
+
+    // Pass array and addresses of result variables
+    analyzeMarks(
+        marks,
+        n,
+        &amp;average,
+        &amp;highest,
+        &amp;lowest
+    );
+
+    printf("Average = %.2f\n", average);
+    printf("Highest = %d\n", highest);
+    printf("Lowest = %d\n", lowest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This example combines array passing with pointer parameters. The
+    function processes the complete array and returns three results:
+    average, highest and lowest. This is a practical pattern for
+    processing student marks.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of students: 5</p>
+    <p>Enter marks: 12 45 3 67 22</p>
+    <p><strong>Average = 29.80</strong></p>
+    <p><strong>Highest = 67</strong></p>
+    <p><strong>Lowest = 3</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m3-call-by-reference/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m3-nested-functions/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

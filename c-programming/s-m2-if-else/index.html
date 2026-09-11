@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>if-else — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to check whether a number is positive or negative." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m2-if-else/" />
+ <meta property="og:title" content="if-else — Exercises" />
+ <meta property="og:description" content="Write a C program to check whether a number is positive or negative." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m2-if-else/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="if-else — Exercises" />
+ <meta name="twitter:description" content="Write a C program to check whether a number is positive or negative." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"if-else — Exercises","item":"https://bcastudyportal.in/c-programming/s-m2-if-else/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m2-if-else/","name":"if-else — Exercises","description":"Write a C program to check whether a number is positive or negative.","mainEntity":{"@type":"CreativeWork","name":"if-else — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / if-else — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Practical</div>
+  <h1>if-else — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>if-else — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a number is positive or negative.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Check whether the number is positive
+    if (num &gt;= 0)
+        printf("The number is positive.\n");
+    else
+        printf("The number is negative.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>if</code> block executes when the condition is true.
+    Otherwise, the <code>else</code> block executes.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: -12</p>
+    <p><strong>The number is negative.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a number is even or odd.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Check divisibility by 2
+    if (num % 2 == 0)
+        printf("The number is even.\n");
+    else
+        printf("The number is odd.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    If the remainder after division by 2 is zero, the number is even;
+    otherwise, it is odd.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 17</p>
+    <p><strong>The number is odd.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a student has passed or failed.
+    A student passes if marks are 50 or more.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks;
+
+    printf("Enter marks: ");
+    scanf("%d", &amp;marks);
+
+    // Check passing condition
+    if (marks &gt;= 50)
+        printf("Pass.\n");
+    else
+        printf("Fail.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program compares the marks with 50. If the condition is true,
+    the student passes; otherwise, the student fails.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter marks: 42</p>
+    <p><strong>Fail.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the greater of two numbers using if-else.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    // Compare the two numbers
+    if (a &gt; b)
+        printf("%d is greater.\n", a);
+    else
+        printf("%d is greater or equal.\n", b);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The two numbers are compared. If <code>a</code> is greater than
+    <code>b</code>, <code>a</code> is displayed; otherwise, <code>b</code>
+    is displayed.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 25 40</p>
+    <p><strong>40 is greater or equal.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a person is eligible to vote.
+    A person is eligible if the age is 18 or more.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age;
+
+    printf("Enter age: ");
+    scanf("%d", &amp;age);
+
+    // Check voting eligibility
+    if (age &gt;= 18)
+        printf("Eligible to vote.\n");
+    else
+        printf("Not eligible to vote.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The condition checks whether the age is at least 18.
+    Both possible outcomes are handled by if-else.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter age: 16</p>
+    <p><strong>Not eligible to vote.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a number is divisible by both 5 and 11.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Check divisibility by both 5 and 11
+    if (num % 5 == 0 &amp;&amp; num % 11 == 0)
+        printf("The number is divisible by both 5 and 11.\n");
+    else
+        printf("The number is not divisible by both 5 and 11.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The logical AND operator <code>&amp;&amp;</code> requires both
+    divisibility conditions to be true.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 55</p>
+    <p><strong>The number is divisible by both 5 and 11.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to determine whether a character is a vowel or a consonant.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char ch;
+
+    printf("Enter a character: ");
+    scanf(" %c", &amp;ch);
+
+    // Check whether the character is a vowel
+    if (ch == 'a' || ch == 'e' || ch == 'i' ||
+        ch == 'o' || ch == 'u' ||
+        ch == 'A' || ch == 'E' || ch == 'I' ||
+        ch == 'O' || ch == 'U')
+        printf("The character is a vowel.\n");
+    else
+        printf("The character is a consonant.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The character is compared with all five vowels in both lowercase
+    and uppercase forms.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a character: E</p>
+    <p><strong>The character is a vowel.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a year is a leap year.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int year;
+
+    printf("Enter year: ");
+    scanf("%d", &amp;year);
+
+    // Check leap year condition
+    if ((year % 400 == 0) ||
+        (year % 4 == 0 &amp;&amp; year % 100 != 0))
+        printf("Leap year.\n");
+    else
+        printf("Not a leap year.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A year is considered a leap year when it is divisible by 400,
+    or divisible by 4 but not by 100.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter year: 2024</p>
+    <p><strong>Leap year.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a person receives a discount.
+    A discount is given when the purchase amount is 5000 or more.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float amount;
+
+    printf("Enter purchase amount: ");
+    scanf("%f", &amp;amount);
+
+    // Check discount eligibility
+    if (amount &gt;= 5000)
+        printf("Discount is applicable.\n");
+    else
+        printf("Discount is not applicable.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The purchase amount is compared with the minimum amount required
+    for the discount.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter purchase amount: 6500</p>
+    <p><strong>Discount is applicable.</strong></p>
+  </div>
+  
+
+  <h2>if-else — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a number lies within the range
+    1 to 100.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Check whether the number lies in the range
+    if (num &gt;= 1 &amp;&amp; num &lt;= 100)
+        printf("The number is within the range.\n");
+    else
+        printf("The number is outside the range.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The logical AND operator ensures that both conditions are true:
+    the number must be at least 1 and at most 100.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 75</p>
+    <p><strong>The number is within the range.</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m2-if/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m2-nested-if/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

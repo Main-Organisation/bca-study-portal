@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P5.04 Simple Multivariate Forecast | Time Series</title>
+ <meta name="description" content="Fit a small VAR(1) to two related stationary teaching series, forecast both variables a few steps, and plot history against forecasts." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p5-04/" />
+ <meta property="og:title" content="P5.04 Simple Multivariate Forecast" />
+ <meta property="og:description" content="Fit a small VAR(1) to two related stationary teaching series, forecast both variables a few steps, and plot history against forecasts." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p5-04/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P5.04 Simple Multivariate Forecast" />
+ <meta name="twitter:description" content="Fit a small VAR(1) to two related stationary teaching series, forecast both variables a few steps, and plot history against forecasts." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P5.04 Simple Multivariate Forecast","item":"https://bcastudyportal.in/time-series/ts-p5-04/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p5-04/","name":"P5.04 Simple Multivariate Forecast","description":"Fit a small VAR(1) to two related stationary teaching series, forecast both variables a few steps, and plot history against forecasts.","mainEntity":{"@type":"CreativeWork","name":"P5.04 Simple Multivariate Forecast","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P5.04 Simple Multivariate Forecast</div>
+  <div class="meta">Subject: Time Series • Module: 5 Time Series Regression Model • Type: Practical</div>
+  <h1>P5.04 Simple Multivariate Forecast</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P5.04 Simple Multivariate Forecast</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Fit a small VAR(1) to two related stationary teaching series, forecast both variables a few steps, and plot history against forecasts.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Fit a beginner VAR on aligned columns.</li><li>Forecast more than one series from the same model.</li><li>Evaluate with MAE on a hold-out window.</li></ul>
+
+  <h3>Theory</h3>
+  <p>A vector autoregression (VAR) lets each variable depend on lags of itself and of the others. VAR(1) is a teaching starting point: one lag, two series. The series should be roughly stationary. VAR is one multivariate forecasting tool; it is not the only one, and large lag orders overfit short samples.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Constructed 90 observations of two related stationary series (demand-like and temperature-like). Teaching data.</p>
+
+  <h3>Kaggle-style Workflow</h3>
+  <ul><li>Inspect bivariate series</li><li>Check they are not strongly wandering</li><li>Train/test split by time</li><li>Fit VAR(1)</li><li>Forecast both variables</li><li>MAE per variable</li><li>Plot</li></ul>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.api import VAR
+
+rng = np.random.default_rng(4)
+n = 90
+e1, e2 = rng.normal(size=n), rng.normal(size=n)
+x = np.zeros(n)
+y = np.zeros(n)
+for t in range(1, n):
+    x[t] = 0.5 * x[t-1] + 0.2 * y[t-1] + e1[t]
+    y[t] = 0.4 * y[t-1] + 0.1 * x[t-1] + e2[t]
+df = pd.DataFrame({"x": x, "y": y})
+train, test = df.iloc[:-6], df.iloc[-6:]
+
+model = VAR(train).fit(maxlags=1, ic=None)
+print(model.summary())
+fc = model.forecast(train.values[-1:], steps=6)
+fc = pd.DataFrame(fc, index=test.index, columns=["x", "y"])
+print("Forecast:\n", fc.round(3))
+print("MAE x:", round(np.mean(np.abs(test["x"] - fc["x"])), 3))
+print("MAE y:", round(np.mean(np.abs(test["y"] - fc["y"])), 3))
+
+fig, axes = plt.subplots(2, 1, figsize=(8, 6), sharex=True)
+for ax, col in zip(axes, ["x", "y"]):
+    train[col].plot(ax=ax, label="train")
+    test[col].plot(ax=ax, label="test")
+    fc[col].plot(ax=ax, style="--", label="VAR forecast")
+    ax.legend()
+    ax.set_title(col)
+plt.tight_layout()
+plt.show()</div>
+
+  <h3>Expected Output</h3>
+  <p>A VAR summary, a 6-row forecast table for x and y, MAE for each column, and two panels of history vs forecast. Exact MAE depends on the random construction.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>Each forecast uses information from both series. If one variable helps the other, multivariate MAE can beat separate univariate naive forecasts, but students should compare rather than assume. Hold-out dates must remain later than the training dates.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>A small VAR is a joint forecast of several stationary series. Large lag orders need more data.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p5-03/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p5-05/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P4.06 Variable Selection | Time Series</title>
+ <meta name="description" content="A monthly series may depend on time, a seasonal dummy for December, and a promotional flag. Compare a time-only model with a fuller model using AIC and residual plots. Do not keep useless predictors." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p4-06/" />
+ <meta property="og:title" content="P4.06 Variable Selection" />
+ <meta property="og:description" content="A monthly series may depend on time, a seasonal dummy for December, and a promotional flag. Compare a time-only model with a fuller model using AIC and residual plots. Do not keep useless predictors." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p4-06/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P4.06 Variable Selection" />
+ <meta name="twitter:description" content="A monthly series may depend on time, a seasonal dummy for December, and a promotional flag. Compare a time-only model with a fuller model using AIC and residual plots. Do not keep useless predictors." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P4.06 Variable Selection","item":"https://bcastudyportal.in/time-series/ts-p4-06/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p4-06/","name":"P4.06 Variable Selection","description":"A monthly series may depend on time, a seasonal dummy for December, and a promotional flag. Compare a time-only model with a fuller model using AIC and residual plots. Do not keep useless predictors.","mainEntity":{"@type":"CreativeWork","name":"P4.06 Variable Selection","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P4.06 Variable Selection</div>
+  <div class="meta">Subject: Time Series • Module: 4 Introduction to Autoregressive Models and Forecasting • Type: Practical</div>
+  <h1>P4.06 Variable Selection</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P4.06 Variable Selection</h2>
+
+  <h3>Problem Statement</h3>
+  <p>A monthly series may depend on time, a seasonal dummy for December, and a promotional flag. Compare a time-only model with a fuller model using AIC and residual plots. Do not keep useless predictors.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Fit nested regression models.</li><li>Use AIC as a comparison aid.</li><li>Prefer a simpler model when extra variables add little.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Variable selection chooses which predictors to keep. Adding variables can reduce in-sample error while fitting noise. AIC penalises extra parameters. For teaching, compare a small set of sensible candidates rather than an automated hunt through dozens of columns. Seasonal dummies and a time trend are interpretable; random extra columns are not.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Constructed 36 monthly observations: trend, a December lift, and a weak random promo flag that is mostly noise.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+
+idx = pd.date_range("2023-01-01", periods=36, freq="MS")
+t = np.arange(36)
+dec = (idx.month == 12).astype(int)
+rng = np.random.default_rng(1)
+promo = rng.binomial(1, 0.2, 36)
+y = 40 + 0.8 * t + 12 * dec + rng.normal(0, 2, 36)
+
+def fit(cols, names):
+    X = sm.add_constant(np.column_stack(cols))
+    m = sm.OLS(y, X).fit()
+    print(names, "AIC:", round(m.aic, 1), "params:", np.round(m.params, 3))
+    return m
+
+m1 = fit([t], "time only")
+m2 = fit([t, dec], "time + December")
+m3 = fit([t, dec, promo], "time + December + promo")</div>
+
+  <h3>Expected Output</h3>
+  <p>Three AIC values and coefficient vectors. Time + December should improve on time only for this construction. The promo flag should look weak or unstable. Exact AIC numbers depend on the random draw.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>Keep predictors that match a real mechanism and improve AIC without wrecking residual plots. Dropping the noisy promo flag is good science, not a failure. Selection is not a substitute for checking autocorrelation.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Compare a few interpretable models. Extra variables can fit noise and still leave time-series dependence in the errors.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p4-05/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p4-07/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

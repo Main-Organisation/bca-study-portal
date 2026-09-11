@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Writing from files | C Programming</title>
+ <meta name="description" content="Writing to a file means storing data from a C     program into a file so that the information can be kept for later     use. C provides functions such as fputc(),     fputs(), and fprintf() for writing     different types of data to a file." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m5-writing-files/" />
+ <meta property="og:title" content="Writing from files" />
+ <meta property="og:description" content="Writing to a file means storing data from a C     program into a file so that the information can be kept for later     use. C provides functions such as fputc(),     fputs(), and fprintf() for writing     different types of data to a file." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m5-writing-files/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Writing from files" />
+ <meta name="twitter:description" content="Writing to a file means storing data from a C     program into a file so that the information can be kept for later     use. C provides functions such as fputc(),     fputs(), and fprintf() for writing     different types of data to a file." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Writing from files","item":"https://bcastudyportal.in/c-programming/m5-writing-files/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m5-writing-files/","name":"Writing from files","description":"Writing to a file means storing data from a C     program into a file so that the information can be kept for later     use. C provides functions such as fputc(),     fputs(), and fprintf() for writing     different types of data to a file.","mainEntity":{"@type":"CreativeWork","name":"Writing from files","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Writing from files</div>
+  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Notes</div>
+  <h1>Writing from files</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><p>
+    <strong>Writing to a file</strong> means storing data from a C
+    program into a file so that the information can be kept for later
+    use. C provides functions such as <code>fputc()</code>,
+    <code>fputs()</code>, and <code>fprintf()</code> for writing
+    different types of data to a file.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+
+fp = fopen("student.txt", "w");
+    </div>
+
+    <p>
+      The file is opened in write mode so that data can be stored in it.
+    </p>
+  </div>
+
+
+  <h2>Writing Through a File Pointer</h2>
+
+  <p>
+    Once a file has been opened successfully, writing operations are
+    performed using the file pointer rather than the filename. The
+    file pointer identifies the file on which the operation is being
+    performed.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+FILE *fp;
+
+fp = fopen("data.txt", "w");
+
+fprintf(fp, "Hello C");
+    </div>
+
+    <p>
+      Here, <code>fp</code> refers to the file and
+      <code>fprintf()</code> writes the message into it.
+    </p>
+  </div>
+
+
+  <h2>fputc() Function</h2>
+
+  <p>
+    The <strong>fputc()</strong> function writes a single character
+    to a file. It is similar to a character-output function, but
+    instead of displaying the character on the screen, it writes the
+    character to the file represented by the file pointer.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fputc('A', fp);
+    </div>
+
+    <p>
+      The character <code>A</code> is written to the file referred
+      to by <code>fp</code>.
+    </p>
+  </div>
+
+
+  <h2>fputs() Function</h2>
+
+  <p>
+    The <strong>fputs()</strong> function writes a string to a file.
+    It is useful when an entire string needs to be stored instead of
+    writing one character at a time.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fputs("Welcome to C Programming", fp);
+    </div>
+
+    <p>
+      The complete string is written to the file.
+    </p>
+  </div>
+
+
+  <h2>fprintf() Function</h2>
+
+  <p>
+    The <strong>fprintf()</strong> function writes formatted data to
+    a file. It works in a similar way to <code>printf()</code>, but
+    the output is directed to the file specified by the file pointer.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int rollNo = 101;
+float marks = 82.5;
+
+fprintf(fp, "%d %.1f", rollNo, marks);
+    </div>
+
+    <p>
+      The integer and floating-point values are written to the file
+      according to the specified format.
+    </p>
+  </div>
+
+
+  <h2>Opening a File for Writing</h2>
+
+  <p>
+    A file is normally opened using the <code>"w"</code> mode when new
+    contents need to be written. If the file does not exist, it is
+    created. If it already exists, its previous contents are replaced.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "w");
+    </div>
+
+    <p>
+      The file is opened for writing.
+    </p>
+  </div>
+
+
+  <h2>Checking the File Before Writing</h2>
+
+  <p>
+    Before performing a write operation, the return value of
+    <code>fopen()</code> should be checked. If the file cannot be
+    opened, <code>fopen()</code> returns <code>NULL</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">⚠️ Example</span>
+
+    <div class="note-flow">
+fp = fopen("data.txt", "w");
+
+if (fp == NULL)
+{
+    printf("Cannot open file
+");
+    return 1;
+}
+    </div>
+
+    <p>
+      This ensures that the program does not try to write using an
+      invalid file pointer.
+    </p>
+  </div>
+
+
+  <h2>Writing Character by Character</h2>
+
+  <p>
+    A string or sequence of characters can be written one character
+    at a time using <code>fputc()</code>. This approach is useful when
+    the program needs control over individual characters.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+char ch;
+
+ch = 'H';
+fputc(ch, fp);
+
+ch = 'i';
+fputc(ch, fp);
+    </div>
+
+    <p>
+      The characters are written individually to the file.
+    </p>
+  </div>
+
+
+  <h2>Writing a String</h2>
+
+  <p>
+    When the complete text is already available as a string,
+    <code>fputs()</code> can be used to write it directly to the file.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+char message[] = "BCA Study Portal";
+
+fputs(message, fp);
+    </div>
+
+    <p>
+      The contents of <code>message</code> are written to the file.
+    </p>
+  </div>
+
+
+  <h2>Writing Formatted Data</h2>
+
+  <p>
+    When multiple values such as names, integers and marks need to be
+    stored in a particular format, <code>fprintf()</code> is useful.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fprintf(fp, "%s %d %.1f", name, rollNo, marks);
+    </div>
+
+    <p>
+      The values are written to the file in the specified order and
+      format.
+    </p>
+  </div>
+
+
+  <h2>Closing the File After Writing</h2>
+
+  <p>
+    After completing all write operations, the file should be closed
+    using <code>fclose()</code>. Closing the file completes the file
+    operation and releases the resources associated with it.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fclose(fp);
+    </div>
+  </div>
+
+
+  <h2>Basic Writing Flow</h2>
+
+  <div class="note-flow">
+Declare FILE pointer
+        ↓
+Open file using fopen()
+        ↓
+Check for NULL
+        ↓
+Write data
+        ↓
+Close file using fclose()
+  </div>
+
+
+  <h2>Writing Functions at a Glance</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Main Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>fputc()</strong></td>
+          <td>Writes one character to a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fputs()</strong></td>
+          <td>Writes a string to a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fprintf()</strong></td>
+          <td>Writes formatted data to a file.</td>
+        </tr>
+
+        <tr>
+          <td><strong>fclose()</strong></td>
+          <td>Closes the opened file.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to create a text file, write a message into the
+    file using <code>fputs()</code>, and close the file.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Create and open a file in write mode.</li>
+
+    <li>Write a string to the file using <code>fputs()</code>.</li>
+
+    <li>Check whether the file was opened successfully.</li>
+
+    <li>Close the file after writing.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Open <code>message.txt</code> using <code>"w"</code> mode,
+    write a string using <code>fputs()</code>, and then close the file.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>fputs()</code> function writes a string to the file
+    represented by the file pointer. The file must be opened before
+    writing and should be closed after the operation is complete.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    // open the file in write mode
+    fp = fopen("message.txt", "w");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file
+");
+        return 1;
+    }
+
+    // write a message into the file
+    fputs("Welcome to BCA Study Portal.", fp);
+
+    // close the file
+    fclose(fp);
+
+    printf("Data written successfully
+");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Data written successfully
+    </p>
+
+  </div>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+Welcome to BCA Study Portal.
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The program creates <code>message.txt</code> if it does not already
+    exist. The message is written using <code>fputs()</code> and the
+    file is then closed using <code>fclose()</code>.
+  </p>
+
+
+  <h2>Practical Example — Character Writing</h2>
+
+  <p>
+    The <code>fputc()</code> function can be used when characters need
+    to be written individually. This is the direct counterpart of
+    reading individual characters using <code>fgetc()</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fputc('A', fp);
+fputc('B', fp);
+fputc('C', fp);
+    </div>
+
+    <p>
+      The characters <code>A</code>, <code>B</code> and
+      <code>C</code> are written to the file one by one.
+    </p>
+  </div>
+
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to write three characters into a text file using
+    <code>fputc()</code>.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    // open the file in write mode
+    fp = fopen("letters.txt", "w");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file
+");
+        return 1;
+    }
+
+    // write characters one by one
+    fputc('A', fp);
+    fputc('B', fp);
+    fputc('C', fp);
+
+    fclose(fp);
+
+    printf("Characters written successfully
+");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Characters written successfully
+    </p>
+
+  </div>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+ABC
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>fputc()</code> writes one character at a time. Multiple calls
+    can therefore be used to build a sequence of characters in a file.
+  </p>
+
+
+  <h2>Practical Example — Formatted Data</h2>
+
+  <p>
+    When a file needs to store values such as student name, roll number,
+    and marks in a readable format, <code>fprintf()</code> can be used
+    to write all the values together.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+fprintf(fp, "%s %d %.1f", name, rollNo, marks);
+    </div>
+
+    <p>
+      The values are written according to the specified format.
+    </p>
+  </div>
+
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to store a student's name, roll number, and
+    percentage in a text file using <code>fprintf()</code>.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    char name[] = "Rahul";
+    int rollNo = 101;
+    float percentage = 82.5;
+
+    // open the file in write mode
+    fp = fopen("student.txt", "w");
+
+    // check whether the file was opened successfully
+    if (fp == NULL)
+    {
+        printf("Cannot open file
+");
+        return 1;
+    }
+
+    // write formatted student information
+    fprintf(fp, "%s %d %.1f",
+            name,
+            rollNo,
+            percentage);
+
+    fclose(fp);
+
+    printf("Student record written successfully
+");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Student record written successfully
+    </p>
+
+  </div>
+
+
+  <h3>File Content</h3>
+
+  <div class="note-flow">
+Rahul 101 82.5
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    <code>fprintf()</code> is useful when different data types need to
+    be written in a particular format. The same formatted data can
+    later be read using a suitable file-reading function.
+  </p>
+
+
+  <h2>fputc(), fputs() and fprintf()</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>What It Writes</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>fputc()</strong></td>
+          <td>One character</td>
+          <td><code>fputc('A', fp);</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>fputs()</strong></td>
+          <td>String</td>
+          <td><code>fputs("Hello", fp);</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>fprintf()</strong></td>
+          <td>Formatted data</td>
+          <td><code>fprintf(fp, "%d", number);</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Writing vs Reading</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Reading</th>
+          <th>Writing</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>fgetc()</code></td>
+          <td><code>fputc()</code></td>
+        </tr>
+
+        <tr>
+          <td><code>fgets()</code></td>
+          <td><code>fputs()</code></td>
+        </tr>
+
+        <tr>
+          <td><code>fscanf()</code></td>
+          <td><code>fprintf()</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Points</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      <strong>fgetc()</strong> → reads one character.
+    </p>
+
+    <p>
+      <strong>fputc()</strong> → writes one character.
+    </p>
+
+    <p>
+      <strong>fgets()</strong> → reads a string or line.
+    </p>
+
+    <p>
+      <strong>fputs()</strong> → writes a string.
+    </p>
+
+    <p>
+      <strong>fscanf()</strong> → reads formatted data.
+    </p>
+
+    <p>
+      <strong>fprintf()</strong> → writes formatted data.
+    </p>
+
+  </div>
+
+
+  <h2>Common Mistakes</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 1
+    </span>
+
+    <p>
+      Opening a file in <code>"w"</code> mode without realizing that
+      existing contents will be overwritten.
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 2
+    </span>
+
+    <p>
+      Forgetting to check <code>fp == NULL</code> before writing.
+    </p>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 3
+    </span>
+
+    <p>
+      Forgetting to close the file after completing the write operation.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Open for Writing</strong></td>
+          <td><code>fopen("file.txt", "w")</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Character</strong></td>
+          <td><code>fputc()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>String</strong></td>
+          <td><code>fputs()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Formatted Data</strong></td>
+          <td><code>fprintf()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Check Failure</strong></td>
+          <td><code>fp == NULL</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Close File</strong></td>
+          <td><code>fclose(fp)</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is meant by writing to a file?</li>
+
+    <li>What is the use of <code>fputc()</code>?</li>
+
+    <li>What is the use of <code>fputs()</code>?</li>
+
+    <li>What is the purpose of <code>fprintf()</code>?</li>
+
+    <li>What is the difference between <code>fputc()</code> and <code>fputs()</code>?</li>
+
+    <li>What happens when a file is opened using <code>"w"</code> mode?</li>
+
+    <li>Why should <code>fopen()</code> be checked for <code>NULL</code>?</li>
+
+    <li>Why should a file be closed after writing?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the process of writing data to a file in C with a suitable program.
+    </li>
+
+    <li>
+      Explain <code>fputc()</code>, <code>fputs()</code> and
+      <code>fprintf()</code> with suitable examples.
+    </li>
+
+    <li>
+      Write a C program to create a file and write text into it.
+    </li>
+
+    <li>
+      Write a C program to store formatted student information in a file.
+    </li>
+
+    <li>
+      Differentiate between the reading and writing functions used in C file handling.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of writing to files
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=writing+to+files+fputc+fputs+fprintf+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Writing to Files in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for writing to
+        files will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for fopen(), file pointer, fputc(),
+        fputs(), fprintf() and fclose().
+      </p>
+
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m5-reading-files/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m5-pointer-idea/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

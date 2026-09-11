@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P1.02 Classify Types of Data | Time Series</title>
+ <meta name="description" content="Given three small tables, classify each as time series, cross-sectional, or panel data, and justify the classification." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p1-02/" />
+ <meta property="og:title" content="P1.02 Classify Types of Data" />
+ <meta property="og:description" content="Given three small tables, classify each as time series, cross-sectional, or panel data, and justify the classification." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p1-02/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P1.02 Classify Types of Data" />
+ <meta name="twitter:description" content="Given three small tables, classify each as time series, cross-sectional, or panel data, and justify the classification." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P1.02 Classify Types of Data","item":"https://bcastudyportal.in/time-series/ts-p1-02/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p1-02/","name":"P1.02 Classify Types of Data","description":"Given three small tables, classify each as time series, cross-sectional, or panel data, and justify the classification.","mainEntity":{"@type":"CreativeWork","name":"P1.02 Classify Types of Data","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P1.02 Classify Types of Data</div>
+  <div class="meta">Subject: Time Series • Module: 1 Introduction to Time Series • Type: Practical</div>
+  <h1>P1.02 Classify Types of Data</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P1.02 Classify Types of Data</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Given three small tables, classify each as time series, cross-sectional, or panel data, and justify the classification.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Distinguish time series, cross-sectional and panel data.</li><li>Explain who is observed and when they are observed.</li></ul>
+
+  <h3>Hint</h3>
+  <p>Ask two questions: How many entities? At how many time points?</p>
+
+  <h3>Theory</h3>
+  <p>Time series data follows one process over time. Cross-sectional data observes many entities at one time. Panel data observes many entities repeatedly over time.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Table A: daily temperature of one city for 10 days. Table B: income of 8 households in 2026 only. Table C: annual sales of 4 shops from 2023 to 2025. All three tables are teaching examples.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python"># Classify teaching tables by entity and time
+tables = {
+    "A": {"entities": 1, "times": 10, "example": "daily temperature of one city"},
+    "B": {"entities": 8, "times": 1, "example": "household income in 2026"},
+    "C": {"entities": 4, "times": 3, "example": "shop sales over three years"}
+}
+
+for name, info in tables.items():
+    if info["entities"] == 1 and info["times"] > 1:
+        kind = "Time series"
+    elif info["entities"] > 1 and info["times"] == 1:
+        kind = "Cross-sectional"
+    else:
+        kind = "Panel"
+    print(name, kind, "-", info["example"])</div>
+
+  <h3>Expected Output</h3>
+  <p>Printed labels: A Time series, B Cross-sectional, C Panel, each with its short example.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>Only Table A is a single time series. Table B cannot show change over time. Table C can show both shop differences and year-to-year change.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Forecasting a single variable over time uses time series data. Comparing many units at one moment uses cross-sectional data.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p1-01/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p1-03/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

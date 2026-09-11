@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Basic C program structure | C Programming</title>
+ <meta name="description" content="A C program is written using a basic structure that contains     header files, the main() function, declarations,     statements, and a return statement. Program execution normally     starts from the main() function." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m2-program-structure/" />
+ <meta property="og:title" content="Basic C program structure" />
+ <meta property="og:description" content="A C program is written using a basic structure that contains     header files, the main() function, declarations,     statements, and a return statement. Program execution normally     starts from the main() function." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m2-program-structure/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Basic C program structure" />
+ <meta name="twitter:description" content="A C program is written using a basic structure that contains     header files, the main() function, declarations,     statements, and a return statement. Program execution normally     starts from the main() function." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Basic C program structure","item":"https://bcastudyportal.in/c-programming/m2-program-structure/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m2-program-structure/","name":"Basic C program structure","description":"A C program is written using a basic structure that contains     header files, the main() function, declarations,     statements, and a return statement. Program execution normally     starts from the main() function.","mainEntity":{"@type":"CreativeWork","name":"Basic C program structure","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Basic C program structure</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Notes</div>
+  <h1>Basic C program structure</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Basic C Program Structure</h2>
+
+  <p>
+    A C program is written using a basic structure that contains
+    header files, the <code>main()</code> function, declarations,
+    statements, and a return statement. Program execution normally
+    starts from the <code>main()</code> function.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      A C program is like a small set of instructions:
+      <strong>include required files → start main() → perform work → return</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Basic Structure of a C Program</h2>
+
+  <div class="note-flow">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    // declarations
+
+    // statements
+
+    return 0;
+}
+  </div>
+
+
+  <h2>Parts of a C Program</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Part</th>
+          <th>Purpose</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Header File</strong></td>
+          <td>
+            Provides declarations for standard functions used by the program.
+          </td>
+          <td><code>#include &lt;stdio.h&gt;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>main()</strong></td>
+          <td>
+            Main function from where program execution begins.
+          </td>
+          <td><code>int main()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Declarations</strong></td>
+          <td>
+            Define variables required by the program.
+          </td>
+          <td><code>int a, b;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Statements</strong></td>
+          <td>
+            Perform the required operations of the program.
+          </td>
+          <td><code>sum = a + b;</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>
+            Displays the result to the user.
+          </td>
+          <td><code>printf()</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>return 0;</strong></td>
+          <td>
+            Indicates successful completion of the main function.
+          </td>
+          <td><code>return 0;</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Example: Add Two Numbers</h2>
+
+  <div class="note-flow">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+    int b = 15;
+    int sum = a + b;
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}
+  </div>
+
+
+  <h2>Understanding the Program</h2>
+
+  <h3>1. #include &lt;stdio.h&gt;</h3>
+
+  <p>
+    This line includes the standard input/output header file.
+    It provides functions such as <code>printf()</code> used for
+    displaying output.
+  </p>
+
+
+  <h3>2. int main()</h3>
+
+  <p>
+    The <code>main()</code> function is the main entry point of the
+    program. Execution begins from this function.
+  </p>
+
+
+  <h3>3. int a = 10; and int b = 15;</h3>
+
+  <p>
+    These statements declare two integer variables and initialize
+    them with values.
+  </p>
+
+
+  <h3>4. int sum = a + b;</h3>
+
+  <p>
+    This statement calculates the sum of the two numbers and stores
+    the result in the variable <code>sum</code>.
+  </p>
+
+
+  <h3>5. printf("Sum = %d", sum);</h3>
+
+  <p>
+    The <code>printf()</code> function displays the calculated result
+    on the screen.
+  </p>
+
+
+  <h3>6. return 0;</h3>
+
+  <p>
+    This statement ends the <code>main()</code> function and indicates
+    successful completion of the program.
+  </p>
+
+
+  <h2>Program Flow</h2>
+
+  <div class="note-flow">
+Header File
+    ↓
+main()
+    ↓
+Variable Declarations
+    ↓
+Processing / Statements
+    ↓
+Output
+    ↓
+return 0
+    ↓
+Program Ends
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      The most important part to remember is:
+      <strong>Program execution starts from main().</strong>
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Part</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>#include</strong></td>
+          <td>Includes required header files.</td>
+        </tr>
+
+        <tr>
+          <td><strong>main()</strong></td>
+          <td>Starting point of program execution.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Declaration</strong></td>
+          <td>Defines required variables.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Statements</strong></td>
+          <td>Perform the required operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>printf()</strong></td>
+          <td>Displays output.</td>
+        </tr>
+
+        <tr>
+          <td><strong>return 0;</strong></td>
+          <td>Ends main() successfully.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is the basic structure of a C program?</li>
+
+    <li>What is the purpose of the <code>main()</code> function?</li>
+
+    <li>What is the use of <code>#include &lt;stdio.h&gt;</code>?</li>
+
+    <li>What is the purpose of <code>printf()</code>?</li>
+
+    <li>What is the use of <code>return 0;</code>?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the basic structure of a C program with a suitable example.
+    </li>
+
+    <li>
+      Write a C program to add two numbers and explain each part of the program.
+    </li>
+
+    <li>
+      Explain the role of header files, main(), statements and return
+      statement in a C program.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the basic structure
+        of a C program.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=basic+structure+of+C+program+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Basic C Program Structure — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for the basic
+        C program structure will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of the main parts
+        of a C program.
+      </p>
+
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m2-features-c/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m2-tokens/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

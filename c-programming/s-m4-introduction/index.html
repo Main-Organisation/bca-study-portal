@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Introduction — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a simple structure named Student     containing roll number, name and marks. Read and display the student&#39;s details." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m4-introduction/" />
+ <meta property="og:title" content="Introduction — Exercises" />
+ <meta property="og:description" content="Write a C program to create a simple structure named Student     containing roll number, name and marks. Read and display the student&#39;s details." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m4-introduction/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Introduction — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a simple structure named Student     containing roll number, name and marks. Read and display the student&#39;s details." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Introduction — Exercises","item":"https://bcastudyportal.in/c-programming/s-m4-introduction/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m4-introduction/","name":"Introduction — Exercises","description":"Write a C program to create a simple structure named Student     containing roll number, name and marks. Read and display the student's details.","mainEntity":{"@type":"CreativeWork","name":"Introduction — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Introduction — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Practical</div>
+  <h1>Introduction — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Structure & Union — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a simple structure named <code>Student</code>
+    containing roll number, name and marks. Read and display the student's details.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    // Display student details
+    printf("\nStudent Details:\n");
+    printf("Roll Number = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("Marks = %.2f\n", s.marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure is a user-defined data type that can group variables of
+    different data types under one name. Here, the <code>Student</code>
+    structure groups roll number, name and marks.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks: 82.5</p>
+    <p><strong>Student Details:</strong></p>
+    <p><strong>Roll Number = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>Marks = 82.50</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a structure named <code>Employee</code>
+    containing employee ID, name and salary, and display the stored information.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+};
+
+int main()
+{
+    struct Employee emp;
+
+    printf("Enter employee ID: ");
+    scanf("%d", &amp;emp.id);
+
+    printf("Enter name: ");
+    scanf("%49s", emp.name);
+
+    printf("Enter salary: ");
+    scanf("%f", &amp;emp.salary);
+
+    // Display employee information
+    printf("\nEmployee Details:\n");
+    printf("ID = %d\n", emp.id);
+    printf("Name = %s\n", emp.name);
+    printf("Salary = %.2f\n", emp.salary);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure can combine related information belonging to one entity.
+    Each member is accessed using the dot operator.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID: 501</p>
+    <p>Enter name: Amit</p>
+    <p>Enter salary: 45000</p>
+    <p><strong>Employee Details:</strong></p>
+    <p><strong>ID = 501</strong></p>
+    <p><strong>Name = Amit</strong></p>
+    <p><strong>Salary = 45000.00</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the details of a book using a structure
+    containing book ID, title and price.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Book
+{
+    int id;
+    char title[100];
+    float price;
+};
+
+int main()
+{
+    struct Book book;
+
+    printf("Enter book ID: ");
+    scanf("%d", &amp;book.id);
+
+    printf("Enter title: ");
+    scanf("%99s", book.title);
+
+    printf("Enter price: ");
+    scanf("%f", &amp;book.price);
+
+    // Display book details
+    printf("\nBook Details:\n");
+    printf("Book ID = %d\n", book.id);
+    printf("Title = %s\n", book.title);
+    printf("Price = %.2f\n", book.price);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure is useful for representing a real-world object whose
+    properties may have different data types.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter book ID: 101</p>
+    <p>Enter title: CProgramming</p>
+    <p>Enter price: 450</p>
+    <p><strong>Book Details:</strong></p>
+    <p><strong>Book ID = 101</strong></p>
+    <p><strong>Title = CProgramming</strong></p>
+    <p><strong>Price = 450.00</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the total and average marks of a student
+    using a structure.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    char name[50];
+    int marks1;
+    int marks2;
+    int marks3;
+};
+
+int main()
+{
+    struct Student s;
+    int total;
+    float average;
+
+    printf("Enter student name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks of three subjects: ");
+    scanf("%d %d %d",
+          &amp;s.marks1,
+          &amp;s.marks2,
+          &amp;s.marks3);
+
+    // Calculate total and average
+    total = s.marks1 + s.marks2 + s.marks3;
+    average = total / 3.0;
+
+    printf("\nStudent = %s\n", s.name);
+    printf("Total = %d\n", total);
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structure members can be used directly in calculations. Here,
+    the marks stored inside the structure are added to calculate
+    the total and average.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter student name: Neha</p>
+    <p>Enter marks of three subjects: 70 80 90</p>
+    <p><strong>Student = Neha</strong></p>
+    <p><strong>Total = 240</strong></p>
+    <p><strong>Average = 80.00</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the details of a rectangle using a structure
+    and calculate its area and perimeter.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Rectangle
+{
+    float length;
+    float width;
+};
+
+int main()
+{
+    struct Rectangle r;
+    float area, perimeter;
+
+    printf("Enter length and width: ");
+    scanf("%f %f", &amp;r.length, &amp;r.width);
+
+    // Calculate area and perimeter
+    area = r.length * r.width;
+    perimeter = 2 * (r.length + r.width);
+
+    printf("Area = %.2f\n", area);
+    printf("Perimeter = %.2f\n", perimeter);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structure members can represent the properties of a real-world object.
+    Here, length and width are grouped inside the <code>Rectangle</code> structure.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter length and width: 10 5</p>
+    <p><strong>Area = 50.00</strong></p>
+    <p><strong>Perimeter = 30.00</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to compare the marks of two students using a structure
+    and display the student with higher marks.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s1, s2;
+
+    printf("Enter first student's name and marks: ");
+    scanf("%49s %f", s1.name, &amp;s1.marks);
+
+    printf("Enter second student's name and marks: ");
+    scanf("%49s %f", s2.name, &amp;s2.marks);
+
+    // Compare marks
+    if (s1.marks &gt; s2.marks)
+        printf("%s has higher marks.\n", s1.name);
+    else if (s2.marks &gt; s1.marks)
+        printf("%s has higher marks.\n", s2.name);
+    else
+        printf("Both students have equal marks.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Separate structure variables can store information about different
+    students. Their individual members can then be compared like normal variables.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first student's name and marks: Rahul 78</p>
+    <p>Enter second student's name and marks: Amit 85</p>
+    <p><strong>Amit has higher marks.</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store date information using a structure containing
+    day, month and year, and display the date.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+int main()
+{
+    struct Date date;
+
+    printf("Enter day, month and year: ");
+    scanf("%d %d %d",
+          &amp;date.day,
+          &amp;date.month,
+          &amp;date.year);
+
+    // Display date
+    printf("Date = %02d/%02d/%d\n",
+           date.day,
+           date.month,
+           date.year);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure can group several related values into one logical unit.
+    The <code>Date</code> structure groups day, month and year.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter day, month and year: 4 9 2026</p>
+    <p><strong>Date = 04/09/2026</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the details of a product using a structure
+    and calculate the total cost for a given quantity.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Product
+{
+    int id;
+    char name[50];
+    float price;
+    int quantity;
+};
+
+int main()
+{
+    struct Product p;
+    float total;
+
+    printf("Enter product ID: ");
+    scanf("%d", &amp;p.id);
+
+    printf("Enter product name: ");
+    scanf("%49s", p.name);
+
+    printf("Enter price: ");
+    scanf("%f", &amp;p.price);
+
+    printf("Enter quantity: ");
+    scanf("%d", &amp;p.quantity);
+
+    // Calculate total cost
+    total = p.price * p.quantity;
+
+    printf("\nProduct Details:\n");
+    printf("ID = %d\n", p.id);
+    printf("Name = %s\n", p.name);
+    printf("Total Cost = %.2f\n", total);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure allows multiple properties of a product to be stored
+    together. The stored members can then be used in calculations.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter product ID: 201</p>
+    <p>Enter product name: Keyboard</p>
+    <p>Enter price: 800</p>
+    <p>Enter quantity: 3</p>
+    <p><strong>Product Details:</strong></p>
+    <p><strong>ID = 201</strong></p>
+    <p><strong>Name = Keyboard</strong></p>
+    <p><strong>Total Cost = 2400.00</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the details of a student using a structure
+    and determine whether the student has passed or failed based on marks.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    // Check result using structure member
+    if (s.marks &gt;= 50)
+        printf("%s has passed.\n", s.name);
+    else
+        printf("%s has failed.\n", s.name);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structure members can be used directly in decision-making statements.
+    Here, the student's marks member is used to determine the result.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 105</p>
+    <p>Enter name: Priya</p>
+    <p>Enter marks: 68</p>
+    <p><strong>Priya has passed.</strong></p>
+  </div>
+  
+
+  <h2>Structure & Union — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a structure named <code>Student</code>
+    containing roll number, name and marks, and display the complete
+    student record in a formatted manner.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    // Display complete record
+    printf("\n-------------------------\n");
+    printf("       STUDENT RECORD\n");
+    printf("-------------------------\n");
+    printf("Roll Number : %d\n", s.roll);
+    printf("Name        : %s\n", s.name);
+    printf("Marks       : %.2f\n", s.marks);
+    printf("-------------------------\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This program brings together the basic structure concepts covered
+    in this section: structure definition, structure variable creation,
+    member access using the dot operator, input and formatted output.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rohit</p>
+    <p>Enter marks: 88.5</p>
+    <p><strong>-------------------------</strong></p>
+    <p><strong>       STUDENT RECORD</strong></p>
+    <p><strong>-------------------------</strong></p>
+    <p><strong>Roll Number : 101</strong></p>
+    <p><strong>Name        : Rohit</strong></p>
+    <p><strong>Marks       : 88.50</strong></p>
+    <p><strong>-------------------------</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m4-enumerated/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m4-storage-classes/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

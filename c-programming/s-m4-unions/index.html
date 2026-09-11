@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Unions — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a union containing an integer, a float and     a character. Store and display one member at a time." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m4-unions/" />
+ <meta property="og:title" content="Unions — Exercises" />
+ <meta property="og:description" content="Write a C program to create a union containing an integer, a float and     a character. Store and display one member at a time." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m4-unions/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Unions — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a union containing an integer, a float and     a character. Store and display one member at a time." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Unions — Exercises","item":"https://bcastudyportal.in/c-programming/s-m4-unions/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m4-unions/","name":"Unions — Exercises","description":"Write a C program to create a union containing an integer, a float and     a character. Store and display one member at a time.","mainEntity":{"@type":"CreativeWork","name":"Unions — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Unions — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Practical</div>
+  <h1>Unions — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Unions — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a union containing an integer, a float and
+    a character. Store and display one member at a time.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union Data
+{
+    int number;
+    float value;
+    char letter;
+};
+
+int main()
+{
+    union Data d;
+
+    d.number = 25;
+
+    printf("Integer value = %d\n", d.number);
+
+    d.value = 12.50;
+
+    printf("Float value = %.2f\n", d.value);
+
+    d.letter = 'A';
+
+    printf("Character value = %c\n", d.letter);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A union allows different members to share the same memory location.
+    Therefore, only the member assigned most recently should be considered
+    as the currently stored value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Integer value = 25</strong></p>
+    <p><strong>Float value = 12.50</strong></p>
+    <p><strong>Character value = A</strong></p>
+  </div>
+  
+
+  <h2>Unions — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store and display an employee's ID using a union.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union Employee
+{
+    int id;
+    float salary;
+    char grade;
+};
+
+int main()
+{
+    union Employee e;
+
+    e.id = 501;
+
+    printf("Employee ID = %d\n", e.id);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The union contains three possible members, but this program uses only
+    the <code>id</code> member at the current time.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Employee ID = 501</strong></p>
+  </div>
+  
+
+  <h2>Unions — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate that different members of a union
+    share the same memory location by displaying their addresses.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union Data
+{
+    int number;
+    float value;
+    char letter;
+};
+
+int main()
+{
+    union Data d;
+
+    printf("Address of number = %p\n", (void *)&amp;d.number);
+    printf("Address of value  = %p\n", (void *)&amp;d.value);
+    printf("Address of letter = %p\n", (void *)&amp;d.letter);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    All members of a union begin at the same memory location. Therefore,
+    their addresses are the same, although their data types are different.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Address of number = 0x7ffee...</strong></p>
+    <p><strong>Address of value = 0x7ffee...</strong></p>
+    <p><strong>Address of letter = 0x7ffee...</strong></p>
+    <p>Exact memory addresses may differ from one system to another.</p>
+  </div>
+  
+
+  <h2>Unions — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate the difference between the memory
+    occupied by a structure and a union containing the same members.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct DataStructure
+{
+    int number;
+    float value;
+    char letter;
+};
+
+union DataUnion
+{
+    int number;
+    float value;
+    char letter;
+};
+
+int main()
+{
+    struct DataStructure s;
+    union DataUnion u;
+
+    printf("Size of structure = %zu bytes\n",
+           sizeof(s));
+
+    printf("Size of union = %zu bytes\n",
+           sizeof(u));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structure members normally have separate storage, while union members
+    share the same storage. Therefore, the total size of a union is based
+    mainly on its largest member, subject to alignment and padding rules.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Size of structure = implementation-dependent</strong></p>
+    <p><strong>Size of union = implementation-dependent</strong></p>
+    <p>The exact values may vary depending on the compiler and system.</p>
+  </div>
+  
+
+  <h2>Unions — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to take an integer, float or character as selected
+    by the user and store it in a union.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union Data
+{
+    int number;
+    float value;
+    char letter;
+};
+
+int main()
+{
+    union Data d;
+    int choice;
+
+    printf("1. Integer\n");
+    printf("2. Float\n");
+    printf("3. Character\n");
+
+    printf("Enter your choice: ");
+    scanf("%d", &amp;choice);
+
+    switch (choice)
+    {
+        case 1:
+            printf("Enter integer: ");
+            scanf("%d", &amp;d.number);
+            printf("Stored integer = %d\n", d.number);
+            break;
+
+        case 2:
+            printf("Enter float: ");
+            scanf("%f", &amp;d.value);
+            printf("Stored float = %.2f\n", d.value);
+            break;
+
+        case 3:
+            printf("Enter character: ");
+            scanf(" %c", &amp;d.letter);
+            printf("Stored character = %c\n", d.letter);
+            break;
+
+        default:
+            printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A union is useful when only one of several possible data types needs to
+    be stored at a time. The selected member determines the currently valid
+    interpretation of the shared memory.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>1. Integer</p>
+    <p>2. Float</p>
+    <p>3. Character</p>
+    <p>Enter your choice: 2</p>
+    <p>Enter float: 45.5</p>
+    <p><strong>Stored float = 45.50</strong></p>
+  </div>
+  
+
+  <h2>Unions — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store a product price and display it using a
+    union.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union Product
+{
+    int productId;
+    float price;
+    char code;
+};
+
+int main()
+{
+    union Product p;
+
+    printf("Enter product price: ");
+    scanf("%f", &amp;p.price);
+
+    printf("Product Price = %.2f\n", p.price);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The union contains different possible product-related values. In this
+    example, the <code>price</code> member is used to store a floating-point
+    value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter product price: 1250.75</p>
+    <p><strong>Product Price = 1250.75</strong></p>
+  </div>
+  
+
+  <h2>Unions — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to overwrite one union member with another and
+    observe the change in the stored value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union Data
+{
+    int number;
+    char letter;
+};
+
+int main()
+{
+    union Data d;
+
+    d.number = 65;
+
+    printf("Integer value = %d\n", d.number);
+
+    d.letter = 'A';
+
+    printf("Character value = %c\n", d.letter);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Since union members share the same memory, assigning a new member
+    overwrites the shared storage. After <code>d.letter = 'A'</code>, the
+    character member is the value that should be used.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Integer value = 65</strong></p>
+    <p><strong>Character value = A</strong></p>
+  </div>
+  
+
+  <h2>Unions — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use a union inside a program that stores a value
+    either as an integer or as a floating-point number according to the
+    user's choice.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union Number
+{
+    int integerValue;
+    float floatValue;
+};
+
+int main()
+{
+    union Number n;
+    int choice;
+
+    printf("1. Integer\n");
+    printf("2. Float\n");
+    printf("Enter choice: ");
+    scanf("%d", &amp;choice);
+
+    if (choice == 1)
+    {
+        printf("Enter integer: ");
+        scanf("%d", &amp;n.integerValue);
+
+        printf("Value = %d\n", n.integerValue);
+    }
+    else if (choice == 2)
+    {
+        printf("Enter float: ");
+        scanf("%f", &amp;n.floatValue);
+
+        printf("Value = %.2f\n", n.floatValue);
+    }
+    else
+    {
+        printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The union provides one shared storage area for either an integer or a
+    floating-point value. The program chooses which member to use at runtime.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>1. Integer</p>
+    <p>2. Float</p>
+    <p>Enter choice: 1</p>
+    <p>Enter integer: 250</p>
+    <p><strong>Value = 250</strong></p>
+  </div>
+  
+
+  <h2>Unions — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a union containing student roll number,
+    marks and grade, and demonstrate storing each member one after another.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union StudentData
+{
+    int roll;
+    float marks;
+    char grade;
+};
+
+int main()
+{
+    union StudentData s;
+
+    s.roll = 101;
+    printf("Roll Number = %d\n", s.roll);
+
+    s.marks = 88.5;
+    printf("Marks = %.2f\n", s.marks);
+
+    s.grade = 'A';
+    printf("Grade = %c\n", s.grade);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Only one member is treated as the active stored value at a time.
+    Assigning another member uses the same shared memory and replaces
+    the previous representation.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Roll Number = 101</strong></p>
+    <p><strong>Marks = 88.50</strong></p>
+    <p><strong>Grade = A</strong></p>
+  </div>
+  
+
+  <h2>Unions — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate a practical use of a union for
+    storing different types of sensor readings where only one reading
+    type is required at a time.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+union SensorReading
+{
+    int temperature;
+    float voltage;
+    float pressure;
+};
+
+int main()
+{
+    union SensorReading sensor;
+    int choice;
+
+    printf("1. Temperature\n");
+    printf("2. Voltage\n");
+    printf("3. Pressure\n");
+
+    printf("Enter reading type: ");
+    scanf("%d", &amp;choice);
+
+    switch (choice)
+    {
+        case 1:
+            printf("Enter temperature: ");
+            scanf("%d", &amp;sensor.temperature);
+
+            printf("Temperature = %d C\n",
+                   sensor.temperature);
+            break;
+
+        case 2:
+            printf("Enter voltage: ");
+            scanf("%f", &amp;sensor.voltage);
+
+            printf("Voltage = %.2f V\n",
+                   sensor.voltage);
+            break;
+
+        case 3:
+            printf("Enter pressure: ");
+            scanf("%f", &amp;sensor.pressure);
+
+            printf("Pressure = %.2f\n",
+                   sensor.pressure);
+            break;
+
+        default:
+            printf("Invalid reading type.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A union can be useful when an application needs to store one of several
+    alternative data types but does not need all of them simultaneously.
+    This can reduce memory usage compared with storing all alternatives
+    separately.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>1. Temperature</p>
+    <p>2. Voltage</p>
+    <p>3. Pressure</p>
+    <p>Enter reading type: 2</p>
+    <p>Enter voltage: 230.5</p>
+    <p><strong>Voltage = 230.50 V</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m4-functions-structures/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m4-bit-fields/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

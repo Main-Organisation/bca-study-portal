@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Variable Selection Methods in Regression | Time Series</title>
+ <meta name="description" content="Variable selection is the process of choosing which     predictors to keep in a regression. The aims are to include     variables that matter for the problem, to drop variables that add     noise or duplication, to reduce overfitting, and to keep the     equation readable. More variables do     not always improve the model." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-variable-selection/" />
+ <meta property="og:title" content="Variable Selection Methods in Regression" />
+ <meta property="og:description" content="Variable selection is the process of choosing which     predictors to keep in a regression. The aims are to include     variables that matter for the problem, to drop variables that add     noise or duplication, to reduce overfitting, and to keep the     equation readable. More variables do     not always improve the model." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-variable-selection/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Variable Selection Methods in Regression" />
+ <meta name="twitter:description" content="Variable selection is the process of choosing which     predictors to keep in a regression. The aims are to include     variables that matter for the problem, to drop variables that add     noise or duplication, to reduce overfitting, and to keep the     equation readable. More variables do     not always improve the model." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Variable Selection Methods in Regression","item":"https://bcastudyportal.in/time-series/ts-variable-selection/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-variable-selection/","name":"Variable Selection Methods in Regression","description":"Variable selection is the process of choosing which     predictors to keep in a regression. The aims are to include     variables that matter for the problem, to drop variables that add     noise or duplication, to reduce overfitting, and to keep the     equation readable. More variables do     not always improve the model.","mainEntity":{"@type":"CreativeWork","name":"Variable Selection Methods in Regression","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Variable Selection Methods in Regression</div>
+  <div class="meta">Subject: Time Series • Module: 5 Time Series Regression Model • Type: Notes</div>
+  <h1>Variable Selection Methods in Regression</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Variable Selection Methods in Regression</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Variable selection</strong> is the process of choosing which
+    predictors to keep in a regression. The aims are to include
+    variables that matter for the problem, to drop variables that add
+    noise or duplication, to reduce overfitting, and to keep the
+    equation readable. More variables do
+    <strong>not</strong> always improve the model.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Daily demand might be considered with temperature, a holiday
+      indicator, an advertising spend series, and a linear time index.
+      Temperature and holidays may earn a place; a second temperature
+      copy, or a weakly measured extra series, may not.
+    </p>
+  </div>
+
+
+  <h2>Why Selection Is Needed</h2>
+
+  <ul>
+    <li><strong>Relevance:</strong> keep predictors with a clear story and a stable association.</li>
+    <li><strong>Unnecessary variables:</strong> extra x terms use up degrees of freedom and can inflate coefficient SEs.</li>
+    <li><strong>Overfitting:</strong> an equation that hugs the training sample may forecast later dates poorly.</li>
+    <li><strong>Interpretability:</strong> a short, justified list is easier to explain in an exam and in practice.</li>
+  </ul>
+
+
+  <h2>Basic Search Methods</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Idea</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Forward selection</strong></td>
+          <td>Start with no predictors; add the most useful remaining x one at a time</td>
+        </tr>
+        <tr>
+          <td><strong>Backward elimination</strong></td>
+          <td>Start with all candidates; drop the least useful x one at a time</td>
+        </tr>
+        <tr>
+          <td><strong>Stepwise selection</strong></td>
+          <td>Allow both adding and dropping as the search proceeds</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    These searches are helpers, not proofs. Different paths can keep
+    different sets. Always re-check residuals and the story of the
+    variables after the search.
+  </p>
+
+
+  <h2>Simple Comparison Criteria</h2>
+
+  <p>
+    Ordinary R<sup>2</sup> never falls when a variable is added, so it
+    is a poor “more is better” score.
+    <strong>Adjusted R<sup>2</sup></strong> penalises extra predictors
+    in a simple way.
+    <strong>AIC</strong> and <strong>BIC</strong> are information
+    criteria: smaller is preferred on the usual scale; BIC penalises
+    extra variables more heavily than AIC. Use them to compare a few
+    candidate equations, not as a machine-learning tournament.
+  </p>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>Variable selection balances fit, leftover diagnostics, and a short justified predictor list.</li>
+    <li>Forward, backward and stepwise are search habits, not unique true models.</li>
+    <li>Adjusted R<sup>2</sup>, AIC and BIC can compare candidates; ordinary R<sup>2</sup> always rises with extra x.</li>
+    <li>More variables do not always improve the model, especially for later-date forecasts.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-model-adequacy/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-gls/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

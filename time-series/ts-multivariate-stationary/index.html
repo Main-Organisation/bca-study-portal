@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Multivariate Stationary Process | Time Series</title>
+ <meta name="description" content="Unit 3 used stationarity for one series: a     reasonably stable typical level, a reasonably stable amount of     variation, and a dependence structure that does not keep changing     in a systematic way. A multivariate stationary process     extends that idea to several series at once. Not only each series,     but also the relationships among the series (including     lagged cross-links), stay reasonably stable over time." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-multivariate-stationary/" />
+ <meta property="og:title" content="Multivariate Stationary Process" />
+ <meta property="og:description" content="Unit 3 used stationarity for one series: a     reasonably stable typical level, a reasonably stable amount of     variation, and a dependence structure that does not keep changing     in a systematic way. A multivariate stationary process     extends that idea to several series at once. Not only each series,     but also the relationships among the series (including     lagged cross-links), stay reasonably stable over time." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-multivariate-stationary/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Multivariate Stationary Process" />
+ <meta name="twitter:description" content="Unit 3 used stationarity for one series: a     reasonably stable typical level, a reasonably stable amount of     variation, and a dependence structure that does not keep changing     in a systematic way. A multivariate stationary process     extends that idea to several series at once. Not only each series,     but also the relationships among the series (including     lagged cross-links), stay reasonably stable over time." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Multivariate Stationary Process","item":"https://bcastudyportal.in/time-series/ts-multivariate-stationary/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-multivariate-stationary/","name":"Multivariate Stationary Process","description":"Unit 3 used stationarity for one series: a     reasonably stable typical level, a reasonably stable amount of     variation, and a dependence structure that does not keep changing     in a systematic way. A multivariate stationary process     extends that idea to several series at once. Not only each series,     but also the relationships among the series (including     lagged cross-links), stay reasonably stable over time.","mainEntity":{"@type":"CreativeWork","name":"Multivariate Stationary Process","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Multivariate Stationary Process</div>
+  <div class="meta">Subject: Time Series • Module: 6 Multivariate Time Series Models and Forecasting • Type: Notes</div>
+  <h1>Multivariate Stationary Process</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Multivariate Stationary Process</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    Unit 3 used <strong>stationarity</strong> for one series: a
+    reasonably stable typical level, a reasonably stable amount of
+    variation, and a dependence structure that does not keep changing
+    in a systematic way. A <strong>multivariate stationary process</strong>
+    extends that idea to several series at once. Not only each series,
+    but also the <strong>relationships among the series</strong> (including
+    lagged cross-links), stay reasonably stable over time.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Two related economic series, such as a regional price index and a
+      wage index, recorded monthly. If both wander upward without bound
+      and the gap between them keeps changing regime, the pair is not
+      behaving as a stationary multivariate process. If, after a simple
+      transformation or differencing, the pair fluctuates around stable
+      means and a stable co-movement, modelling is on safer ground.
+    </p>
+  </div>
+
+
+  <h2>What Should Stay Stable</h2>
+
+  <ul>
+    <li><strong>Mean behaviour:</strong> each series does not keep drifting in level (after any justified differencing or trend removal).</li>
+    <li><strong>Variance / covariance behaviour:</strong> the typical size of each series, and how strongly they move together at the same time, does not keep jumping to a new regime.</li>
+    <li><strong>Lagged relationships:</strong> the way series A now relates to series B last month stays comparable through the sample.</li>
+  </ul>
+
+  <p>
+    <strong>Covariance</strong> at the same time is “do they move
+    together this month?”
+    <strong>Cross-covariance</strong> at a lag is “does today's A move
+    with last month's B?” Both are association measures. They are
+    not causation. Advanced matrix proofs of these quantities are not
+    required at this level.
+  </p>
+
+
+  <h2>Univariate vs Multivariate Stationarity</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Univariate stationarity</th>
+          <th>Multivariate stationarity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Focus</strong></td>
+          <td>One series: level, variation, own lags</td>
+          <td>The whole vector: own properties plus cross-series links</td>
+        </tr>
+        <tr>
+          <td><strong>Can fail even if…</strong></td>
+          <td>The single series wanders or changes volatility</td>
+          <td>Each series looks calmer but the relationship between them keeps shifting</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>Why It Matters for Modelling</h2>
+
+  <p>
+    Joint models and simultaneous forecasts assume that the pattern you
+    estimated will still be relevant next month. If the means, spreads
+    or cross-links are still evolving, the fitted joint structure can
+    be a poor guide to the future.
+  </p>
+
+  <div class="note-flow">Non-stationary series
+  ↓
+May require transformation / differencing
+  ↓
+More stable structure
+  ↓
+Then model the multivariate process</div>
+
+  <p>
+    As in Unit 3, not every series needs differencing. Check plots and
+    whether associations look stable. Do not difference automatically
+    “because the data are multivariate.”
+  </p>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>Multivariate stationarity = stable individual behaviour <em>and</em> stable cross-variable relationships.</li>
+    <li>Cross-covariance describes lagged association between two series; it is not causation.</li>
+    <li>Non-stationary pairs may need transformation or differencing before a joint model.</li>
+    <li>Do not assume that separate univariate stationarity automatically gives multivariate stationarity.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-multivariate-models/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-bayesian-forecasting/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

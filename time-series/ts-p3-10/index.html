@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P3.10 Seasonal SARIMA Forecasting | Time Series</title>
+ <meta name="description" content="Using a constructed monthly seasonal series, inspect seasonality, fit a small SARIMA, and forecast one year. Explain seasonal order in words." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p3-10/" />
+ <meta property="og:title" content="P3.10 Seasonal SARIMA Forecasting" />
+ <meta property="og:description" content="Using a constructed monthly seasonal series, inspect seasonality, fit a small SARIMA, and forecast one year. Explain seasonal order in words." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p3-10/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P3.10 Seasonal SARIMA Forecasting" />
+ <meta name="twitter:description" content="Using a constructed monthly seasonal series, inspect seasonality, fit a small SARIMA, and forecast one year. Explain seasonal order in words." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P3.10 Seasonal SARIMA Forecasting","item":"https://bcastudyportal.in/time-series/ts-p3-10/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p3-10/","name":"P3.10 Seasonal SARIMA Forecasting","description":"Using a constructed monthly seasonal series, inspect seasonality, fit a small SARIMA, and forecast one year. Explain seasonal order in words.","mainEntity":{"@type":"CreativeWork","name":"P3.10 Seasonal SARIMA Forecasting","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P3.10 Seasonal SARIMA Forecasting</div>
+  <div class="meta">Subject: Time Series • Module: 3 Statistics Background for Forecasting • Type: Practical</div>
+  <h1>P3.10 Seasonal SARIMA Forecasting</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P3.10 Seasonal SARIMA Forecasting</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Using a constructed monthly seasonal series, inspect seasonality, fit a small SARIMA, and forecast one year. Explain seasonal order in words.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Identify period 12 from the plot/ACF.</li><li>Fit a small seasonal ARIMA and forecast.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Seasonal ARIMA adds seasonal AR, differencing and MA at lag s (s = 12 for months). A teaching starting point is often a small model such as (0,1,1)(0,1,1,12) after seeing trend plus yearly seasonality, then checking residuals. Do not start with a large grid of orders.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Constructed 72 monthly observations with trend and yearly season. Teaching data, airline-passenger-like in spirit, not a downloaded file.</p>
+
+  <h3>Kaggle-style Workflow</h3>
+  <ul><li>Inspect and plot</li><li>ACF at seasonal lags</li><li>Choose a small seasonal order</li><li>Fit on train months</li><li>Forecast 12 months</li><li>MAE/RMSE on hold-out year if length allows</li></ul>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+idx = pd.date_range("2019-01-01", periods=72, freq="MS")
+t = np.arange(72)
+y = pd.Series(0.4 * t + 8 * np.sin(2 * np.pi * t / 12) + 50, index=idx)
+train, test = y.iloc[:-12], y.iloc[-12:]
+fit = SARIMAX(train, order=(0, 1, 1), seasonal_order=(0, 1, 1, 12),
+              enforce_stationarity=False, enforce_invertibility=False).fit(disp=False)
+fc = fit.get_forecast(12).predicted_mean
+mae = np.mean(np.abs(test - fc))
+print(fit.summary())
+print("Hold-out MAE:", round(mae, 3))
+train.plot(label="train")
+test.plot(label="test")
+fc.plot(label="SARIMA forecast", style="--")
+plt.legend()
+plt.tight_layout()
+plt.show()</div>
+
+  <h3>Expected Output</h3>
+  <p>A SARIMAX summary, a 12-month forecast line, and hold-out MAE for this constructed series. Seasonal wiggles in the forecast should resemble the yearly pattern.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>s = 12 because the data are monthly. Seasonal differencing D = 1 is motivated by a repeating yearly shape plus a drifting level. Residual plots should still be checked before trusting the forecast.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Seasonal ARIMA is for repeating calendar patterns. It is not the first tool in Unit 1.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p3-09/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-autocorrelation/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

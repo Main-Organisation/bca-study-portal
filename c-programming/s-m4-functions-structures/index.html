@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Functions and Structures — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a structure for a student and pass the     structure to a function to display the student&#39;s details." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m4-functions-structures/" />
+ <meta property="og:title" content="Functions and Structures — Exercises" />
+ <meta property="og:description" content="Write a C program to create a structure for a student and pass the     structure to a function to display the student&#39;s details." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m4-functions-structures/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Functions and Structures — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a structure for a student and pass the     structure to a function to display the student&#39;s details." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Functions and Structures — Exercises","item":"https://bcastudyportal.in/c-programming/s-m4-functions-structures/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m4-functions-structures/","name":"Functions and Structures — Exercises","description":"Write a C program to create a structure for a student and pass the     structure to a function to display the student's details.","mainEntity":{"@type":"CreativeWork","name":"Functions and Structures — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Functions and Structures — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Practical</div>
+  <h1>Functions and Structures — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Functions and Structures — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a structure for a student and pass the
+    structure to a function to display the student's details.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+void display(struct Student s)
+{
+    printf("Roll = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("Marks = %.2f\n", s.marks);
+}
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number, name and marks: ");
+    scanf("%d %49s %f",
+          &amp;s.roll,
+          s.name,
+          &amp;s.marks);
+
+    // Pass structure to function
+    display(s);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure variable can be passed to a function as an argument.
+    Here, the complete student structure is passed to the
+    <code>display()</code> function by value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number, name and marks: 101 Rahul 85</p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>Marks = 85.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an employee structure to a function and
+    calculate the employee's annual salary.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float monthlySalary;
+};
+
+float annualSalary(struct Employee e)
+{
+    return e.monthlySalary * 12;
+}
+
+int main()
+{
+    struct Employee e;
+    float annual;
+
+    printf("Enter employee ID, name and monthly salary: ");
+    scanf("%d %49s %f",
+          &amp;e.id,
+          e.name,
+          &amp;e.monthlySalary);
+
+    annual = annualSalary(e);
+
+    printf("\nEmployee = %s\n", e.name);
+    printf("Annual Salary = %.2f\n", annual);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure can be passed to a function that performs a calculation
+    using its members. Here, the function receives the employee record
+    and returns the annual salary.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID, name and monthly salary: 501 Amit 45000</p>
+    <p><strong>Employee = Amit</strong></p>
+    <p><strong>Annual Salary = 540000.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program in which a function receives a student structure
+    and returns the total marks obtained in three subjects.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int math;
+    int cProgramming;
+    int computer;
+};
+
+int totalMarks(struct Student s)
+{
+    return s.math + s.cProgramming + s.computer;
+}
+
+int main()
+{
+    struct Student s;
+    int total;
+
+    printf("Enter roll number and name: ");
+    scanf("%d %49s", &amp;s.roll, s.name);
+
+    printf("Enter marks in three subjects: ");
+    scanf("%d %d %d",
+          &amp;s.math,
+          &amp;s.cProgramming,
+          &amp;s.computer);
+
+    total = totalMarks(s);
+
+    printf("\nStudent = %s\n", s.name);
+    printf("Total Marks = %d\n", total);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The complete structure is passed to <code>totalMarks()</code>.
+    The function accesses the subject members and calculates the total.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number and name: 101 Priya</p>
+    <p>Enter marks in three subjects: 85 90 88</p>
+    <p><strong>Student = Priya</strong></p>
+    <p><strong>Total Marks = 263</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass a rectangle structure to a function and
+    calculate its area.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Rectangle
+{
+    float length;
+    float width;
+};
+
+float calculateArea(struct Rectangle r)
+{
+    return r.length * r.width;
+}
+
+int main()
+{
+    struct Rectangle r;
+    float area;
+
+    printf("Enter length and width: ");
+    scanf("%f %f", &amp;r.length, &amp;r.width);
+
+    area = calculateArea(r);
+
+    printf("Area = %.2f\n", area);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The rectangle structure contains the dimensions of a rectangle.
+    It is passed to a function which calculates and returns the area.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter length and width: 10 5</p>
+    <p><strong>Area = 50.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use a function with a pointer to structure and
+    increase an employee's salary by 10%.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+};
+
+void increaseSalary(struct Employee *e)
+{
+    e-&gt;salary = e-&gt;salary + (e-&gt;salary * 0.10);
+}
+
+int main()
+{
+    struct Employee e;
+
+    printf("Enter employee ID, name and salary: ");
+    scanf("%d %49s %f",
+          &amp;e.id,
+          e.name,
+          &amp;e.salary);
+
+    increaseSalary(&amp;e);
+
+    printf("\nName = %s\n", e.name);
+    printf("Updated Salary = %.2f\n", e.salary);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer to a structure is passed to the function. The arrow operator
+    <code>-&gt;</code> is used to access structure members through the pointer.
+    Changes made inside the function affect the original structure.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID, name and salary: 501 Amit 40000</p>
+    <p><strong>Name = Amit</strong></p>
+    <p><strong>Updated Salary = 44000.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program in which a function returns a structure containing
+    the details of a student.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+struct Student getStudent()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    return s;
+}
+
+int main()
+{
+    struct Student s;
+
+    s = getStudent();
+
+    printf("\nStudent Details\n");
+    printf("Roll = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("Marks = %.2f\n", s.marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A function can return a complete structure variable. In this example,
+    <code>getStudent()</code> reads the student record and returns it to
+    <code>main()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 102</p>
+    <p>Enter name: Neha</p>
+    <p>Enter marks: 92</p>
+    <p><strong>Student Details</strong></p>
+    <p><strong>Roll = 102</strong></p>
+    <p><strong>Name = Neha</strong></p>
+    <p><strong>Marks = 92.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to compare the marks of two students using a
+    function that accepts two structure variables.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+struct Student compareStudents(
+    struct Student s1,
+    struct Student s2)
+{
+    if (s1.marks &gt; s2.marks)
+        return s1;
+    else
+        return s2;
+}
+
+int main()
+{
+    struct Student s1, s2, topper;
+
+    printf("Enter first student's roll, name and marks: ");
+    scanf("%d %49s %f",
+          &amp;s1.roll,
+          s1.name,
+          &amp;s1.marks);
+
+    printf("Enter second student's roll, name and marks: ");
+    scanf("%d %49s %f",
+          &amp;s2.roll,
+          s2.name,
+          &amp;s2.marks);
+
+    topper = compareStudents(s1, s2);
+
+    printf("\nStudent with higher marks:\n");
+    printf("Roll = %d\n", topper.roll);
+    printf("Name = %s\n", topper.name);
+    printf("Marks = %.2f\n", topper.marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Multiple structure variables can be passed to the same function.
+    The function compares their members and returns the structure having
+    higher marks.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first student's roll, name and marks: 101 Rahul 78</p>
+    <p>Enter second student's roll, name and marks: 102 Priya 91</p>
+    <p><strong>Student with higher marks:</strong></p>
+    <p><strong>Roll = 102</strong></p>
+    <p><strong>Name = Priya</strong></p>
+    <p><strong>Marks = 91.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to modify the values of a rectangle structure by
+    passing its address to a function.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Rectangle
+{
+    float length;
+    float width;
+};
+
+void modifyRectangle(struct Rectangle *r)
+{
+    r-&gt;length = r-&gt;length + 2;
+    r-&gt;width = r-&gt;width + 3;
+}
+
+int main()
+{
+    struct Rectangle r;
+
+    printf("Enter length and width: ");
+    scanf("%f %f", &amp;r.length, &amp;r.width);
+
+    modifyRectangle(&amp;r);
+
+    printf("\nUpdated Length = %.2f\n", r.length);
+    printf("Updated Width = %.2f\n", r.width);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Passing the address of a structure allows a function to directly
+    modify the original structure. The arrow operator is used for member
+    access through the structure pointer.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter length and width: 10 5</p>
+    <p><strong>Updated Length = 12.00</strong></p>
+    <p><strong>Updated Width = 8.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the distance between two points using
+    structures and a function.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+struct Point
+{
+    float x;
+    float y;
+};
+
+float distance(struct Point p1, struct Point p2)
+{
+    float dx = p2.x - p1.x;
+    float dy = p2.y - p1.y;
+
+    return sqrt(dx * dx + dy * dy);
+}
+
+int main()
+{
+    struct Point p1, p2;
+    float result;
+
+    printf("Enter coordinates of first point: ");
+    scanf("%f %f", &amp;p1.x, &amp;p1.y);
+
+    printf("Enter coordinates of second point: ");
+    scanf("%f %f", &amp;p2.x, &amp;p2.y);
+
+    result = distance(p1, p2);
+
+    printf("Distance = %.2f\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Two structure variables representing points are passed to the
+    <code>distance()</code> function. The function uses their coordinates
+    to calculate the distance.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter coordinates of first point: 0 0</p>
+    <p>Enter coordinates of second point: 3 4</p>
+    <p><strong>Distance = 5.00</strong></p>
+  </div>
+  
+
+  <h2>Functions and Structures — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a student result system using structures
+    and functions. The program should calculate total, average and grade.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int math;
+    int cProgramming;
+    int computer;
+};
+
+int totalMarks(struct Student s)
+{
+    return s.math + s.cProgramming + s.computer;
+}
+
+char calculateGrade(float average)
+{
+    if (average &gt;= 90)
+        return 'A';
+    else if (average &gt;= 75)
+        return 'B';
+    else if (average &gt;= 60)
+        return 'C';
+    else if (average &gt;= 50)
+        return 'D';
+    else
+        return 'F';
+}
+
+void displayResult(struct Student s)
+{
+    int total;
+    float average;
+    char grade;
+
+    total = totalMarks(s);
+    average = total / 3.0;
+    grade = calculateGrade(average);
+
+    printf("\n=============================\n");
+    printf("       STUDENT RESULT\n");
+    printf("=============================\n");
+    printf("Roll     : %d\n", s.roll);
+    printf("Name     : %s\n", s.name);
+    printf("Total    : %d\n", total);
+    printf("Average  : %.2f\n", average);
+    printf("Grade    : %c\n", grade);
+    printf("=============================\n");
+}
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks in Mathematics, C Programming and Computer: ");
+    scanf("%d %d %d",
+          &amp;s.math,
+          &amp;s.cProgramming,
+          &amp;s.computer);
+
+    displayResult(s);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This example combines several concepts: passing a structure to a
+    function, returning a value from a function, using multiple functions,
+    and processing structure members to generate a final result.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Priya</p>
+    <p>Enter marks in Mathematics, C Programming and Computer: 92 88 95</p>
+    <p><strong>=============================</strong></p>
+    <p><strong>       STUDENT RESULT</strong></p>
+    <p><strong>=============================</strong></p>
+    <p><strong>Roll     : 101</strong></p>
+    <p><strong>Name     : Priya</strong></p>
+    <p><strong>Total    : 275</strong></p>
+    <p><strong>Average  : 91.67</strong></p>
+    <p><strong>Grade    : A</strong></p>
+    <p><strong>=============================</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m4-array-structures/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m4-unions/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

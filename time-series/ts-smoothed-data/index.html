@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Plotting Smoothed Data | Time Series</title>
+ <meta name="description" content="Smoothing is a method of reducing short-term     irregular ups and downs so that the underlying movement of a     series is easier to see. A smoothed series is not a replacement     for the original data; it is a clearer view of the general path." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-smoothed-data/" />
+ <meta property="og:title" content="Plotting Smoothed Data" />
+ <meta property="og:description" content="Smoothing is a method of reducing short-term     irregular ups and downs so that the underlying movement of a     series is easier to see. A smoothed series is not a replacement     for the original data; it is a clearer view of the general path." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-smoothed-data/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Plotting Smoothed Data" />
+ <meta name="twitter:description" content="Smoothing is a method of reducing short-term     irregular ups and downs so that the underlying movement of a     series is easier to see. A smoothed series is not a replacement     for the original data; it is a clearer view of the general path." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Plotting Smoothed Data","item":"https://bcastudyportal.in/time-series/ts-smoothed-data/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-smoothed-data/","name":"Plotting Smoothed Data","description":"Smoothing is a method of reducing short-term     irregular ups and downs so that the underlying movement of a     series is easier to see. A smoothed series is not a replacement     for the original data; it is a clearer view of the general path.","mainEntity":{"@type":"CreativeWork","name":"Plotting Smoothed Data","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Plotting Smoothed Data</div>
+  <div class="meta">Subject: Time Series • Module: 3 Statistics Background for Forecasting • Type: Notes</div>
+  <h1>Plotting Smoothed Data</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Plotting Smoothed Data</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Smoothing</strong> is a method of reducing short-term
+    irregular ups and downs so that the underlying movement of a
+    series is easier to see. A smoothed series is not a replacement
+    for the original data; it is a clearer view of the general path.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Daily sales jump up and down because of weekday effects.
+      A three-day average produces a smoother line that shows whether
+      sales are generally rising during the month.
+    </p>
+  </div>
+
+
+  <h2>Purpose of Smoothing</h2>
+
+  <p>
+    Real series mix a slower pattern with short-term noise. Plotting
+    only the raw series can make the trend or seasonal wave hard to
+    read. Smoothing reduces those short fluctuations. It does not
+    invent a new theory of the data; it is a visual and descriptive tool.
+  </p>
+
+
+  <h2>Simple Moving Average</h2>
+
+  <p>
+    A <strong>simple moving average</strong> replaces each value by the
+    average of a small number of neighbouring observations. For a
+    3-period moving average:
+  </p>
+
+  <p>
+    <strong>SMA at time t</strong> =
+    (Y<sub>t</sub> + Y<sub>t−1</sub> + Y<sub>t−2</sub>) / 3
+  </p>
+
+  <ul>
+    <li><strong>Y<sub>t</sub></strong> = observation at time t</li>
+    <li><strong>Y<sub>t−1</sub></strong> = previous observation</li>
+    <li><strong>Y<sub>t−2</sub></strong> = observation two periods earlier</li>
+    <li>The divisor 3 is the number of terms in the window</li>
+  </ul>
+
+  <p>
+    The first two periods have no 3-point average because three values
+    are not yet available. A longer window (for example 5 or 7) is
+    smoother but reacts more slowly to a genuine change.
+  </p>
+
+
+  <h2>Small Numerical Example</h2>
+
+  <p>
+    Five weeks of sales: 10, 20, 12, 18, 14.
+  </p>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Original</th>
+          <th>3-point moving average</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>10</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>20</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>12</td>
+          <td>(10 + 20 + 12) / 3 = 14</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>18</td>
+          <td>(20 + 12 + 18) / 3 = 16.67</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>14</td>
+          <td>(12 + 18 + 14) / 3 = 14.67</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The original series jumps from 10 to 20 and back. The smoothed
+    values stay in a narrower band around the middle of the data.
+    A plot of both series would show a calmer line next to a jumpy line.
+  </p>
+
+
+  <h2>Advantages and Limitations</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Point</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Advantage</strong></td>
+          <td>Underlying trend or seasonal wave is easier to see.</td>
+        </tr>
+        <tr>
+          <td><strong>Advantage</strong></td>
+          <td>Short-term noise is reduced for teaching and inspection.</td>
+        </tr>
+        <tr>
+          <td><strong>Limitation</strong></td>
+          <td>Sudden genuine changes can be delayed or hidden.</td>
+        </tr>
+        <tr>
+          <td><strong>Limitation</strong></td>
+          <td>The start (and sometimes the end) of the series has fewer smoothed points.</td>
+        </tr>
+        <tr>
+          <td><strong>Limitation</strong></td>
+          <td>Smoothing is not by itself a complete forecasting model.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Key Point</span>
+    <p>
+      Smoothing can make underlying patterns easier to see, but it can
+      also hide short-term changes.
+    </p>
+  </div>
+
+
+  <h2>Small Educational Python Example</h2>
+
+  <div class="program-code notranslate" data-language="python">
+# Import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+sales = pd.Series([10, 20, 12, 18, 14], name="sales")
+
+# 3-period simple moving average
+smoothed = sales.rolling(window=3).mean()
+
+print(sales)
+print(smoothed)
+
+sales.plot(marker="o", label="original")
+smoothed.plot(marker="o", label="smoothed")
+plt.legend()
+plt.title("Original vs 3-period moving average")
+plt.tight_layout()
+plt.show()
+  </div>
+
+  <p>
+    The printed smoothed series should show missing values for the first
+    two points, then averages near 14, 16.67 and 14.67. The plot should
+    look calmer than the original line.
+  </p>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>
+      Smoothing reduces short-term fluctuations to reveal the general path.
+    </li>
+    <li>
+      A simple moving average is the average of a small window of neighbouring values.
+    </li>
+    <li>
+      Always compare the original series with the smoothed series.
+    </li>
+    <li>
+      Smoothing is a display and description tool, not a full forecast method.
+    </li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-time-series-plots/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-numerical-description/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>do-while — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to display numbers from 1 to 10 using a     do-while loop." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m2-do-while/" />
+ <meta property="og:title" content="do-while — Exercises" />
+ <meta property="og:description" content="Write a C program to display numbers from 1 to 10 using a     do-while loop." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m2-do-while/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="do-while — Exercises" />
+ <meta name="twitter:description" content="Write a C program to display numbers from 1 to 10 using a     do-while loop." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"do-while — Exercises","item":"https://bcastudyportal.in/c-programming/s-m2-do-while/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m2-do-while/","name":"do-while — Exercises","description":"Write a C program to display numbers from 1 to 10 using a     do-while loop.","mainEntity":{"@type":"CreativeWork","name":"do-while — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / do-while — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Practical</div>
+  <h1>do-while — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>do-while Loop — Exercise 1</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to display numbers from 1 to 10 using a
+    <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand the basic working of a <code>do-while</code> loop.</li>
+    <li>Use a counter variable with a loop.</li>
+    <li>Understand that the loop body executes before the condition is checked.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Initialize the counter with 1, print it, increment it, and
+    continue while the counter is less than or equal to 10.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A <code>do-while</code> loop executes its body first and checks
+    the condition afterwards. Therefore, the loop body executes
+    at least once.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i = 1;
+
+    // Display numbers from 1 to 10
+    do
+    {
+        printf("%d ", i);
+        i++;
+    }
+    while (i &lt;= 10);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>1 2 3 4 5 6 7 8 9 10</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    Even if the condition is false initially, the body of a
+    <code>do-while</code> loop executes once.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 2</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to calculate the sum of the first N natural
+    numbers using a <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use a <code>do-while</code> loop for repeated addition.</li>
+    <li>Understand counter-controlled repetition.</li>
+    <li>Update the sum during every iteration.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Start with <code>sum = 0</code> and <code>i = 1</code>. Add
+    <code>i</code> to the sum and increment <code>i</code>.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    The sum of the first N natural numbers is obtained by adding
+    each number from 1 through N. The <code>do-while</code> loop
+    performs the calculation at least once.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i = 1, sum = 0;
+
+    // Read the limit
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    // Calculate the sum
+    if (n &gt;= 1)
+    {
+        do
+        {
+            sum += i;
+            i++;
+        }
+        while (i &lt;= n);
+    }
+
+    printf("Sum = %d\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter N: 10</p>
+    <p><strong>Sum = 55</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The counter starts at 1 and continues until it reaches N.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 3</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to calculate the factorial of a number using
+    a <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Perform repeated multiplication using a loop.</li>
+    <li>Understand factorial calculation.</li>
+    <li>Use a loop variable to control repetition.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Initialize <code>fact = 1</code> and multiply it by each number
+    from 1 to N.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    The factorial of N is the product of all positive integers from
+    1 to N. It is represented as <code>N!</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i = 1;
+    long long fact = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;n);
+
+    // Calculate factorial
+    if (n &gt;= 1)
+    {
+        do
+        {
+            fact *= i;
+            i++;
+        }
+        while (i &lt;= n);
+    }
+
+    printf("Factorial = %lld\n", fact);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p><strong>Factorial = 120</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The factorial of 0 is defined as 1. The condition is checked
+    only after the loop body executes.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 4</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to print the multiplication table of a given
+    number using a <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use a loop for repeated multiplication.</li>
+    <li>Generate structured output.</li>
+    <li>Understand counter updates.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Start the counter from 1 and continue up to 10.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A multiplication table repeatedly multiplies a fixed number by
+    consecutive integers. A <code>do-while</code> loop can be used
+    to perform these repeated operations.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, i = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Print multiplication table
+    do
+    {
+        printf("%d x %d = %d\n", num, i, num * i);
+        i++;
+    }
+    while (i &lt;= 10);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p>
+      <strong>
+        5 x 1 = 5<br>
+        5 x 2 = 10<br>
+        5 x 3 = 15<br>
+        5 x 4 = 20<br>
+        5 x 5 = 25<br>
+        5 x 6 = 30<br>
+        5 x 7 = 35<br>
+        5 x 8 = 40<br>
+        5 x 9 = 45<br>
+        5 x 10 = 50
+      </strong>
+    </p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The loop prints one complete multiplication step before checking
+    the condition.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 5</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to calculate the sum of digits of a given
+    number using a <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Extract digits using the modulus operator.</li>
+    <li>Perform repeated addition.</li>
+    <li>Understand digit-processing with a loop.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Extract the last digit using <code>% 10</code>, add it to
+    <code>sum</code>, and remove it using <code>/= 10</code>.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    The modulus operator returns the last digit when an integer is
+    divided by 10. This process can be repeated until all digits
+    have been processed.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, digit, sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Process each digit
+    do
+    {
+        digit = num % 10;
+        sum += digit;
+        num /= 10;
+    }
+    while (num != 0);
+
+    printf("Sum of digits = %d\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12345</p>
+    <p><strong>Sum of digits = 15</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    Unlike <code>while</code>, this loop processes at least one digit,
+    which is especially visible when the input is 0.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 6</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to reverse a given number using a
+    <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Extract digits from an integer.</li>
+    <li>Build a reversed number.</li>
+    <li>Use an exit-controlled loop for digit processing.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Extract the last digit using <code>% 10</code>, add it to the
+    reversed number, and remove the last digit using <code>/= 10</code>.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    Reversing a number involves processing its digits from right to
+    left and constructing a new number from those digits.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, digit, reverse = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Reverse the number
+    do
+    {
+        digit = num % 10;
+        reverse = reverse * 10 + digit;
+        num /= 10;
+    }
+    while (num != 0);
+
+    printf("Reversed number = %d\n", reverse);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12345</p>
+    <p><strong>Reversed number = 54321</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The loop body executes before the condition is checked, making
+    <code>do-while</code> an exit-controlled loop.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 7</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to check whether a given number is even or odd
+    using a <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use the modulus operator in a conditional check.</li>
+    <li>Understand the role of a loop in repeated validation.</li>
+    <li>Apply <code>if-else</code> inside a <code>do-while</code> loop.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Take a number, check <code>num % 2</code>, display the result,
+    and ask whether the user wants to check another number.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A <code>do-while</code> loop is useful when an operation must be
+    performed at least once. Here, the user is given the opportunity
+    to check a number before the continuation condition is evaluated.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, choice;
+
+    do
+    {
+        // Read the number
+        printf("Enter a number: ");
+        scanf("%d", &amp;num);
+
+        // Check even or odd
+        if (num % 2 == 0)
+            printf("%d is Even.\n", num);
+        else
+            printf("%d is Odd.\n", num);
+
+        // Ask whether to continue
+        printf("Enter 1 to continue, 0 to stop: ");
+        scanf("%d", &amp;choice);
+
+    }
+    while (choice == 1);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12</p>
+    <p><strong>12 is Even.</strong></p>
+    <p>Enter 1 to continue, 0 to stop: 0</p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The program demonstrates a practical reason for using
+    <code>do-while</code>: the user must get at least one chance
+    to perform the operation.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 8</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a menu-driven C program using <code>do-while</code> to
+    perform addition, subtraction, multiplication and division.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Build a simple menu-driven program.</li>
+    <li>Combine <code>do-while</code> and <code>switch-case</code>.</li>
+    <li>Handle invalid choices and division by zero.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Display the menu at least once, read the choice, perform the
+    selected operation, and repeat until the user chooses Exit.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A <code>do-while</code> loop is well suited for menu-driven
+    programs because the menu must be displayed before the program
+    can ask whether the user wants to continue.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int choice;
+    float a, b;
+
+    do
+    {
+        // Display menu
+        printf("\n1. Addition\n");
+        printf("2. Subtraction\n");
+        printf("3. Multiplication\n");
+        printf("4. Division\n");
+        printf("5. Exit\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &amp;choice);
+
+        if (choice &gt;= 1 &amp;&amp; choice &lt;= 4)
+        {
+            printf("Enter two numbers: ");
+            scanf("%f %f", &amp;a, &amp;b);
+        }
+
+        switch (choice)
+        {
+            case 1:
+                printf("Result = %.2f\n", a + b);
+                break;
+
+            case 2:
+                printf("Result = %.2f\n", a - b);
+                break;
+
+            case 3:
+                printf("Result = %.2f\n", a * b);
+                break;
+
+            case 4:
+                if (b != 0)
+                    printf("Result = %.2f\n", a / b);
+                else
+                    printf("Error: Division by zero\n");
+                break;
+
+            case 5:
+                printf("Exiting program.\n");
+                break;
+
+            default:
+                printf("Invalid choice.\n");
+        }
+
+    }
+    while (choice != 5);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>
+      1. Addition<br>
+      2. Subtraction<br>
+      3. Multiplication<br>
+      4. Division<br>
+      5. Exit
+    </p>
+
+    <p>Enter your choice: 1</p>
+    <p>Enter two numbers: 10 20</p>
+    <p><strong>Result = 30.00</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    Always ensure that the menu's Exit option and the loop's
+    termination condition use the same value.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 9</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to find the largest of a series of numbers
+    entered by the user using a <code>do-while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Compare values repeatedly.</li>
+    <li>Maintain the largest value during execution.</li>
+    <li>Use a <code>do-while</code> loop for repeated input.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Read the first number as the initial largest value. Then read
+    additional numbers and update the largest value whenever a
+    bigger number is found.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A running maximum stores the largest value found so far.
+    Every new input is compared with this value and replaces it
+    when necessary.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i = 1, num, largest;
+
+    printf("How many numbers? ");
+    scanf("%d", &amp;n);
+
+    printf("Enter number 1: ");
+    scanf("%d", &amp;largest);
+
+    i = 2;
+
+    // Compare remaining numbers
+    if (n &gt; 1)
+    {
+        do
+        {
+            printf("Enter number %d: ", i);
+            scanf("%d", &amp;num);
+
+            if (num &gt; largest)
+                largest = num;
+
+            i++;
+        }
+        while (i &lt;= n);
+    }
+
+    printf("Largest number = %d\n", largest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>How many numbers? 4</p>
+    <p>Enter number 1: 12</p>
+    <p>Enter number 2: 25</p>
+    <p>Enter number 3: 18</p>
+    <p>Enter number 4: 30</p>
+    <p><strong>Largest number = 30</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The first input is stored separately so that it can be used as
+    the initial value of <code>largest</code>.
+  </p>
+  
+
+  <h2>do-while Loop — Exercise 10</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program that repeatedly accepts a positive number and
+    calculates its square. The program should continue until the
+    user chooses to stop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand repeated user interaction.</li>
+    <li>Use <code>do-while</code> for menu-like repetition.</li>
+    <li>Combine input, calculation and a continuation condition.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Read a number, calculate its square, then ask the user whether
+    another calculation is required.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    The <code>do-while</code> loop is useful when a task must be
+    performed at least once and the decision to continue is made
+    after the task is completed.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, choice;
+
+    do
+    {
+        // Read the number
+        printf("Enter a number: ");
+        scanf("%d", &amp;num);
+
+        // Display the square
+        printf("Square = %d\n", num * num);
+
+        // Ask whether to continue
+        printf("Enter 1 to continue, 0 to stop: ");
+        scanf("%d", &amp;choice);
+
+    }
+    while (choice == 1);
+
+    printf("Program ended.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 7</p>
+    <p><strong>Square = 49</strong></p>
+    <p>Enter 1 to continue, 0 to stop: 0</p>
+    <p><strong>Program ended.</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    This exercise demonstrates the practical use of an
+    exit-controlled loop where the user decides whether another
+    iteration is required.
+  </p></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m2-while/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m2-for/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

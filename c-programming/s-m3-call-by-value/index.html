@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Call by Value — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to pass an integer to a function and increase its     value by 10. Display the value before, inside and after the function call." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m3-call-by-value/" />
+ <meta property="og:title" content="Call by Value — Exercises" />
+ <meta property="og:description" content="Write a C program to pass an integer to a function and increase its     value by 10. Display the value before, inside and after the function call." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m3-call-by-value/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Call by Value — Exercises" />
+ <meta name="twitter:description" content="Write a C program to pass an integer to a function and increase its     value by 10. Display the value before, inside and after the function call." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Call by Value — Exercises","item":"https://bcastudyportal.in/c-programming/s-m3-call-by-value/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m3-call-by-value/","name":"Call by Value — Exercises","description":"Write a C program to pass an integer to a function and increase its     value by 10. Display the value before, inside and after the function call.","mainEntity":{"@type":"CreativeWork","name":"Call by Value — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Call by Value — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Practical</div>
+  <h1>Call by Value — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Call by Value — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass an integer to a function and increase its
+    value by 10. Display the value before, inside and after the function call.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void increase(int n)
+{
+    // Modify the local copy
+    n = n + 10;
+
+    printf("Inside function: %d\n", n);
+}
+
+int main()
+{
+    int num = 20;
+
+    printf("Before function call: %d\n", num);
+
+    // Value of num is copied to n
+    increase(num);
+
+    printf("After function call: %d\n", num);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    In call by value, a copy of the actual value is passed to the function.
+    Therefore, changes made to the parameter do not change the original variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Before function call: 20</strong></p>
+    <p><strong>Inside function: 30</strong></p>
+    <p><strong>After function call: 20</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass two integers to a function and swap them.
+    Display the values before, inside and after the function call.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void swap(int a, int b)
+{
+    int temp;
+
+    // Swap the local copies
+    temp = a;
+    a = b;
+    b = temp;
+
+    printf("Inside function: a = %d, b = %d\n", a, b);
+}
+
+int main()
+{
+    int x = 10, y = 20;
+
+    printf("Before function call: x = %d, y = %d\n", x, y);
+
+    // Pass values to the function
+    swap(x, y);
+
+    printf("After function call: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives copies of <code>x</code> and <code>y</code>.
+    The copies are swapped, but the original variables remain unchanged.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Before function call: x = 10, y = 20</strong></p>
+    <p><strong>Inside function: a = 20, b = 10</strong></p>
+    <p><strong>After function call: x = 10, y = 20</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass a number to a function and change its value
+    to zero. Show that the original value remains unchanged.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void makeZero(int n)
+{
+    // Change only the local copy
+    n = 0;
+
+    printf("Inside function: %d\n", n);
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    printf("Before function call: %d\n", num);
+
+    // Pass num by value
+    makeZero(num);
+
+    printf("After function call: %d\n", num);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function changes only its local parameter. Since the original
+    variable and the parameter occupy separate storage locations, the
+    original value is not changed.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 50</p>
+    <p><strong>Before function call: 50</strong></p>
+    <p><strong>Inside function: 0</strong></p>
+    <p><strong>After function call: 50</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to pass two numbers to a function and increase both
+    values by 5. Demonstrate that the original variables are unchanged.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void increase(int a, int b)
+{
+    // Modify local copies
+    a = a + 5;
+    b = b + 5;
+
+    printf("Inside function: a = %d, b = %d\n", a, b);
+}
+
+int main()
+{
+    int x = 10, y = 20;
+
+    printf("Before function call: x = %d, y = %d\n", x, y);
+
+    increase(x, y);
+
+    printf("After function call: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Both arguments are passed as values. The function receives separate
+    copies and modifications affect only those copies.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Before function call: x = 10, y = 20</strong></p>
+    <p><strong>Inside function: a = 15, b = 25</strong></p>
+    <p><strong>After function call: x = 10, y = 20</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the square of a number using call by value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int square(int n)
+{
+    // Calculate square using the received copy
+    return n * n;
+}
+
+int main()
+{
+    int num, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Pass num by value
+    result = square(num);
+
+    printf("Square = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives a copy of the number and uses that copy to
+    perform the calculation. The original value does not need to change.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12</p>
+    <p><strong>Square = 144</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the largest of three numbers by passing
+    the three values to a function.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int largest(int a, int b, int c)
+{
+    int max;
+
+    // Compare the received values
+    if (a &gt; b)
+        max = a;
+    else
+        max = b;
+
+    if (c &gt; max)
+        max = c;
+
+    return max;
+}
+
+int main()
+{
+    int x, y, z, result;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;x, &amp;y, &amp;z);
+
+    // Pass values by value
+    result = largest(x, y, z);
+
+    printf("Largest = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives copies of all three values. Since the function
+    only reads these copies, the original variables are unaffected.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter three numbers: 25 70 45</p>
+    <p><strong>Largest = 70</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate simple interest by passing principal,
+    rate and time to a function using call by value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+float simpleInterest(float p, float r, float t)
+{
+    // Calculate simple interest
+    return (p * r * t) / 100;
+}
+
+int main()
+{
+    float principal, rate, time, interest;
+
+    printf("Enter principal, rate and time: ");
+    scanf("%f %f %f", &amp;principal, &amp;rate, &amp;time);
+
+    // Pass values to the function
+    interest = simpleInterest(principal, rate, time);
+
+    printf("Simple Interest = %.2f\n", interest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The values are copied into the function parameters. The function
+    performs the calculation without modifying the original variables.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter principal, rate and time: 10000 5 2</p>
+    <p><strong>Simple Interest = 1000.00</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate call by value using a function that
+    attempts to change the marks of a student.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void modifyMarks(int marks)
+{
+    // Modify only the local copy
+    marks = marks + 10;
+
+    printf("Inside function: marks = %d\n", marks);
+}
+
+int main()
+{
+    int marks;
+
+    printf("Enter marks: ");
+    scanf("%d", &amp;marks);
+
+    printf("Before function call: marks = %d\n", marks);
+
+    // Pass marks by value
+    modifyMarks(marks);
+
+    printf("After function call: marks = %d\n", marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives a copy of the student's marks. Adding 10 inside
+    the function changes only that copy, not the original variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter marks: 65</p>
+    <p><strong>Before function call: marks = 65</strong></p>
+    <p><strong>Inside function: marks = 75</strong></p>
+    <p><strong>After function call: marks = 65</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the area and perimeter of a rectangle
+    using functions with parameters passed by value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+float area(float length, float width)
+{
+    // Calculate area
+    return length * width;
+}
+
+float perimeter(float length, float width)
+{
+    // Calculate perimeter
+    return 2 * (length + width);
+}
+
+int main()
+{
+    float l, w;
+
+    printf("Enter length and width: ");
+    scanf("%f %f", &amp;l, &amp;w);
+
+    // Values are passed by value
+    printf("Area = %.2f\n", area(l, w));
+    printf("Perimeter = %.2f\n", perimeter(l, w));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The length and width values are copied into the parameters of both
+    functions. Neither function changes the original variables.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter length and width: 10 5</p>
+    <p><strong>Area = 50.00</strong></p>
+    <p><strong>Perimeter = 30.00</strong></p>
+  </div>
+  
+
+  <h2>Call by Value — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate call by value by passing two numbers
+    to a function that attempts to swap them. Clearly display the values
+    before and after the function call.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void swap(int a, int b)
+{
+    int temp;
+
+    // Swap only the copied values
+    temp = a;
+    a = b;
+    b = temp;
+
+    printf("Inside function after swap: a = %d, b = %d\n", a, b);
+}
+
+int main()
+{
+    int x, y;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    printf("Before function call: x = %d, y = %d\n", x, y);
+
+    // Pass x and y by value
+    swap(x, y);
+
+    printf("After function call: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This is the key demonstration of call by value. The function can
+    modify its parameters, but the original variables remain unchanged
+    because only copies were passed.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 100 200</p>
+    <p><strong>Before function call: x = 100, y = 200</strong></p>
+    <p><strong>Inside function after swap: a = 200, b = 100</strong></p>
+    <p><strong>After function call: x = 100, y = 200</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m3-parameter-passing/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m3-call-by-reference/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

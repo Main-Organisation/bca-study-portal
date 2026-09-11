@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Introduction to Time Series Regression | Time Series</title>
+ <meta name="description" content="Time series regression models a dependent series as     a function of one or more explanatory (predictor) variables, using     observations that are ordered in time. The regression relationship     describes how the typical value of the dependent variable changes     when the predictors change. Time itself, a trend, seasonal     indicators, or lagged information can be among those predictors." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-regression-introduction/" />
+ <meta property="og:title" content="Introduction to Time Series Regression" />
+ <meta property="og:description" content="Time series regression models a dependent series as     a function of one or more explanatory (predictor) variables, using     observations that are ordered in time. The regression relationship     describes how the typical value of the dependent variable changes     when the predictors change. Time itself, a trend, seasonal     indicators, or lagged information can be among those predictors." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-regression-introduction/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Introduction to Time Series Regression" />
+ <meta name="twitter:description" content="Time series regression models a dependent series as     a function of one or more explanatory (predictor) variables, using     observations that are ordered in time. The regression relationship     describes how the typical value of the dependent variable changes     when the predictors change. Time itself, a trend, seasonal     indicators, or lagged information can be among those predictors." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Introduction to Time Series Regression","item":"https://bcastudyportal.in/time-series/ts-regression-introduction/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-regression-introduction/","name":"Introduction to Time Series Regression","description":"Time series regression models a dependent series as     a function of one or more explanatory (predictor) variables, using     observations that are ordered in time. The regression relationship     describes how the typical value of the dependent variable changes     when the predictors change. Time itself, a trend, seasonal     indicators, or lagged information can be among those predictors.","mainEntity":{"@type":"CreativeWork","name":"Introduction to Time Series Regression","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Introduction to Time Series Regression</div>
+  <div class="meta">Subject: Time Series • Module: 5 Time Series Regression Model • Type: Notes</div>
+  <h1>Introduction to Time Series Regression</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Introduction to Time Series Regression</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Time series regression</strong> models a dependent series as
+    a function of one or more explanatory (predictor) variables, using
+    observations that are ordered in time. The regression relationship
+    describes how the typical value of the dependent variable changes
+    when the predictors change. Time itself, a trend, seasonal
+    indicators, or lagged information can be among those predictors.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Daily electricity demand can be modelled using temperature (hot
+      days raise cooling load) together with calendar information such
+      as weekday vs weekend. The aim is to describe demand, not only to
+      follow last week's demand in isolation.
+    </p>
+  </div>
+
+
+  <h2>Dependent and Explanatory Variables</h2>
+
+  <p>
+    The <strong>dependent variable</strong> (response) is the series we
+    want to explain or forecast, written y. An
+    <strong>explanatory</strong> or <strong>predictor</strong> variable
+    is an x that we treat as given when we write the equation. In
+    <strong>simple regression</strong> there is one x. In
+    <strong>multiple regression</strong> there are several predictors
+    (temperature, holiday indicator, trend, and so on).
+  </p>
+
+  <p>
+    Time can be an explanatory factor: a time index t can capture a
+    slow trend, and month or weekday indicators can capture a repeating
+    seasonal calendar. Previous values of y can also appear as lagged
+    predictors when that is justified by the problem.
+  </p>
+
+
+  <h2>Why Regression Can Be Useful with Time Series</h2>
+
+  <p>
+    ARIMA-style models use mainly the past of the same series. Regression
+    is useful when an external series (temperature, price, advertising)
+    is believed to drive the response. It can also organise trend and
+    seasonal dummy variables in one equation. The fitted equation then
+    supports interpretation (“one extra degree of temperature”) and
+    prediction of new observations when future x values can be supplied.
+  </p>
+
+
+  <h2>Ordinary Regression vs Time Series Regression</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Ordinary (cross-section) regression</th>
+          <th>Time series regression</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Data order</strong></td>
+          <td>Observations are often treated as separate cases</td>
+          <td>Observations have a time order that must be kept</td>
+        </tr>
+        <tr>
+          <td><strong>Typical assumption</strong></td>
+          <td>Errors independent of each other</td>
+          <td>Neighbouring errors may be correlated</td>
+        </tr>
+        <tr>
+          <td><strong>Extra structure</strong></td>
+          <td>Usually no lag or season by default</td>
+          <td>Trend, season, lags and residual autocorrelation matter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Ordinary least squares (OLS) formulas can still be used to
+    <em>fit</em> a line, but time series data may
+    <strong>violate ordinary regression assumptions</strong> because
+    residuals can be autocorrelated. That does not make regression
+    useless; it means inference and prediction need extra care. Methods
+    such as GLS and WLS, and residual checking, appear later in this
+    unit. They are not required to define time series regression.
+  </p>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>Time series regression explains y using predictors x that may include time, season and external series.</li>
+    <li>Simple regression uses one x; multiple regression uses several.</li>
+    <li>Keep chronological order; neighbouring observations are often dependent.</li>
+    <li>Autocorrelated errors can invalidate ordinary OLS inference even if the fitted line looks reasonable.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p4-08/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-least-squares/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

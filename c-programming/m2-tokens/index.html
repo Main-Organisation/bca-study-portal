@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>C tokens | C Programming</title>
+ <meta name="description" content="A token is the smallest meaningful unit of a C program     recognized by the compiler. A C program is made up of different types     of tokens such as keywords, identifiers, constants, strings, operators     and special symbols." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m2-tokens/" />
+ <meta property="og:title" content="C tokens" />
+ <meta property="og:description" content="A token is the smallest meaningful unit of a C program     recognized by the compiler. A C program is made up of different types     of tokens such as keywords, identifiers, constants, strings, operators     and special symbols." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m2-tokens/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="C tokens" />
+ <meta name="twitter:description" content="A token is the smallest meaningful unit of a C program     recognized by the compiler. A C program is made up of different types     of tokens such as keywords, identifiers, constants, strings, operators     and special symbols." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"C tokens","item":"https://bcastudyportal.in/c-programming/m2-tokens/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m2-tokens/","name":"C tokens","description":"A token is the smallest meaningful unit of a C program     recognized by the compiler. A C program is made up of different types     of tokens such as keywords, identifiers, constants, strings, operators     and special symbols.","mainEntity":{"@type":"CreativeWork","name":"C tokens","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / C tokens</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Notes</div>
+  <h1>C tokens</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>C Tokens</h2>
+
+  <p>
+    A <strong>token</strong> is the smallest meaningful unit of a C program
+    recognized by the compiler. A C program is made up of different types
+    of tokens such as keywords, identifiers, constants, strings, operators
+    and special symbols.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Tokens are the <strong>basic building blocks of a C program</strong>.
+      Just as words and punctuation form a sentence, tokens form a C program.
+    </p>
+
+  </div>
+
+
+  <h2>Example</h2>
+
+  <div class="note-flow">
+int sum = a + b;
+  </div>
+
+  <p>
+    In the above statement:
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>int</code></td>
+          <td>Keyword</td>
+        </tr>
+
+        <tr>
+          <td><code>sum</code></td>
+          <td>Identifier</td>
+        </tr>
+
+        <tr>
+          <td><code>=</code></td>
+          <td>Operator</td>
+        </tr>
+
+        <tr>
+          <td><code>a</code></td>
+          <td>Identifier</td>
+        </tr>
+
+        <tr>
+          <td><code>+</code></td>
+          <td>Operator</td>
+        </tr>
+
+        <tr>
+          <td><code>b</code></td>
+          <td>Identifier</td>
+        </tr>
+
+        <tr>
+          <td><code>;</code></td>
+          <td>Special Symbol / Punctuator</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Types of C Tokens</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Meaning</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Keywords</strong></td>
+          <td>Reserved words with a fixed meaning in C.</td>
+          <td><code>int</code>, <code>if</code>, <code>return</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Identifiers</strong></td>
+          <td>Names given to variables, functions and other program elements.</td>
+          <td><code>sum</code>, <code>main</code>, <code>count</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Constants</strong></td>
+          <td>Fixed values that do not change during program execution.</td>
+          <td><code>10</code>, <code>3.14</code>, <code>'A'</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Strings</strong></td>
+          <td>Sequence of characters written inside double quotes.</td>
+          <td><code>"Hello"</code>, <code>"BCA"</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Operators</strong></td>
+          <td>Symbols used to perform operations.</td>
+          <td><code>+</code>, <code>-</code>, <code>=</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Special Symbols</strong></td>
+          <td>Symbols used to structure and separate parts of a program.</td>
+          <td><code>;</code>, <code>{}</code>, <code>()</code>, <code>[]</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>1. Keywords</h2>
+
+  <p>
+    <strong>Keywords</strong> are reserved words of the C language that
+    have predefined meanings. They cannot normally be used as names of
+    variables or functions.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Examples
+    </span>
+
+    <p>
+      <code>int</code>, <code>if</code>, <code>else</code>,
+      <code>while</code>, <code>return</code>, <code>for</code>
+    </p>
+
+  </div>
+
+
+  <h2>2. Identifiers</h2>
+
+  <p>
+    <strong>Identifiers</strong> are names used to identify program
+    elements such as variables, functions and arrays.
+  </p>
+
+
+  <h3>Rules for Identifiers</h3>
+
+  <ul>
+
+    <li>
+      An identifier can contain letters, digits and underscore.
+    </li>
+
+    <li>
+      It should not begin with a digit.
+    </li>
+
+    <li>
+      Keywords cannot be used as identifiers.
+    </li>
+
+    <li>
+      C identifiers are case-sensitive.
+    </li>
+
+  </ul>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Valid</th>
+          <th>Invalid</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>total</code></td>
+          <td><code>2total</code></td>
+        </tr>
+
+        <tr>
+          <td><code>student_name</code></td>
+          <td><code>student-name</code></td>
+        </tr>
+
+        <tr>
+          <td><code>marks1</code></td>
+          <td><code>int</code></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>3. Constants</h2>
+
+  <p>
+    <strong>Constants</strong> are fixed values used in a program.
+    Their value remains unchanged while the program is running.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Examples
+    </span>
+
+    <p>
+      Integer: <code>25</code><br>
+      Decimal: <code>3.14</code><br>
+      Character: <code>'A'</code>
+    </p>
+
+  </div>
+
+
+  <h2>4. Strings</h2>
+
+  <p>
+    A <strong>string</strong> is a sequence of characters enclosed in
+    double quotation marks.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Examples
+    </span>
+
+    <p>
+      <code>"Hello"</code><br>
+      <code>"BCA Study Portal"</code>
+    </p>
+
+  </div>
+
+
+  <h2>5. Operators</h2>
+
+  <p>
+    <strong>Operators</strong> are symbols used to perform operations
+    on values or variables.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Operator</th>
+          <th>Example</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>+</code></td>
+          <td><code>a + b</code></td>
+          <td>Addition</td>
+        </tr>
+
+        <tr>
+          <td><code>-</code></td>
+          <td><code>a - b</code></td>
+          <td>Subtraction</td>
+        </tr>
+
+        <tr>
+          <td><code>*</code></td>
+          <td><code>a * b</code></td>
+          <td>Multiplication</td>
+        </tr>
+
+        <tr>
+          <td><code>/</code></td>
+          <td><code>a / b</code></td>
+          <td>Division</td>
+        </tr>
+
+        <tr>
+          <td><code>=</code></td>
+          <td><code>a = 10</code></td>
+          <td>Assignment</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>6. Special Symbols</h2>
+
+  <p>
+    <strong>Special symbols</strong> help define the structure and
+    separation of statements and blocks in a C program.
+  </p>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Common Use</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>;</code></td>
+          <td>Ends a statement.</td>
+        </tr>
+
+        <tr>
+          <td><code>()</code></td>
+          <td>Used with functions and expressions.</td>
+        </tr>
+
+        <tr>
+          <td><code>{}</code></td>
+          <td>Defines a block of statements.</td>
+        </tr>
+
+        <tr>
+          <td><code>[]</code></td>
+          <td>Used for arrays.</td>
+        </tr>
+
+        <tr>
+          <td><code>,</code></td>
+          <td>Separates items such as variables or function arguments.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Token Type</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Keyword</strong></td>
+          <td>Reserved word</td>
+        </tr>
+
+        <tr>
+          <td><strong>Identifier</strong></td>
+          <td>Name given by programmer</td>
+        </tr>
+
+        <tr>
+          <td><strong>Constant</strong></td>
+          <td>Fixed value</td>
+        </tr>
+
+        <tr>
+          <td><strong>String</strong></td>
+          <td>Characters inside double quotes</td>
+        </tr>
+
+        <tr>
+          <td><strong>Operator</strong></td>
+          <td>Performs an operation</td>
+        </tr>
+
+        <tr>
+          <td><strong>Special Symbol</strong></td>
+          <td>Helps structure the program</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What are tokens in C?</li>
+
+    <li>Write the different types of C tokens.</li>
+
+    <li>What are keywords?</li>
+
+    <li>What are identifiers?</li>
+
+    <li>What are constants?</li>
+
+    <li>What are operators?</li>
+
+    <li>What are special symbols in C?</li>
+
+    <li>Write any four rules for naming identifiers.</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Define C tokens and explain their different types with examples.
+    </li>
+
+    <li>
+      Explain keywords, identifiers, constants, strings, operators
+      and special symbols with suitable examples.
+    </li>
+
+    <li>
+      Explain the rules for naming identifiers in C.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of C tokens and their
+        different types.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/watch?v=GkQ8diSwWnY"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: C Tokens — Keywords, Identifiers, Constants & Operators
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for C Tokens
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of the six types
+        of C tokens.
+      </p>
+
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m2-program-structure/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m2-data-types/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

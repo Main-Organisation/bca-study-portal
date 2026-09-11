@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Architecture | C Programming</title>
+ <meta name="description" content="Computer Architecture refers to the design, structure, and organization     of a computer system and the way its major components work together     to execute programs." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m1-architecture/" />
+ <meta property="og:title" content="Architecture" />
+ <meta property="og:description" content="Computer Architecture refers to the design, structure, and organization     of a computer system and the way its major components work together     to execute programs." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m1-architecture/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Architecture" />
+ <meta name="twitter:description" content="Computer Architecture refers to the design, structure, and organization     of a computer system and the way its major components work together     to execute programs." />
+ <meta property="og:image" content="https://bcastudyportal.in/../../images/Image3.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Architecture","item":"https://bcastudyportal.in/c-programming/m1-architecture/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m1-architecture/","name":"Architecture","description":"Computer Architecture refers to the design, structure, and organization     of a computer system and the way its major components work together     to execute programs.","mainEntity":{"@type":"CreativeWork","name":"Architecture","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Architecture</div>
+  <div class="meta">Subject: C Programming • Module: 1 Introduction to Computer, Programming &amp; algorithms • Type: Notes</div>
+  <h1>Architecture</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><p>
+    Computer Architecture refers to the design, structure, and organization
+    of a computer system and the way its major components work together
+    to execute programs.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Computer Architecture is like the
+      <strong>blueprint of a computer</strong>.
+      It explains how the CPU, memory, input/output devices,
+      and other components are organized and how they work together.
+    </p>
+  </div>
+
+
+  <!-- Architecture Diagram -->
+
+  <div class="note-image">
+
+    <img
+      src="../../images/Image3.png"
+      alt="Computer Architecture"
+    >
+
+  </div>
+
+
+  <h2>What is Computer Architecture?</h2>
+
+  <p>
+    Computer Architecture describes the design and functional behavior
+    of a computer system. It explains how the processor, memory,
+    input/output devices, instructions, and data are organized and
+    how they interact while a program is executed.
+  </p>
+
+  <p>
+    It provides the programmer's view of a computer system and includes
+    concepts such as instruction sets, data formats, registers,
+    addressing methods, memory organization, and input/output mechanisms.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Important Point
+    </span>
+
+    <p>
+      <strong>
+        Architecture tells us what the system does,
+        while organization explains how the hardware implements it.
+      </strong>
+    </p>
+
+  </div>
+
+
+  <h2>Architecture vs Computer Organization</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Computer Architecture</th>
+          <th>Computer Organization</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+
+          <td>
+            Describes the functional behavior and
+            programmer-visible design of a computer.
+          </td>
+
+          <td>
+            Describes how the hardware components are
+            connected and implemented.
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            Concerned with <strong>what</strong> the system does.
+          </td>
+
+          <td>
+            Concerned with <strong>how</strong> the system does it.
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            Includes instruction set, data formats,
+            registers and addressing modes.
+          </td>
+
+          <td>
+            Includes hardware connections, buses,
+            control signals and implementation.
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Instruction Set Architecture (ISA)</h2>
+
+  <p>
+    Instruction Set Architecture, commonly called
+    <strong>ISA</strong>, defines the instructions and
+    programmer-visible features that a processor supports.
+  </p>
+
+  <p>
+    It describes the instruction set, registers, data formats,
+    addressing methods, and other features that software uses
+    when communicating with the processor.
+  </p>
+
+  <p>
+    Examples of architectures include
+    <strong>x86, ARM, MIPS, and RISC-V</strong>.
+  </p>
+
+
+  <h2>Von Neumann Architecture</h2>
+
+  <p>
+    Von Neumann Architecture is based on the
+    <strong>stored-program concept</strong>. In this architecture,
+    program instructions and data are stored in the same memory.
+  </p>
+
+  <p>
+    The CPU fetches instructions from memory one by one,
+    decodes them, and executes them.
+  </p>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      In Von Neumann Architecture, <strong>both instructions and data
+      use the same memory</strong>. The CPU takes an instruction from
+      memory, understands it, executes it, and then moves to the next
+      instruction.
+    </p>
+
+  </div>
+
+
+  <h3>Characteristics of Von Neumann Architecture</h3>
+
+  <ul>
+
+    <li>
+      A single memory stores both program instructions and data.
+    </li>
+
+    <li>
+      Instructions are executed sequentially.
+    </li>
+
+    <li>
+      CPU, memory and input/output devices communicate through the
+      system bus.
+    </li>
+
+    <li>
+      The Fetch–Decode–Execute cycle is used to process instructions.
+    </li>
+
+    <li>
+      The shared memory and bus can create the
+      <strong>Von Neumann bottleneck</strong>.
+    </li>
+
+  </ul>
+
+
+  <h2>Functional Units of a Computer System</h2>
+
+  <p>
+    A computer system can be understood through five important
+    functional units:
+  </p>
+
+  <ol>
+
+    <li><strong>Input Unit</strong></li>
+
+    <li><strong>Memory Unit</strong></li>
+
+    <li><strong>Arithmetic Logic Unit (ALU)</strong></li>
+
+    <li><strong>Control Unit (CU)</strong></li>
+
+    <li><strong>Output Unit</strong></li>
+
+  </ol>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Functional Unit</th>
+          <th>Main Function</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Input Unit</strong></td>
+          <td>Accepts data and instructions from the user.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Memory Unit</strong></td>
+          <td>Stores data, instructions and results.</td>
+        </tr>
+
+        <tr>
+          <td><strong>ALU</strong></td>
+          <td>Performs arithmetic and logical operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Control Unit</strong></td>
+          <td>Controls and coordinates computer operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Output Unit</strong></td>
+          <td>Presents processed information to the user.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>CPU Organization</h2>
+
+  <p>
+    CPU organization describes the internal structure of the processor
+    and how its different parts work together during instruction
+    processing.
+  </p>
+
+  <p>
+    The major parts of CPU organization include:
+  </p>
+
+  <ul>
+
+    <li><strong>Arithmetic Logic Unit (ALU)</strong></li>
+
+    <li><strong>Control Unit (CU)</strong></li>
+
+    <li><strong>Registers</strong></li>
+
+    <li><strong>Cache Memory</strong></li>
+
+    <li><strong>Internal data paths and buses</strong></li>
+
+  </ul>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Inside the CPU, the <strong>ALU performs calculations</strong>,
+      the <strong>Control Unit controls the operations</strong>,
+      and <strong>registers temporarily hold important data and
+      instructions</strong>.
+    </p>
+
+  </div>
+
+
+  <h2>Arithmetic Logic Unit (ALU)</h2>
+
+  <p>
+    The Arithmetic Logic Unit is the part of the CPU responsible
+    for performing arithmetic and logical operations.
+  </p>
+
+
+  <h3>Arithmetic Operations</h3>
+
+  <ul>
+
+    <li>Addition</li>
+    <li>Subtraction</li>
+    <li>Multiplication</li>
+    <li>Division</li>
+    <li>Increment</li>
+    <li>Decrement</li>
+
+  </ul>
+
+
+  <h3>Logical Operations</h3>
+
+  <ul>
+
+    <li>AND</li>
+    <li>OR</li>
+    <li>NOT</li>
+    <li>XOR</li>
+    <li>Comparison</li>
+    <li>Shift and Rotate operations</li>
+
+  </ul>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Operation Type</th>
+          <th>Examples</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Arithmetic</strong></td>
+          <td>+, −, ×, ÷, Increment, Decrement</td>
+        </tr>
+
+        <tr>
+          <td><strong>Logical</strong></td>
+          <td>AND, OR, NOT, XOR</td>
+        </tr>
+
+        <tr>
+          <td><strong>Comparison</strong></td>
+          <td>Equal, Greater than, Less than</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Control Unit (CU)</h2>
+
+  <p>
+    The Control Unit manages and coordinates the activities of the
+    computer system. It directs the flow of data and instructions
+    between the CPU, memory and input/output devices.
+  </p>
+
+
+  <h3>Functions of Control Unit</h3>
+
+  <ol>
+
+    <li>
+      <strong>Fetch:</strong>
+      Gets the required instruction from memory.
+    </li>
+
+    <li>
+      <strong>Decode:</strong>
+      Interprets the instruction and identifies the required operation.
+    </li>
+
+    <li>
+      <strong>Execute:</strong>
+      Sends appropriate control signals to the required units.
+    </li>
+
+  </ol>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      📌 Remember
+    </span>
+
+    <p>
+      The Control Unit <strong>controls and coordinates</strong>
+      the operations of the computer. It does not perform the
+      actual arithmetic calculations.
+    </p>
+
+  </div>
+
+
+  
+
+
+  
+
+
+  <h2>Registers and Their Types</h2>
+
+  <p>
+    Registers are small, high-speed storage locations inside the CPU.
+    They temporarily hold data, instructions, addresses, and
+    intermediate results during instruction execution.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Register</th>
+          <th>Function</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>PC — Program Counter</strong></td>
+          <td>Stores the address of the next instruction.</td>
+        </tr>
+
+        <tr>
+          <td><strong>IR — Instruction Register</strong></td>
+          <td>Stores the current instruction.</td>
+        </tr>
+
+        <tr>
+          <td><strong>ACC — Accumulator</strong></td>
+          <td>Stores results produced by ALU operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>MAR — Memory Address Register</strong></td>
+          <td>Stores the memory address being accessed.</td>
+        </tr>
+
+        <tr>
+          <td><strong>MDR — Memory Data Register</strong></td>
+          <td>Stores data being transferred to or from memory.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Flag / PSW</strong></td>
+          <td>Stores status information such as zero, carry and sign.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Memory Organization</h2>
+
+  <p>
+    Memory organization explains how memory is structured and accessed
+    according to speed, capacity and cost.
+  </p>
+
+  <p>
+    Faster memory is generally smaller and placed closer to the CPU,
+    while slower storage provides larger capacity.
+  </p>
+
+
+  <div class="note-flow">
+
+REGISTERS
+   ↓
+CACHE
+   ↓
+RAM
+   ↓
+SSD / HDD
+
+Fast → Slow
+Small → Large
+
+  </div>
+
+
+  <h2>Cache Memory</h2>
+
+  <p>
+    Cache memory is a small and fast memory located between the CPU
+    and main memory. It stores frequently used data and instructions
+    so that the CPU can access them more quickly.
+  </p>
+
+
+  <h3>Cache Levels</h3>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Level</th>
+          <th>General Characteristic</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>L1 Cache</strong></td>
+          <td>Smallest and fastest cache, very close to the CPU core.</td>
+        </tr>
+
+        <tr>
+          <td><strong>L2 Cache</strong></td>
+          <td>Larger than L1 and generally slower than L1.</td>
+        </tr>
+
+        <tr>
+          <td><strong>L3 Cache</strong></td>
+          <td>Larger cache that may be shared among CPU cores.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      Cache is like a <strong>small fast storage area</strong>
+      kept close to the CPU so frequently needed information can
+      be accessed quickly.
+    </p>
+
+  </div>
+
+
+  <h2>Input/Output Organization</h2>
+
+  <p>
+    Input/Output organization deals with communication between the CPU
+    and peripheral devices such as keyboards, displays, printers,
+    storage devices and other external devices.
+  </p>
+
+
+  <h3>Programmed I/O</h3>
+
+  <p>
+    In programmed I/O, the CPU checks the device and waits for it
+    to become ready. This can keep the CPU busy while waiting.
+  </p>
+
+
+  <h3>Interrupt-Driven I/O</h3>
+
+  <p>
+    In interrupt-driven I/O, the device sends an interrupt signal
+    to the CPU when it requires attention or is ready for transfer.
+  </p>
+
+
+  <h3>DMA — Direct Memory Access</h3>
+
+  <p>
+    DMA allows data to be transferred directly between an I/O device
+    and memory with reduced involvement of the CPU.
+  </p>
+
+
+  <h2>System Bus</h2>
+
+  <p>
+    A system bus provides the communication path between the CPU,
+    memory and input/output devices.
+  </p>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Bus</th>
+          <th>Direction</th>
+          <th>Function</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Data Bus</strong></td>
+          <td>Bidirectional</td>
+          <td>Carries actual data between components.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Address Bus</strong></td>
+          <td>Unidirectional</td>
+          <td>Carries memory or I/O addresses.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Control Bus</strong></td>
+          <td>Bidirectional</td>
+          <td>Carries control and timing signals.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 In Simple Words
+    </span>
+
+    <p>
+      You can think of buses as <strong>communication roads</strong>
+      inside the computer. They carry data, addresses and control
+      signals between different components.
+    </p>
+
+  </div>
+
+
+  <h2>Fetch–Decode–Execute Cycle</h2>
+
+  <p>
+    The CPU processes an instruction through a basic cycle called the
+    <strong>Fetch–Decode–Execute cycle</strong>.
+  </p>
+
+
+  <div class="note-image">
+
+    <img
+      src="../../images/Image4.png"
+      alt="Fetch Decode Execute Store Cycle"
+    >
+
+  </div>
+
+
+  <h3>1. Fetch</h3>
+
+  <p>
+    The CPU obtains the required instruction from memory.
+    The Program Counter helps identify the address of the next instruction.
+  </p>
+
+
+  <h3>2. Decode</h3>
+
+  <p>
+    The Control Unit interprets the instruction and determines
+    what operation needs to be performed.
+  </p>
+
+
+  <h3>3. Execute</h3>
+
+  <p>
+    The required operation is performed. For arithmetic and logical
+    operations, the ALU performs the required calculation.
+  </p>
+
+
+  <h3>4. Store</h3>
+
+  <p>
+    The result is written back to a register or memory as required.
+  </p>
+
+
+  <h2>Instruction Processing</h2>
+
+  <p>
+    Instruction processing involves fetching an instruction, decoding
+    the operation and operands, obtaining required data, executing the
+    operation and storing the result.
+  </p>
+
+
+  <h3>Instruction Format</h3>
+
+  <div class="note-flow">
+
+OPCODE + OPERANDS
+
+  </div>
+
+
+  <p>
+    The <strong>opcode</strong> identifies the operation to be performed,
+    while the operand identifies the data or location involved.
+  </p>
+
+
+  <h3>Common Addressing Modes</h3>
+
+  <ul>
+
+    <li>
+      <strong>Immediate:</strong>
+      The operand value is given directly.
+    </li>
+
+    <li>
+      <strong>Direct:</strong>
+      The address of the operand is specified directly.
+    </li>
+
+    <li>
+      <strong>Indirect:</strong>
+      The specified location contains the address of the operand.
+    </li>
+
+    <li>
+      <strong>Register:</strong>
+      The operand is stored in a CPU register.
+    </li>
+
+  </ul>
+
+
+  <h2>Memory Hierarchy</h2>
+
+  <p>
+    Memory hierarchy arranges storage according to speed, size and cost.
+    Faster memory is generally smaller and more expensive, while
+    larger storage is slower and cheaper per unit of capacity.
+  </p>
+
+
+ <div class="note-image">
+  <img
+    src="../../images/Image5.png"
+    alt="Computer Memory Hierarchy"
+  >
+</div>
+
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Memory Level</th>
+          <th>General Characteristic</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Registers</strong></td>
+          <td>Very small and extremely fast storage inside the CPU.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Cache</strong></td>
+          <td>Very fast memory that reduces CPU access time.</td>
+        </tr>
+
+        <tr>
+          <td><strong>RAM</strong></td>
+          <td>Main working memory for active programs and data.</td>
+        </tr>
+
+        <tr>
+          <td><strong>SSD</strong></td>
+          <td>Fast, non-volatile secondary storage.</td>
+        </tr>
+
+        <tr>
+          <td><strong>HDD</strong></td>
+          <td>Large-capacity magnetic secondary storage.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+
+        <tr>
+          <th>Concept</th>
+          <th>Remember This</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Computer Architecture</strong></td>
+          <td>Design and functional behavior of a computer system.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Von Neumann</strong></td>
+          <td>Program instructions and data share the same memory.</td>
+        </tr>
+
+        <tr>
+          <td><strong>ALU</strong></td>
+          <td>Performs arithmetic and logical operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Control Unit</strong></td>
+          <td>Controls and coordinates operations.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Registers</strong></td>
+          <td>Very fast temporary storage inside CPU.</td>
+        </tr>
+
+        <tr>
+          <td><strong>System Bus</strong></td>
+          <td>Data Bus + Address Bus + Control Bus.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Instruction Cycle</strong></td>
+          <td>Fetch → Decode → Execute → Store.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Memory Hierarchy</strong></td>
+          <td>Registers → Cache → RAM → SSD/HDD.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is computer architecture?</li>
+
+    <li>What is the difference between architecture and organization?</li>
+
+    <li>What is ISA?</li>
+
+    <li>What is Von Neumann Architecture?</li>
+
+    <li>Write the five functional units of a computer system.</li>
+
+    <li>What is CPU organization?</li>
+
+    <li>What is ALU?</li>
+
+    <li>What is the function of the Control Unit?</li>
+
+    <li>What are registers?</li>
+
+    <li>What is cache memory?</li>
+
+    <li>What is a system bus?</li>
+
+    <li>Name the three types of system bus.</li>
+
+    <li>What is DMA?</li>
+
+    <li>What is the Fetch–Decode–Execute cycle?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain computer architecture and its major features.
+    </li>
+
+    <li>
+      Explain the difference between computer architecture and
+      computer organization.
+    </li>
+
+    <li>
+      Explain Von Neumann Architecture with a suitable diagram.
+    </li>
+
+    <li>
+      Explain the functional units of a computer system.
+    </li>
+
+    <li>
+      Explain CPU organization and the functions of ALU and Control Unit.
+    </li>
+
+    <li>
+      Explain registers and their important types.
+    </li>
+
+    <li>
+      Explain memory organization and cache memory.
+    </li>
+
+    <li>
+      Explain Data Bus, Address Bus and Control Bus.
+    </li>
+
+    <li>
+      Explain the Fetch–Decode–Execute cycle in detail.
+    </li>
+
+    <li>
+      Explain memory hierarchy and its importance.
+    </li>
+
+  </ol>
+
+
+  <!-- ========================================================
+       RESOURCE SECTION
+       ======================================================== -->
+
+  <div class="resource-section">
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        After reading the topic, watch this easy Hindi explanation
+        of a major Computer Architecture concept.
+      </p>
+
+      <p>
+
+        <a
+          href="https://www.youtube.com/watch?v=q5C9-AzRZBU"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Von Neumann Architecture in Computer Architecture — Hindi
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet covering Computer
+        Architecture, Von Neumann Architecture, CPU, buses and memory
+        hierarchy will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of Computer Architecture,
+        CPU, memory, buses and instruction processing.
+      </p>
+
+    </div>
+
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../case-study-semiconductor-processors/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m1-software-hardware/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

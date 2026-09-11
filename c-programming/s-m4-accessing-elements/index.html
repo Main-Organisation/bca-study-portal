@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Accessing Elements of a Structure — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a Student structure and access     its roll number, name and marks using the dot operator." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m4-accessing-elements/" />
+ <meta property="og:title" content="Accessing Elements of a Structure — Exercises" />
+ <meta property="og:description" content="Write a C program to create a Student structure and access     its roll number, name and marks using the dot operator." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m4-accessing-elements/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Accessing Elements of a Structure — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a Student structure and access     its roll number, name and marks using the dot operator." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Accessing Elements of a Structure — Exercises","item":"https://bcastudyportal.in/c-programming/s-m4-accessing-elements/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m4-accessing-elements/","name":"Accessing Elements of a Structure — Exercises","description":"Write a C program to create a Student structure and access     its roll number, name and marks using the dot operator.","mainEntity":{"@type":"CreativeWork","name":"Accessing Elements of a Structure — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Accessing Elements of a Structure — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Practical</div>
+  <h1>Accessing Elements of a Structure — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Accessing Structure Elements — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a <code>Student</code> structure and access
+    its roll number, name and marks using the dot operator.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    // Access structure members using dot operator
+    printf("\nRoll Number = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("Marks = %.2f\n", s.marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The dot operator <code>.</code> is used to access a member of a
+    structure variable. For example, <code>s.roll</code> accesses the
+    roll member of structure variable <code>s</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks: 85</p>
+    <p><strong>Roll Number = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>Marks = 85.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to initialize a structure variable and access
+    individual members using the dot operator.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Book
+{
+    int id;
+    char title[50];
+    float price;
+};
+
+int main()
+{
+    // Initialize structure variable
+    struct Book book = {101, "Programming", 500.0};
+
+    // Access members individually
+    printf("Book ID = %d\n", book.id);
+    printf("Title = %s\n", book.title);
+    printf("Price = %.2f\n", book.price);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each member of a structure can be accessed independently using
+    the structure variable followed by the dot operator.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Book ID = 101</strong></p>
+    <p><strong>Title = Programming</strong></p>
+    <p><strong>Price = 500.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to modify the marks of a student after the structure
+    has been initialized and display the updated value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s = {101, "Amit", 70.0};
+
+    printf("Original marks = %.2f\n", s.marks);
+
+    // Modify a structure member
+    s.marks = 82.5;
+
+    printf("Updated marks = %.2f\n", s.marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structure members are not read-only. A member can be modified directly
+    using the dot operator and assignment operator.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Original marks = 70.00</strong></p>
+    <p><strong>Updated marks = 82.50</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create two employee structure variables and
+    access the members of both variables separately.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+};
+
+int main()
+{
+    struct Employee e1, e2;
+
+    printf("Enter first employee ID, name and salary: ");
+    scanf("%d %49s %f",
+          &amp;e1.id,
+          e1.name,
+          &amp;e1.salary);
+
+    printf("Enter second employee ID, name and salary: ");
+    scanf("%d %49s %f",
+          &amp;e2.id,
+          e2.name,
+          &amp;e2.salary);
+
+    // Access members of first employee
+    printf("\nEmployee 1:\n");
+    printf("ID = %d\n", e1.id);
+    printf("Name = %s\n", e1.name);
+    printf("Salary = %.2f\n", e1.salary);
+
+    // Access members of second employee
+    printf("\nEmployee 2:\n");
+    printf("ID = %d\n", e2.id);
+    printf("Name = %s\n", e2.name);
+    printf("Salary = %.2f\n", e2.salary);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each structure variable has its own set of members. The same member
+    name can be accessed independently through different structure variables.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first employee ID, name and salary: 101 Amit 40000</p>
+    <p>Enter second employee ID, name and salary: 102 Neha 45000</p>
+    <p><strong>Employee 1:</strong></p>
+    <p><strong>ID = 101</strong></p>
+    <p><strong>Name = Amit</strong></p>
+    <p><strong>Salary = 40000.00</strong></p>
+    <p><strong>Employee 2:</strong></p>
+    <p><strong>ID = 102</strong></p>
+    <p><strong>Name = Neha</strong></p>
+    <p><strong>Salary = 45000.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the total and average marks by
+    accessing subject marks stored as structure members.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    char name[50];
+    int math;
+    int cProgramming;
+    int computer;
+};
+
+int main()
+{
+    struct Student s;
+    int total;
+    float average;
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks in Mathematics, C Programming and Computer: ");
+    scanf("%d %d %d",
+          &amp;s.math,
+          &amp;s.cProgramming,
+          &amp;s.computer);
+
+    // Access and process individual members
+    total = s.math + s.cProgramming + s.computer;
+    average = total / 3.0;
+
+    printf("\nStudent = %s\n", s.name);
+    printf("Total = %d\n", total);
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each subject is represented as a separate structure member.
+    The dot operator is used to access those members in an expression.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter name: Priya</p>
+    <p>Enter marks in Mathematics, C Programming and Computer: 80 90 85</p>
+    <p><strong>Student = Priya</strong></p>
+    <p><strong>Total = 255</strong></p>
+    <p><strong>Average = 85.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to access structure members through a pointer
+    using the arrow operator <code>-&gt;</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+    struct Student *ptr;
+
+    ptr = &amp;s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;ptr-&gt;roll);
+
+    printf("Enter name: ");
+    scanf("%49s", ptr-&gt;name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;ptr-&gt;marks);
+
+    // Access structure members using pointer
+    printf("\nRoll = %d\n", ptr-&gt;roll);
+    printf("Name = %s\n", ptr-&gt;name);
+    printf("Marks = %.2f\n", ptr-&gt;marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    When a pointer points to a structure, its members can be accessed
+    conveniently using the arrow operator <code>-&gt;</code>.
+    For example, <code>ptr-&gt;roll</code> accesses the roll member.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks: 88</p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>Marks = 88.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to access a structure through a pointer and
+    modify one of its members.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    float salary;
+};
+
+int main()
+{
+    struct Employee emp = {101, 40000.0};
+    struct Employee *ptr = &amp;emp;
+
+    printf("Original salary = %.2f\n", ptr-&gt;salary);
+
+    // Modify the original member through pointer
+    ptr-&gt;salary = 50000.0;
+
+    printf("Updated salary = %.2f\n", ptr-&gt;salary);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer stores the address of the structure variable.
+    Using <code>-&gt;</code>, the program can directly read or modify
+    the structure members through that pointer.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Original salary = 40000.00</strong></p>
+    <p><strong>Updated salary = 50000.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to access the members of a structure passed to
+    a function using a structure pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Product
+{
+    int id;
+    char name[50];
+    float price;
+};
+
+void displayProduct(struct Product *p)
+{
+    // Access structure members through pointer
+    printf("Product ID = %d\n", p-&gt;id);
+    printf("Product Name = %s\n", p-&gt;name);
+    printf("Price = %.2f\n", p-&gt;price);
+}
+
+int main()
+{
+    struct Product p;
+
+    printf("Enter product ID: ");
+    scanf("%d", &amp;p.id);
+
+    printf("Enter product name: ");
+    scanf("%49s", p.name);
+
+    printf("Enter price: ");
+    scanf("%f", &amp;p.price);
+
+    // Pass structure address to function
+    displayProduct(&amp;p);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Passing the structure address allows the function to access its
+    members through a pointer. The arrow operator is used inside the function.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter product ID: 201</p>
+    <p>Enter product name: Keyboard</p>
+    <p>Enter price: 800</p>
+    <p><strong>Product ID = 201</strong></p>
+    <p><strong>Product Name = Keyboard</strong></p>
+    <p><strong>Price = 800.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the total salary of two employees
+    by accessing their salary members.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+};
+
+int main()
+{
+    struct Employee e1, e2;
+    float totalSalary;
+
+    printf("Enter first employee ID, name and salary: ");
+    scanf("%d %49s %f",
+          &amp;e1.id,
+          e1.name,
+          &amp;e1.salary);
+
+    printf("Enter second employee ID, name and salary: ");
+    scanf("%d %49s %f",
+          &amp;e2.id,
+          e2.name,
+          &amp;e2.salary);
+
+    // Access salary members and calculate total
+    totalSalary = e1.salary + e2.salary;
+
+    printf("Total Salary = %.2f\n", totalSalary);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structure members can be used directly in arithmetic expressions.
+    Here, the salary member of both structure variables is accessed
+    separately and added.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first employee ID, name and salary: 101 Amit 40000</p>
+    <p>Enter second employee ID, name and salary: 102 Neha 45000</p>
+    <p><strong>Total Salary = 85000.00</strong></p>
+  </div>
+  
+
+  <h2>Accessing Structure Elements — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a student structure, access its members
+    using both the dot operator and a structure pointer, and display
+    the complete record.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+    struct Student *ptr;
+
+    ptr = &amp;s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    // Access using dot operator
+    printf("\nUsing dot operator:\n");
+    printf("Roll = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("Marks = %.2f\n", s.marks);
+
+    // Access the same members through a pointer
+    printf("\nUsing arrow operator:\n");
+    printf("Roll = %d\n", ptr-&gt;roll);
+    printf("Name = %s\n", ptr-&gt;name);
+    printf("Marks = %.2f\n", ptr-&gt;marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A normal structure variable accesses members with <code>.</code>,
+    while a pointer to a structure accesses the same members with
+    <code>-&gt;</code>. Both refer to the same underlying structure data.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks: 87</p>
+    <p><strong>Using dot operator:</strong></p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>Marks = 87.00</strong></p>
+    <p><strong>Using arrow operator:</strong></p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>Marks = 87.00</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m4-advantages/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m4-nested-structures/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

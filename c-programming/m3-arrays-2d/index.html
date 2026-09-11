@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Arrays (2-D) | C Programming</title>
+ <meta name="description" content="Definition: A two-dimensional array is an array     arranged in the form of rows and columns.     It is commonly used to represent tables and matrices." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m3-arrays-2d/" />
+ <meta property="og:title" content="Arrays (2-D)" />
+ <meta property="og:description" content="Definition: A two-dimensional array is an array     arranged in the form of rows and columns.     It is commonly used to represent tables and matrices." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m3-arrays-2d/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Arrays (2-D)" />
+ <meta name="twitter:description" content="Definition: A two-dimensional array is an array     arranged in the form of rows and columns.     It is commonly used to represent tables and matrices." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Arrays (2-D)","item":"https://bcastudyportal.in/c-programming/m3-arrays-2d/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m3-arrays-2d/","name":"Arrays (2-D)","description":"Definition: A two-dimensional array is an array     arranged in the form of rows and columns.     It is commonly used to represent tables and matrices.","mainEntity":{"@type":"CreativeWork","name":"Arrays (2-D)","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Arrays (2-D)</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Notes</div>
+  <h1>Arrays (2-D)</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Two-Dimensional Arrays (2-D)</h2>
+
+  <p>
+    <strong>Definition:</strong> A two-dimensional array is an array
+    arranged in the form of <strong>rows and columns</strong>.
+    It is commonly used to represent tables and matrices.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int marks[3][4];</code>
+    creates a 2-D integer array with <strong>3 rows</strong> and
+    <strong>4 columns</strong>.
+  </div>
+
+
+  <h2>Real-World Example</h2>
+
+  <p>
+    A classroom marks table can be represented using a 2-D array,
+    where rows represent students and columns represent subjects.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong><br><br>
+    Row → Student<br>
+    Column → Subject<br>
+    Each cell → Marks of one student in one subject
+  </div>
+
+
+  <h2>2-D Array Representation</h2>
+
+  <pre class="program-code"><code>        Column
+          0    1    2
+       ┌────┬────┬────┐
+Row 0  │ 10 │ 20 │ 30 │
+       ├────┼────┼────┤
+Row 1  │ 40 │ 50 │ 60 │
+       ├────┼────┼────┤
+Row 2  │ 70 │ 80 │ 90 │
+       └────┴────┴────┘</code></pre>
+
+  <div class="simple-box">
+    📌 <strong>Important:</strong>
+    Like 1-D arrays, 2-D array indexes in C start from
+    <strong>0</strong>.
+  </div>
+
+
+  <h2>Rows and Columns</h2>
+
+  <p>
+    <strong>Rows</strong> represent the horizontal entries of the array,
+    while <strong>columns</strong> represent the vertical entries.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    In <code>int matrix[3][4]</code>:<br><br>
+    Number of rows = <strong>3</strong><br>
+    Number of columns = <strong>4</strong><br>
+    Total elements = <strong>3 × 4 = 12</strong>
+  </div>
+
+
+  <h2>Declaration of 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> A 2-D array is declared by specifying
+    the data type, array name, number of rows and number of columns.
+  </p>
+
+  <pre class="program-code"><code>data_type array_name[rows][columns];</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>int matrix[2][3];</code>
+    declares an integer array with 2 rows and 3 columns.
+  </div>
+
+
+  <h2>Initialization of 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Initialization means assigning values
+    to the elements of a 2-D array when it is declared.
+  </p>
+
+  <pre class="program-code"><code>int matrix[2][3] = {
+    {10, 20, 30},
+    {40, 50, 60}
+};</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    The first row contains <strong>10, 20, 30</strong> and the second
+    row contains <strong>40, 50, 60</strong>.
+  </div>
+
+
+  <h2>Accessing 2-D Array Elements</h2>
+
+  <p>
+    <strong>Definition:</strong> An element of a 2-D array is accessed
+    using two indexes: one for the row and one for the column.
+  </p>
+
+  <pre class="program-code"><code>array_name[row][column]</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For
+    <code>int matrix[2][3] = {{10,20,30},{40,50,60}};</code><br><br>
+
+    <code>matrix[0][0]</code> → <strong>10</strong><br>
+    <code>matrix[0][2]</code> → <strong>30</strong><br>
+    <code>matrix[1][1]</code> → <strong>50</strong>
+  </div>
+
+
+  <h2>2-D Array Indexing</h2>
+
+  <pre class="program-code"><code>        Column Index
+           0    1    2
+        ┌────┬────┬────┐
+Row 0   │ 10 │ 20 │ 30 │
+        ├────┼────┼────┤
+Row 1   │ 40 │ 50 │ 60 │
+        └────┴────┴────┘
+
+matrix[0][0] = 10
+matrix[0][1] = 20
+matrix[0][2] = 30
+
+matrix[1][0] = 40
+matrix[1][1] = 50
+matrix[1][2] = 60</code></pre>
+
+
+  <h2>Nested Loops and 2-D Arrays</h2>
+
+  <p>
+    A 2-D array is commonly processed using <strong>nested loops</strong>.
+    The outer loop controls rows and the inner loop controls columns.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong><br><br>
+    Outer loop → rows<br>
+    Inner loop → columns
+  </div>
+
+  <pre class="program-code"><code>for (int i = 0; i &lt; rows; i++)
+{
+    for (int j = 0; j &lt; columns; j++)
+    {
+        printf("%d ", matrix[i][j]);
+    }
+}</code></pre>
+
+
+  <h2>Taking Input in a 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Input for a 2-D array can be taken
+    element by element using nested loops.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    <code>scanf("%d", &amp;matrix[i][j]);</code>
+    stores the entered value at row <code>i</code> and column
+    <code>j</code>.
+  </div>
+
+
+  <h2>Displaying a 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> A 2-D array can be displayed row by row
+    by using nested loops.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    After printing each row, <code>printf("
+");</code> moves to the
+    next row.
+  </div>
+
+
+  <h2>Practical Example — Read and Display a Matrix</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept a <strong>2 × 3 matrix</strong> from
+    the user and display the matrix in row and column form.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Declare and use a two-dimensional array.</li>
+    <li>Use nested loops to read matrix elements.</li>
+    <li>Use row and column indexes to access array elements.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Use two nested loops. The outer loop should handle rows and the
+    inner loop should handle columns.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A 2-D array stores data in rows and columns. Nested loops provide
+    a convenient way to process every element of the matrix.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int matrix[2][3];
+    int i, j;
+
+    printf("Enter 6 elements: ");
+
+    // read matrix elements row by row
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 3; j++)
+            scanf("%d", &amp;matrix[i][j]);
+    }
+
+    printf("Matrix:
+");
+
+    // display matrix row by row
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 3; j++)
+            printf("%d ", matrix[i][j]);
+
+        printf("
+");
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter 6 elements: 10 20 30 40 50 60
+Matrix:
+10 20 30
+40 50 60</pre>
+
+
+  <h2>Modifying an Element</h2>
+
+  <p>
+    <strong>Definition:</strong> A particular element of a 2-D array
+    can be changed by assigning a new value to its row and column index.
+  </p>
+
+  <pre class="program-code"><code>matrix[1][2] = 100;</code></pre>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    If <code>matrix[1][2]</code> originally contains 60, the above
+    statement changes it to <strong>100</strong>.
+  </div>
+
+
+  <h2>Traversing a 2-D Array</h2>
+
+  <p>
+    <strong>Definition:</strong> Traversing a 2-D array means visiting
+    every element row by row and column by column.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    For a 2 × 3 matrix, traversal visits:
+    <strong>[0][0] → [0][1] → [0][2] → [1][0] → [1][1] → [1][2]</strong>
+  </div>
+
+
+  <h2>Matrix Addition</h2>
+
+  <p>
+    <strong>Definition:</strong> Matrix addition is performed by adding
+    corresponding elements of two matrices having the same dimensions.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong><br><br>
+
+    A = 1  2<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;3  4<br><br>
+
+    B = 5  6<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;7  8<br><br>
+
+    Result = 6  8<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10 12
+  </div>
+
+
+  <h2>Practical Example — Addition of Two Matrices</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to accept two <strong>2 × 2 matrices</strong>
+    and calculate their sum.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use two-dimensional arrays to represent matrices.</li>
+    <li>Traverse matrices using nested loops.</li>
+    <li>Add corresponding elements of two matrices.</li>
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Read both matrices using nested loops. Add corresponding elements
+    and store the result in a third matrix.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    Two matrices can be added when they have the same number of rows
+    and columns. Each element of the first matrix is added to the
+    element at the same position in the second matrix.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[2][2], b[2][2], sum[2][2];
+    int i, j;
+
+    printf("Enter elements of first matrix: ");
+
+    // read first matrix
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            scanf("%d", &amp;a[i][j]);
+    }
+
+    printf("Enter elements of second matrix: ");
+
+    // read second matrix
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            scanf("%d", &amp;b[i][j]);
+    }
+
+    // add corresponding elements
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            sum[i][j] = a[i][j] + b[i][j];
+    }
+
+    printf("Sum of matrices:
+");
+
+    // display the result matrix
+    for (i = 0; i &lt; 2; i++)
+    {
+        for (j = 0; j &lt; 2; j++)
+            printf("%d ", sum[i][j]);
+
+        printf("
+");
+    }
+
+    return 0;
+}</code></pre>
+
+
+  <h3>Expected Output</h3>
+
+  <pre class="output-box">Enter elements of first matrix: 1 2 3 4
+Enter elements of second matrix: 5 6 7 8
+Sum of matrices:
+6 8
+10 12</pre>
+
+
+  <h2>1-D Array vs 2-D Array</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>1-D Array</th>
+          <th>2-D Array</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Uses one index.</td>
+          <td>Uses two indexes.</td>
+        </tr>
+
+        <tr>
+          <td>Usually represents a linear list.</td>
+          <td>Usually represents rows and columns.</td>
+        </tr>
+
+        <tr>
+          <td>Example: <code>int a[5];</code></td>
+          <td>Example: <code>int a[3][4];</code></td>
+        </tr>
+
+        <tr>
+          <td>Processed using one loop.</td>
+          <td>Usually processed using nested loops.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Common Mistakes in 2-D Arrays</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Correct Understanding</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Starting indexes from 1</td>
+          <td>Both row and column indexes start from 0.</td>
+        </tr>
+
+        <tr>
+          <td>Using wrong row/column limit</td>
+          <td>For <code>[3][4]</code>, rows are 0–2 and columns are 0–3.</td>
+        </tr>
+
+        <tr>
+          <td>Using one loop only</td>
+          <td>Nested loops are normally used for complete traversal.</td>
+        </tr>
+
+        <tr>
+          <td>Confusing <code>matrix[i][j]</code></td>
+          <td>First index represents row, second represents column.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Points for Exam</h2>
+
+  <ul>
+    <li>A 2-D array stores data in rows and columns.</li>
+    <li>Two indexes are used to access an element.</li>
+    <li>Both indexes start from 0 in C.</li>
+    <li>Nested loops are commonly used to process a 2-D array.</li>
+    <li>Matrix addition requires matrices of the same dimensions.</li>
+    <li>For <code>matrix[rows][columns]</code>, valid row indexes are
+        <code>0</code> to <code>rows - 1</code> and column indexes are
+        <code>0</code> to <code>columns - 1</code>.</li>
+  </ul>
+
+
+  <div class="simple-box">
+    🎯 <strong>Easy Rule:</strong><br><br>
+    <strong>Outer loop → Row</strong><br>
+    <strong>Inner loop → Column</strong><br>
+    <strong>matrix[row][column]</strong>
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><strong>2-D Array</strong></td>
+          <td>Data arranged in rows and columns.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Declaration</strong></td>
+          <td><code>data_type name[rows][columns];</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Access</strong></td>
+          <td><code>array[row][column]</code></td>
+        </tr>
+
+        <tr>
+          <td><strong>Indexing</strong></td>
+          <td>Starts from 0 for both dimensions.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Traversal</strong></td>
+          <td>Usually done with nested loops.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Matrix Addition</strong></td>
+          <td>Add corresponding elements.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>What is a two-dimensional array?</li>
+    <li>Write the syntax for declaring a 2-D array.</li>
+    <li>How are elements of a 2-D array accessed?</li>
+    <li>What are rows and columns in a 2-D array?</li>
+    <li>Why are nested loops used with 2-D arrays?</li>
+    <li>What is the last valid row index of an array declared as <code>int a[3][4]</code>?</li>
+    <li>What is the last valid column index of an array declared as <code>int a[3][4]</code>?</li>
+    <li>What is matrix addition?</li>
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+    <li>
+      Define a two-dimensional array and explain its declaration,
+      initialization and indexing with examples.
+    </li>
+
+    <li>
+      Explain how nested loops are used to input and display a 2-D array.
+    </li>
+
+    <li>
+      Write a C program to read and display a 2 × 3 matrix.
+    </li>
+
+    <li>
+      Write a C program to add two matrices.
+    </li>
+
+    <li>
+      Differentiate between one-dimensional and two-dimensional arrays.
+    </li>
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of 2-D arrays,
+        rows, columns and matrix operations in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=2D+array+matrix+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: 2-D Arrays in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for 2-D arrays,
+        indexing and matrix operations will be provided here.
+      </p>
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of rows, columns,
+        indexing, traversal and matrix addition.
+      </p>
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m3-arrays-1d/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m3-character-arrays-strings/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

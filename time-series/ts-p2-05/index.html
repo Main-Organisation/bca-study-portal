@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P2.05 Numerical Description | Time Series</title>
+ <meta name="description" content="Compute numerical summaries of a quarterly profit series and relate them to the plot." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p2-05/" />
+ <meta property="og:title" content="P2.05 Numerical Description" />
+ <meta property="og:description" content="Compute numerical summaries of a quarterly profit series and relate them to the plot." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p2-05/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P2.05 Numerical Description" />
+ <meta name="twitter:description" content="Compute numerical summaries of a quarterly profit series and relate them to the plot." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P2.05 Numerical Description","item":"https://bcastudyportal.in/time-series/ts-p2-05/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p2-05/","name":"P2.05 Numerical Description","description":"Compute numerical summaries of a quarterly profit series and relate them to the plot.","mainEntity":{"@type":"CreativeWork","name":"P2.05 Numerical Description","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P2.05 Numerical Description</div>
+  <div class="meta">Subject: Time Series • Module: 2 Time Series Analysis and Components • Type: Practical</div>
+  <h1>P2.05 Numerical Description</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P2.05 Numerical Description</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Compute numerical summaries of a quarterly profit series and relate them to the plot.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Report mean, median, min, max and standard deviation.</li><li>Say what a large standard deviation means for forecasting.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Numerical description summarises level and spread. For time series, summaries ignore order unless you also compute growth rates or split by season.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Constructed 8 quarterly profits: 12, 15, 14, 18, 20, 19, 23, 25.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import pandas as pd
+
+idx = pd.period_range("2024Q1", periods=8, freq="Q")
+profit = pd.Series([12, 15, 14, 18, 20, 19, 23, 25], index=idx, name="profit")
+print(profit.describe())
+print("Range:", profit.max() - profit.min())</div>
+
+  <h3>Expected Output</h3>
+  <p>A describe() table for these eight numbers, including mean and std, plus the range 13.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>The mean sits near the middle of a rising series, so it is a poor description of the latest level. Spread matters because a wider series is harder to forecast tightly.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>A single mean can mislead when the series has a trend. Always pair numbers with a plot.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p2-04/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p2-06/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

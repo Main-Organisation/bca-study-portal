@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Recursion — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program using recursion to calculate the factorial of a number." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m3-recursion/" />
+ <meta property="og:title" content="Recursion — Exercises" />
+ <meta property="og:description" content="Write a C program using recursion to calculate the factorial of a number." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m3-recursion/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Recursion — Exercises" />
+ <meta name="twitter:description" content="Write a C program using recursion to calculate the factorial of a number." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Recursion — Exercises","item":"https://bcastudyportal.in/c-programming/s-m3-recursion/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m3-recursion/","name":"Recursion — Exercises","description":"Write a C program using recursion to calculate the factorial of a number.","mainEntity":{"@type":"CreativeWork","name":"Recursion — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Recursion — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Practical</div>
+  <h1>Recursion — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Recursion — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to calculate the factorial of a number.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+long long factorial(int n)
+{
+    // Base case
+    if (n &lt;= 1)
+        return 1;
+
+    // Recursive call
+    return n * factorial(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;n);
+
+    printf("Factorial = %lld\n", factorial(n));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Recursion occurs when a function calls itself. Every recursive function
+    must have a base case to stop further calls. Here, <code>n &lt;= 1</code>
+    is the base case.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p><strong>Factorial = 120</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to calculate the sum of the first
+    N natural numbers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int sumNatural(int n)
+{
+    // Base case
+    if (n == 0)
+        return 0;
+
+    // Recursive call
+    return n + sumNatural(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    printf("Sum = %d\n", sumNatural(n));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function reduces the problem by one value in every call.
+    When <code>n</code> becomes zero, recursion stops.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter N: 5</p>
+    <p><strong>Sum = 15</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to generate the first N Fibonacci terms using recursion.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int fibonacci(int n)
+{
+    // Base cases
+    if (n == 0)
+        return 0;
+
+    if (n == 1)
+        return 1;
+
+    // Recursive calls
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main()
+{
+    int n, i;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &amp;n);
+
+    printf("Fibonacci series: ");
+
+    // Generate Fibonacci terms
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("%d ", fibonacci(i));
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each Fibonacci term is obtained by adding the previous two terms.
+    The first two terms form the base cases of the recursive function.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of terms: 7</p>
+    <p><strong>Fibonacci series: 0 1 1 2 3 5 8</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to calculate the power of a number.
+    Calculate <code>base<sup>exponent</sup></code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+long long power(int base, int exponent)
+{
+    // Base case
+    if (exponent == 0)
+        return 1;
+
+    // Recursive multiplication
+    return base * power(base, exponent - 1);
+}
+
+int main()
+{
+    int base, exponent;
+
+    printf("Enter base and exponent: ");
+    scanf("%d %d", &amp;base, &amp;exponent);
+
+    printf("Result = %lld\n", power(base, exponent));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The exponent is reduced by one during every recursive call.
+    When the exponent becomes zero, the function returns 1.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter base and exponent: 2 5</p>
+    <p><strong>Result = 32</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to calculate the sum of digits
+    of an integer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int sumDigits(int n)
+{
+    // Base case
+    if (n == 0)
+        return 0;
+
+    // Add last digit and process remaining digits
+    return (n % 10) + sumDigits(n / 10);
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    if (num &lt; 0)
+        num = -num;
+
+    printf("Sum of digits = %d\n", sumDigits(num));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The last digit is extracted using <code>% 10</code>, while
+    <code>n / 10</code> removes that digit before the next recursive call.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 4527</p>
+    <p><strong>Sum of digits = 18</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to calculate the greatest common
+    divisor (GCD) of two numbers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int gcd(int a, int b)
+{
+    // Base case
+    if (b == 0)
+        return a;
+
+    // Recursive Euclidean algorithm
+    return gcd(b, a % b);
+}
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("GCD = %d\n", gcd(a, b));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The Euclidean algorithm repeatedly replaces the pair with
+    <code>(b, a % b)</code>. Recursion stops when the second value becomes zero.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 48 18</p>
+    <p><strong>GCD = 6</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to print the numbers from N down to 1.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void printDescending(int n)
+{
+    // Stop when n reaches zero
+    if (n == 0)
+        return;
+
+    printf("%d ", n);
+
+    // Recursive call with smaller value
+    printDescending(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    printf("Numbers: ");
+    printDescending(n);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function prints the current value before making the next recursive
+    call. Recursion ends when <code>n</code> becomes zero.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter N: 5</p>
+    <p><strong>Numbers: 5 4 3 2 1</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to reverse the digits of a number.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void reverseNumber(int n)
+{
+    // Print last digit
+    printf("%d", n % 10);
+
+    // Continue with remaining digits
+    if (n &gt;= 10)
+    {
+        reverseNumber(n / 10);
+    }
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    if (num &lt; 0)
+        num = -num;
+
+    printf("Reversed number = ");
+
+    if (num == 0)
+        printf("0");
+    else
+        reverseNumber(num);
+
+    printf("\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function prints the last digit first and then recursively processes
+    the remaining digits. This naturally produces the digits in reverse order.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12345</p>
+    <p><strong>Reversed number = 54321</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to calculate the sum of elements
+    of a one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int arraySum(int arr[], int n)
+{
+    // Base case
+    if (n == 0)
+        return 0;
+
+    // Add last element and process remaining elements
+    return arr[n - 1] + arraySum(arr, n - 1);
+}
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    printf("Sum = %d\n", arraySum(arr, n));
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function processes one array element at a time. The problem size
+    decreases from <code>n</code> to <code>n - 1</code> until no elements remain.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 30 15 25</p>
+    <p><strong>Sum = 100</strong></p>
+  </div>
+  
+
+  <h2>Recursion — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using recursion to convert a decimal number
+    into its binary representation.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void decimalToBinary(int n)
+{
+    // Process higher-order bits first
+    if (n &gt; 1)
+    {
+        decimalToBinary(n / 2);
+    }
+
+    // Display the current binary digit
+    printf("%d", n % 2);
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a decimal number: ");
+    scanf("%d", &amp;num);
+
+    if (num == 0)
+    {
+        printf("Binary = 0\n");
+    }
+    else
+    {
+        printf("Binary = ");
+        decimalToBinary(num);
+        printf("\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function repeatedly divides the decimal number by 2 using recursion.
+    The digits are printed while the recursive calls return, producing the
+    binary representation in the correct order.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a decimal number: 13</p>
+    <p><strong>Binary = 1101</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m3-nested-functions/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m4-introduction/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

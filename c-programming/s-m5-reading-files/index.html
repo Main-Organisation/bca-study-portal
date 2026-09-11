@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Reading from Files — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to open a text file in read mode and display its     contents character by character using fgetc()." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m5-reading-files/" />
+ <meta property="og:title" content="Reading from Files — Exercises" />
+ <meta property="og:description" content="Write a C program to open a text file in read mode and display its     contents character by character using fgetc()." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m5-reading-files/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Reading from Files — Exercises" />
+ <meta name="twitter:description" content="Write a C program to open a text file in read mode and display its     contents character by character using fgetc()." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Reading from Files — Exercises","item":"https://bcastudyportal.in/c-programming/s-m5-reading-files/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m5-reading-files/","name":"Reading from Files — Exercises","description":"Write a C program to open a text file in read mode and display its     contents character by character using fgetc().","mainEntity":{"@type":"CreativeWork","name":"Reading from Files — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Reading from Files — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Practical</div>
+  <h1>Reading from Files — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Reading from Files — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to open a text file in read mode and display its
+    contents character by character using <code>fgetc()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("data.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    printf("File contents:\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>fgetc()</code> function reads one character at a time from
+    the file. Reading continues until the end-of-file indicator
+    <code>EOF</code> is reached.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>Welcome to C Programming.</p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read a line from a text file using
+    <code>fgets()</code> and display it.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char line[100];
+
+    fp = fopen("data.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    if (fgets(line, sizeof(line), fp) != NULL)
+    {
+        printf("First line:\n");
+        printf("%s", line);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>fgets()</code> function reads a line or a specified maximum
+    number of characters from a file. It is useful for line-based text reading.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>First line:</strong></p>
+    <p>Welcome to C Programming.</p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read a file line by line using <code>fgets()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char line[100];
+
+    fp = fopen("notes.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    printf("File contents:\n");
+
+    while (fgets(line, sizeof(line), fp) != NULL)
+    {
+        printf("%s", line);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The loop repeatedly calls <code>fgets()</code> until it returns
+    <code>NULL</code>, allowing the complete text file to be read one
+    line at a time.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>C Programming</p>
+    <p>Pointers</p>
+    <p>Structures</p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read integer values from a text file using
+    <code>fscanf()</code> and calculate their sum.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int sum = 0;
+
+    fp = fopen("numbers.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    while (fscanf(fp, "%d", &amp;number) == 1)
+    {
+        sum += number;
+    }
+
+    fclose(fp);
+
+    printf("Sum = %d\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    <code>fscanf()</code> reads formatted data from a file. Here, each
+    integer is read and added to <code>sum</code> until no more integers
+    can be read.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>The file contains:</p>
+    <p>10 20 30 40 50</p>
+    <p><strong>Sum = 150</strong></p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of characters present in a text
+    file using <code>fgetc()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+    int count = 0;
+
+    fp = fopen("data.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        count++;
+    }
+
+    fclose(fp);
+
+    printf("Number of characters = %d\n", count);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Every successful call to <code>fgetc()</code> returns one character.
+    The program increments a counter for each character until
+    <code>EOF</code> is encountered.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>If the file contains:</p>
+    <p>Hello</p>
+    <p><strong>Number of characters = 5</strong></p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of lines in a text file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+    int lines = 0;
+
+    fp = fopen("notes.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        if (ch == '
+')
+        {
+            lines++;
+        }
+    }
+
+    fclose(fp);
+
+    printf("Number of lines = %d\n", lines);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each newline character represents the end of a line. The program counts
+    newline characters while reading the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>If the file contains 4 lines,</p>
+    <p><strong>Number of lines = 4</strong></p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read student records containing roll number,
+    name and marks from a file using <code>fscanf()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+    float marks;
+
+    fp = fopen("students.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    printf("Student Records:\n");
+
+    while (fscanf(fp, "%d %49s %f",
+                  &amp;roll,
+                  name,
+                  &amp;marks) == 3)
+    {
+        printf("Roll = %d\n", roll);
+        printf("Name = %s\n", name);
+        printf("Marks = %.2f\n", marks);
+        printf("------------------\n");
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Formatted records can be read from a text file using
+    <code>fscanf()</code>. The loop continues only when all three expected
+    values are successfully read.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Student Records:</strong></p>
+    <p>Roll = 101</p>
+    <p>Name = Rahul</p>
+    <p>Marks = 88.00</p>
+    <p>------------------</p>
+    <p>Roll = 102</p>
+    <p>Name = Priya</p>
+    <p>Marks = 92.00</p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to search for a particular word in a text file
+    using line-by-line reading.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char line[200];
+    char word[50];
+    int found = 0;
+
+    fp = fopen("notes.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    printf("Enter word to search: ");
+    scanf("%49s", word);
+
+    while (fgets(line, sizeof(line), fp) != NULL)
+    {
+        if (strstr(line, word) != NULL)
+        {
+            found = 1;
+            break;
+        }
+    }
+
+    fclose(fp);
+
+    if (found)
+        printf("Word found in file.\n");
+    else
+        printf("Word not found.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The file is read line by line and <code>strstr()</code> checks whether
+    the searched word occurs within the current line.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter word to search: pointer</p>
+    <p><strong>Word found in file.</strong></p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest integer stored in a text file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int largest;
+
+    fp = fopen("numbers.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    if (fscanf(fp, "%d", &amp;largest) != 1)
+    {
+        printf("No numbers found in file.\n");
+        fclose(fp);
+        return 0;
+    }
+
+    while (fscanf(fp, "%d", &amp;number) == 1)
+    {
+        if (number &gt; largest)
+        {
+            largest = number;
+        }
+    }
+
+    fclose(fp);
+
+    printf("Largest number = %d\n", largest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The first number is used as the initial largest value. Every remaining
+    number is then compared with it, and the largest value is updated when
+    necessary.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>The file contains:</p>
+    <p>25 80 15 92 47</p>
+    <p><strong>Largest number = 92</strong></p>
+  </div>
+  
+
+  <h2>Reading from Files — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read a student result file and calculate the
+    average marks of all students stored in it.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+    float marks;
+    float total = 0;
+    float average;
+    int count = 0;
+
+    fp = fopen("results.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    while (fscanf(fp, "%d %49s %f",
+                  &amp;roll,
+                  name,
+                  &amp;marks) == 3)
+    {
+        total += marks;
+        count++;
+    }
+
+    fclose(fp);
+
+    if (count == 0)
+    {
+        printf("No records found.\n");
+        return 0;
+    }
+
+    average = total / count;
+
+    printf("Number of students = %d\n", count);
+    printf("Average marks = %.2f\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program reads each student record from the file, adds the marks
+    to <code>total</code>, counts the records and finally calculates the
+    average marks.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>If the file contains 3 student records with marks 80, 90 and 85:</p>
+    <p><strong>Number of students = 3</strong></p>
+    <p><strong>Average marks = 85.00</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m5-file-modes/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m5-writing-files/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

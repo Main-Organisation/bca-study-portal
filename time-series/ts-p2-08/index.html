@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P2.08 Unusual Observations | Time Series</title>
+ <meta name="description" content="Detect an unusual month in a demand series and discuss whether to adjust it before a simple forecast." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p2-08/" />
+ <meta property="og:title" content="P2.08 Unusual Observations" />
+ <meta property="og:description" content="Detect an unusual month in a demand series and discuss whether to adjust it before a simple forecast." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p2-08/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P2.08 Unusual Observations" />
+ <meta name="twitter:description" content="Detect an unusual month in a demand series and discuss whether to adjust it before a simple forecast." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P2.08 Unusual Observations","item":"https://bcastudyportal.in/time-series/ts-p2-08/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p2-08/","name":"P2.08 Unusual Observations","description":"Detect an unusual month in a demand series and discuss whether to adjust it before a simple forecast.","mainEntity":{"@type":"CreativeWork","name":"P2.08 Unusual Observations","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P2.08 Unusual Observations</div>
+  <div class="meta">Subject: Time Series • Module: 2 Time Series Analysis and Components • Type: Practical</div>
+  <h1>P2.08 Unusual Observations</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P2.08 Unusual Observations</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Detect an unusual month in a demand series and discuss whether to adjust it before a simple forecast.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Flag an observation that breaks the local pattern.</li><li>State a transparent adjustment option.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Unusual observations may be errors or genuine shocks. Adjustment is a judgement: replacing a known strike month by a neighbour can help a short-term forecast, but it must be documented.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Monthly demand 40, 42, 41, 43, 12, 45, 46. The 12 is a simulated disruption.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import pandas as pd
+
+idx = pd.date_range("2025-01-01", periods=7, freq="MS")
+y = pd.Series([40, 42, 41, 43, 12, 45, 46], index=idx)
+median = y.median()
+flag = y[y < median - 10]
+print("Flagged:", flag)
+
+adjusted = y.copy()
+adjusted.loc[flag.index] = y.drop(flag.index).mean()
+print(pd.DataFrame({"original": y, "adjusted": adjusted.round(1)}))</div>
+
+  <h3>Expected Output</h3>
+  <p>The month with 12 is flagged. The adjusted table replaces it by the mean of the other months.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>If the 12 was a one-off closure, adjustment may be reasonable for studying the usual level. If it can happen again, the shock is part of the risk and should not be hidden.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Never silently delete a shock. Record why an adjustment was made.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p2-07/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p2-09/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

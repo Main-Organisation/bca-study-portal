@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Model Adequacy Checking | Time Series</title>
+ <meta name="description" content="Model adequacy checking asks whether a fitted     regression is a reasonable description of the data, not only whether     coefficients could be computed. The main tools are residuals:     their centre, spread, plots against fitted values or time, and     (for time series) residual autocorrelation. Fitting and checking     are separate jobs." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-model-adequacy/" />
+ <meta property="og:title" content="Model Adequacy Checking" />
+ <meta property="og:description" content="Model adequacy checking asks whether a fitted     regression is a reasonable description of the data, not only whether     coefficients could be computed. The main tools are residuals:     their centre, spread, plots against fitted values or time, and     (for time series) residual autocorrelation. Fitting and checking     are separate jobs." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-model-adequacy/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Model Adequacy Checking" />
+ <meta name="twitter:description" content="Model adequacy checking asks whether a fitted     regression is a reasonable description of the data, not only whether     coefficients could be computed. The main tools are residuals:     their centre, spread, plots against fitted values or time, and     (for time series) residual autocorrelation. Fitting and checking     are separate jobs." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Model Adequacy Checking","item":"https://bcastudyportal.in/time-series/ts-model-adequacy/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-model-adequacy/","name":"Model Adequacy Checking","description":"Model adequacy checking asks whether a fitted     regression is a reasonable description of the data, not only whether     coefficients could be computed. The main tools are residuals:     their centre, spread, plots against fitted values or time, and     (for time series) residual autocorrelation. Fitting and checking     are separate jobs.","mainEntity":{"@type":"CreativeWork","name":"Model Adequacy Checking","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Model Adequacy Checking</div>
+  <div class="meta">Subject: Time Series • Module: 5 Time Series Regression Model • Type: Notes</div>
+  <h1>Model Adequacy Checking</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Model Adequacy Checking</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Model adequacy checking</strong> asks whether a fitted
+    regression is a reasonable description of the data, not only whether
+    coefficients could be computed. The main tools are residuals:
+    their centre, spread, plots against fitted values or time, and
+    (for time series) residual autocorrelation. Fitting and checking
+    are separate jobs.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Electricity demand regressed on temperature may show a straight
+      line in-sample, yet residuals that still rise on Mondays or that
+      have a strong lag-1 ACF. The line is not adequate until those
+      leftover patterns are addressed (extra predictors, GLS-type
+      errors, or another structure).
+    </p>
+  </div>
+
+
+  <h2>What to Inspect</h2>
+
+  <ul>
+    <li><strong>Residual centre:</strong> residuals should scatter around zero, not a large systematic offset.</li>
+    <li><strong>Residual variance:</strong> the vertical spread should not fan out or collapse in a clear way.</li>
+    <li><strong>Residual vs fitted plot:</strong> a healthy plot looks like unstructured scatter about a horizontal zero line. Curves, funnels or stripes are warnings.</li>
+    <li><strong>Normal Q-Q plot (introductory):</strong> ordered residuals versus expected normal scores. A roughly straight pattern supports a normal-error story; clear bends suggest heavy tails or skew. It is a guide, not a proof.</li>
+    <li><strong>Residual autocorrelation:</strong> leftover ACF at lag 1 (or lag m) means time dependence was not captured.</li>
+    <li><strong>Outliers / unusual points:</strong> one far residual or one far-x point can pull OLS. Investigate; do not delete automatically.</li>
+  </ul>
+
+  <p>
+    A plot that “looks random” is encouraging, not a certificate of a
+    perfect model. Always combine plots with subject knowledge and,
+    for time series, with residual ACF.
+  </p>
+
+
+  <h2>Diagnostic Flow</h2>
+
+  <div class="note-flow">Fit Model
+  ↓
+Calculate Residuals
+  ↓
+Plot Residuals
+  ↓
+Check Pattern
+  ↓
+Check Autocorrelation
+  ↓
+Assess Adequacy
+  ↓
+Improve Model if Needed</div>
+
+  <p>
+    Residual autocorrelation is especially important in this subject:
+    it is a sign that the regression has not captured time dependence
+    adequately. Ordinary t-tests and prediction intervals then need
+    doubt until the leftover dependence is reduced or modelled.
+  </p>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>Adequacy checking is not the same as fitting coefficients.</li>
+    <li>Look at residual vs fitted, time order, Q-Q (introductory) and residual ACF.</li>
+    <li>Random-looking residuals help; they do not prove the model is perfect.</li>
+    <li>Autocorrelated residuals warn that time structure remains.</li>
+  </ol>
+
+  
+
+
+  <h2>Residual Plots in a Small Python Check</h2>
+
+  <h2>What the Student Should Expect</h2>
+
+  <p>
+    Constructed y = 2 + 0.5x plus noise. Expected display: residuals
+    scattered about zero against fitted values, and a residual ACF that
+    is not a large, persistent lag-1 spike for this independent-noise
+    construction. If you later add a leftover trend, the ACF should
+    look more persistent — compare the two runs yourself.
+  </p>
+
+  <div class="program-code notranslate" data-language="python">
+# Import libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from statsmodels.graphics.tsaplots import plot_acf
+
+# Load / prepare a constructed teaching series
+rng = np.random.default_rng(7)
+x = np.arange(1, 41)
+y = 2 + 0.5 * x + rng.normal(scale=1.0, size=40)
+X = sm.add_constant(x)
+fit = sm.OLS(y, X).fit()
+resid = fit.resid
+
+# Residual vs fitted
+plt.axhline(0, linestyle="--")
+plt.scatter(fit.fittedvalues, resid)
+plt.xlabel("Fitted")
+plt.ylabel("Residual")
+plt.title("Residual vs fitted (constructed OLS)")
+plt.tight_layout()
+plt.show()
+
+# Residual autocorrelation
+plot_acf(resid, lags=10)
+plt.title("Residual ACF")
+plt.tight_layout()
+plt.show()
+  </div>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>Plot residuals against fitted values and against time.</li>
+    <li>Use residual ACF when the data are a time series.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-prediction/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-variable-selection/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

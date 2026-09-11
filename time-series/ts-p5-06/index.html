@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P5.06 Bayesian Forecasting Idea | Time Series</title>
+ <meta name="description" content="Forecast the next mean of a small series using a beginner Bayesian update: a prior guess for the mean, a likelihood from the data, and a posterior mean used as the forecast. Keep the mathematics light." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p5-06/" />
+ <meta property="og:title" content="P5.06 Bayesian Forecasting Idea" />
+ <meta property="og:description" content="Forecast the next mean of a small series using a beginner Bayesian update: a prior guess for the mean, a likelihood from the data, and a posterior mean used as the forecast. Keep the mathematics light." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p5-06/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P5.06 Bayesian Forecasting Idea" />
+ <meta name="twitter:description" content="Forecast the next mean of a small series using a beginner Bayesian update: a prior guess for the mean, a likelihood from the data, and a posterior mean used as the forecast. Keep the mathematics light." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P5.06 Bayesian Forecasting Idea","item":"https://bcastudyportal.in/time-series/ts-p5-06/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p5-06/","name":"P5.06 Bayesian Forecasting Idea","description":"Forecast the next mean of a small series using a beginner Bayesian update: a prior guess for the mean, a likelihood from the data, and a posterior mean used as the forecast. Keep the mathematics light.","mainEntity":{"@type":"CreativeWork","name":"P5.06 Bayesian Forecasting Idea","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P5.06 Bayesian Forecasting Idea</div>
+  <div class="meta">Subject: Time Series • Module: 5 Time Series Regression Model • Type: Practical</div>
+  <h1>P5.06 Bayesian Forecasting Idea</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P5.06 Bayesian Forecasting Idea</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Forecast the next mean of a small series using a beginner Bayesian update: a prior guess for the mean, a likelihood from the data, and a posterior mean used as the forecast. Keep the mathematics light.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>State prior, likelihood and posterior in words.</li><li>Combine a prior mean with the sample mean.</li><li>Interpret the posterior mean as a shrinkage forecast.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Bayesian forecasting starts with a prior belief about an unknown quantity, updates that belief with the likelihood of the observed data, and uses the posterior for prediction. In the simplest normal-mean teaching case, the posterior mean is a weighted average of the prior mean and the sample mean. More data pulls the forecast toward the sample. A strong prior pulls it toward the guess. This practical does not develop MCMC or full Bayesian VARs.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Ten demand observations: 30, 32, 31, 29, 33, 30, 31, 28, 32, 30. Prior guess: mean 35 with modest confidence, as if last year ran hotter. Teaching numbers.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import numpy as np
+
+y = np.array([30, 32, 31, 29, 33, 30, 31, 28, 32, 30], dtype=float)
+# Prior: mean m0, strength n0 (like prior sample size)
+m0, n0 = 35.0, 4
+# Likelihood: sample mean with n observations
+n = len(y)
+ybar = y.mean()
+# Posterior mean for a simple normal-mean teaching update
+n1 = n0 + n
+m1 = (n0 * m0 + n * ybar) / n1
+print("Sample mean (likelihood summary):", round(ybar, 3))
+print("Prior mean:", m0)
+print("Posterior mean (forecast of the level):", round(m1, 3))
+print("Weight on data:", round(n / n1, 3), "weight on prior:", round(n0 / n1, 3))</div>
+
+  <h3>Expected Output</h3>
+  <p>Printed sample mean near 30.6, prior 35, and a posterior mean between them, closer to the data because n = 10 is larger than n0 = 4. The exact posterior equals (4×35 + 10×ȳ) / 14.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>The forecast of the level shrinks the sample mean toward 35. That is the Bayesian idea in one number: combine prior and data. A full Bayesian time-series model would also put priors on persistence and seasonality; this lab only introduces the update.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>A Bayesian forecast combines a prior with the likelihood. The posterior mean shrinks the sample toward the prior.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p5-05/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-multivariate-models/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

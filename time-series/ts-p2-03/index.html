@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P2.03 Moving Average Smoothing | Time Series</title>
+ <meta name="description" content="Apply a 3-month moving average to a noisy monthly series and explain what smoothing does." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p2-03/" />
+ <meta property="og:title" content="P2.03 Moving Average Smoothing" />
+ <meta property="og:description" content="Apply a 3-month moving average to a noisy monthly series and explain what smoothing does." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p2-03/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P2.03 Moving Average Smoothing" />
+ <meta name="twitter:description" content="Apply a 3-month moving average to a noisy monthly series and explain what smoothing does." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P2.03 Moving Average Smoothing","item":"https://bcastudyportal.in/time-series/ts-p2-03/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p2-03/","name":"P2.03 Moving Average Smoothing","description":"Apply a 3-month moving average to a noisy monthly series and explain what smoothing does.","mainEntity":{"@type":"CreativeWork","name":"P2.03 Moving Average Smoothing","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P2.03 Moving Average Smoothing</div>
+  <div class="meta">Subject: Time Series • Module: 2 Time Series Analysis and Components • Type: Practical</div>
+  <h1>P2.03 Moving Average Smoothing</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P2.03 Moving Average Smoothing</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Apply a 3-month moving average to a noisy monthly series and explain what smoothing does.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Compute a simple moving average.</li><li>Explain the purpose and a limitation of smoothing.</li></ul>
+
+  <h3>Hint</h3>
+  <p>pandas rolling(window=3).mean() is a simple moving average.</p>
+
+  <h3>Theory</h3>
+  <p>Smoothing reduces short-term fluctuation so the underlying movement is easier to see. A moving average replaces each point by the mean of neighbouring points. It can hide sudden genuine shocks.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Constructed 12 monthly values with noise. Teaching data.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import pandas as pd
+import matplotlib.pyplot as plt
+
+idx = pd.date_range("2025-01-01", periods=12, freq="MS")
+y = pd.Series([10, 13, 11, 16, 15, 20, 18, 22, 21, 25, 24, 28], index=idx)
+smooth = y.rolling(window=3, center=True).mean()
+
+y.plot(marker="o", label="original")
+smooth.plot(marker="o", label="3-month MA")
+plt.legend()
+plt.title("Moving average smoothing")
+plt.tight_layout()
+plt.show()
+print(pd.DataFrame({"y": y, "ma3": smooth.round(2)}))</div>
+
+  <h3>Expected Output</h3>
+  <p>A table of original and smoothed values. End points of a centred MA are missing. The smoothed line is less jagged.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>The moving average follows the rise but damps month-to-month jumps. Students should notice lost sharpness at turning points.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>A moving average reduces short-term fluctuations but may hide sudden changes.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p2-02/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p2-04/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

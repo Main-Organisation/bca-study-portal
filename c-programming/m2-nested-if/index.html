@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Control Structures: nested if | C Programming</title>
+ <meta name="description" content="Definition: A nested if statement is     an if statement placed inside another if statement.     It is used when a second condition needs to be checked only after the     first condition is true." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m2-nested-if/" />
+ <meta property="og:title" content="Control Structures: nested if" />
+ <meta property="og:description" content="Definition: A nested if statement is     an if statement placed inside another if statement.     It is used when a second condition needs to be checked only after the     first condition is true." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m2-nested-if/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Control Structures: nested if" />
+ <meta name="twitter:description" content="Definition: A nested if statement is     an if statement placed inside another if statement.     It is used when a second condition needs to be checked only after the     first condition is true." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Control Structures: nested if","item":"https://bcastudyportal.in/c-programming/m2-nested-if/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m2-nested-if/","name":"Control Structures: nested if","description":"Definition: A nested if statement is     an if statement placed inside another if statement.     It is used when a second condition needs to be checked only after the     first condition is true.","mainEntity":{"@type":"CreativeWork","name":"Control Structures: nested if","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Control Structures: nested if</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Notes</div>
+  <h1>Control Structures: nested if</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Nested if Statement in C</h2>
+
+  <p>
+    <strong>Definition:</strong> A nested <strong>if</strong> statement is
+    an <strong>if statement placed inside another if statement</strong>.
+    It is used when a second condition needs to be checked only after the
+    first condition is true.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>In simple words:</strong>
+    First, C checks the outer <strong>if</strong> condition. If it is true,
+    the inner <strong>if</strong> condition is checked.
+  </div>
+
+  <h3>Syntax</h3>
+
+  <pre class="program-code"><code>if (condition1)
+{
+    if (condition2)
+    {
+        // statements
+    }
+}</code></pre>
+
+  <h3>How Nested if Works</h3>
+
+  <p>
+    In a nested <strong>if</strong>, one condition is placed inside another
+    condition. The inner condition is checked only when the outer condition
+    is true.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    Suppose we want to check whether a student has passed and then check
+    whether the student has scored more than 75 marks.
+  </div>
+
+  <h3>Example</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks = 80;
+
+    if (marks &gt;= 40)
+    {
+        if (marks &gt;= 75)
+        {
+            printf("Student passed with distinction.");
+        }
+    }
+
+    return 0;
+}</code></pre>
+
+  <h3>Output</h3>
+
+  <pre class="output-box">Student passed with distinction.</pre>
+
+  <h3>Nested if for Multiple Conditions</h3>
+
+  <p>
+    Nested <strong>if</strong> statements can be used when more than one
+    condition must be checked step by step.
+  </p>
+
+  <div class="simple-box">
+    💡 <strong>Example:</strong>
+    To find the largest among three numbers, first compare the first two
+    numbers. Then compare the larger number with the third number.
+  </div>
+
+  <h3>Practical Example — Largest of Three Numbers</h3>
+
+  <pre class="program-code"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c, largest;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if (a &gt; b)
+    {
+        if (a &gt; c)
+            largest = a;
+        else
+            largest = c;
+    }
+    else
+    {
+        if (b &gt; c)
+            largest = b;
+        else
+            largest = c;
+    }
+
+    printf("Largest number = %d", largest);
+
+    return 0;
+}</code></pre>
+
+  <h3>Output</h3>
+
+  <pre class="output-box">Enter three numbers: 25 40 15
+Largest number = 40</pre>
+  
+
+  <h2>Important Points — Nested if</h2>
+
+  <ul>
+    <li>A nested <strong>if</strong> means an <strong>if statement inside another if statement</strong>.</li>
+    <li>The inner <strong>if</strong> is checked only when the outer condition is true.</li>
+    <li>Nested <strong>if</strong> is useful for checking conditions in a step-by-step manner.</li>
+    <li>Multiple levels of nested <strong>if</strong> statements can be used when required.</li>
+    <li>Proper indentation should be used to make nested conditions easy to understand.</li>
+  </ul>
+
+  <h3>Nested if vs if-else</h3>
+
+<div class="note-table-wrap">
+
+  <table class="note-table">
+
+    <thead>
+      <tr>
+        <th>Nested if</th>
+        <th>if-else</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>An if statement is placed inside another if statement.</td>
+        <td>Provides two alternative paths based on a condition.</td>
+      </tr>
+
+      <tr>
+        <td>Useful for dependent or step-by-step conditions.</td>
+        <td>Useful when one of two alternatives must be selected.</td>
+      </tr>
+
+      <tr>
+        <td>Inner condition depends on the outer condition.</td>
+        <td>The else block executes when the if condition is false.</td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+  <h3>Exam Tip</h3>
+
+  <div class="simple-box">
+    🎯 <strong>Remember:</strong>
+    In nested <strong>if</strong>, the inner condition does not execute
+    independently. The program reaches the inner <strong>if</strong> only
+    when the outer <strong>if</strong> condition is satisfied.
+  </div>
+
+  <h3>Quick Revision</h3>
+
+  <p>
+    <strong>Nested if → Outer condition → Inner condition → Statement</strong>
+  </p></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m2-if-else/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m2-switch-case/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Character Arrays and Strings — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to read a string and display the entered string." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m3-character-arrays-strings/" />
+ <meta property="og:title" content="Character Arrays and Strings — Exercises" />
+ <meta property="og:description" content="Write a C program to read a string and display the entered string." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m3-character-arrays-strings/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Character Arrays and Strings — Exercises" />
+ <meta name="twitter:description" content="Write a C program to read a string and display the entered string." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Character Arrays and Strings — Exercises","item":"https://bcastudyportal.in/c-programming/s-m3-character-arrays-strings/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m3-character-arrays-strings/","name":"Character Arrays and Strings — Exercises","description":"Write a C program to read a string and display the entered string.","mainEntity":{"@type":"CreativeWork","name":"Character Arrays and Strings — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Character Arrays and Strings — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Practical</div>
+  <h1>Character Arrays and Strings — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Character Arrays & Strings — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to read a string and display the entered string.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    // Display the entered string
+    printf("You entered: %s\n", str);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A string in C is stored as a character array ending with the null
+    character <code>\0</code>. The <code>%s</code> format specifier is
+    used to read and display a string.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: Hello</p>
+    <p><strong>You entered: Hello</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the length of a string without using
+    the <code>strlen()</code> function.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int i, length = 0;
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    // Count characters until the null character
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        length++;
+    }
+
+    printf("Length = %d\n", length);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The loop continues until the null character is reached.
+    The number of characters counted is the string length.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: Programming</p>
+    <p><strong>Length = 11</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of vowels and consonants
+    in a string.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int i, vowels = 0, consonants = 0;
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    // Examine each character
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == 'a' || str[i] == 'e' ||
+            str[i] == 'i' || str[i] == 'o' ||
+            str[i] == 'u' || str[i] == 'A' ||
+            str[i] == 'E' || str[i] == 'I' ||
+            str[i] == 'O' || str[i] == 'U')
+        {
+            vowels++;
+        }
+        else
+        {
+            consonants++;
+        }
+    }
+
+    printf("Vowels = %d\n", vowels);
+    printf("Consonants = %d\n", consonants);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each character is checked against the vowels. If it matches a vowel,
+    the vowel counter increases; otherwise, it is counted as a consonant.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: Hello</p>
+    <p><strong>Vowels = 2</strong></p>
+    <p><strong>Consonants = 3</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to reverse a string without using a library
+    string-reversal function.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int i, length = 0;
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    // Find the string length
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        length++;
+    }
+
+    printf("Reversed string: ");
+
+    // Print characters from last to first
+    for (i = length - 1; i &gt;= 0; i--)
+    {
+        printf("%c", str[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    First the length of the string is determined. The characters are then
+    displayed from the last index to the first index.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: Computer</p>
+    <p><strong>Reversed string: retupmoC</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a string is a palindrome.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int i, length = 0, palindrome = 1;
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    // Find string length
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        length++;
+    }
+
+    // Compare characters from both ends
+    for (i = 0; i &lt; length / 2; i++)
+    {
+        if (str[i] != str[length - 1 - i])
+        {
+            palindrome = 0;
+            break;
+        }
+    }
+
+    if (palindrome)
+        printf("The string is a palindrome.\n");
+    else
+        printf("The string is not a palindrome.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A palindrome reads the same from left to right and right to left.
+    The program compares corresponding characters from both ends.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: madam</p>
+    <p><strong>The string is a palindrome.</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to copy one string into another without using
+    <code>strcpy()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char source[100], destination[100];
+    int i;
+
+    printf("Enter a string: ");
+    scanf("%99s", source);
+
+    // Copy each character
+    for (i = 0; source[i] != '\0'; i++)
+    {
+        destination[i] = source[i];
+    }
+
+    // Add null character at the end
+    destination[i] = '\0';
+
+    printf("Copied string: %s\n", destination);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each character from the source array is copied to the destination array.
+    The null character is added at the end to properly terminate the string.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: College</p>
+    <p><strong>Copied string: College</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to compare two strings without using <code>strcmp()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str1[100], str2[100];
+    int i, same = 1;
+
+    printf("Enter first string: ");
+    scanf("%99s", str1);
+
+    printf("Enter second string: ");
+    scanf("%99s", str2);
+
+    // Compare characters at corresponding positions
+    for (i = 0; str1[i] != '\0' || str2[i] != '\0'; i++)
+    {
+        if (str1[i] != str2[i])
+        {
+            same = 0;
+            break;
+        }
+    }
+
+    if (same)
+        printf("Strings are equal.\n");
+    else
+        printf("Strings are not equal.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The corresponding characters of both strings are compared one by one.
+    A difference at any position means the strings are not equal.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first string: hello</p>
+    <p>Enter second string: hello</p>
+    <p><strong>Strings are equal.</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of digits, alphabets and
+    special characters in a string.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int i, alphabets = 0, digits = 0, special = 0;
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    // Classify each character
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if ((str[i] &gt;= 'A' &amp;&amp; str[i] &lt;= 'Z') ||
+            (str[i] &gt;= 'a' &amp;&amp; str[i] &lt;= 'z'))
+        {
+            alphabets++;
+        }
+        else if (str[i] &gt;= '0' &amp;&amp; str[i] &lt;= '9')
+        {
+            digits++;
+        }
+        else
+        {
+            special++;
+        }
+    }
+
+    printf("Alphabets = %d\n", alphabets);
+    printf("Digits = %d\n", digits);
+    printf("Special characters = %d\n", special);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each character is classified based on its ASCII character range:
+    alphabetic characters, numeric digits or other characters.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: BCA123@</p>
+    <p><strong>Alphabets = 3</strong></p>
+    <p><strong>Digits = 3</strong></p>
+    <p><strong>Special characters = 1</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of words in a sentence.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[200];
+    int i, words = 0, inWord = 0;
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Identify the beginning of each word
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] != ' ' &amp;&amp; str[i] != '\n' &amp;&amp; str[i] != '\t')
+        {
+            if (inWord == 0)
+            {
+                words++;
+                inWord = 1;
+            }
+        }
+        else
+        {
+            inWord = 0;
+        }
+    }
+
+    printf("Number of words = %d\n", words);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A new word is counted when the program moves from a separator to
+    a non-space character. Spaces, tabs and the newline character act
+    as word separators.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a sentence: C programming is easy</p>
+    <p><strong>Number of words = 4</strong></p>
+  </div>
+  
+
+  <h2>Character Arrays & Strings — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the frequency of a particular character
+    in a string.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100], ch;
+    int i, count = 0;
+
+    printf("Enter a string: ");
+    scanf("%99s", str);
+
+    printf("Enter character to search: ");
+    scanf(" %c", &amp;ch);
+
+    // Count occurrences of the selected character
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == ch)
+        {
+            count++;
+        }
+    }
+
+    printf("Frequency of '%c' = %d\n", ch, count);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program compares every character of the string with the character
+    entered by the user and increments the counter whenever a match occurs.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a string: banana</p>
+    <p>Enter character to search: a</p>
+    <p><strong>Frequency of 'a' = 3</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m3-arrays-2d/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m3-function-types/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

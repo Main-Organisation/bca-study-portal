@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Enumerated Data Types — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create an enumeration for the days of the week     and display a selected day." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m4-enumerated/" />
+ <meta property="og:title" content="Enumerated Data Types — Exercises" />
+ <meta property="og:description" content="Write a C program to create an enumeration for the days of the week     and display a selected day." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m4-enumerated/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Enumerated Data Types — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create an enumeration for the days of the week     and display a selected day." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Enumerated Data Types — Exercises","item":"https://bcastudyportal.in/c-programming/s-m4-enumerated/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m4-enumerated/","name":"Enumerated Data Types — Exercises","description":"Write a C program to create an enumeration for the days of the week     and display a selected day.","mainEntity":{"@type":"CreativeWork","name":"Enumerated Data Types — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Enumerated Data Types — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Practical</div>
+  <h1>Enumerated Data Types — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Enumerated Data Types — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for the days of the week
+    and display a selected day.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Day
+{
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY
+};
+
+int main()
+{
+    enum Day today;
+
+    today = WEDNESDAY;
+
+    printf("Today is day number %d\n", today);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    An enumeration (<code>enum</code>) defines a set of named integer
+    constants. By default, the first enumerator starts with value 0 and
+    subsequent values increase by 1.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Today is day number 2</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for months and display
+    the numeric value of a selected month.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Month
+{
+    JANUARY = 1,
+    FEBRUARY,
+    MARCH,
+    APRIL,
+    MAY,
+    JUNE,
+    JULY,
+    AUGUST,
+    SEPTEMBER,
+    OCTOBER,
+    NOVEMBER,
+    DECEMBER
+};
+
+int main()
+{
+    enum Month month;
+
+    month = AUGUST;
+
+    printf("Month number = %d\n", month);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Enumeration values can also be assigned explicitly. Here,
+    <code>JANUARY</code> is assigned 1, so the following months receive
+    consecutive values.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Month number = 8</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for traffic signal colors
+    and use a switch statement to display the signal meaning.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Signal
+{
+    RED,
+    YELLOW,
+    GREEN
+};
+
+int main()
+{
+    enum Signal signal;
+
+    signal = GREEN;
+
+    switch (signal)
+    {
+        case RED:
+            printf("Stop\n");
+            break;
+
+        case YELLOW:
+            printf("Wait\n");
+            break;
+
+        case GREEN:
+            printf("Go\n");
+            break;
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    An enum can make program logic easier to read by replacing numeric
+    constants with meaningful names. These names can also be used with
+    <code>switch</code> statements.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Go</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for student grades and
+    display the grade selected in the program.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Grade
+{
+    FAIL,
+    PASS,
+    GOOD,
+    VERY_GOOD,
+    EXCELLENT
+};
+
+int main()
+{
+    enum Grade grade;
+
+    grade = EXCELLENT;
+
+    printf("Grade code = %d\n", grade);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Enumeration constants provide meaningful names for integer values.
+    In this example, <code>EXCELLENT</code> represents one of the defined
+    grade categories.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Grade code = 4</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to take a numeric choice from the user and use an
+    enumeration with a switch statement to display the selected operation.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Operation
+{
+    ADD = 1,
+    SUBTRACT,
+    MULTIPLY,
+    DIVIDE
+};
+
+int main()
+{
+    enum Operation op;
+    int choice;
+
+    printf("1. Add\n");
+    printf("2. Subtract\n");
+    printf("3. Multiply\n");
+    printf("4. Divide\n");
+
+    printf("Enter choice: ");
+    scanf("%d", &amp;choice);
+
+    op = (enum Operation)choice;
+
+    switch (op)
+    {
+        case ADD:
+            printf("Addition selected.\n");
+            break;
+
+        case SUBTRACT:
+            printf("Subtraction selected.\n");
+            break;
+
+        case MULTIPLY:
+            printf("Multiplication selected.\n");
+            break;
+
+        case DIVIDE:
+            printf("Division selected.\n");
+            break;
+
+        default:
+            printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Enumeration constants can be used to make menu-driven programs easier
+    to understand. The entered integer is converted to the enumeration type
+    and then processed using <code>switch</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>1. Add</p>
+    <p>2. Subtract</p>
+    <p>3. Multiply</p>
+    <p>4. Divide</p>
+    <p>Enter choice: 3</p>
+    <p><strong>Multiplication selected.</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for account status and
+    display an appropriate message using a switch statement.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum AccountStatus
+{
+    ACTIVE,
+    INACTIVE,
+    BLOCKED,
+    CLOSED
+};
+
+int main()
+{
+    enum AccountStatus status;
+
+    status = BLOCKED;
+
+    switch (status)
+    {
+        case ACTIVE:
+            printf("Account is active.\n");
+            break;
+
+        case INACTIVE:
+            printf("Account is inactive.\n");
+            break;
+
+        case BLOCKED:
+            printf("Account is blocked.\n");
+            break;
+
+        case CLOSED:
+            printf("Account is closed.\n");
+            break;
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Enums are especially useful when a variable can have one of a fixed
+    set of states, such as active, inactive, blocked or closed.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Account is blocked.</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for the four seasons and
+    display the name of the selected season.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Season
+{
+    SPRING,
+    SUMMER,
+    AUTUMN,
+    WINTER
+};
+
+int main()
+{
+    enum Season season;
+
+    season = WINTER;
+
+    switch (season)
+    {
+        case SPRING:
+            printf("Spring season\n");
+            break;
+
+        case SUMMER:
+            printf("Summer season\n");
+            break;
+
+        case AUTUMN:
+            printf("Autumn season\n");
+            break;
+
+        case WINTER:
+            printf("Winter season\n");
+            break;
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    An enumeration is useful when a variable should represent one value
+    from a predefined group. The named constants make the program easier
+    to understand than using unexplained numbers.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Winter season</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for employee departments
+    and display the selected department.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Department
+{
+    HR,
+    SALES,
+    IT,
+    FINANCE
+};
+
+int main()
+{
+    enum Department department;
+
+    department = IT;
+
+    switch (department)
+    {
+        case HR:
+            printf("Human Resources\n");
+            break;
+
+        case SALES:
+            printf("Sales Department\n");
+            break;
+
+        case IT:
+            printf("Information Technology\n");
+            break;
+
+        case FINANCE:
+            printf("Finance Department\n");
+            break;
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Enumeration constants can represent fixed categories such as company
+    departments. The descriptive names make the code easier to read and maintain.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Information Technology</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create an enumeration for payment methods and
+    display the selected payment method.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum PaymentMethod
+{
+    CASH = 1,
+    CARD,
+    UPI,
+    NET_BANKING
+};
+
+int main()
+{
+    enum PaymentMethod payment;
+
+    payment = UPI;
+
+    switch (payment)
+    {
+        case CASH:
+            printf("Payment Method: Cash\n");
+            break;
+
+        case CARD:
+            printf("Payment Method: Card\n");
+            break;
+
+        case UPI:
+            printf("Payment Method: UPI\n");
+            break;
+
+        case NET_BANKING:
+            printf("Payment Method: Net Banking\n");
+            break;
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Enums can represent a fixed set of options in real-world applications.
+    Here, each payment method has a meaningful named constant.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Payment Method: UPI</strong></p>
+  </div>
+  
+
+  <h2>Enumerated Data Types — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a student attendance status using an
+    enumeration and display whether the student is present, absent or on leave.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+enum Attendance
+{
+    PRESENT = 1,
+    ABSENT,
+    ON_LEAVE
+};
+
+void displayAttendance(enum Attendance status)
+{
+    switch (status)
+    {
+        case PRESENT:
+            printf("Student is Present.\n");
+            break;
+
+        case ABSENT:
+            printf("Student is Absent.\n");
+            break;
+
+        case ON_LEAVE:
+            printf("Student is on Leave.\n");
+            break;
+
+        default:
+            printf("Invalid attendance status.\n");
+    }
+}
+
+int main()
+{
+    enum Attendance status;
+
+    status = PRESENT;
+
+    displayAttendance(status);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This example combines an enumeration with a function and a
+    <code>switch</code> statement. The enum clearly represents the limited
+    set of attendance states.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Student is Present.</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m4-bit-fields/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m5-pointer-idea/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

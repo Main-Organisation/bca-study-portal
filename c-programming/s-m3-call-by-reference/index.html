@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Call by Reference — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to change the value of an integer using a function     and demonstrate modification of the original variable." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m3-call-by-reference/" />
+ <meta property="og:title" content="Call by Reference — Exercises" />
+ <meta property="og:description" content="Write a C program to change the value of an integer using a function     and demonstrate modification of the original variable." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m3-call-by-reference/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Call by Reference — Exercises" />
+ <meta name="twitter:description" content="Write a C program to change the value of an integer using a function     and demonstrate modification of the original variable." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Call by Reference — Exercises","item":"https://bcastudyportal.in/c-programming/s-m3-call-by-reference/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m3-call-by-reference/","name":"Call by Reference — Exercises","description":"Write a C program to change the value of an integer using a function     and demonstrate modification of the original variable.","mainEntity":{"@type":"CreativeWork","name":"Call by Reference — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Call by Reference — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Practical</div>
+  <h1>Call by Reference — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Call by Reference — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to change the value of an integer using a function
+    and demonstrate modification of the original variable.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void changeValue(int *n)
+{
+    // Modify the original variable through its address
+    *n = 100;
+}
+
+int main()
+{
+    int num = 20;
+
+    printf("Before function call: %d\n", num);
+
+    // Pass the address of num
+    changeValue(&amp;num);
+
+    printf("After function call: %d\n", num);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives the address of <code>num</code> through a pointer.
+    Using <code>*n</code>, the function accesses and modifies the original variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Before function call: 20</strong></p>
+    <p><strong>After function call: 100</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to swap two numbers using a function and pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b)
+{
+    int temp;
+
+    // Swap the original values
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    int x, y;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    printf("Before swap: x = %d, y = %d\n", x, y);
+
+    // Pass addresses of x and y
+    swap(&amp;x, &amp;y);
+
+    printf("After swap: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The addresses of <code>x</code> and <code>y</code> are passed to the
+    function. Therefore, changes made through the pointers affect the
+    original variables.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 10 20</p>
+    <p><strong>Before swap: x = 10, y = 20</strong></p>
+    <p><strong>After swap: x = 20, y = 10</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to increase a number by 10 using a function and pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void increase(int *n)
+{
+    // Modify the original value
+    *n = *n + 10;
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Pass address of num
+    increase(&amp;num);
+
+    printf("Updated value = %d\n", num);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer parameter stores the address of the original variable.
+    Dereferencing it with <code>*n</code> changes the original value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 25</p>
+    <p><strong>Updated value = 35</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the quotient and remainder of two numbers
+    using a function with pointer parameters.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void divide(int dividend, int divisor, int *quotient, int *remainder)
+{
+    // Store both results through pointers
+    *quotient = dividend / divisor;
+    *remainder = dividend % divisor;
+}
+
+int main()
+{
+    int a, b, quotient, remainder;
+
+    printf("Enter dividend and divisor: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    if (b != 0)
+    {
+        // Pass addresses for output values
+        divide(a, b, &amp;quotient, &amp;remainder);
+
+        printf("Quotient = %d\n", quotient);
+        printf("Remainder = %d\n", remainder);
+    }
+    else
+    {
+        printf("Division by zero is not allowed.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Pointer parameters allow a function to write results directly into
+    variables supplied by the caller. Here, two results are returned
+    through <code>quotient</code> and <code>remainder</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter dividend and divisor: 17 5</p>
+    <p><strong>Quotient = 3</strong></p>
+    <p><strong>Remainder = 2</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest and smallest of two numbers
+    using pointer parameters.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void findValues(int a, int b, int *largest, int *smallest)
+{
+    // Determine largest value
+    if (a &gt; b)
+    {
+        *largest = a;
+        *smallest = b;
+    }
+    else
+    {
+        *largest = b;
+        *smallest = a;
+    }
+}
+
+int main()
+{
+    int x, y, largest, smallest;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    // Pass addresses of result variables
+    findValues(x, y, &amp;largest, &amp;smallest);
+
+    printf("Largest = %d\n", largest);
+    printf("Smallest = %d\n", smallest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The input values are passed normally, while the addresses of the
+    result variables are passed through pointers so the function can
+    store both results directly.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 45 12</p>
+    <p><strong>Largest = 45</strong></p>
+    <p><strong>Smallest = 12</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the total and average of three marks
+    using pointer parameters to return both results.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void calculate(int m1, int m2, int m3, int *total, float *average)
+{
+    // Calculate total
+    *total = m1 + m2 + m3;
+
+    // Calculate average
+    *average = *total / 3.0;
+}
+
+int main()
+{
+    int m1, m2, m3, total;
+    float average;
+
+    printf("Enter three marks: ");
+    scanf("%d %d %d", &amp;m1, &amp;m2, &amp;m3);
+
+    // Pass addresses of output variables
+    calculate(m1, m2, m3, &amp;total, &amp;average);
+
+    printf("Total = %d\n", total);
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function uses pointer parameters to return two values:
+    <code>total</code> and <code>average</code>. This is useful when a
+    function needs to provide multiple results.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter three marks: 70 80 90</p>
+    <p><strong>Total = 240</strong></p>
+    <p><strong>Average = 80.00</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to increment a value using a function and display
+    the changed value in <code>main()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void increment(int *n)
+{
+    // Increment the original variable
+    (*n)++;
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    printf("Before increment: %d\n", num);
+
+    // Pass address of num
+    increment(&amp;num);
+
+    printf("After increment: %d\n", num);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Because the function receives the address of <code>num</code>, it can
+    modify the original variable using the dereference operator.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 50</p>
+    <p><strong>Before increment: 50</strong></p>
+    <p><strong>After increment: 51</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to modify two numbers using a function so that
+    the first number becomes twice its original value and the second
+    number becomes three times its original value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void modify(int *a, int *b)
+{
+    // Modify the original values
+    *a = *a * 2;
+    *b = *b * 3;
+}
+
+int main()
+{
+    int x, y;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    printf("Before modification: x = %d, y = %d\n", x, y);
+
+    // Pass addresses of both variables
+    modify(&amp;x, &amp;y);
+
+    printf("After modification: x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Both variables are modified through their addresses. Therefore,
+    the changes are visible in <code>main()</code> after the function returns.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 10 20</p>
+    <p><strong>Before modification: x = 10, y = 20</strong></p>
+    <p><strong>After modification: x = 20, y = 60</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the sum and product of two numbers using
+    a function with pointer parameters for the results.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void calculate(int a, int b, int *sum, int *product)
+{
+    // Store results using pointers
+    *sum = a + b;
+    *product = a * b;
+}
+
+int main()
+{
+    int x, y, sum, product;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;x, &amp;y);
+
+    // Pass addresses of result variables
+    calculate(x, y, &amp;sum, &amp;product);
+
+    printf("Sum = %d\n", sum);
+    printf("Product = %d\n", product);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function returns two results through pointer parameters.
+    This demonstrates a common use of pointers when a function needs
+    to modify or produce more than one output value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 8 7</p>
+    <p><strong>Sum = 15</strong></p>
+    <p><strong>Product = 56</strong></p>
+  </div>
+  
+
+  <h2>Call by Reference — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to sort three numbers in ascending order using
+    a function and pointer parameters.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void sortThree(int *a, int *b, int *c)
+{
+    int temp;
+
+    // Compare first and second values
+    if (*a &gt; *b)
+    {
+        temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+
+    // Compare second and third values
+    if (*b &gt; *c)
+    {
+        temp = *b;
+        *b = *c;
+        *c = temp;
+    }
+
+    // Check first and second again
+    if (*a &gt; *b)
+    {
+        temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+}
+
+int main()
+{
+    int x, y, z;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;x, &amp;y, &amp;z);
+
+    // Pass addresses of the three variables
+    sortThree(&amp;x, &amp;y, &amp;z);
+
+    printf("Ascending order: %d %d %d\n", x, y, z);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives the addresses of all three variables and
+    directly rearranges their original values. Therefore, the sorted
+    values are available in <code>main()</code> after the function call.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter three numbers: 30 10 20</p>
+    <p><strong>Ascending order: 10 20 30</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m3-call-by-value/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m3-passing-arrays/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>while — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to reverse the digits of a given number using     a while loop." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m2-while/" />
+ <meta property="og:title" content="while — Exercises" />
+ <meta property="og:description" content="Write a C program to reverse the digits of a given number using     a while loop." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m2-while/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="while — Exercises" />
+ <meta name="twitter:description" content="Write a C program to reverse the digits of a given number using     a while loop." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"while — Exercises","item":"https://bcastudyportal.in/c-programming/s-m2-while/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m2-while/","name":"while — Exercises","description":"Write a C program to reverse the digits of a given number using     a while loop.","mainEntity":{"@type":"CreativeWork","name":"while — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / while — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Practical</div>
+  <h1>while — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>while Loop — Exercise 1</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to reverse the digits of a given number using
+    a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand the working of a <code>while</code> loop.</li>
+    <li>Extract the last digit using the modulus operator.</li>
+    <li>Build a reversed number step by step.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Use <code>% 10</code> to extract the last digit and
+    <code>/= 10</code> to remove the last digit.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A <code>while</code> loop repeatedly executes a block of statements
+    while its condition remains true. Here, the loop continues until
+    all digits of the number have been processed.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, reverse = 0, digit;
+
+    // Read the number
+    printf("Enter a number to reverse: ");
+    scanf("%d", &amp;num);
+
+    // Extract digits and build the reversed number
+    while (num != 0)
+    {
+        digit = num % 10;                 // get last digit
+        reverse = reverse * 10 + digit;   // add digit to reverse
+        num /= 10;                        // remove last digit
+    }
+
+    printf("Reversed number = %d\n", reverse);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number to reverse: 12345</p>
+    <p><strong>Reversed number = 54321</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The condition is checked before every iteration, so the loop stops
+    when the number becomes zero.
+  </p>
+  
+
+  <h2>while Loop — Exercise 2</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to count the number of digits in a given number
+    using a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use a <code>while</code> loop for repeated processing.</li>
+    <li>Understand how integer division removes the last digit.</li>
+    <li>Count the digits of a number.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Repeatedly divide the number by 10 and increase the counter by 1
+    until the number becomes zero.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    Each integer division by 10 removes the last digit of a positive
+    integer. The number of such divisions required to reach zero gives
+    the total number of digits.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, count = 0;
+
+    // Read the number
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Count digits
+    while (num != 0)
+    {
+        num /= 10;   // remove the last digit
+        count++;
+    }
+
+    printf("Number of digits = %d\n", count);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12345</p>
+    <p><strong>Number of digits = 5</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    This approach directly demonstrates how a loop can repeatedly
+    process each digit of an integer.
+  </p>
+  
+
+  <h2>while Loop — Exercise 3</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to calculate the sum of the digits of a given
+    number using a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Extract individual digits from a number.</li>
+    <li>Perform repeated addition using a loop.</li>
+    <li>Understand digit-processing logic.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Extract the last digit using <code>% 10</code>, add it to
+    <code>sum</code>, and remove the last digit using <code>/= 10</code>.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    The modulus operator returns the last digit of an integer when it
+    is divided by 10. By repeatedly extracting and adding these digits,
+    the sum of all digits can be calculated.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, digit, sum = 0;
+
+    // Read the number
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Add all digits
+    while (num != 0)
+    {
+        digit = num % 10;  // extract last digit
+        sum += digit;      // add digit to sum
+        num /= 10;         // remove last digit
+    }
+
+    printf("Sum of digits = %d\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 12345</p>
+    <p><strong>Sum of digits = 15</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The same digit-extraction pattern is useful in many number-based
+    programming problems.
+  </p>
+  
+
+  <h2>while Loop — Exercise 4</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to check whether a given number is a palindrome
+    using a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Reverse a number using a loop.</li>
+    <li>Compare the original number with its reverse.</li>
+    <li>Apply multiple operations inside a loop.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Store the original number, create its reverse using
+    <code>% 10</code> and <code>/= 10</code>, then compare both values.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A palindrome number reads the same from left to right and right to
+    left. The program checks this by creating the reverse of the number.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, original, reverse = 0, digit;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    original = num;
+
+    // Create the reverse
+    while (num != 0)
+    {
+        digit = num % 10;
+        reverse = reverse * 10 + digit;
+        num /= 10;
+    }
+
+    // Compare original and reverse
+    if (original == reverse)
+        printf("%d is a Palindrome.\n", original);
+    else
+        printf("%d is not a Palindrome.\n", original);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 121</p>
+    <p><strong>121 is a Palindrome.</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    A copy of the original number is required because the working loop
+    changes the value of the input number.
+  </p>
+  
+
+  <h2>while Loop — Exercise 5</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to check whether a given number is an Armstrong
+    number using a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Process digits repeatedly using a loop.</li>
+    <li>Calculate the cube of each digit.</li>
+    <li>Compare the calculated sum with the original number.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Extract each digit using <code>% 10</code>, add its cube to
+    <code>sum</code>, and remove the digit using <code>/= 10</code>.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A three-digit Armstrong number is a number whose value is equal to
+    the sum of the cubes of its digits. For example,
+    153 = 1³ + 5³ + 3³.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, original, digit, sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    original = num;
+
+    // Calculate sum of cubes of digits
+    while (num != 0)
+    {
+        digit = num % 10;
+        sum += digit * digit * digit;
+        num /= 10;
+    }
+
+    // Compare result with original number
+    if (sum == original)
+        printf("%d is an Armstrong number.\n", original);
+    else
+        printf("%d is not an Armstrong number.\n", original);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 153</p>
+    <p><strong>153 is an Armstrong number.</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    This exercise is intended for the basic three-digit Armstrong
+    number concept taught at this level.
+  </p>
+  
+
+  <h2>while Loop — Exercise 6</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to check whether a given number is prime using
+    a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use a loop to test possible divisors.</li>
+    <li>Understand divisibility and remainder.</li>
+    <li>Use a counter to track successful divisions.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Check divisibility from 1 up to the given number using the modulus
+    operator and count the number of divisors.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A prime number has exactly two positive divisors: 1 and itself.
+    The program uses a <code>while</code> loop to test possible divisors.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, i = 1, count = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Count divisors
+    while (i &lt;= num)
+    {
+        if (num % i == 0)
+            count++;
+
+        i++;
+    }
+
+    if (num &gt; 1 &amp;&amp; count == 2)
+        printf("%d is a Prime number.\n", num);
+    else
+        printf("%d is not a Prime number.\n", num);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 17</p>
+    <p><strong>17 is a Prime number.</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    This version emphasizes the basic idea of checking divisors,
+    making it suitable for first-year beginners.
+  </p>
+  
+
+  <h2>while Loop — Exercise 7</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to calculate the factorial of a number using
+    a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use a loop for repeated multiplication.</li>
+    <li>Understand factorial calculation.</li>
+    <li>Update a result variable during each iteration.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Initialize <code>fact = 1</code> and multiply it by each number
+    from 1 to <code>n</code>.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    The factorial of a non-negative integer N is the product of all
+    positive integers from 1 to N. It is written as
+    <code>N!</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i = 1;
+    long long fact = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;n);
+
+    // Calculate factorial
+    while (i &lt;= n)
+    {
+        fact *= i;
+        i++;
+    }
+
+    printf("Factorial = %lld\n", fact);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p><strong>Factorial = 120</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The factorial of 0 is also defined as 1. For large values,
+    the factorial may exceed the range of the selected data type.
+  </p>
+  
+
+  <h2>while Loop — Exercise 8</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to generate the Fibonacci series up to N terms
+    using a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Understand repeated sequence generation.</li>
+    <li>Update multiple variables inside a loop.</li>
+    <li>Use a loop counter to control repetitions.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Start with 0 and 1. Each next term is obtained by adding the
+    previous two terms.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    In the Fibonacci series, each term is the sum of the two previous
+    terms. The sequence starts with 0 and 1.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, count = 1;
+    int first = 0, second = 1, next;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &amp;n);
+
+    // Generate Fibonacci series
+    while (count &lt;= n)
+    {
+        printf("%d ", first);
+
+        next = first + second;
+        first = second;
+        second = next;
+
+        count++;
+    }
+
+    printf("\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of terms: 7</p>
+    <p><strong>0 1 1 2 3 5 8</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The loop is controlled by the number of terms rather than by
+    the value of a number being reduced.
+  </p>
+  
+
+  <h2>while Loop — Exercise 9</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to calculate the sum of the first N natural
+    numbers using a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use a counter-controlled loop.</li>
+    <li>Perform repeated addition.</li>
+    <li>Understand how the loop variable changes after each iteration.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Start with <code>sum = 0</code> and add each number from 1 to N.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    Natural numbers begin with 1. Their sum can be calculated by
+    repeatedly adding each number until N is reached.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i = 1, sum = 0;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    // Add natural numbers from 1 to N
+    while (i &lt;= n)
+    {
+        sum += i;
+        i++;
+    }
+
+    printf("Sum = %d\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter N: 10</p>
+    <p><strong>Sum = 55</strong></p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    This exercise shows a simple counter-controlled <code>while</code>
+    loop and is useful for understanding initialization, condition,
+    body, and update.
+  </p>
+  
+
+  <h2>while Loop — Exercise 10</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to print the multiplication table of a given
+    number using a <code>while</code> loop.
+  </p>
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+    <li>Use a counter variable with a <code>while</code> loop.</li>
+    <li>Perform repeated multiplication.</li>
+    <li>Generate structured output using a loop.</li>
+  </ul>
+
+  <h3>Hint</h3>
+
+  <p>
+    Start the counter from 1 and continue until it reaches 10.
+  </p>
+
+  <h3>Theory</h3>
+
+  <p>
+    A multiplication table can be generated by repeatedly multiplying
+    a fixed number by consecutive integers. A <code>while</code> loop
+    avoids writing the same statement ten times.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, i = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Print table from 1 to 10
+    while (i &lt;= 10)
+    {
+        printf("%d x %d = %d\n", num, i, num * i);
+        i++;
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p>
+      <strong>
+        5 x 1 = 5<br>
+        5 x 2 = 10<br>
+        5 x 3 = 15<br>
+        5 x 4 = 20<br>
+        5 x 5 = 25<br>
+        5 x 6 = 30<br>
+        5 x 7 = 35<br>
+        5 x 8 = 40<br>
+        5 x 9 = 45<br>
+        5 x 10 = 50
+      </strong>
+    </p>
+  </div>
+
+  <h3>Note</h3>
+
+  <p>
+    The counter is initialized before the loop and updated at the
+    end of each iteration. This is a basic example of a
+    counter-controlled <code>while</code> loop.
+  </p></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m2-switch-case/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m2-do-while/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

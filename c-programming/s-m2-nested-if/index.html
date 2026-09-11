@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>nested if — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to check whether a number is positive and, if it is positive,     further check whether it is even or odd." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m2-nested-if/" />
+ <meta property="og:title" content="nested if — Exercises" />
+ <meta property="og:description" content="Write a C program to check whether a number is positive and, if it is positive,     further check whether it is even or odd." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m2-nested-if/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="nested if — Exercises" />
+ <meta name="twitter:description" content="Write a C program to check whether a number is positive and, if it is positive,     further check whether it is even or odd." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"nested if — Exercises","item":"https://bcastudyportal.in/c-programming/s-m2-nested-if/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m2-nested-if/","name":"nested if — Exercises","description":"Write a C program to check whether a number is positive and, if it is positive,     further check whether it is even or odd.","mainEntity":{"@type":"CreativeWork","name":"nested if — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / nested if — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 2 C Basics, Operators, Loops • Type: Practical</div>
+  <h1>nested if — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Nested if — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a number is positive and, if it is positive,
+    further check whether it is even or odd.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // First check whether the number is positive
+    if (num &gt; 0)
+    {
+        // Further check whether the positive number is even or odd
+        if (num % 2 == 0)
+            printf("The number is positive and even.\n");
+        else
+            printf("The number is positive and odd.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The inner <code>if</code> statement is executed only when the outer
+    <code>if</code> condition is true. This is called nested decision-making.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 24</p>
+    <p><strong>The number is positive and even.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a person is eligible for a driving
+    test. If the age is 18 or more, further check whether the person has
+    a valid learner licence.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age, licence;
+
+    printf("Enter age: ");
+    scanf("%d", &amp;age);
+
+    // First check the minimum age
+    if (age &gt;= 18)
+    {
+        printf("Do you have a learner licence? (1 = Yes, 0 = No): ");
+        scanf("%d", &amp;licence);
+
+        // Check licence only for eligible age
+        if (licence == 1)
+            printf("Eligible for the driving test.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The second condition is checked only after the first condition
+    confirms that the age requirement is satisfied.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter age: 20</p>
+    <p>Do you have a learner licence? (1 = Yes, 0 = No): 1</p>
+    <p><strong>Eligible for the driving test.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to determine whether a student is eligible for an
+    examination. The student must have attendance of at least 75%.
+    If eligible, further check whether the student has paid the examination fee.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float attendance;
+    int feePaid;
+
+    printf("Enter attendance percentage: ");
+    scanf("%f", &amp;attendance);
+
+    // First check attendance
+    if (attendance &gt;= 75)
+    {
+        printf("Has examination fee been paid? (1 = Yes, 0 = No): ");
+        scanf("%d", &amp;feePaid);
+
+        // Check fee payment
+        if (feePaid == 1)
+            printf("Student is eligible for the examination.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The inner condition is dependent on the outer attendance condition.
+    Therefore, the program uses nested <code>if</code> statements.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter attendance percentage: 82</p>
+    <p>Has examination fee been paid? (1 = Yes, 0 = No): 1</p>
+    <p><strong>Student is eligible for the examination.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest of three numbers using nested if statements.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c, largest;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    // Compare the first two numbers
+    if (a &gt; b)
+    {
+        // Compare a with c
+        if (a &gt; c)
+            largest = a;
+        else
+            largest = c;
+    }
+    else
+    {
+        // Compare b with c
+        if (b &gt; c)
+            largest = b;
+        else
+            largest = c;
+    }
+
+    printf("Largest = %d\n", largest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The first <code>if</code> compares <code>a</code> and <code>b</code>.
+    A second condition then compares the larger candidate with <code>c</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter three numbers: 25 68 42</p>
+    <p><strong>Largest = 68</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a number is a two-digit number and,
+    if it is, determine whether it is even or odd.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Check whether the number is two-digit
+    if ((num &gt;= 10 &amp;&amp; num &lt;= 99) ||
+        (num &lt;= -10 &amp;&amp; num &gt;= -99))
+    {
+        // Determine whether the two-digit number is even or odd
+        if (num % 2 == 0)
+            printf("The two-digit number is even.\n");
+        else
+            printf("The two-digit number is odd.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The outer condition first checks the number of digits. Only when the
+    number is two-digit does the inner condition check even or odd.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 48</p>
+    <p><strong>The two-digit number is even.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to determine a student's result using nested if.
+    First check whether the student has passed in the subject. If passed,
+    check whether the marks are 75 or more for distinction.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks;
+
+    printf("Enter marks: ");
+    scanf("%d", &amp;marks);
+
+    // First check whether the student has passed
+    if (marks &gt;= 50)
+    {
+        // Check distinction after passing
+        if (marks &gt;= 75)
+            printf("Pass with distinction.\n");
+        else
+            printf("Pass.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The inner condition is checked only if the minimum passing marks
+    condition is satisfied.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter marks: 82</p>
+    <p><strong>Pass with distinction.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a number is positive, and if positive,
+    determine whether it is greater than 100 or not.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // First check whether the number is positive
+    if (num &gt; 0)
+    {
+        // Check whether it is greater than 100
+        if (num &gt; 100)
+            printf("Positive number greater than 100.\n");
+        else
+            printf("Positive number but not greater than 100.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The second decision is made only when the first condition confirms
+    that the number is positive.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 150</p>
+    <p><strong>Positive number greater than 100.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate a discount based on purchase amount.
+    First check whether the amount is at least 1000. If yes, further check
+    whether it is at least 5000 for a higher discount.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float amount;
+
+    printf("Enter purchase amount: ");
+    scanf("%f", &amp;amount);
+
+    // Check minimum amount for discount
+    if (amount &gt;= 1000)
+    {
+        // Check higher discount category
+        if (amount &gt;= 5000)
+            printf("10%% discount applicable.\n");
+        else
+            printf("5%% discount applicable.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The outer condition identifies customers eligible for a discount.
+    The inner condition separates them into two discount categories.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter purchase amount: 6500</p>
+    <p><strong>10% discount applicable.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a year is valid for leap-year
+    processing. If it is divisible by 4, further check the special
+    conditions involving 100 and 400.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int year;
+
+    printf("Enter year: ");
+    scanf("%d", &amp;year);
+
+    // First check divisibility by 4
+    if (year % 4 == 0)
+    {
+        // Handle century years separately
+        if (year % 100 == 0)
+        {
+            if (year % 400 == 0)
+                printf("Leap year.\n");
+            else
+                printf("Not a leap year.\n");
+        }
+        else
+        {
+            printf("Leap year.\n");
+        }
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Nested conditions are used to handle the special case of century years.
+    A year divisible by 100 needs an additional check for divisibility by 400.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter year: 2000</p>
+    <p><strong>Leap year.</strong></p>
+  </div>
+  
+
+  <h2>Nested if — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest among three numbers and also
+    check whether the largest number is positive or negative.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c, largest;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    // Find the largest number
+    if (a &gt; b)
+    {
+        if (a &gt; c)
+            largest = a;
+        else
+            largest = c;
+    }
+    else
+    {
+        if (b &gt; c)
+            largest = b;
+        else
+            largest = c;
+    }
+
+    printf("Largest = %d\n", largest);
+
+    // Check the sign of the largest number
+    if (largest &gt;= 0)
+    {
+        if (largest == 0)
+            printf("The largest number is zero.\n");
+        else
+            printf("The largest number is positive.\n");
+    }
+    else
+    {
+        printf("The largest number is negative.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This program demonstrates multiple levels of nested decision-making.
+    It first finds the largest value and then applies another decision
+    process to determine its sign.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter three numbers: -20 -5 -15</p>
+    <p><strong>Largest = -5</strong></p>
+    <p><strong>The largest number is negative.</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m2-if-else/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m2-switch-case/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

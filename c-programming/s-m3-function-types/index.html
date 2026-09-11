@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Functions: Types of Functions — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program using a function with no arguments and no return value     to display a welcome message." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m3-function-types/" />
+ <meta property="og:title" content="Functions: Types of Functions — Exercises" />
+ <meta property="og:description" content="Write a C program using a function with no arguments and no return value     to display a welcome message." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m3-function-types/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Functions: Types of Functions — Exercises" />
+ <meta name="twitter:description" content="Write a C program using a function with no arguments and no return value     to display a welcome message." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Functions: Types of Functions — Exercises","item":"https://bcastudyportal.in/c-programming/s-m3-function-types/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m3-function-types/","name":"Functions: Types of Functions — Exercises","description":"Write a C program using a function with no arguments and no return value     to display a welcome message.","mainEntity":{"@type":"CreativeWork","name":"Functions: Types of Functions — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Functions: Types of Functions — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Practical</div>
+  <h1>Functions: Types of Functions — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Functions — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function with no arguments and no return value
+    to display a welcome message.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void welcome()
+{
+    // Display welcome message
+    printf("Welcome to C Programming!\n");
+}
+
+int main()
+{
+    // Call the function
+    welcome();
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function <code>welcome()</code> does not accept any arguments and
+    does not return a value. Its purpose is simply to perform an action.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Welcome to C Programming!</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function with arguments and no return value
+    to display the square of a number.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void square(int num)
+{
+    // Calculate and display square
+    printf("Square = %d\n", num * num);
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Pass number to the function
+    square(num);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives a value through its parameter but does not
+    return any value. The result is displayed inside the function.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 8</p>
+    <p><strong>Square = 64</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function with no arguments but with a return
+    value to calculate and return the square of a number.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int square()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Return the calculated square
+    return num * num;
+}
+
+int main()
+{
+    int result;
+
+    // Receive the returned value
+    result = square();
+
+    printf("Square = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function takes no argument, but it returns an integer value to
+    the calling function.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 7</p>
+    <p><strong>Square = 49</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function with arguments and a return value
+    to calculate the sum of two numbers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int add(int a, int b)
+{
+    // Return sum of two numbers
+    return a + b;
+}
+
+int main()
+{
+    int a, b, result;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    // Call function with arguments
+    result = add(a, b);
+
+    printf("Sum = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives two arguments and returns their sum to the
+    <code>main()</code> function.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 20 15</p>
+    <p><strong>Sum = 35</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function to find the larger of two numbers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int largest(int a, int b)
+{
+    // Compare the two numbers
+    if (a &gt; b)
+        return a;
+    else
+        return b;
+}
+
+int main()
+{
+    int a, b, result;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    // Call function to find larger value
+    result = largest(a, b);
+
+    printf("Largest = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function receives two numbers and returns the greater value.
+    This demonstrates how a function can perform decision-making.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 35 48</p>
+    <p><strong>Largest = 48</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function to calculate the factorial of a number.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+long long factorial(int n)
+{
+    long long fact = 1;
+    int i;
+
+    // Calculate factorial
+    for (i = 1; i &lt;= n; i++)
+    {
+        fact = fact * i;
+    }
+
+    return fact;
+}
+
+int main()
+{
+    int n;
+    long long result;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;n);
+
+    // Call factorial function
+    result = factorial(n);
+
+    printf("Factorial = %lld\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function performs repeated multiplication and returns the
+    calculated factorial to <code>main()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p><strong>Factorial = 120</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function to check whether a number is prime.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int isPrime(int n)
+{
+    int i;
+
+    // Numbers less than 2 are not prime
+    if (n &lt; 2)
+        return 0;
+
+    // Check possible divisors
+    for (i = 2; i * i &lt;= n; i++)
+    {
+        if (n % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    // Check result returned by the function
+    if (isPrime(num))
+        printf("The number is prime.\n");
+    else
+        printf("The number is not prime.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The function checks divisibility and returns <code>1</code> for a
+    prime number and <code>0</code> otherwise.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 29</p>
+    <p><strong>The number is prime.</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using separate functions to perform addition,
+    subtraction, multiplication and division of two numbers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+float add(float a, float b)
+{
+    return a + b;
+}
+
+float subtract(float a, float b)
+{
+    return a - b;
+}
+
+float multiply(float a, float b)
+{
+    return a * b;
+}
+
+float divide(float a, float b)
+{
+    return a / b;
+}
+
+int main()
+{
+    float a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%f %f", &amp;a, &amp;b);
+
+    printf("Addition = %.2f\n", add(a, b));
+    printf("Subtraction = %.2f\n", subtract(a, b));
+    printf("Multiplication = %.2f\n", multiply(a, b));
+
+    // Check division by zero
+    if (b != 0)
+        printf("Division = %.2f\n", divide(a, b));
+    else
+        printf("Division by zero is not allowed.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Separate functions are created for each arithmetic operation.
+    This makes the program modular and easier to maintain.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 20 5</p>
+    <p><strong>Addition = 25.00</strong></p>
+    <p><strong>Subtraction = 15.00</strong></p>
+    <p><strong>Multiplication = 100.00</strong></p>
+    <p><strong>Division = 4.00</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program using a function to find the largest among three numbers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int largestOfThree(int a, int b, int c)
+{
+    int largest;
+
+    // Find larger value among the first two numbers
+    if (a &gt; b)
+        largest = a;
+    else
+        largest = b;
+
+    // Compare with the third number
+    if (c &gt; largest)
+        largest = c;
+
+    return largest;
+}
+
+int main()
+{
+    int a, b, c, result;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    // Call the function
+    result = largestOfThree(a, b, c);
+
+    printf("Largest = %d\n", result);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The comparison logic is separated into a function. The function
+    receives three arguments and returns the largest value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter three numbers: 25 72 48</p>
+    <p><strong>Largest = 72</strong></p>
+  </div>
+  
+
+  <h2>Functions — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a menu-driven C program using separate functions for addition,
+    subtraction, multiplication and division.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+float add(float a, float b)
+{
+    return a + b;
+}
+
+float subtract(float a, float b)
+{
+    return a - b;
+}
+
+float multiply(float a, float b)
+{
+    return a * b;
+}
+
+float divide(float a, float b)
+{
+    return a / b;
+}
+
+int main()
+{
+    int choice;
+    float a, b;
+
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
+
+    printf("Enter choice: ");
+    scanf("%d", &amp;choice);
+
+    printf("Enter two numbers: ");
+    scanf("%f %f", &amp;a, &amp;b);
+
+    // Select the required function
+    switch (choice)
+    {
+        case 1:
+            printf("Result = %.2f\n", add(a, b));
+            break;
+
+        case 2:
+            printf("Result = %.2f\n", subtract(a, b));
+            break;
+
+        case 3:
+            printf("Result = %.2f\n", multiply(a, b));
+            break;
+
+        case 4:
+            if (b != 0)
+                printf("Result = %.2f\n", divide(a, b));
+            else
+                printf("Division by zero is not allowed.\n");
+            break;
+
+        default:
+            printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This program combines functions with switch-case. Each operation
+    has its own function, while the switch statement selects which
+    function should be called.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>1. Addition</p>
+    <p>2. Subtraction</p>
+    <p>3. Multiplication</p>
+    <p>4. Division</p>
+    <p>Enter choice: 1</p>
+    <p>Enter two numbers: 25 15</p>
+    <p><strong>Result = 40.00</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m3-character-arrays-strings/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m3-formal-actual/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

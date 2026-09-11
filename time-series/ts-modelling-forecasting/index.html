@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>General Approach to Time Series Modelling and Forecasting | Time Series</title>
+ <meta name="description" content="The general approach to time series modelling and     forecasting is a planned sequence of steps: define the task, prepare     data, study pattern, choose and fit a method, evaluate it, produce     a forecast, and then watch how well it performs." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-modelling-forecasting/" />
+ <meta property="og:title" content="General Approach to Time Series Modelling and Forecasting" />
+ <meta property="og:description" content="The general approach to time series modelling and     forecasting is a planned sequence of steps: define the task, prepare     data, study pattern, choose and fit a method, evaluate it, produce     a forecast, and then watch how well it performs." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-modelling-forecasting/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="General Approach to Time Series Modelling and Forecasting" />
+ <meta name="twitter:description" content="The general approach to time series modelling and     forecasting is a planned sequence of steps: define the task, prepare     data, study pattern, choose and fit a method, evaluate it, produce     a forecast, and then watch how well it performs." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"General Approach to Time Series Modelling and Forecasting","item":"https://bcastudyportal.in/time-series/ts-modelling-forecasting/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-modelling-forecasting/","name":"General Approach to Time Series Modelling and Forecasting","description":"The general approach to time series modelling and     forecasting is a planned sequence of steps: define the task, prepare     data, study pattern, choose and fit a method, evaluate it, produce     a forecast, and then watch how well it performs.","mainEntity":{"@type":"CreativeWork","name":"General Approach to Time Series Modelling and Forecasting","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / General Approach to Time Series Modelling and Forecasting</div>
+  <div class="meta">Subject: Time Series • Module: 3 Statistics Background for Forecasting • Type: Notes</div>
+  <h1>General Approach to Time Series Modelling and Forecasting</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>General Approach to Time Series Modelling and Forecasting</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    The <strong>general approach</strong> to time series modelling and
+    forecasting is a planned sequence of steps: define the task, prepare
+    data, study pattern, choose and fit a method, evaluate it, produce
+    a forecast, and then watch how well it performs.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      A shop wants a forecast of monthly packet sales for the next three
+      months. It collects past monthly sales, plots them, notes a gentle
+      rise, fits a simple method on earlier months, checks the method on
+      later months, then forecasts and later compares the forecast with
+      actual sales.
+    </p>
+  </div>
+
+
+  <h2>Standard Workflow</h2>
+
+  <div class="note-flow">1. Define forecasting objective
+  ↓
+2. Collect data
+  ↓
+3. Inspect and clean data
+  ↓
+4. Visualize data
+  ↓
+5. Identify structure
+  ↓
+6. Transform/adjust if required
+  ↓
+7. Select candidate model
+  ↓
+8. Fit model
+  ↓
+9. Evaluate model
+  ↓
+10. Generate forecast
+  ↓
+11. Monitor performance</div>
+
+
+  <h2>Meaning of Each Step</h2>
+
+  <ol class="exam-list">
+    <li>
+      <strong>Define the objective:</strong>
+      state what will be forecast, for which dates, and for what decision
+      (for example, next three months of sales for stock planning).
+    </li>
+    <li>
+      <strong>Collect data:</strong>
+      gather a long enough history at the right frequency (here, monthly sales).
+    </li>
+    <li>
+      <strong>Inspect and clean:</strong>
+      check missing values, typing errors and impossible figures.
+    </li>
+    <li>
+      <strong>Visualize:</strong>
+      draw a time series plot before choosing a method.
+    </li>
+    <li>
+      <strong>Identify structure:</strong>
+      note trend, seasonality, unusual points or a change in behaviour.
+    </li>
+    <li>
+      <strong>Transform or adjust if required:</strong>
+      use a log, a difference or another simple change only when the plot
+      suggests it. Detailed ARIMA order selection belongs to Unit 3.
+    </li>
+    <li>
+      <strong>Select a candidate model:</strong>
+      start with a method that matches the visible structure
+      (for example a simple trend summary, not an advanced seasonal ARIMA
+      at this stage).
+    </li>
+    <li>
+      <strong>Fit the model:</strong>
+      estimate the method using historical data set aside for fitting.
+    </li>
+    <li>
+      <strong>Evaluate:</strong>
+      compare forecasts with observations that were not used in fitting.
+    </li>
+    <li>
+      <strong>Generate the forecast:</strong>
+      produce future values and, where possible, a sense of uncertainty.
+    </li>
+    <li>
+      <strong>Monitor:</strong>
+      when new actual sales arrive, compare them with the forecast and
+      revise the method if performance worsens.
+    </li>
+  </ol>
+
+  
+
+
+  <h2>Training Data, Test Data and a Simple Sales Example</h2>
+
+  <h2>Training Data and Test Data</h2>
+
+  <p>
+    <strong>Training data</strong> (also called fitting data) are the
+    earlier observations used to build the method.
+    <strong>Test data</strong> (evaluation data) are later observations
+    held back to check how well the method forecasts new time points.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Use January–September sales to fit a simple method. Keep
+      October–December to evaluate it. Do not judge the method only on
+      the months that were used to fit it.
+    </p>
+  </div>
+
+  <p>
+    The split must respect time: test months come <strong>after</strong>
+    training months. Randomly mixing months would destroy chronological
+    order.
+  </p>
+
+
+  <h2>End-to-End Illustration: Monthly Sales</h2>
+
+  <p>
+    Objective: forecast the next quarter of packet sales.
+    Data: two years of monthly sales, cleaned for missing months.
+    Plot: a gentle rise and a December peak.
+    Structure: trend plus yearly seasonality is suspected.
+    Adjustment: none required at first if variation looks stable.
+    Candidate method at Unit 2 level: a simple combination of a trend
+    idea and a seasonal comparison of Decembers — not a full SARIMA.
+    Fit on the first 21 months, evaluate on the last 3 months, then
+    forecast the next 3 months and later monitor them against actuals.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Exam Note</span>
+    <p>
+      Unit 2 teaches the workflow. Choosing ARIMA or SARIMA orders is
+      a Unit 3 task.
+    </p>
+  </div>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>
+      Forecasting follows a sequence from objective and data through
+      plot, structure, optional transform, fit, evaluate, forecast and monitor.
+    </li>
+    <li>
+      Always plot before selecting a method.
+    </li>
+    <li>
+      Training data are used to fit; test data are later dates used to evaluate.
+    </li>
+    <li>
+      A good in-sample fit is not enough; later performance must be checked.
+    </li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-data-transformations/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-model-performance/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

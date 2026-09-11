@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P4.04 Predict New Observations | Time Series</title>
+ <meta name="description" content="Use the fitted trend to predict sales for the next three months. Distinguish a point prediction from a prediction interval, and keep forecasts in chronological order." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p4-04/" />
+ <meta property="og:title" content="P4.04 Predict New Observations" />
+ <meta property="og:description" content="Use the fitted trend to predict sales for the next three months. Distinguish a point prediction from a prediction interval, and keep forecasts in chronological order." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p4-04/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P4.04 Predict New Observations" />
+ <meta name="twitter:description" content="Use the fitted trend to predict sales for the next three months. Distinguish a point prediction from a prediction interval, and keep forecasts in chronological order." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P4.04 Predict New Observations","item":"https://bcastudyportal.in/time-series/ts-p4-04/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p4-04/","name":"P4.04 Predict New Observations","description":"Use the fitted trend to predict sales for the next three months. Distinguish a point prediction from a prediction interval, and keep forecasts in chronological order.","mainEntity":{"@type":"CreativeWork","name":"P4.04 Predict New Observations","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P4.04 Predict New Observations</div>
+  <div class="meta">Subject: Time Series • Module: 4 Introduction to Autoregressive Models and Forecasting • Type: Practical</div>
+  <h1>P4.04 Predict New Observations</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P4.04 Predict New Observations</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Use the fitted trend to predict sales for the next three months. Distinguish a point prediction from a prediction interval, and keep forecasts in chronological order.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Form new t values beyond the sample.</li><li>Produce point predictions.</li><li>Read a prediction interval as a range, not a guarantee.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Prediction plugs a new x into the fitted equation. A confidence interval for the mean response is narrower than a prediction interval for a new observation, because a new point also has error variance. Extrapolating far beyond the observed t range is risky if the trend changes.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Same 24-month constructed sales series. Forecast months 25–27.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+idx = pd.date_range("2024-01-01", periods=24, freq="MS")
+t = np.arange(24)
+sales = 80 + 1.5 * t + np.array([
+    2, -1, 3, 0, -2, 4, 1, -3, 2, 0, -1, 3,
+    1, -2, 2, 0, 1, -1, 3, -2, 0, 2, -1, 1
+])
+y = pd.Series(sales, index=idx)
+X = sm.add_constant(t)
+fit = sm.OLS(y.values, X).fit()
+
+# New time points for three months ahead
+t_new = np.arange(24, 27)
+X_new = sm.add_constant(t_new, has_constant="add")
+pred = fit.get_prediction(X_new).summary_frame(alpha=0.05)
+pred.index = pd.date_range("2026-01-01", periods=3, freq="MS")
+print(pred[["mean", "obs_ci_lower", "obs_ci_upper"]])
+
+# Plot history and predicted means
+ax = y.plot(label="history")
+pred["mean"].plot(ax=ax, style="o--", label="forecast")
+plt.legend()
+plt.tight_layout()
+plt.show()</div>
+
+  <h3>Expected Output</h3>
+  <p>A three-row table with predicted mean and lower/upper observation intervals, plus a plot continuing the trend line. Interval widths depend on residual variance; do not invent a single memorised number.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>The next three months follow the same slope. The interval is a plausible range for a new observation under the linear model, not a promise. If seasonality exists, a pure time trend will miss the seasonal peak or trough.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Prediction extends the fitted equation forward. A prediction interval is wider than an interval for the mean line.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p4-03/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p4-05/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Numerical Description of Time Series Data | Time Series</title>
+ <meta name="description" content="Numerical description uses summary numbers to describe     a set of observations: typical size, spread, and extreme values.     These measures help compare series and check whether a value is     unusually large or small." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-numerical-description/" />
+ <meta property="og:title" content="Numerical Description of Time Series Data" />
+ <meta property="og:description" content="Numerical description uses summary numbers to describe     a set of observations: typical size, spread, and extreme values.     These measures help compare series and check whether a value is     unusually large or small." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-numerical-description/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Numerical Description of Time Series Data" />
+ <meta name="twitter:description" content="Numerical description uses summary numbers to describe     a set of observations: typical size, spread, and extreme values.     These measures help compare series and check whether a value is     unusually large or small." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Numerical Description of Time Series Data","item":"https://bcastudyportal.in/time-series/ts-numerical-description/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-numerical-description/","name":"Numerical Description of Time Series Data","description":"Numerical description uses summary numbers to describe     a set of observations: typical size, spread, and extreme values.     These measures help compare series and check whether a value is     unusually large or small.","mainEntity":{"@type":"CreativeWork","name":"Numerical Description of Time Series Data","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Numerical Description of Time Series Data</div>
+  <div class="meta">Subject: Time Series • Module: 3 Statistics Background for Forecasting • Type: Notes</div>
+  <h1>Numerical Description of Time Series Data</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Numerical Description of Time Series Data</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Numerical description</strong> uses summary numbers to describe
+    a set of observations: typical size, spread, and extreme values.
+    These measures help compare series and check whether a value is
+    unusually large or small.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Five weekly sales figures 10, 12, 11, 13, 14 can be summarised by
+      a mean of 12 packets and a range of 4 packets.
+    </p>
+  </div>
+
+
+  <h2>Why Numerical Measures Are Used</h2>
+
+  <p>
+    A plot shows shape. Numbers answer questions such as: What is a
+    typical value? How much do values vary? What were the lowest and
+    highest observations? Both views are needed. Numerical summaries
+    <strong>ignore time order</strong> unless they are calculated on
+    specially chosen periods, so they cannot replace a time series plot.
+  </p>
+
+
+  <h2>Small Dataset</h2>
+
+  <p>
+    Weekly packet sales: <strong>10, 12, 11, 13, 14</strong>
+    (already in time order).
+  </p>
+
+
+  <h2>Main Measures</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Measure</th>
+          <th>Meaning</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Mean</strong></td>
+          <td>Arithmetic average of all observations</td>
+          <td>Typical level of the series</td>
+        </tr>
+        <tr>
+          <td><strong>Median</strong></td>
+          <td>Middle value after sorting</td>
+          <td>Typical level that is less affected by one extreme</td>
+        </tr>
+        <tr>
+          <td><strong>Minimum / Maximum</strong></td>
+          <td>Smallest and largest observations</td>
+          <td>The observed extremes</td>
+        </tr>
+        <tr>
+          <td><strong>Range</strong></td>
+          <td>Maximum minus minimum</td>
+          <td>Overall spread of the recorded values</td>
+        </tr>
+        <tr>
+          <td><strong>Variance</strong></td>
+          <td>Average of squared deviations from the mean</td>
+          <td>How widely values scatter; units are squared</td>
+        </tr>
+        <tr>
+          <td><strong>Standard deviation</strong></td>
+          <td>Square root of variance</td>
+          <td>Spread in the same units as the data</td>
+        </tr>
+        <tr>
+          <td><strong>Quartiles</strong></td>
+          <td>Values that split the ordered data into four parts</td>
+          <td>Where the lower, middle and upper observations lie</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>Calculations for the Example</h2>
+
+  <p>
+    Mean = (10 + 12 + 11 + 13 + 14) / 5 = 60 / 5 = <strong>12</strong>.
+  </p>
+
+  <p>
+    Ordered values: 10, 11, 12, 13, 14. Median = <strong>12</strong>.
+  </p>
+
+  <p>
+    Minimum = 10, maximum = 14, range = 14 − 10 = <strong>4</strong>.
+  </p>
+
+  <p>
+    Deviations from the mean 12: −2, 0, −1, 1, 2.
+    Squared deviations: 4, 0, 1, 1, 4. Sum = 10.
+    Sample variance with divisor n − 1 = 10 / 4 = <strong>2.5</strong>.
+    Sample standard deviation = √2.5, which is a little more than 1.5.
+  </p>
+
+  <p>
+    The lower quartile of these five points is near 11 and the upper
+    quartile is near 13. With only five observations, quartiles are a
+    rough split, not a precise population claim.
+  </p>
+
+
+  <h2>Practical Interpretation</h2>
+
+  <p>
+    The mean and median both equal 12, so the typical weekly sales in
+    this tiny sample sit at 12 packets. The range of 4 packets shows
+    modest spread. None of these numbers, by themselves, tell you that
+    week 1 came before week 5. That order is seen on the time plot.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Exam Note</span>
+    <p>
+      Numerical summaries cannot reveal all time-order patterns.
+      A time series plot is also important.
+    </p>
+  </div>
+
+
+  <h2>Small Educational Python Example</h2>
+
+  <div class="program-code notranslate" data-language="python">
+# Import libraries
+import pandas as pd
+
+sales = pd.Series([10, 12, 11, 13, 14], name="sales")
+
+print("Mean:", sales.mean())
+print("Median:", sales.median())
+print("Min, max:", sales.min(), sales.max())
+print("Range:", sales.max() - sales.min())
+print("Sample variance:", sales.var())
+print("Sample standard deviation:", sales.std())
+print(sales.describe())
+  </div>
+
+  <p>
+    The printed mean and median should match 12, and the range should
+    be 4. Software may show extra decimal places for variance and
+    standard deviation; use the same formula convention (sample or
+    population) that your course requires.
+  </p>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>
+      Mean and median describe typical level; variance and standard
+      deviation describe spread.
+    </li>
+    <li>
+      Minimum, maximum and range describe extremes.
+    </li>
+    <li>
+      Quartiles split ordered data into four parts.
+    </li>
+    <li>
+      Always read numerical summaries together with a time plot.
+    </li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-smoothed-data/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-data-transformations/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

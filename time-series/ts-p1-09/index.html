@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P1.09 Data Sources and Resources | Time Series</title>
+ <meta name="description" content="Compare three resource sets for forecasting next-quarter demand in a small shop, and recommend one that is realistic for a student project." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p1-09/" />
+ <meta property="og:title" content="P1.09 Data Sources and Resources" />
+ <meta property="og:description" content="Compare three resource sets for forecasting next-quarter demand in a small shop, and recommend one that is realistic for a student project." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p1-09/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P1.09 Data Sources and Resources" />
+ <meta name="twitter:description" content="Compare three resource sets for forecasting next-quarter demand in a small shop, and recommend one that is realistic for a student project." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P1.09 Data Sources and Resources","item":"https://bcastudyportal.in/time-series/ts-p1-09/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p1-09/","name":"P1.09 Data Sources and Resources","description":"Compare three resource sets for forecasting next-quarter demand in a small shop, and recommend one that is realistic for a student project.","mainEntity":{"@type":"CreativeWork","name":"P1.09 Data Sources and Resources","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P1.09 Data Sources and Resources</div>
+  <div class="meta">Subject: Time Series • Module: 1 Introduction to Time Series • Type: Practical</div>
+  <h1>P1.09 Data Sources and Resources</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P1.09 Data Sources and Resources</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Compare three resource sets for forecasting next-quarter demand in a small shop, and recommend one that is realistic for a student project.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>List forecasting resources.</li><li>Match resources to a small practical problem.</li></ul>
+
+  <h3>Hint</h3>
+  <p>Resources include historical data, methods, software, computing, domain knowledge and skilled people.</p>
+
+  <h3>Theory</h3>
+  <p>A forecast needs more than a formula. It needs data, a method, tools and people who understand the context.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>No numeric file. Compare: (1) 3 months of notebook totals and a spreadsheet; (2) 5 years of scanned bills with no dates; (3) a claimed 'Kaggle shop dataset' with no verified source.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">options = [
+    {"name": "Notebook + spreadsheet", "data": "3 monthly totals", "usable": True},
+    {"name": "Undated scanned bills", "data": "large but no time index", "usable": False},
+    {"name": "Unverified download", "data": "unknown origin", "usable": False},
+]
+
+for item in options:
+    print(item["name"], "|", item["data"], "| usable:", item["usable"])</div>
+
+  <h3>Expected Output</h3>
+  <p>Three printed options. Only the dated notebook totals are marked usable.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>For a student lab, a small dated series is better than a large undated pile or an unverifiable file. Domain knowledge of the shop still matters.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Do not invent a Kaggle URL. If a public dataset is used later, name it honestly and only when the source is known.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p1-08/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p1-10/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

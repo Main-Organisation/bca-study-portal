@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Autoregressive Integrated Moving Average (ARIMA) Models | Time Series</title>
+ <meta name="description" content="An ARIMA model is an ARMA model applied after     differencing when that step is needed.     ARIMA stands for Autoregressive Integrated Moving Average.     The orders are written ARIMA(p, d, q)." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-arima-models/" />
+ <meta property="og:title" content="Autoregressive Integrated Moving Average (ARIMA) Models" />
+ <meta property="og:description" content="An ARIMA model is an ARMA model applied after     differencing when that step is needed.     ARIMA stands for Autoregressive Integrated Moving Average.     The orders are written ARIMA(p, d, q)." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-arima-models/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Autoregressive Integrated Moving Average (ARIMA) Models" />
+ <meta name="twitter:description" content="An ARIMA model is an ARMA model applied after     differencing when that step is needed.     ARIMA stands for Autoregressive Integrated Moving Average.     The orders are written ARIMA(p, d, q)." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Autoregressive Integrated Moving Average (ARIMA) Models","item":"https://bcastudyportal.in/time-series/ts-arima-models/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-arima-models/","name":"Autoregressive Integrated Moving Average (ARIMA) Models","description":"An ARIMA model is an ARMA model applied after     differencing when that step is needed.     ARIMA stands for Autoregressive Integrated Moving Average.     The orders are written ARIMA(p, d, q).","mainEntity":{"@type":"CreativeWork","name":"Autoregressive Integrated Moving Average (ARIMA) Models","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Autoregressive Integrated Moving Average (ARIMA) Models</div>
+  <div class="meta">Subject: Time Series • Module: 4 Introduction to Autoregressive Models and Forecasting • Type: Notes</div>
+  <h1>Autoregressive Integrated Moving Average (ARIMA) Models</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Autoregressive Integrated Moving Average (ARIMA) Models</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    An <strong>ARIMA</strong> model is an ARMA model applied after
+    <strong>differencing</strong> when that step is needed.
+    ARIMA stands for Autoregressive Integrated Moving Average.
+    The orders are written ARIMA(p, d, q).
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      ARIMA(1, 1, 1) means: difference the series once (d = 1), then
+      use one AR lag (p = 1) and one MA lag (q = 1) on the differenced
+      series.
+    </p>
+  </div>
+
+
+  <h2>The Three Components</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Letter</th>
+          <th>Name</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>p</strong></td>
+          <td>Autoregressive order</td>
+          <td>How many lagged values of the (possibly differenced) series are used</td>
+        </tr>
+        <tr>
+          <td><strong>d</strong></td>
+          <td>Integrated / differencing order</td>
+          <td>How many times the series is differenced</td>
+        </tr>
+        <tr>
+          <td><strong>q</strong></td>
+          <td>Moving-average order</td>
+          <td>How many lagged error terms are used</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>What Differencing Means</h2>
+
+  <p>
+    <strong>Differencing</strong> replaces Y<sub>t</sub> by the change
+    Y<sub>t</sub> − Y<sub>t−1</sub>. One difference (d = 1) often
+    removes a slowly wandering level. A series that already looks stable
+    in level may need d = 0, which is just ARMA. Not every time series
+    needs differencing.
+  </p>
+
+  <p>
+    Choose d from the plot and from whether the raw ACF dies slowly,
+    not by guessing a large d. Extra differencing can over-correct the
+    series.
+  </p>
+
+
+  <h2>Stationarity (Conceptual)</h2>
+
+  <p>
+    A <strong>stationary</strong> time series has statistical properties
+    that remain reasonably stable over time:
+  </p>
+
+  <ul>
+    <li><strong>Level:</strong> the typical value does not keep drifting.</li>
+    <li><strong>Variation:</strong> the size of ups and downs stays comparable.</li>
+    <li><strong>Dependence structure:</strong> the lag relationships do not keep changing in a systematic way.</li>
+  </ul>
+
+  <p>
+    ARMA is aimed at that stable setting. The <strong>I</strong> in ARIMA
+    is the tool that tries to reach a more stable series by differencing
+    when the original level is not stable enough.
+  </p>
+
+
+  <h2>ARMA vs ARIMA</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ARMA</th>
+          <th>ARIMA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Orders</strong></td>
+          <td>(p, q) with d = 0</td>
+          <td>(p, d, q)</td>
+        </tr>
+        <tr>
+          <td><strong>Differencing</strong></td>
+          <td>Not used as a built-in step</td>
+          <td>Allowed through d</td>
+        </tr>
+        <tr>
+          <td><strong>Typical use</strong></td>
+          <td>Already roughly stationary series</td>
+          <td>Series that may need a change-of-level step first</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Exam Note</span>
+    <p>
+      ARIMA builds on ARMA by allowing differencing through the
+      integrated component. Seasonal ARIMA (SARIMA) is a later topic
+      and adds seasonal orders; it is not required to define ARIMA.
+    </p>
+  </div>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>ARIMA(p, d, q) = AR order p, differences d, MA order q.</li>
+    <li>Differencing models changes when the level wanders; it is not compulsory for every series.</li>
+    <li>Stationarity is about a reasonably stable level, variation and lag structure.</li>
+    <li>ARIMA(p, 0, q) is the same idea as ARMA(p, q).</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-arma-models/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-arima-forecasting/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

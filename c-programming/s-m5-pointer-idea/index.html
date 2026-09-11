@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Idea of Pointers — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a pointer to an integer variable and     display the value of the variable and its address." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m5-pointer-idea/" />
+ <meta property="og:title" content="Idea of Pointers — Exercises" />
+ <meta property="og:description" content="Write a C program to create a pointer to an integer variable and     display the value of the variable and its address." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m5-pointer-idea/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Idea of Pointers — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a pointer to an integer variable and     display the value of the variable and its address." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Idea of Pointers — Exercises","item":"https://bcastudyportal.in/c-programming/s-m5-pointer-idea/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m5-pointer-idea/","name":"Idea of Pointers — Exercises","description":"Write a C program to create a pointer to an integer variable and     display the value of the variable and its address.","mainEntity":{"@type":"CreativeWork","name":"Idea of Pointers — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Idea of Pointers — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Practical</div>
+  <h1>Idea of Pointers — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Pointer: Idea of Pointers — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a pointer to an integer variable and
+    display the value of the variable and its address.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 25;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Value = %d\n", number);
+    printf("Address = %p\n", (void *)ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer stores the address of another variable. The address-of
+    operator <code>&amp;</code> obtains the address of <code>number</code>,
+    and that address is stored in <code>ptr</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Value = 25</strong></p>
+    <p><strong>Address = 0x7ff...</strong></p>
+    <p>The exact address depends on the system.</p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to access the value of a variable using a pointer
+    and the dereference operator <code>*</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 50;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Variable value = %d\n", number);
+    printf("Pointer value = %d\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The dereference operator <code>*</code> accesses the value stored at
+    the memory address held by the pointer. Therefore, <code>*ptr</code>
+    gives the value of <code>number</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Variable value = 50</strong></p>
+    <p><strong>Pointer value = 50</strong></p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to take an integer from the user and display its
+    value using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number;
+    int *ptr;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;number);
+
+    ptr = &amp;number;
+
+    printf("Value using pointer = %d\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer <code>ptr</code> stores the address of the input variable.
+    Dereferencing it with <code>*ptr</code> retrieves the variable's value.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 75</p>
+    <p><strong>Value using pointer = 75</strong></p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to modify the value of a variable using a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 10;
+    int *ptr;
+
+    ptr = &amp;number;
+
+    printf("Before modification = %d\n", number);
+
+    *ptr = 100;
+
+    printf("After modification = %d\n", number);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A pointer can be used not only to read a variable but also to modify it.
+    Assigning a new value to <code>*ptr</code> changes the original variable.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Before modification = 10</strong></p>
+    <p><strong>After modification = 100</strong></p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use pointers with two integer variables and
+    calculate their sum.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 20;
+    int b = 30;
+
+    int *p1 = &amp;a;
+    int *p2 = &amp;b;
+
+    int sum;
+
+    sum = *p1 + *p2;
+
+    printf("First number = %d\n", *p1);
+    printf("Second number = %d\n", *p2);
+    printf("Sum = %d\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Two pointers are used to access the values of two integer variables.
+    The dereferenced values are then added to calculate the sum.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>First number = 20</strong></p>
+    <p><strong>Second number = 30</strong></p>
+    <p><strong>Sum = 50</strong></p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the larger of two numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+    int *p1, *p2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    p1 = &amp;a;
+    p2 = &amp;b;
+
+    if (*p1 &gt; *p2)
+        printf("Larger number = %d\n", *p1);
+    else if (*p2 &gt; *p1)
+        printf("Larger number = %d\n", *p2);
+    else
+        printf("Both numbers are equal.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointers provide access to the original variables, and their
+    dereferenced values are compared using an <code>if-else</code> statement.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 45 72</p>
+    <p><strong>Larger number = 72</strong></p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to swap two numbers using pointers.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+void swap(int *x, int *y)
+{
+    int temp;
+
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("Before swap: a = %d, b = %d\n", a, b);
+
+    swap(&amp;a, &amp;b);
+
+    printf("After swap: a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The addresses of <code>a</code> and <code>b</code> are passed to the
+    function. Because the function receives pointers, it can modify the
+    original variables directly.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter two numbers: 10 20</p>
+    <p><strong>Before swap: a = 10, b = 20</strong></p>
+    <p><strong>After swap: a = 20, b = 10</strong></p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use a pointer with a floating-point variable
+    and display its value.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float price = 99.50;
+    float *ptr;
+
+    ptr = &amp;price;
+
+    printf("Price = %.2f\n", price);
+    printf("Price using pointer = %.2f\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Pointers are not limited to integers. A pointer can store the address
+    of a variable of a compatible data type, such as <code>float</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Price = 99.50</strong></p>
+    <p><strong>Price using pointer = 99.50</strong></p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate that a pointer stores the address
+    of a variable and can be used to access that variable.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 100;
+    int *ptr = &amp;number;
+
+    printf("Value of number = %d\n", number);
+    printf("Address of number = %p\n",
+           (void *)&amp;number);
+    printf("Address stored in ptr = %p\n",
+           (void *)ptr);
+    printf("Value using ptr = %d\n", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The address stored in <code>ptr</code> points to the same memory
+    location as the address of <code>number</code>. Dereferencing the
+    pointer gives the value stored at that location.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Value of number = 100</strong></p>
+    <p><strong>Address of number = 0x7ff...</strong></p>
+    <p><strong>Address stored in ptr = 0x7ff...</strong></p>
+    <p><strong>Value using ptr = 100</strong></p>
+    <p>The exact address depends on the system.</p>
+  </div>
+  
+
+  <h2>Pointer: Idea of Pointers — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate a simple real-world style use of
+    pointers by updating a student's marks through a pointer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks = 75;
+    int *ptr;
+
+    ptr = &amp;marks;
+
+    printf("Original Marks = %d\n", marks);
+
+    // Update marks through pointer
+    *ptr = *ptr + 10;
+
+    printf("Updated Marks = %d\n", marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The pointer stores the address of the marks variable. By using
+    <code>*ptr</code>, the program directly updates the original marks.
+    This demonstrates why pointers are useful when a function or another
+    part of a program needs to modify existing data.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Original Marks = 75</strong></p>
+    <p><strong>Updated Marks = 85</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m5-writing-files/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m5-defining-pointers/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

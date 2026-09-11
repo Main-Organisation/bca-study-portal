@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Bayesian Methods in Forecasting | Time Series</title>
+ <meta name="description" content="Bayesian forecasting combines     prior knowledge or beliefs with     observed data to update the uncertainty about     unknown quantities and about future outcomes. The updated belief is     the posterior. A forecast can then be read from     that posterior (a likely range, not only a single number)." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-bayesian-forecasting/" />
+ <meta property="og:title" content="Bayesian Methods in Forecasting" />
+ <meta property="og:description" content="Bayesian forecasting combines     prior knowledge or beliefs with     observed data to update the uncertainty about     unknown quantities and about future outcomes. The updated belief is     the posterior. A forecast can then be read from     that posterior (a likely range, not only a single number)." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-bayesian-forecasting/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Bayesian Methods in Forecasting" />
+ <meta name="twitter:description" content="Bayesian forecasting combines     prior knowledge or beliefs with     observed data to update the uncertainty about     unknown quantities and about future outcomes. The updated belief is     the posterior. A forecast can then be read from     that posterior (a likely range, not only a single number)." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Bayesian Methods in Forecasting","item":"https://bcastudyportal.in/time-series/ts-bayesian-forecasting/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-bayesian-forecasting/","name":"Bayesian Methods in Forecasting","description":"Bayesian forecasting combines     prior knowledge or beliefs with     observed data to update the uncertainty about     unknown quantities and about future outcomes. The updated belief is     the posterior. A forecast can then be read from     that posterior (a likely range, not only a single number).","mainEntity":{"@type":"CreativeWork","name":"Bayesian Methods in Forecasting","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Bayesian Methods in Forecasting</div>
+  <div class="meta">Subject: Time Series • Module: 6 Multivariate Time Series Models and Forecasting • Type: Notes</div>
+  <h1>Bayesian Methods in Forecasting</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Bayesian Methods in Forecasting</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Bayesian forecasting</strong> combines
+    <strong>prior</strong> knowledge or beliefs with
+    <strong>observed data</strong> to update the uncertainty about
+    unknown quantities and about future outcomes. The updated belief is
+    the <strong>posterior</strong>. A forecast can then be read from
+    that posterior (a likely range, not only a single number).
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Historical shop knowledge says weekly demand is usually in a
+      moderate range (prior). This week's new sales counts are extra
+      evidence (likelihood). Bayesian updating mixes the prior with
+      those counts to produce a posterior for next week's demand. If
+      the new weeks are unusually high, the posterior shifts upward,
+      but it need not ignore all past experience.
+    </p>
+  </div>
+
+
+  <h2>Prior, Likelihood, Posterior</h2>
+
+  <div class="note-flow">Prior Knowledge
+  ↓
+Observe Data
+  ↓
+Update Belief
+  ↓
+Posterior Distribution
+  ↓
+Forecast</div>
+
+  <ul>
+    <li><strong>Prior</strong> — initial belief about a quantity (typical demand, a slope, a seasonal peak) before seeing the current sample, or before adding the latest observations.</li>
+    <li><strong>Likelihood</strong> — how plausible the observed data are for different values of that quantity; the evidence coming from the data under a stated model.</li>
+    <li><strong>Posterior</strong> — the updated belief after combining prior and likelihood.</li>
+  </ul>
+
+  <p>
+    Conceptually:
+  </p>
+
+  <p>
+    Posterior ∝ Likelihood × Prior
+  </p>
+
+  <p>
+    The symbol ∝ means “proportional to”: the posterior is shaped by
+    multiplying the data evidence by the prior (then scaled so that it
+    is a proper distribution). This is the updating idea, not a full
+    probability derivation or a sampling algorithm.
+  </p>
+
+  <div class="note-flow">Prior
+  +
+Observed Data
+  ↓
+Posterior
+  ↓
+Forecast</div>
+
+
+  <h2>Point Forecast vs Uncertainty-Aware Forecast</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Simple point forecast</th>
+          <th>Bayesian / uncertainty-aware forecast</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>What is reported</strong></td>
+          <td>Often one number (next week's sales = 50)</td>
+          <td>A distribution or a range that reflects remaining uncertainty</td>
+        </tr>
+        <tr>
+          <td><strong>Prior knowledge</strong></td>
+          <td>May be ignored or used informally</td>
+          <td>Can be written into the prior and updated with data</td>
+        </tr>
+        <tr>
+          <td><strong>New observations</strong></td>
+          <td>May require a full re-fit from scratch in spirit</td>
+          <td>Natural story: update the posterior as data arrive</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Bayesian forecasting is <strong>not always better</strong> than
+    classical (frequentist) methods such as OLS or ARIMA. A poor prior
+    or a wrong likelihood can mislead. Classical methods remain
+    standard when a simple fitted model and residual checks are enough.
+  </p>
+
+
+  <h2>Advantages and Limitations</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Advantages</th>
+          <th>Limitations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Can incorporate prior knowledge (manager experience, earlier studies)</td>
+          <td>Choosing an appropriate prior can be difficult</td>
+        </tr>
+        <tr>
+          <td>Uncertainty is represented explicitly (a posterior, not only a point)</td>
+          <td>Computation can be more complex than a single OLS/ARIMA fit</td>
+        </tr>
+        <tr>
+          <td>Beliefs can be updated as new observations arrive</td>
+          <td>Results still depend on the model and the assumptions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>Prior = initial belief; likelihood = data evidence; posterior = updated belief.</li>
+    <li>Posterior ∝ Likelihood × Prior.</li>
+    <li>Bayesian forecasts can carry a range of uncertainty, not only one point.</li>
+    <li>Bayesian methods are not automatically superior to classical forecasting.</li>
+  </ol>
+
+  
+
+
+  <h2>Unit 5 Quick Revision</h2>
+
+  <h2>Short Exam Definitions</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Short definition / exam point</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Multivariate time series</strong></td>
+          <td>Several variables recorded over the same times; joint behaviour can inform forecasts.</td>
+        </tr>
+        <tr>
+          <td><strong>Multivariate forecasting</strong></td>
+          <td>Produce futures for more than one series while respecting their links.</td>
+        </tr>
+        <tr>
+          <td><strong>Multivariate stationarity</strong></td>
+          <td>Stable means/variances <em>and</em> stable cross-variable (including lagged) relationships.</td>
+        </tr>
+        <tr>
+          <td><strong>Cross-variable relationship</strong></td>
+          <td>Association at the same time or at a lag; not automatically causation.</td>
+        </tr>
+        <tr>
+          <td><strong>Bayesian forecasting</strong></td>
+          <td>Combine prior and data to update uncertainty, then forecast from the posterior.</td>
+        </tr>
+        <tr>
+          <td><strong>Prior</strong></td>
+          <td>Initial belief before (or besides) the current observations.</td>
+        </tr>
+        <tr>
+          <td><strong>Likelihood</strong></td>
+          <td>Evidence from the observed data under a stated model.</td>
+        </tr>
+        <tr>
+          <td><strong>Posterior</strong></td>
+          <td>Updated belief: Posterior ∝ Likelihood × Prior.</td>
+        </tr>
+        <tr>
+          <td><strong>Point vs uncertainty-aware</strong></td>
+          <td>One number vs a distribution/range that shows remaining uncertainty.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>Key Distinctions</h2>
+
+  <ol class="exam-list">
+    <li>Univariate vs multivariate: one series vs several related series.</li>
+    <li>Univariate vs multivariate stationarity: own stability vs own plus cross-links.</li>
+    <li>Correlation vs causation: moving together ≠ one variable caused the other.</li>
+    <li>Prior vs likelihood vs posterior: initial belief vs data evidence vs updated belief.</li>
+    <li>Point forecast vs probabilistic forecast: a single value vs an uncertainty-aware range.</li>
+  </ol>
+
+
+  <h2>Compact Flows</h2>
+
+  <div class="note-flow">Multivariate Data
+  ↓
+Explore Relationships
+  ↓
+Check Stationarity
+  ↓
+Select Model
+  ↓
+Fit
+  ↓
+Forecast
+  ↓
+Evaluate</div>
+
+  <div class="note-flow">Prior
+  +
+Observed Data
+  ↓
+Posterior
+  ↓
+Forecast</div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-multivariate-stationary/" rel="prev">&larr; Previous</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

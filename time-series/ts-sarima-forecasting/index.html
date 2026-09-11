@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Forecasting using Seasonal ARIMA Models | Time Series</title>
+ <meta name="description" content="Forecasting using Seasonal ARIMA means fitting a     SARIMA model whose seasonal period matches the data, then producing     future values that can continue the historical seasonal shape as     well as any non-seasonal movement the model allows." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-sarima-forecasting/" />
+ <meta property="og:title" content="Forecasting using Seasonal ARIMA Models" />
+ <meta property="og:description" content="Forecasting using Seasonal ARIMA means fitting a     SARIMA model whose seasonal period matches the data, then producing     future values that can continue the historical seasonal shape as     well as any non-seasonal movement the model allows." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-sarima-forecasting/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Forecasting using Seasonal ARIMA Models" />
+ <meta name="twitter:description" content="Forecasting using Seasonal ARIMA means fitting a     SARIMA model whose seasonal period matches the data, then producing     future values that can continue the historical seasonal shape as     well as any non-seasonal movement the model allows." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Forecasting using Seasonal ARIMA Models","item":"https://bcastudyportal.in/time-series/ts-sarima-forecasting/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-sarima-forecasting/","name":"Forecasting using Seasonal ARIMA Models","description":"Forecasting using Seasonal ARIMA means fitting a     SARIMA model whose seasonal period matches the data, then producing     future values that can continue the historical seasonal shape as     well as any non-seasonal movement the model allows.","mainEntity":{"@type":"CreativeWork","name":"Forecasting using Seasonal ARIMA Models","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Forecasting using Seasonal ARIMA Models</div>
+  <div class="meta">Subject: Time Series • Module: 4 Introduction to Autoregressive Models and Forecasting • Type: Notes</div>
+  <h1>Forecasting using Seasonal ARIMA Models</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Forecasting using Seasonal ARIMA Models</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Forecasting using Seasonal ARIMA</strong> means fitting a
+    SARIMA model whose seasonal period matches the data, then producing
+    future values that can continue the historical seasonal shape as
+    well as any non-seasonal movement the model allows.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Two years of monthly sales with a yearly peak can be fit with a
+      small SARIMA and m = 12, using the last year as a hold-out if the
+      series is long enough.
+    </p>
+  </div>
+
+
+  <h2>Practical Workflow</h2>
+
+  <div class="note-flow">Seasonal Time Series
+  ↓
+Visualize
+  ↓
+Identify Seasonality
+  ↓
+Check Stationarity
+  ↓
+Seasonal / Non-seasonal Differencing if Required
+  ↓
+Select Candidate SARIMA
+  ↓
+Fit Model
+  ↓
+Diagnose
+  ↓
+Forecast
+  ↓
+Evaluate</div>
+
+  <ol class="exam-list">
+    <li>
+      <strong>Visualize:</strong> plot the series and look for a repeating wave.
+    </li>
+    <li>
+      <strong>Identify seasonality:</strong> choose m from the calendar and from lag-m ACF (for example m = 12).
+    </li>
+    <li>
+      <strong>Check stationarity:</strong> see whether the level wanders and whether seasonal peaks grow or stay similar.
+    </li>
+    <li>
+      <strong>Difference if required:</strong> ordinary d for nearby wandering; seasonal D for a repeating seasonal level. Use only what the plot supports.
+    </li>
+    <li>
+      <strong>Select a candidate:</strong> start with a small seasonal model, not a huge search.
+    </li>
+    <li>
+      <strong>Fit:</strong> estimate on training months.
+    </li>
+    <li>
+      <strong>Diagnose:</strong> residual ACF should not keep a large seasonal spike if the seasonal part is adequate.
+    </li>
+    <li>
+      <strong>Forecast:</strong> future months, with interval bands that widen with the horizon.
+    </li>
+    <li>
+      <strong>Evaluate:</strong> MAE or RMSE on later months not used in fitting.
+    </li>
+  </ol>
+
+  
+
+
+  <h2>Interpretation, a Small SARIMA Example, and Unit 3 Quick Revision</h2>
+
+  <h2>How to Read a Seasonal Forecast</h2>
+
+  <p>
+    If the historical series peaks every December, a useful SARIMA
+    forecast should still show a similar seasonal wiggle, unless the
+    data have clearly changed. If the forecast is a flat line while
+    the history is strongly seasonal, the seasonal orders or m may be
+    wrong. Performance is still judged by error measures on hold-out
+    dates, not by how attractive the in-sample plot looks.
+  </p>
+
+  <p>
+    A forecast interval is a model-based range for a future observation.
+    It is not a promise that the actual value must fall inside the band.
+  </p>
+
+
+  <h2>Small Educational Python Example</h2>
+
+  <p>
+    Constructed 72 monthly points with trend and a yearly wave
+    (airline-passenger-like in spirit, not a downloaded file).
+    A small SARIMA is fit on the first 60 months. Expected display:
+    a model summary, a 12-month forecast line that still wiggles
+    yearly, and a hold-out MAE. Exact MAE depends on the run.
+  </p>
+
+  <div class="program-code notranslate" data-language="python">
+# Import libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+# Load / prepare a monthly seasonal teaching series
+idx = pd.date_range("2019-01-01", periods=72, freq="MS")
+t = np.arange(72)
+y = pd.Series(0.4 * t + 8 * np.sin(2 * np.pi * t / 12) + 50, index=idx)
+train, test = y.iloc[:-12], y.iloc[-12:]
+
+# Fit a small SARIMA: non-seasonal (0,1,1), seasonal (0,1,1,12)
+fit = SARIMAX(
+    train,
+    order=(0, 1, 1),
+    seasonal_order=(0, 1, 1, 12),
+    enforce_stationarity=False,
+    enforce_invertibility=False
+).fit(disp=False)
+
+# Generate forecast
+fc = fit.get_forecast(12).predicted_mean
+mae = np.mean(np.abs(test - fc))
+print(fit.summary())
+print("Hold-out MAE:", round(mae, 3))
+
+# Plot forecast
+train.plot(label="train")
+test.plot(label="test")
+fc.plot(label="SARIMA forecast", style="--")
+plt.legend()
+plt.title("Seasonal ARIMA history vs 12-month forecast")
+plt.tight_layout()
+plt.show()
+  </div>
+
+
+  <div class="note-callout">
+    <span class="note-callout-title">Exam Note</span>
+    <p>
+      For monthly seasonal forecasting, state m = 12, fit on earlier
+      months, and check that the forecast still follows the seasonal
+      pattern and is evaluated on later months.
+    </p>
+  </div>
+
+
+  <h2>Unit 3 Quick Revision</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Short definition / exam point</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Autocorrelation</strong></td>
+          <td>Correlation of a series with its lagged values.</td>
+        </tr>
+        <tr>
+          <td><strong>Partial autocorrelation</strong></td>
+          <td>Lag-k correlation after accounting for intermediate lags.</td>
+        </tr>
+        <tr>
+          <td><strong>AR</strong></td>
+          <td>Current value depends on past values. AR(1): X<sub>t</sub> = c + φ X<sub>t−1</sub> + ε<sub>t</sub>.</td>
+        </tr>
+        <tr>
+          <td><strong>MA</strong></td>
+          <td>Current value depends on past errors. MA(1): X<sub>t</sub> = μ + ε<sub>t</sub> + θ ε<sub>t−1</sub>.</td>
+        </tr>
+        <tr>
+          <td><strong>ARMA</strong></td>
+          <td>AR + MA for a roughly stationary series; orders (p, q).</td>
+        </tr>
+        <tr>
+          <td><strong>ARIMA</strong></td>
+          <td>ARMA plus differencing; orders (p, d, q). d is not always needed.</td>
+        </tr>
+        <tr>
+          <td><strong>Forecasting using ARIMA</strong></td>
+          <td>Fit on training dates, check residuals, forecast, evaluate on later dates.</td>
+        </tr>
+        <tr>
+          <td><strong>Seasonal data</strong></td>
+          <td>Repeating pattern at known period m. Not the same as trend or cycle.</td>
+        </tr>
+        <tr>
+          <td><strong>SARIMA</strong></td>
+          <td>Seasonal ARIMA: (p, d, q)(P, D, Q)<sub>m</sub>.</td>
+        </tr>
+        <tr>
+          <td><strong>Forecasting using SARIMA</strong></td>
+          <td>Include m, possibly seasonal differencing, then forecast and evaluate.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Compact model-selection intuition:</strong>
+  </p>
+
+  <div class="note-flow">ACF / PACF / stationarity / seasonality
+  ↓
+Candidate Model
+  ↓
+Fit
+  ↓
+Diagnose
+  ↓
+Forecast
+  ↓
+Evaluate</div>
+
+  <ol class="exam-list">
+    <li>ACF vs PACF: overall lag correlation vs direct lag-k correlation.</li>
+    <li>AR vs MA: past values vs past shocks.</li>
+    <li>ARMA vs ARIMA: no built-in differencing vs optional d.</li>
+    <li>Non-seasonal vs seasonal differencing: lag 1 vs lag m.</li>
+    <li>ARIMA vs SARIMA: no seasonal orders vs (P, D, Q)<sub>m</sub>.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-sarima-models/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p4-01/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

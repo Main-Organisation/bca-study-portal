@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Different Modes of Opening a File in C — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a file and write text into it using the     w mode." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m5-file-modes/" />
+ <meta property="og:title" content="Different Modes of Opening a File in C — Exercises" />
+ <meta property="og:description" content="Write a C program to create a file and write text into it using the     w mode." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m5-file-modes/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Different Modes of Opening a File in C — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a file and write text into it using the     w mode." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Different Modes of Opening a File in C — Exercises","item":"https://bcastudyportal.in/c-programming/s-m5-file-modes/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m5-file-modes/","name":"Different Modes of Opening a File in C — Exercises","description":"Write a C program to create a file and write text into it using the     w mode.","mainEntity":{"@type":"CreativeWork","name":"Different Modes of Opening a File in C — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Different Modes of Opening a File in C — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Practical</div>
+  <h1>Different Modes of Opening a File in C — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>File Handling: File Opening Modes — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a file and write text into it using the
+    <code>w</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("student.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fprintf(fp, "BCA Study Portal\n");
+
+    fclose(fp);
+
+    printf("File created and data written successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>w</code> mode opens a file for writing. If the file does not
+    exist, it can be created. Existing contents are replaced when the file
+    is opened for writing.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File created and data written successfully.</strong></p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to open an existing file in <code>r</code> mode and
+    read its contents character by character.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("student.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    printf("File contents:\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>r</code> mode opens an existing file for reading.
+    <code>fgetc()</code> reads one character at a time until
+    <code>EOF</code> is reached.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>BCA Study Portal</p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to append new text to an existing file using the
+    <code>a</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("student.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fprintf(fp, "C Programming Notes\n");
+
+    fclose(fp);
+
+    printf("Data appended successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>a</code> mode opens a file for appending. New data is written
+    at the end of the existing file instead of replacing its contents.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Data appended successfully.</strong></p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use the <code>r+</code> mode to read from and
+    write to an existing file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("student.txt", "r+");
+
+    if (fp == NULL)
+    {
+        printf("File could not be opened.\n");
+        return 1;
+    }
+
+    printf("Existing content:\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fprintf(fp, "New Line\n");
+
+    fclose(fp);
+
+    printf("\nData processing completed.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>r+</code> mode allows both reading and writing on an existing
+    file. The file must already exist. The exact effect of writing also
+    depends on the current file position.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Existing content:</strong></p>
+    <p>BCA Study Portal</p>
+    <p><strong>Data processing completed.</strong></p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a new file for both reading and writing
+    using the <code>w+</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char text[100];
+
+    fp = fopen("data.txt", "w+");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fprintf(fp, "Welcome to File Handling.");
+
+    rewind(fp);
+
+    fgets(text, sizeof(text), fp);
+
+    printf("File content = %s\n", text);
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>w+</code> mode opens a file for both reading and writing.
+    The file can be created if it does not exist, while existing contents
+    are discarded when the file is opened.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File content = Welcome to File Handling.</strong></p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to use the <code>a+</code> mode to append data to a
+    file and then read the file contents.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+
+    fp = fopen("notes.txt", "a+");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fprintf(fp, "Pointers are important in C.\n");
+
+    rewind(fp);
+
+    printf("File contents:\n");
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>a+</code> mode allows both reading and appending. New data
+    is added at the end of the file, while reading can be performed after
+    repositioning the file position as needed.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File contents:</strong></p>
+    <p>Pointers are important in C.</p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to check whether a file can be opened using the
+    <code>r</code> mode before reading it.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("record.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File does not exist or cannot be opened.\n");
+    }
+    else
+    {
+        printf("File opened successfully.\n");
+        fclose(fp);
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    <code>fopen()</code> returns <code>NULL</code> when the file cannot be
+    opened successfully. Checking this result prevents the program from
+    trying to use an invalid file pointer.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>File opened successfully.</strong></p>
+    <p>
+      If the file does not exist, the program displays an appropriate
+      error message instead.
+    </p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to demonstrate the use of the <code>w</code> mode
+    for storing student information in a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+    float marks;
+
+    fp = fopen("student_record.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;roll);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;marks);
+
+    fprintf(fp,
+            "Roll = %d\nName = %s\nMarks = %.2f\n",
+            roll,
+            name,
+            marks);
+
+    fclose(fp);
+
+    printf("\nStudent record saved successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>w</code> mode is useful when a program needs to create a new
+    file or replace the contents of an existing file with fresh data.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks: 88</p>
+    <p><strong>Student record saved successfully.</strong></p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to append multiple student names to a file using
+    the <code>a</code> mode.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char name[50];
+    int i;
+
+    fp = fopen("students.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    for (i = 0; i &lt; 3; i++)
+    {
+        printf("Enter student name: ");
+        scanf("%49s", name);
+
+        fprintf(fp, "%s\n", name);
+    }
+
+    fclose(fp);
+
+    printf("Student names appended successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program opens the file in append mode so that newly entered names
+    are added after the existing data. Existing contents are preserved.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter student name: Rahul</p>
+    <p>Enter student name: Priya</p>
+    <p>Enter student name: Amit</p>
+    <p><strong>Student names appended successfully.</strong></p>
+  </div>
+  
+
+  <h2>File Handling: File Opening Modes — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program that demonstrates choosing a file opening mode
+    using a menu and performs the corresponding file operation.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int choice;
+
+    printf("1. Write file\n");
+    printf("2. Read file\n");
+    printf("3. Append file\n");
+
+    printf("Enter choice: ");
+    scanf("%d", &amp;choice);
+
+    if (choice == 1)
+    {
+        fp = fopen("menu.txt", "w");
+
+        if (fp == NULL)
+        {
+            printf("Unable to open file.\n");
+            return 1;
+        }
+
+        fprintf(fp, "Data written using w mode.\n");
+
+        fclose(fp);
+
+        printf("Write operation completed.\n");
+    }
+    else if (choice == 2)
+    {
+        int ch;
+
+        fp = fopen("menu.txt", "r");
+
+        if (fp == NULL)
+        {
+            printf("File could not be opened.\n");
+            return 1;
+        }
+
+        printf("File contents:\n");
+
+        while ((ch = fgetc(fp)) != EOF)
+        {
+            putchar(ch);
+        }
+
+        fclose(fp);
+    }
+    else if (choice == 3)
+    {
+        fp = fopen("menu.txt", "a");
+
+        if (fp == NULL)
+        {
+            printf("Unable to open file.\n");
+            return 1;
+        }
+
+        fprintf(fp, "Data appended using a mode.\n");
+
+        fclose(fp);
+
+        printf("Append operation completed.\n");
+    }
+    else
+    {
+        printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This example combines the commonly used text-file opening modes.
+    The program selects <code>w</code>, <code>r</code> or <code>a</code>
+    according to the user's choice and then performs the corresponding
+    operation.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>1. Write file</p>
+    <p>2. Read file</p>
+    <p>3. Append file</p>
+    <p>Enter choice: 1</p>
+    <p><strong>Write operation completed.</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m5-use-pointers/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m5-reading-files/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

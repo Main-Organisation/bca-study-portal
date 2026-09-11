@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Use of Pointers | C Programming</title>
+ <meta name="description" content="Pointers are used when a program needs to work with the address of     a variable instead of using only its value. Through a pointer, a     program can access and modify the original variable, pass its     address to a function, and work efficiently with arrays and other     data structures." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m5-use-pointers/" />
+ <meta property="og:title" content="Use of Pointers" />
+ <meta property="og:description" content="Pointers are used when a program needs to work with the address of     a variable instead of using only its value. Through a pointer, a     program can access and modify the original variable, pass its     address to a function, and work efficiently with arrays and other     data structures." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m5-use-pointers/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Use of Pointers" />
+ <meta name="twitter:description" content="Pointers are used when a program needs to work with the address of     a variable instead of using only its value. Through a pointer, a     program can access and modify the original variable, pass its     address to a function, and work efficiently with arrays and other     data structures." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Use of Pointers","item":"https://bcastudyportal.in/c-programming/m5-use-pointers/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m5-use-pointers/","name":"Use of Pointers","description":"Pointers are used when a program needs to work with the address of     a variable instead of using only its value. Through a pointer, a     program can access and modify the original variable, pass its     address to a function, and work efficiently with arrays and other     data structures.","mainEntity":{"@type":"CreativeWork","name":"Use of Pointers","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Use of Pointers</div>
+  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Notes</div>
+  <h1>Use of Pointers</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><p>
+    Pointers are used when a program needs to work with the address of
+    a variable instead of using only its value. Through a pointer, a
+    program can access and modify the original variable, pass its
+    address to a function, and work efficiently with arrays and other
+    data structures.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 10;
+int *ptr = &amp;number;
+
+*ptr = 20;
+    </div>
+
+    <p>
+      The pointer accesses the original variable, so the value of
+      <code>number</code> becomes <code>20</code>.
+    </p>
+  </div>
+
+
+  <h2>1. Accessing a Variable Through a Pointer</h2>
+
+  <p>
+    A pointer can be used to access the value of the variable whose
+    address it stores. The indirection operator <code>*</code> is used
+    for this purpose.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int marks = 75;
+int *ptr = &amp;marks;
+
+printf("%d", *ptr);
+    </div>
+
+    <p>
+      <code>*ptr</code> accesses the value stored in
+      <code>marks</code>, so the output is <code>75</code>.
+    </p>
+  </div>
+
+
+  <h2>2. Modifying a Variable Through a Pointer</h2>
+
+  <p>
+    A pointer does not only allow us to read a value. It can also be
+    used to change the value of the original variable by assigning a
+    new value through the indirection operator.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 10;
+int *ptr = &amp;number;
+
+*ptr = 50;
+    </div>
+
+    <p>
+      After <code>*ptr = 50</code>, the original variable
+      <code>number</code> also contains <code>50</code>.
+    </p>
+  </div>
+
+
+  <h2>3. Passing an Address to a Function</h2>
+
+  <p>
+    A pointer allows the address of a variable to be passed to a
+    function. The function can then use that address to access the
+    original variable instead of receiving only a separate copy of
+    its value.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+void change(int *p)
+{
+    *p = 100;
+}
+
+change(&amp;number);
+    </div>
+
+    <p>
+      The function receives the address of <code>number</code> and
+      changes its original value through <code>*p</code>.
+    </p>
+  </div>
+
+
+  <h2>4. Pointers and Call by Reference</h2>
+
+  <p>
+    In C, pointers are commonly used to achieve the effect of
+    <strong>call by reference</strong>. Instead of passing a copy of
+    the value, the address of the variable is passed to the function.
+    The function can then modify the original variable.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+swap(&amp;a, &amp;b);
+    </div>
+
+    <p>
+      The addresses of <code>a</code> and <code>b</code> are passed to
+      the function so their original values can be exchanged.
+    </p>
+  </div>
+
+
+  <h2>5. Using Pointers with Arrays</h2>
+
+  <p>
+    The address of an array element can be stored in a pointer.
+    Pointers can then be used to access array elements. This becomes
+    especially useful when processing an array using functions.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int marks[3] = {70, 80, 90};
+int *ptr = marks;
+
+printf("%d", *ptr);
+    </div>
+
+    <p>
+      The pointer points to the first element of the array, so
+      <code>*ptr</code> gives <code>70</code>.
+    </p>
+  </div>
+
+
+  <h2>6. Pointer Arithmetic</h2>
+
+  <p>
+    Pointers can be incremented and decremented to move through
+    consecutive elements of an array. When a pointer is increased by
+    one, it moves to the next element of the type it points to.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int arr[3] = {10, 20, 30};
+int *ptr = arr;
+
+ptr++;
+    </div>
+
+    <p>
+      After <code>ptr++</code>, the pointer points to the next integer
+      element, which is <code>arr[1]</code>.
+    </p>
+  </div>
+
+
+  <h2>Pointer Increment Depends on Data Type</h2>
+
+  <p>
+    Pointer arithmetic is based on the size of the data type to which
+    the pointer points. Therefore, incrementing a pointer moves it to
+    the next element rather than simply adding one byte to the address.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *p;
+char *c;
+float *f;
+    </div>
+
+    <p>
+      When these pointers are incremented, each one moves to the next
+      element of its own data type.
+    </p>
+  </div>
+
+
+  <h2>7. Comparing Pointer Values</h2>
+
+  <p>
+    Pointer variables can be compared when they point to compatible
+    objects. Comparing pointers is useful when working with elements
+    of the same array or when checking whether a pointer is
+    <code>NULL</code>.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+if (ptr == NULL)
+{
+    printf("Pointer is empty");
+}
+    </div>
+
+    <p>
+      This checks whether <code>ptr</code> contains a null pointer
+      value.
+    </p>
+  </div>
+
+
+  <h2>8. Using Pointers to Work Efficiently with Data</h2>
+
+  <p>
+    Pointers are useful when a function needs to work with the original
+    data rather than making another copy of that data. They are therefore
+    widely used with arrays, functions, structures and dynamic memory.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <p>
+      An array can be processed by passing its address to a function,
+      allowing the function to work with the array elements directly.
+    </p>
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to demonstrate how a pointer can be used to
+    modify the value of an original variable.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Use a pointer to access a variable.</li>
+
+    <li>Modify an original variable through a pointer.</li>
+
+    <li>Understand the relationship between a pointer and its target variable.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Declare an integer variable, store its address in a pointer and
+    assign a new value using the indirection operator.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    When a pointer contains the address of a variable, the expression
+    <code>*ptr</code> refers to the value stored at that address.
+    Assigning a new value to <code>*ptr</code> therefore changes the
+    original variable.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 25;
+    int *ptr;
+
+    // store the address of number in the pointer
+    ptr = &amp;number;
+
+    printf("Before modification = %d
+", number);
+
+    // modify the original variable through the pointer
+    *ptr = 50;
+
+    printf("After modification = %d
+", number);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Before modification = 25
+    </p>
+
+    <p>
+      After modification = 50
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The pointer <code>ptr</code> stores the address of
+    <code>number</code>. Therefore, changing <code>*ptr</code>
+    changes the original variable <code>number</code>.
+  </p>
+
+
+  <h2>Practical Example — Function and Pointer</h2>
+
+  <p>
+    One of the important uses of pointers is passing the address of a
+    variable to a function so that the function can modify the original
+    value.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+void changeValue(int *p)
+{
+    *p = 100;
+}
+    </div>
+
+    <p>
+      The pointer parameter <code>p</code> receives the address of the
+      original variable.
+    </p>
+  </div>
+
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to pass the address of a variable to a function
+    and change its value using a pointer.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+void changeValue(int *p)
+{
+    // change the original value using its address
+    *p = 100;
+}
+
+int main()
+{
+    int number = 25;
+
+    printf("Before function call = %d
+", number);
+
+    // pass the address of number to the function
+    changeValue(&amp;number);
+
+    printf("After function call = %d
+", number);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Before function call = 25
+    </p>
+
+    <p>
+      After function call = 100
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The function receives the address of <code>number</code>, so
+    changing <code>*p</code> changes the original variable. This is
+    the basic idea behind using pointers for call by reference.
+  </p>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Use</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Access Value</strong></td>
+          <td>Use <code>*ptr</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Modify Value</strong></td>
+          <td>Assign through <code>*ptr</code>.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Function</strong></td>
+          <td>Pass an address using a pointer.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Arrays</strong></td>
+          <td>Pointer can move through array elements.</td>
+        </tr>
+
+        <tr>
+          <td><strong>Pointer Arithmetic</strong></td>
+          <td>Increment moves to the next element of its type.</td>
+        </tr>
+
+        <tr>
+          <td><strong>NULL</strong></td>
+          <td>Can be used to represent a pointer that points to no valid object.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What are the main uses of pointers in C?</li>
+
+    <li>How can a pointer modify the value of a variable?</li>
+
+    <li>How are pointers used with functions?</li>
+
+    <li>How are pointers related to arrays?</li>
+
+    <li>What is pointer arithmetic?</li>
+
+    <li>What is the purpose of a NULL pointer?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain the different uses of pointers in C with suitable examples.
+    </li>
+
+    <li>
+      Explain how pointers can be used to modify the value of an
+      original variable.
+    </li>
+
+    <li>
+      Explain the use of pointers in functions with a suitable program.
+    </li>
+
+    <li>
+      Explain pointer arithmetic with a suitable example.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of the uses of pointers
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=uses+of+pointers+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Uses of Pointers in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for uses of pointers
+        will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for value access, modification, functions,
+        arrays and pointer arithmetic.
+      </p>
+
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m5-defining-pointers/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m5-file-modes/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

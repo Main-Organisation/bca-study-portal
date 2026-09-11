@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P3.04 Interpret the PACF | Time Series</title>
+ <meta name="description" content="Explain why ACF of an AR(1) tails off while PACF cuts off, using the series from P3.03." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p3-04/" />
+ <meta property="og:title" content="P3.04 Interpret the PACF" />
+ <meta property="og:description" content="Explain why ACF of an AR(1) tails off while PACF cuts off, using the series from P3.03." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p3-04/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P3.04 Interpret the PACF" />
+ <meta name="twitter:description" content="Explain why ACF of an AR(1) tails off while PACF cuts off, using the series from P3.03." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P3.04 Interpret the PACF","item":"https://bcastudyportal.in/time-series/ts-p3-04/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p3-04/","name":"P3.04 Interpret the PACF","description":"Explain why ACF of an AR(1) tails off while PACF cuts off, using the series from P3.03.","mainEntity":{"@type":"CreativeWork","name":"P3.04 Interpret the PACF","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P3.04 Interpret the PACF</div>
+  <div class="meta">Subject: Time Series • Module: 3 Statistics Background for Forecasting • Type: Practical</div>
+  <h1>P3.04 Interpret the PACF</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P3.04 Interpret the PACF</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Explain why ACF of an AR(1) tails off while PACF cuts off, using the series from P3.03.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>State the tail-off vs cut-off teaching rule.</li><li>Use the rule cautiously.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Teaching rule: AR(p) has ACF tailing off and PACF cutting off after p. MA(q) has ACF cutting off after q and PACF tailing off. Mixed ARMA shows tails in both. Real data are mixed and samples are finite.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Reuse the AR(1)-like constructed series.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import numpy as np
+from statsmodels.tsa.stattools import acf, pacf
+
+rng = np.random.default_rng(5)
+e = rng.normal(size=120)
+y = np.zeros(120)
+for t in range(1, 120):
+    y[t] = 0.7 * y[t-1] + e[t]
+print("ACF 1-5:", np.round(acf(y, nlags=5, fft=True)[1:], 3))
+print("PACF 1-5:", np.round(pacf(y, nlags=5), 3)[1:])</div>
+
+  <h3>Expected Output</h3>
+  <p>Printed ACF values decaying and PACF large mainly at lag 1 for this simulation.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>The numbers illustrate the teaching rule. Students should still plot data and later check residuals after fitting.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Identification rules are guides, not automatic model selectors.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p3-03/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p3-05/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

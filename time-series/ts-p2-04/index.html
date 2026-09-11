@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P2.04 Original vs Smoothed Series | Time Series</title>
+ <meta name="description" content="Compare the original series with 3-month and 5-month moving averages and discuss the bias-smoothness trade-off." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p2-04/" />
+ <meta property="og:title" content="P2.04 Original vs Smoothed Series" />
+ <meta property="og:description" content="Compare the original series with 3-month and 5-month moving averages and discuss the bias-smoothness trade-off." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p2-04/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P2.04 Original vs Smoothed Series" />
+ <meta name="twitter:description" content="Compare the original series with 3-month and 5-month moving averages and discuss the bias-smoothness trade-off." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P2.04 Original vs Smoothed Series","item":"https://bcastudyportal.in/time-series/ts-p2-04/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p2-04/","name":"P2.04 Original vs Smoothed Series","description":"Compare the original series with 3-month and 5-month moving averages and discuss the bias-smoothness trade-off.","mainEntity":{"@type":"CreativeWork","name":"P2.04 Original vs Smoothed Series","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P2.04 Original vs Smoothed Series</div>
+  <div class="meta">Subject: Time Series • Module: 2 Time Series Analysis and Components • Type: Practical</div>
+  <h1>P2.04 Original vs Smoothed Series</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P2.04 Original vs Smoothed Series</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Compare the original series with 3-month and 5-month moving averages and discuss the bias-smoothness trade-off.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>See that a longer window is smoother.</li><li>See that a longer window reacts more slowly.</li></ul>
+
+  <h3>Theory</h3>
+  <p>A longer moving-average window removes more noise and more signal. There is no universally best window.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Same teaching series as P2.03, extended by repeating the comparison.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import pandas as pd
+import matplotlib.pyplot as plt
+
+idx = pd.date_range("2025-01-01", periods=12, freq="MS")
+y = pd.Series([10, 13, 11, 16, 15, 20, 18, 22, 21, 25, 24, 28], index=idx)
+y.plot(label="original")
+y.rolling(3, center=True).mean().plot(label="MA3")
+y.rolling(5, center=True).mean().plot(label="MA5")
+plt.legend()
+plt.tight_layout()
+plt.show()</div>
+
+  <h3>Expected Output</h3>
+  <p>One chart with three lines. MA5 is smoother and lags more than MA3.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>MA3 keeps more local detail. MA5 is easier to read as a trend but slower to show a genuine jump. Choice depends on the question.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Smoothing is a display and exploration tool, not automatically a forecast model.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p2-03/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p2-05/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

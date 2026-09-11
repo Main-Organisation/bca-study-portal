@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P1.10 Mini End-to-End Forecast | Time Series</title>
+ <meta name="description" content="From a 24-month constructed sales series, complete a beginner workflow: inspect, clean, plot, split last 3 months as a check, forecast with a trailing mean, and interpret MAE." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p1-10/" />
+ <meta property="og:title" content="P1.10 Mini End-to-End Forecast" />
+ <meta property="og:description" content="From a 24-month constructed sales series, complete a beginner workflow: inspect, clean, plot, split last 3 months as a check, forecast with a trailing mean, and interpret MAE." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p1-10/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P1.10 Mini End-to-End Forecast" />
+ <meta name="twitter:description" content="From a 24-month constructed sales series, complete a beginner workflow: inspect, clean, plot, split last 3 months as a check, forecast with a trailing mean, and interpret MAE." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P1.10 Mini End-to-End Forecast","item":"https://bcastudyportal.in/time-series/ts-p1-10/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p1-10/","name":"P1.10 Mini End-to-End Forecast","description":"From a 24-month constructed sales series, complete a beginner workflow: inspect, clean, plot, split last 3 months as a check, forecast with a trailing mean, and interpret MAE.","mainEntity":{"@type":"CreativeWork","name":"P1.10 Mini End-to-End Forecast","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P1.10 Mini End-to-End Forecast</div>
+  <div class="meta">Subject: Time Series • Module: 1 Introduction to Time Series • Type: Practical</div>
+  <h1>P1.10 Mini End-to-End Forecast</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P1.10 Mini End-to-End Forecast</h2>
+
+  <h3>Problem Statement</h3>
+  <p>From a 24-month constructed sales series, complete a beginner workflow: inspect, clean, plot, split last 3 months as a check, forecast with a trailing mean, and interpret MAE.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Run a full simple pipeline.</li><li>Hold out recent months for a check.</li><li>Report MAE without claiming a sophisticated model.</li></ul>
+
+  <h3>Hint</h3>
+  <p>Do not use ARIMA. A trailing mean is enough for Unit 1.</p>
+
+  <h3>Theory</h3>
+  <p>An end-to-end beginner forecast still follows the process: understand the series, prepare it, choose a simple rule, check it on unused recent data, then interpret.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Constructed 24 monthly sales figures with a mild rise. Teaching data, not a Kaggle download.</p>
+
+  <h3>Kaggle-style Workflow</h3>
+  <ul><li>Problem statement</li><li>Dataset description</li><li>Import libraries</li><li>Load and inspect</li><li>Clean</li><li>Exploratory plot</li><li>Simple model</li><li>Evaluate with MAE</li><li>Interpret and conclude</li></ul>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+idx = pd.date_range("2024-01-01", periods=24, freq="MS")
+sales = np.linspace(40, 70, 24) + np.array(
+    [0, 1, -1, 2, 0, 3, -2, 1, 0, 2, -1, 4,
+     0, 1, -2, 2, 1, 0, 3, -1, 2, 0, 1, 2]
+)
+ts = pd.Series(sales, index=idx, name="sales")
+
+print("Shape:", ts.shape)
+print("Missing:", ts.isna().sum())
+print(ts.describe())
+
+train, test = ts.iloc[:-3], ts.iloc[-3:]
+preds = pd.Series(train.tail(3).mean(), index=test.index)
+mae = (test - preds).abs().mean()
+
+print("Hold-out MAE:", round(mae, 2))
+train.plot(label="train")
+test.plot(label="test")
+preds.plot(label="simple forecast", style="--")
+plt.legend()
+plt.title("Unit 1 mini forecast")
+plt.tight_layout()
+plt.show()</div>
+
+  <h3>Expected Output</h3>
+  <p>Printed shape, missing count, descriptive stats, a hold-out MAE, and a chart of train, test and a flat dashed forecast. MAE depends on this constructed series; do not quote it as a universal result.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>The pipeline shows inspection, a simple method and honest evaluation on later months. The forecast is crude, which is the educational point: process first, advanced models later.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Evaluate a method on data not used to form the forecast whenever possible.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p1-09/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-trend/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

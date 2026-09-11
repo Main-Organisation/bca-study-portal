@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Advantages of Structures — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to store student roll number, name and marks     together using a structure and display the complete record." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m4-advantages/" />
+ <meta property="og:title" content="Advantages of Structures — Exercises" />
+ <meta property="og:description" content="Write a C program to store student roll number, name and marks     together using a structure and display the complete record." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m4-advantages/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Advantages of Structures — Exercises" />
+ <meta name="twitter:description" content="Write a C program to store student roll number, name and marks     together using a structure and display the complete record." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Advantages of Structures — Exercises","item":"https://bcastudyportal.in/c-programming/s-m4-advantages/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m4-advantages/","name":"Advantages of Structures — Exercises","description":"Write a C program to store student roll number, name and marks     together using a structure and display the complete record.","mainEntity":{"@type":"CreativeWork","name":"Advantages of Structures — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Advantages of Structures — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Practical</div>
+  <h1>Advantages of Structures — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Advantages of Structures — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store student roll number, name and marks
+    together using a structure and display the complete record.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    // Display related data as one record
+    printf("\nStudent Record:\n");
+    printf("Roll = %d\n", s.roll);
+    printf("Name = %s\n", s.name);
+    printf("Marks = %.2f\n", s.marks);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    One major advantage of a structure is that related data can be grouped
+    into a single logical record. This makes the program easier to organize.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks: 85.5</p>
+    <p><strong>Student Record:</strong></p>
+    <p><strong>Roll = 101</strong></p>
+    <p><strong>Name = Rahul</strong></p>
+    <p><strong>Marks = 85.50</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the details of an employee using a structure
+    containing ID, name and salary, and calculate the annual salary.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+};
+
+int main()
+{
+    struct Employee emp;
+    float annualSalary;
+
+    printf("Enter employee ID: ");
+    scanf("%d", &amp;emp.id);
+
+    printf("Enter name: ");
+    scanf("%49s", emp.name);
+
+    printf("Enter monthly salary: ");
+    scanf("%f", &amp;emp.salary);
+
+    // Calculate annual salary
+    annualSalary = emp.salary * 12;
+
+    printf("\nEmployee ID = %d\n", emp.id);
+    printf("Name = %s\n", emp.name);
+    printf("Annual Salary = %.2f\n", annualSalary);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure keeps all employee-related information together.
+    This improves readability and makes calculations using the record convenient.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID: 501</p>
+    <p>Enter name: Amit</p>
+    <p>Enter monthly salary: 40000</p>
+    <p><strong>Employee ID = 501</strong></p>
+    <p><strong>Name = Amit</strong></p>
+    <p><strong>Annual Salary = 480000.00</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the details of a book using a structure
+    and calculate its price after discount.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Book
+{
+    int id;
+    char title[100];
+    float price;
+};
+
+int main()
+{
+    struct Book book;
+    float discount, finalPrice;
+
+    printf("Enter book ID: ");
+    scanf("%d", &amp;book.id);
+
+    printf("Enter title: ");
+    scanf("%99s", book.title);
+
+    printf("Enter price: ");
+    scanf("%f", &amp;book.price);
+
+    printf("Enter discount percentage: ");
+    scanf("%f", &amp;discount);
+
+    // Calculate discounted price
+    finalPrice = book.price - (book.price * discount / 100);
+
+    printf("\nBook ID = %d\n", book.id);
+    printf("Title = %s\n", book.title);
+    printf("Final Price = %.2f\n", finalPrice);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structures make it convenient to keep different types of information
+    about the same object together. Here, book identification and pricing
+    information are stored in one record.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter book ID: 101</p>
+    <p>Enter title: Programming</p>
+    <p>Enter price: 500</p>
+    <p>Enter discount percentage: 10</p>
+    <p><strong>Book ID = 101</strong></p>
+    <p><strong>Title = Programming</strong></p>
+    <p><strong>Final Price = 450.00</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create two student records using a structure
+    and compare their marks to find the higher scorer.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s1, s2;
+
+    printf("Enter first student details: ");
+    scanf("%d %49s %f",
+          &amp;s1.roll,
+          s1.name,
+          &amp;s1.marks);
+
+    printf("Enter second student details: ");
+    scanf("%d %49s %f",
+          &amp;s2.roll,
+          s2.name,
+          &amp;s2.marks);
+
+    // Compare student records using their members
+    if (s1.marks &gt; s2.marks)
+        printf("%s scored higher marks.\n", s1.name);
+    else if (s2.marks &gt; s1.marks)
+        printf("%s scored higher marks.\n", s2.name);
+    else
+        printf("Both students scored equal marks.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Multiple records of the same type can be created easily using
+    structure variables. Each record keeps its own related data together.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first student details: 101 Rahul 72</p>
+    <p>Enter second student details: 102 Priya 88</p>
+    <p><strong>Priya scored higher marks.</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the dimensions of a rectangle in a structure
+    and calculate both area and perimeter using the same record.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Rectangle
+{
+    float length;
+    float width;
+};
+
+int main()
+{
+    struct Rectangle r;
+    float area, perimeter;
+
+    printf("Enter length and width: ");
+    scanf("%f %f", &amp;r.length, &amp;r.width);
+
+    // Use structure members in calculations
+    area = r.length * r.width;
+    perimeter = 2 * (r.length + r.width);
+
+    printf("Area = %.2f\n", area);
+    printf("Perimeter = %.2f\n", perimeter);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structures improve organization by keeping related values together.
+    The same structure record can then be used for several calculations.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter length and width: 10 5</p>
+    <p><strong>Area = 50.00</strong></p>
+    <p><strong>Perimeter = 30.00</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store a student's details and determine whether
+    the student has passed based on marks stored in the structure.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    // Use the structure member for decision making
+    if (s.marks &gt;= 50)
+        printf("%s has passed.\n", s.name);
+    else
+        printf("%s has failed.\n", s.name);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structure members can be used directly in conditions. Keeping
+    student information together makes record-based decision making easier.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 105</p>
+    <p>Enter name: Neha</p>
+    <p>Enter marks: 67</p>
+    <p><strong>Neha has passed.</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store product name, price and quantity in a structure
+    and calculate the total bill amount.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Product
+{
+    char name[50];
+    float price;
+    int quantity;
+};
+
+int main()
+{
+    struct Product p;
+    float total;
+
+    printf("Enter product name: ");
+    scanf("%49s", p.name);
+
+    printf("Enter price: ");
+    scanf("%f", &amp;p.price);
+
+    printf("Enter quantity: ");
+    scanf("%d", &amp;p.quantity);
+
+    // Calculate total amount
+    total = p.price * p.quantity;
+
+    printf("\nProduct = %s\n", p.name);
+    printf("Total Bill = %.2f\n", total);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A structure can represent a complete real-world entity. Here,
+    product details are stored together and used directly to calculate
+    the bill amount.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter product name: Keyboard</p>
+    <p>Enter price: 800</p>
+    <p>Enter quantity: 3</p>
+    <p><strong>Product = Keyboard</strong></p>
+    <p><strong>Total Bill = 2400.00</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create two employee records using a structure
+    and calculate the total of their salaries.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    float salary;
+};
+
+int main()
+{
+    struct Employee e1, e2;
+    float totalSalary;
+
+    printf("Enter first employee ID, name and salary: ");
+    scanf("%d %49s %f",
+          &amp;e1.id,
+          e1.name,
+          &amp;e1.salary);
+
+    printf("Enter second employee ID, name and salary: ");
+    scanf("%d %49s %f",
+          &amp;e2.id,
+          e2.name,
+          &amp;e2.salary);
+
+    // Add salaries from both records
+    totalSalary = e1.salary + e2.salary;
+
+    printf("Total Salary = %.2f\n", totalSalary);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Structures allow multiple related records to be maintained using
+    variables of the same structure type. This makes record management
+    more organized.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter first employee ID, name and salary: 101 Amit 40000</p>
+    <p>Enter second employee ID, name and salary: 102 Neha 45000</p>
+    <p><strong>Total Salary = 85000.00</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the date of birth of a person using a
+    structure and calculate the person's approximate age from the birth year.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
+
+int main()
+{
+    struct Date dob;
+    int currentYear, age;
+
+    printf("Enter date of birth (day month year): ");
+    scanf("%d %d %d",
+          &amp;dob.day,
+          &amp;dob.month,
+          &amp;dob.year);
+
+    printf("Enter current year: ");
+    scanf("%d", &amp;currentYear);
+
+    // Calculate approximate age
+    age = currentYear - dob.year;
+
+    printf("Date of Birth = %02d/%02d/%d\n",
+           dob.day,
+           dob.month,
+           dob.year);
+
+    printf("Approximate age = %d years\n", age);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The date is naturally represented as a group of related values.
+    A structure keeps day, month and year together as a single logical record.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter date of birth (day month year): 15 8 2005</p>
+    <p>Enter current year: 2026</p>
+    <p><strong>Date of Birth = 15/08/2005</strong></p>
+    <p><strong>Approximate age = 21 years</strong></p>
+  </div>
+  
+
+  <h2>Advantages of Structures — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a complete student record using a structure.
+    Store roll number, name and marks of three subjects, then calculate
+    total, average and display the result.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int marks1;
+    int marks2;
+    int marks3;
+};
+
+int main()
+{
+    struct Student s;
+    int total;
+    float average;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter marks of three subjects: ");
+    scanf("%d %d %d",
+          &amp;s.marks1,
+          &amp;s.marks2,
+          &amp;s.marks3);
+
+    // Calculate total and average
+    total = s.marks1 + s.marks2 + s.marks3;
+    average = total / 3.0;
+
+    printf("\n-------------------------\n");
+    printf("       STUDENT RECORD\n");
+    printf("-------------------------\n");
+    printf("Roll Number : %d\n", s.roll);
+    printf("Name        : %s\n", s.name);
+    printf("Total Marks : %d\n", total);
+    printf("Average     : %.2f\n", average);
+    printf("-------------------------\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This final example demonstrates the main advantage of structures:
+    different but related data can be represented as one complete record.
+    The record can then be easily read, processed and displayed.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p>Enter marks of three subjects: 70 80 90</p>
+    <p><strong>-------------------------</strong></p>
+    <p><strong>       STUDENT RECORD</strong></p>
+    <p><strong>-------------------------</strong></p>
+    <p><strong>Roll Number : 101</strong></p>
+    <p><strong>Name        : Rahul</strong></p>
+    <p><strong>Total Marks : 240</strong></p>
+    <p><strong>Average     : 80.00</strong></p>
+    <p><strong>-------------------------</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m4-structures/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m4-accessing-elements/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

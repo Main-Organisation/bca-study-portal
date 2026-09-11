@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Writing to Files — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to create a text file and write a simple message     into it using fprintf()." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m5-writing-files/" />
+ <meta property="og:title" content="Writing to Files — Exercises" />
+ <meta property="og:description" content="Write a C program to create a text file and write a simple message     into it using fprintf()." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m5-writing-files/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Writing to Files — Exercises" />
+ <meta name="twitter:description" content="Write a C program to create a text file and write a simple message     into it using fprintf()." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Writing to Files — Exercises","item":"https://bcastudyportal.in/c-programming/s-m5-writing-files/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m5-writing-files/","name":"Writing to Files — Exercises","description":"Write a C program to create a text file and write a simple message     into it using fprintf().","mainEntity":{"@type":"CreativeWork","name":"Writing to Files — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Writing to Files — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Practical</div>
+  <h1>Writing to Files — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>Writing from Files — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a text file and write a simple message
+    into it using <code>fprintf()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("message.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fprintf(fp, "Welcome to BCA Study Portal.\n");
+
+    fclose(fp);
+
+    printf("Data written successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The file is opened in <code>w</code> mode and <code>fprintf()</code>
+    writes formatted text into it. Finally, <code>fclose()</code> closes
+    the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Data written successfully.</strong></p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to take a student's name and roll number from the
+    user and save the information into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll;
+    char name[50];
+
+    fp = fopen("student.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;roll);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    fprintf(fp, "Roll Number: %d\n", roll);
+    fprintf(fp, "Name: %s\n", name);
+
+    fclose(fp);
+
+    printf("Student record saved successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program accepts student details and uses <code>fprintf()</code>
+    to write formatted information into the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Rahul</p>
+    <p><strong>Student record saved successfully.</strong></p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to write multiple numbers into a file using a loop.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int i;
+
+    fp = fopen("numbers.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        fprintf(fp, "%d\n", i);
+    }
+
+    fclose(fp);
+
+    printf("Numbers written successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The loop generates numbers from 1 to 10, and each number is written
+    to a new line in the file using <code>fprintf()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Numbers written successfully.</strong></p>
+    <p>File contains:</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>...</p>
+    <p>10</p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store five integer values entered by the user
+    into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int i;
+
+    fp = fopen("values.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    printf("Enter 5 numbers:\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;number);
+        fprintf(fp, "%d\n", number);
+    }
+
+    fclose(fp);
+
+    printf("Values stored successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each input value is immediately written to the file. The loop repeats
+    five times to store all five numbers.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 5 numbers:</p>
+    <p>10 20 30 40 50</p>
+    <p><strong>Values stored successfully.</strong></p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the multiplication table of a number
+    in a text file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int number;
+    int i;
+
+    fp = fopen("table.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;number);
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        fprintf(fp,
+                "%d x %d = %d\n",
+                number,
+                i,
+                number * i);
+    }
+
+    fclose(fp);
+
+    printf("Multiplication table saved successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The program generates the multiplication table using a loop and writes
+    each line into the file with <code>fprintf()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter a number: 5</p>
+    <p><strong>Multiplication table saved successfully.</strong></p>
+    <p>File contains:</p>
+    <p>5 x 1 = 5</p>
+    <p>5 x 2 = 10</p>
+    <p>...</p>
+    <p>5 x 10 = 50</p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to save employee details such as ID, name and
+    salary into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int id;
+    char name[50];
+    float salary;
+
+    fp = fopen("employee.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    printf("Enter employee ID: ");
+    scanf("%d", &amp;id);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    printf("Enter salary: ");
+    scanf("%f", &amp;salary);
+
+    fprintf(fp, "Employee ID: %d\n", id);
+    fprintf(fp, "Name: %s\n", name);
+    fprintf(fp, "Salary: %.2f\n", salary);
+
+    fclose(fp);
+
+    printf("Employee record saved successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Multiple data types can be written to a text file using formatted
+    output. Each value is written with a suitable format specifier.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter employee ID: 501</p>
+    <p>Enter name: Amit</p>
+    <p>Enter salary: 45000</p>
+    <p><strong>Employee record saved successfully.</strong></p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to write the first 10 even numbers into a file.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int i;
+
+    fp = fopen("even.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    for (i = 1; i &lt;= 10; i++)
+    {
+        fprintf(fp, "%d\n", i * 2);
+    }
+
+    fclose(fp);
+
+    printf("Even numbers written successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The expression <code>i * 2</code> generates even numbers. Each result
+    is written to a separate line in the file.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>Even numbers written successfully.</strong></p>
+    <p>File contains:</p>
+    <p>2 4 6 8 10 12 14 16 18 20</p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to append a new line of text to an existing file
+    using <code>fputs()</code>.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    fp = fopen("notes.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fputs("New C Programming topic added.\n", fp);
+
+    fclose(fp);
+
+    printf("New data appended successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The <code>fputs()</code> function writes a string to a file.
+    Opening the file with <code>a</code> mode places the new text at the
+    end of the existing contents.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p><strong>New data appended successfully.</strong></p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store the marks of five students in a file and
+    calculate the total marks while writing them.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int marks;
+    int total = 0;
+    int i;
+
+    fp = fopen("marks.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    printf("Enter marks of 5 students:\n");
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;marks);
+
+        fprintf(fp, "%d\n", marks);
+
+        total += marks;
+    }
+
+    fclose(fp);
+
+    printf("Marks saved successfully.\n");
+    printf("Total marks = %d\n", total);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Every entered mark is written to the file. At the same time, the
+    program adds the values to calculate their total.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter marks of 5 students:</p>
+    <p>80 75 90 85 70</p>
+    <p><strong>Marks saved successfully.</strong></p>
+    <p><strong>Total marks = 400</strong></p>
+  </div>
+  
+
+  <h2>Writing from Files — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to create a complete student result file containing
+    roll number, name, marks, total and average for a student.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+
+    int roll;
+    char name[50];
+
+    int math;
+    int cProgramming;
+    int computer;
+
+    int total;
+    float average;
+
+    fp = fopen("result.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;roll);
+
+    printf("Enter name: ");
+    scanf("%49s", name);
+
+    printf("Enter marks in Mathematics, C Programming and Computer: ");
+    scanf("%d %d %d",
+          &amp;math,
+          &amp;cProgramming,
+          &amp;computer);
+
+    total = math + cProgramming + computer;
+    average = total / 3.0;
+
+    fprintf(fp, "=============================\n");
+    fprintf(fp, "        STUDENT RESULT\n");
+    fprintf(fp, "=============================\n");
+
+    fprintf(fp, "Roll     : %d\n", roll);
+    fprintf(fp, "Name     : %s\n", name);
+
+    fprintf(fp, "Math     : %d\n", math);
+    fprintf(fp, "C        : %d\n", cProgramming);
+    fprintf(fp, "Computer : %d\n", computer);
+
+    fprintf(fp, "Total    : %d\n", total);
+    fprintf(fp, "Average  : %.2f\n", average);
+
+    fclose(fp);
+
+    printf("\nStudent result saved successfully.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    This final example combines user input, arithmetic operations and
+    formatted file writing. The complete student result is stored in
+    <code>result.txt</code> using <code>fprintf()</code>.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter roll number: 101</p>
+    <p>Enter name: Priya</p>
+    <p>Enter marks in Mathematics, C Programming and Computer: 90 88 92</p>
+    <p><strong>Student result saved successfully.</strong></p>
+    <p><strong>File contains:</strong></p>
+    <p>=============================</p>
+    <p>        STUDENT RESULT</p>
+    <p>=============================</p>
+    <p>Roll     : 101</p>
+    <p>Name     : Priya</p>
+    <p>Math     : 90</p>
+    <p>C        : 88</p>
+    <p>Computer : 92</p>
+    <p>Total    : 270</p>
+    <p>Average  : 90.00</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m5-reading-files/" rel="prev">&larr; Previous</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

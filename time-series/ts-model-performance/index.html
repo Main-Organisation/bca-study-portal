@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Evaluating and Monitoring Forecasting Model Performance | Time Series</title>
+ <meta name="description" content="Evaluation means measuring how close forecasts are     to actual values, preferably on dates not used for fitting.     Monitoring means repeating that comparison as new     actual observations arrive, so that a method which has become poor     can be updated." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-model-performance/" />
+ <meta property="og:title" content="Evaluating and Monitoring Forecasting Model Performance" />
+ <meta property="og:description" content="Evaluation means measuring how close forecasts are     to actual values, preferably on dates not used for fitting.     Monitoring means repeating that comparison as new     actual observations arrive, so that a method which has become poor     can be updated." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-model-performance/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Evaluating and Monitoring Forecasting Model Performance" />
+ <meta name="twitter:description" content="Evaluation means measuring how close forecasts are     to actual values, preferably on dates not used for fitting.     Monitoring means repeating that comparison as new     actual observations arrive, so that a method which has become poor     can be updated." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Evaluating and Monitoring Forecasting Model Performance","item":"https://bcastudyportal.in/time-series/ts-model-performance/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-model-performance/","name":"Evaluating and Monitoring Forecasting Model Performance","description":"Evaluation means measuring how close forecasts are     to actual values, preferably on dates not used for fitting.     Monitoring means repeating that comparison as new     actual observations arrive, so that a method which has become poor     can be updated.","mainEntity":{"@type":"CreativeWork","name":"Evaluating and Monitoring Forecasting Model Performance","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Evaluating and Monitoring Forecasting Model Performance</div>
+  <div class="meta">Subject: Time Series • Module: 3 Statistics Background for Forecasting • Type: Notes</div>
+  <h1>Evaluating and Monitoring Forecasting Model Performance</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Evaluating and Monitoring Forecasting Model Performance</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Evaluation</strong> means measuring how close forecasts are
+    to actual values, preferably on dates not used for fitting.
+    <strong>Monitoring</strong> means repeating that comparison as new
+    actual observations arrive, so that a method which has become poor
+    can be updated.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      A shop forecasts October sales as 50 packets. Actual October sales
+      are 52. The forecast error is 2 packets. Repeating this for later
+      months shows whether the method stays useful.
+    </p>
+  </div>
+
+
+  <h2>Why Evaluation Is Needed</h2>
+
+  <p>
+    A method can follow the training period closely and still fail on
+    later dates. Judging a forecast only by how well it copies the fitted
+    sample is not enough. Evaluation asks: how large are the misses on
+    new time points?
+  </p>
+
+
+  <h2>Actual, Forecast and Error</h2>
+
+  <p>
+    Let Y<sub>t</sub> be the <strong>actual value</strong> and
+    F<sub>t</sub> be the <strong>forecast value</strong> for the same date.
+  </p>
+
+  <p>
+    <strong>Forecast error</strong> e<sub>t</sub> = Y<sub>t</sub> − F<sub>t</sub>
+  </p>
+
+  <p>
+    A positive error means the actual value was higher than the forecast.
+    A negative error means the actual value was lower. The sign shows
+    direction; size is judged with summary measures.
+  </p>
+
+
+  <h2>Small Illustrative Example</h2>
+
+  <p>
+    Three hold-out months:
+  </p>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Actual Y</th>
+          <th>Forecast F</th>
+          <th>Error Y − F</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>50</td>
+          <td>49</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>52</td>
+          <td>51</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>48</td>
+          <td>50</td>
+          <td>−2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+
+
+  <h2>Error Measures, Training vs Test Data, and Monitoring</h2>
+
+  <h2>Common Evaluation Measures</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Measure</th>
+          <th>Idea</th>
+          <th>Usefulness</th>
+          <th>Limitation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MAE</strong></td>
+          <td>Mean of absolute errors</td>
+          <td>Easy to interpret in original units</td>
+          <td>Treats every miss equally; does not emphasise large errors</td>
+        </tr>
+        <tr>
+          <td><strong>MSE</strong></td>
+          <td>Mean of squared errors</td>
+          <td>Penalises large misses more strongly</td>
+          <td>Units are squared; harder to read in the original scale</td>
+        </tr>
+        <tr>
+          <td><strong>RMSE</strong></td>
+          <td>Square root of MSE</td>
+          <td>Large misses matter, and the unit matches the data</td>
+          <td>Still sensitive to a few very large errors</td>
+        </tr>
+        <tr>
+          <td><strong>MAPE</strong></td>
+          <td>Mean of absolute errors as a percentage of actual values</td>
+          <td>Useful for comparing series of different sizes</td>
+          <td>Unstable if actual values are near zero</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    For the three-month example:
+    MAE = (|1| + |1| + |−2|) / 3 = 4 / 3.
+    MSE = (1² + 1² + (−2)²) / 3 = 6 / 3 = 2.
+    RMSE = √2.
+    MAPE uses |error| / actual × 100 for each month, then the mean of
+    those percentages. Do not memorise extra decimal places from software;
+    be able to compute the three errors and the idea of each measure.
+  </p>
+
+
+  <h2>Training Data vs Evaluation Data</h2>
+
+  <p>
+    Fit the method on <strong>training</strong> (earlier) dates.
+    Compute MAE, RMSE or MAPE on <strong>test</strong> (later) dates
+    whenever the series is long enough. Reporting only training error
+    can make a method look better than it is for real forecasting.
+  </p>
+
+
+  <h2>Monitoring Over Time</h2>
+
+  <div class="note-flow">Forecast
+  ↓
+Compare with Actual
+  ↓
+Calculate Error
+  ↓
+Evaluate
+  ↓
+Monitor Over Time
+  ↓
+Improve Model if Needed</div>
+
+  <p>
+    After the forecast period, new actual values become available.
+    Compare them with the forecasts. If errors become systematically
+    larger, or if the plot of the series changes behaviour, the method
+    may have deteriorated. Then collect newer data, inspect the graph
+    again, and reconsider the method. Monitoring is part of the
+    forecasting process, not an optional extra.
+  </p>
+
+
+  <h2>Small Educational Python Example</h2>
+
+  <div class="program-code notranslate" data-language="python">
+# Import libraries
+import numpy as np
+
+actual = np.array([50, 52, 48])
+forecast = np.array([49, 51, 50])
+error = actual - forecast
+
+mae = np.mean(np.abs(error))
+mse = np.mean(error ** 2)
+rmse = np.sqrt(mse)
+mape = np.mean(np.abs(error / actual)) * 100
+
+print("Errors:", error)
+print("MAE:", mae)
+print("MSE:", mse)
+print("RMSE:", rmse)
+print("MAPE (%):", mape)
+  </div>
+
+  <p>
+    Errors should be 1, 1 and −2. MAE should be 4/3. MSE should be 2.
+    RMSE should be the square root of 2. MAPE depends on the three
+    percentage misses and should be described as a percentage, not as
+    an invented extra case study.
+  </p>
+
+
+  <h2>Unit 2 Quick Revision</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Short definition / exam point</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Graphical Displays</strong></td>
+          <td>Visual presentation of the series. Inspect a graph before choosing a method.</td>
+        </tr>
+        <tr>
+          <td><strong>Time Series Plots</strong></td>
+          <td>Time on the x-axis, value on the y-axis, chronological line plot.</td>
+        </tr>
+        <tr>
+          <td><strong>Smoothing</strong></td>
+          <td>Reduces short-term noise (for example a moving average) but can hide sudden changes.</td>
+        </tr>
+        <tr>
+          <td><strong>Numerical Description</strong></td>
+          <td>Mean, median, spread and extremes summarise values; they do not replace a time plot.</td>
+        </tr>
+        <tr>
+          <td><strong>Transformations and Adjustments</strong></td>
+          <td>Logs change scale; differencing is a basic level adjustment. Choose from the data.</td>
+        </tr>
+        <tr>
+          <td><strong>Modelling Workflow</strong></td>
+          <td>Objective → data → plot → structure → optional transform → fit → evaluate → forecast → monitor.</td>
+        </tr>
+        <tr>
+          <td><strong>Evaluation and Monitoring</strong></td>
+          <td>Error = actual − forecast. Use MAE/RMSE/MAPE on later dates and keep watching performance.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ol class="exam-list">
+    <li>Always inspect a time series graph before selecting a forecasting method.</li>
+    <li>Smoothing reveals the general path; it is not a complete model.</li>
+    <li>Training data fit the method; test data evaluate it.</li>
+    <li>A forecast is an estimate and must be monitored against later actual values.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-modelling-forecasting/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p3-01/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

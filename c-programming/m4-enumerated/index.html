@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Enumerated data types | C Programming</title>
+ <meta name="description" content="An enumerated data type, or enum,     is a user-defined data type in C that allows a programmer to create     a set of named integer constants. Instead of using numbers directly,     meaningful names can be used to represent related values." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m4-enumerated/" />
+ <meta property="og:title" content="Enumerated data types" />
+ <meta property="og:description" content="An enumerated data type, or enum,     is a user-defined data type in C that allows a programmer to create     a set of named integer constants. Instead of using numbers directly,     meaningful names can be used to represent related values." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m4-enumerated/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Enumerated data types" />
+ <meta name="twitter:description" content="An enumerated data type, or enum,     is a user-defined data type in C that allows a programmer to create     a set of named integer constants. Instead of using numbers directly,     meaningful names can be used to represent related values." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Enumerated data types","item":"https://bcastudyportal.in/c-programming/m4-enumerated/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m4-enumerated/","name":"Enumerated data types","description":"An enumerated data type, or enum,     is a user-defined data type in C that allows a programmer to create     a set of named integer constants. Instead of using numbers directly,     meaningful names can be used to represent related values.","mainEntity":{"@type":"CreativeWork","name":"Enumerated data types","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Enumerated data types</div>
+  <div class="meta">Subject: C Programming • Module: 4 Structure and Union • Type: Notes</div>
+  <h1>Enumerated data types</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><p>
+    An <strong>enumerated data type</strong>, or <strong>enum</strong>,
+    is a user-defined data type in C that allows a programmer to create
+    a set of named integer constants. Instead of using numbers directly,
+    meaningful names can be used to represent related values.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Status
+{
+    single,
+    married,
+    divorced,
+    widowed
+};
+    </div>
+
+    <p>
+      Here, <code>single</code>, <code>married</code>,
+      <code>divorced</code> and <code>widowed</code> are named
+      enumeration constants.
+    </p>
+
+  </div>
+
+
+  <h2>Why Use enum?</h2>
+
+  <p>
+    An enum makes a program easier to understand because meaningful
+    names can be used instead of unexplained integer values. It is
+    useful when a variable can have one value from a fixed set of
+    related choices.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <p>
+      Instead of storing marital status as <code>0</code>,
+      <code>1</code>, <code>2</code> and <code>3</code>, we can use
+      <code>single</code>, <code>married</code>,
+      <code>divorced</code> and <code>widowed</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Syntax of enum</h2>
+
+  <p>
+    The <code>enum</code> keyword is followed by the enumeration name
+    and a list of named constants enclosed in braces.
+  </p>
+
+  <div class="note-flow">
+enum enum_name
+{
+    constant1,
+    constant2,
+    constant3
+};
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Day
+{
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday
+};
+    </div>
+
+  </div>
+
+
+  <h2>Declaring an enum Variable</h2>
+
+  <p>
+    After defining an enumeration type, a variable of that enum type
+    can be declared. The variable can then store one of the defined
+    enumeration values.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Day today;
+    </div>
+
+    <p>
+      Here, <code>today</code> is an enum variable of type
+      <code>Day</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Assigning Values to enum Constants</h2>
+
+  <p>
+    By default, enumeration constants are assigned integer values
+    starting from <code>0</code> and increasing by <code>1</code>.
+    The programmer can also explicitly assign values when required.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Status
+{
+    single = 100,
+    married = 200,
+    divorced = 300,
+    widowed = 400
+};
+    </div>
+
+    <p>
+      Here, the enumeration constants are assigned explicit integer
+      values instead of the default sequence.
+    </p>
+
+  </div>
+
+
+  <h2>Using enum in a Program</h2>
+
+  <p>
+    An enum variable can be assigned one of the named constants.
+    Using these names makes the purpose of the value clear to the
+    reader of the program.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Status status;
+
+status = married;
+    </div>
+
+    <p>
+      The variable <code>status</code> is assigned the enumeration
+      constant <code>married</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Default Integer Values</h2>
+
+  <p>
+    When values are not explicitly specified, the first enumeration
+    constant gets the value <code>0</code>, the next gets
+    <code>1</code>, and so on. These are integer values internally,
+    but the named constants make the program easier to read.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+enum Color
+{
+    Red,
+    Green,
+    Blue
+};
+    </div>
+
+    <p>
+      The constants are assigned values in sequence:
+      <code>Red = 0</code>, <code>Green = 1</code> and
+      <code>Blue = 2</code>.
+    </p>
+
+  </div>
+
+
+  <h2>Advantages of enum</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Advantage</th>
+          <th>Explanation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Readability</strong></td>
+          <td>
+            Meaningful names are easier to understand than raw numbers.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Better Organization</strong></td>
+          <td>
+            Related constant values can be grouped together.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Fixed Set of Values</strong></td>
+          <td>
+            Useful when a variable should represent one choice from
+            a known set.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Maintainability</strong></td>
+          <td>
+            Named constants make programs easier to read and maintain.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program using an enumerated data type to represent the
+    status of an employee and display the selected status.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Define an enumerated data type.</li>
+
+    <li>Declare and use an enum variable.</li>
+
+    <li>Understand named integer constants.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Create an enum named <code>Status</code> containing
+    <code>single</code>, <code>married</code>,
+    <code>divorced</code> and <code>widowed</code>.
+    Assign one of these values to an enum variable.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    An enumeration provides names for a related set of integer
+    constants. It is particularly useful when a variable can have
+    one value from a small, predefined set of choices.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+enum Status
+{
+    single,
+    married,
+    divorced,
+    widowed
+};
+
+int main()
+{
+    enum Status employeeStatus;
+
+    employeeStatus = married;
+
+    // display the selected employee status
+    if (employeeStatus == married)
+        printf("Employee Status = Married
+");
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Employee Status = Married
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    In this program, <code>married</code> is one of the named constants
+    defined inside the enumeration. Internally, enumeration constants
+    are represented as integer values, but their names make the program
+    easier to understand.
+  </p>
+
+
+  <h2>enum with switch</h2>
+
+  <p>
+    Enumeration values are particularly useful with a
+    <code>switch</code> statement when different actions need to be
+    performed for different named choices.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      💡 Example
+    </span>
+
+    <div class="note-flow">
+switch (status)
+{
+    case single:
+        printf("Single");
+        break;
+
+    case married:
+        printf("Married");
+        break;
+}
+    </div>
+
+  </div>
+
+
+  <h2>Common Mistake</h2>
+
+  <p>
+    Enumeration constants are names representing integer values. They
+    should not be confused with strings such as <code>"married"</code>.
+    The enum constant <code>married</code> is not a string.
+  </p>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Remember
+    </span>
+
+    <p>
+      <code>married</code> → enumeration constant<br>
+      <code>"married"</code> → string literal
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>enum</strong></td>
+          <td>
+            User-defined type containing named integer constants.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Keyword</strong></td>
+          <td>
+            <code>enum</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Default Values</strong></td>
+          <td>
+            Start from 0 and increase by 1 unless explicitly assigned.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Use</strong></td>
+          <td>
+            Represents one choice from a fixed set of related values.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Example</strong></td>
+          <td>
+            <code>enum Status { single, married, divorced, widowed };</code>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is an enumerated data type?</li>
+
+    <li>What is the purpose of the <code>enum</code> keyword?</li>
+
+    <li>What are enumeration constants?</li>
+
+    <li>What values are assigned by default to enum constants?</li>
+
+    <li>Can specific values be assigned to enumeration constants?</li>
+
+    <li>Why is enum useful for program readability?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain enumerated data types in C with syntax and suitable example.
+    </li>
+
+    <li>
+      Explain the advantages and uses of enumerated data types.
+    </li>
+
+    <li>
+      Write a C program to demonstrate the use of an enum variable.
+    </li>
+
+    <li>
+      Explain the default and user-defined values of enumeration
+      constants.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of enumerated data types
+        in C programming.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=enumerated+data+type+enum+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: enum in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for enumerated
+        data types will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for quick revision of enum, constants,
+        default values and practical uses.
+      </p>
+
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m4-bit-fields/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m4-introduction/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

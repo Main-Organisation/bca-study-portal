@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Arrays (1-D) — Exercises | C Programming</title>
+ <meta name="description" content="Write a C program to store 5 integers in a one-dimensional array     and display all the elements." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/s-m3-arrays-1d/" />
+ <meta property="og:title" content="Arrays (1-D) — Exercises" />
+ <meta property="og:description" content="Write a C program to store 5 integers in a one-dimensional array     and display all the elements." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/s-m3-arrays-1d/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Arrays (1-D) — Exercises" />
+ <meta name="twitter:description" content="Write a C program to store 5 integers in a one-dimensional array     and display all the elements." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Arrays (1-D) — Exercises","item":"https://bcastudyportal.in/c-programming/s-m3-arrays-1d/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m3-arrays-1d/","name":"Arrays (1-D) — Exercises","description":"Write a C program to store 5 integers in a one-dimensional array     and display all the elements.","mainEntity":{"@type":"CreativeWork","name":"Arrays (1-D) — Exercises","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Arrays (1-D) — Exercises</div>
+  <div class="meta">Subject: C Programming • Module: 3 Arrays &amp; Functions • Type: Practical</div>
+  <h1>Arrays (1-D) — Exercises</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>1-D Array — Exercise 1</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to store 5 integers in a one-dimensional array
+    and display all the elements.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[5];
+    int i;
+
+    printf("Enter 5 elements: ");
+
+    // Store elements in the array
+    for (i = 0; i &lt; 5; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    printf("Array elements: ");
+
+    // Display array elements
+    for (i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    A one-dimensional array stores multiple values of the same data type
+    in contiguous memory locations. The index starts from 0.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter 5 elements: 10 20 30 40 50</p>
+    <p><strong>Array elements: 10 20 30 40 50</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 2</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the sum of all elements of a one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, sum = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Calculate sum of elements
+    for (i = 0; i &lt; n; i++)
+    {
+        sum = sum + arr[i];
+    }
+
+    printf("Sum = %d\n", sum);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each array element is added to the accumulator variable
+    <code>sum</code> during the second loop.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 5 15 10</p>
+    <p><strong>Sum = 60</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 3</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the largest element in a one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, largest;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Use first element as the initial largest
+    largest = arr[0];
+
+    // Compare remaining elements
+    for (i = 1; i &lt; n; i++)
+    {
+        if (arr[i] &gt; largest)
+        {
+            largest = arr[i];
+        }
+    }
+
+    printf("Largest = %d\n", largest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The first array element is taken as the initial largest value.
+    Each remaining element is then compared with it.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 12 45 7 32 18</p>
+    <p><strong>Largest = 45</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 4</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to find the smallest element in a one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, smallest;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Use first element as initial smallest
+    smallest = arr[0];
+
+    // Compare remaining elements
+    for (i = 1; i &lt; n; i++)
+    {
+        if (arr[i] &lt; smallest)
+        {
+            smallest = arr[i];
+        }
+    }
+
+    printf("Smallest = %d\n", smallest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The first element is initially considered the smallest and is compared
+    with every remaining element.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 12 45 7 32 18</p>
+    <p><strong>Smallest = 7</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 5</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the average of elements stored in a
+    one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, sum = 0;
+    float average;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read elements and calculate total
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+        sum = sum + arr[i];
+    }
+
+    average = (float)sum / n;
+
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The sum of all elements is divided by the total number of elements.
+    Type casting ensures that the division produces a decimal result.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 30 40 50</p>
+    <p><strong>Average = 30.00</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 6</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to count the number of even and odd elements
+    in a one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i;
+    int even = 0, odd = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read and classify each element
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+
+        if (arr[i] % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+
+    printf("Even elements = %d\n", even);
+    printf("Odd elements = %d\n", odd);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Each array element is checked using the modulus operator.
+    A remainder of zero when divided by 2 indicates an even number.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 6</p>
+    <p>Enter 6 elements: 10 15 22 7 18 9</p>
+    <p><strong>Even elements = 3</strong></p>
+    <p><strong>Odd elements = 3</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 7</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to search for an element in a one-dimensional array
+    using a linear search.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, search;
+    int found = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &amp;search);
+
+    // Search each element sequentially
+    for (i = 0; i &lt; n; i++)
+    {
+        if (arr[i] == search)
+        {
+            found = 1;
+            break;
+        }
+    }
+
+    if (found)
+        printf("Element found at index %d.\n", i);
+    else
+        printf("Element not found.\n");
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Linear search checks array elements one by one until the required
+    value is found or the array ends.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 25 30 45 50</p>
+    <p>Enter element to search: 30</p>
+    <p><strong>Element found at index 2.</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 8</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to reverse the elements of a one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    printf("Reversed array: ");
+
+    // Display elements from last index to first
+    for (i = n - 1; i &gt;= 0; i--)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The array does not need to be physically modified to display it in
+    reverse order. The loop simply starts from the last index.
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 10 20 30 40 50</p>
+    <p><strong>Reversed array: 50 40 30 20 10</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 9</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to sort the elements of a one-dimensional array
+    in ascending order using Bubble Sort.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, j, temp;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter %d elements: ", n);
+
+    // Read array elements
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    // Bubble Sort
+    for (i = 0; i &lt; n - 1; i++)
+    {
+        for (j = 0; j &lt; n - i - 1; j++)
+        {
+            if (arr[j] &gt; arr[j + 1])
+            {
+                // Swap adjacent elements
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted array: ");
+
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    Bubble Sort repeatedly compares adjacent elements and swaps them when
+    they are in the wrong order. After each pass, the largest unsorted
+    element moves toward the end of the array. :contentReference[oaicite:0]{index=0}
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of elements: 5</p>
+    <p>Enter 5 elements: 40 10 30 5 25</p>
+    <p><strong>Sorted array: 5 10 25 30 40</strong></p>
+  </div>
+  
+
+  <h2>1-D Array — Exercise 10</h2>
+
+  <h3>Problem</h3>
+
+  <p>
+    Write a C program to calculate the average, highest, and lowest
+    marks of N students using a one-dimensional array.
+  </p>
+
+  <h3>Program</h3>
+
+  <div class="program-code notranslate">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks[100], n, i;
+    int sum = 0, highest, lowest;
+    float average;
+
+    printf("Enter number of students: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter marks: ");
+
+    // Read marks into the array
+    for (i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;marks[i]);
+    }
+
+    // Initialize highest and lowest
+    highest = lowest = marks[0];
+
+    // Process all marks
+    for (i = 0; i &lt; n; i++)
+    {
+        sum = sum + marks[i];
+
+        if (marks[i] &gt; highest)
+            highest = marks[i];
+
+        if (marks[i] &lt; lowest)
+            lowest = marks[i];
+    }
+
+    average = (float)sum / n;
+
+    printf("Average = %.2f\n", average);
+    printf("Highest = %d\n", highest);
+    printf("Lowest = %d\n", lowest);
+
+    return 0;
+}
+  </div>
+
+  <h3>Explanation</h3>
+
+  <p>
+    The array stores the marks of all students. A loop is then used to
+    calculate the total, maximum and minimum values. This combines several
+    common array-processing operations in one program. :contentReference[oaicite:1]{index=1}
+  </p>
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+    <p>Enter number of students: 5</p>
+    <p>Enter marks: 12 45 3 67 22</p>
+    <p><strong>Average = 29.80</strong></p>
+    <p><strong>Highest = 67</strong></p>
+    <p><strong>Lowest = 3</strong></p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m3-recursion/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../s-m3-arrays-2d/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

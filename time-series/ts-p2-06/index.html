@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P2.06 Central Tendency and Dispersion | Time Series</title>
+ <meta name="description" content="Compare mean vs median and standard deviation vs IQR on a series that contains one spike." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p2-06/" />
+ <meta property="og:title" content="P2.06 Central Tendency and Dispersion" />
+ <meta property="og:description" content="Compare mean vs median and standard deviation vs IQR on a series that contains one spike." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p2-06/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P2.06 Central Tendency and Dispersion" />
+ <meta name="twitter:description" content="Compare mean vs median and standard deviation vs IQR on a series that contains one spike." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P2.06 Central Tendency and Dispersion","item":"https://bcastudyportal.in/time-series/ts-p2-06/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p2-06/","name":"P2.06 Central Tendency and Dispersion","description":"Compare mean vs median and standard deviation vs IQR on a series that contains one spike.","mainEntity":{"@type":"CreativeWork","name":"P2.06 Central Tendency and Dispersion","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P2.06 Central Tendency and Dispersion</div>
+  <div class="meta">Subject: Time Series • Module: 2 Time Series Analysis and Components • Type: Practical</div>
+  <h1>P2.06 Central Tendency and Dispersion</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P2.06 Central Tendency and Dispersion</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Compare mean vs median and standard deviation vs IQR on a series that contains one spike.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>See that the mean is pulled by a spike.</li><li>See that the median and IQR are more resistant.</li></ul>
+
+  <h3>Theory</h3>
+  <p>Mean and standard deviation use all values and are sensitive to outliers. Median and IQR are more robust. Time series often contain irregular shocks.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Teaching series: 10, 11, 12, 12, 13, 40, 14, 15.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import pandas as pd
+
+s = pd.Series([10, 11, 12, 12, 13, 40, 14, 15])
+print("Mean:", s.mean(), "Median:", s.median())
+print("Std:", round(s.std(), 2), "IQR:", s.quantile(0.75) - s.quantile(0.25))</div>
+
+  <h3>Expected Output</h3>
+  <p>Mean larger than median; std larger relative to IQR because of the 40 spike.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>The spike is an irregular observation. Using only the mean would overstate the typical level. Students should inspect the plot before trusting a mean forecast.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>Irregular shocks inflate the mean and the standard deviation.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p2-05/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p2-07/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

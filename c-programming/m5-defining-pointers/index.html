@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Defining pointers | C Programming</title>
+ <meta name="description" content="A pointer variable must be declared before it is used. The     declaration tells the compiler that the variable will store the     address of a particular type of data. The * symbol     in a pointer declaration indicates that the variable is a pointer." />
+ <link rel="canonical" href="https://bcastudyportal.in/c-programming/m5-defining-pointers/" />
+ <meta property="og:title" content="Defining pointers" />
+ <meta property="og:description" content="A pointer variable must be declared before it is used. The     declaration tells the compiler that the variable will store the     address of a particular type of data. The * symbol     in a pointer declaration indicates that the variable is a pointer." />
+ <meta property="og:url" content="https://bcastudyportal.in/c-programming/m5-defining-pointers/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Defining pointers" />
+ <meta name="twitter:description" content="A pointer variable must be declared before it is used. The     declaration tells the compiler that the variable will store the     address of a particular type of data. The * symbol     in a pointer declaration indicates that the variable is a pointer." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Defining pointers","item":"https://bcastudyportal.in/c-programming/m5-defining-pointers/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/m5-defining-pointers/","name":"Defining pointers","description":"A pointer variable must be declared before it is used. The     declaration tells the compiler that the variable will store the     address of a particular type of data. The * symbol     in a pointer declaration indicates that the variable is a pointer.","mainEntity":{"@type":"CreativeWork","name":"Defining pointers","about":"C Programming"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Defining pointers</div>
+  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Notes</div>
+  <h1>Defining pointers</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><p>
+    A pointer variable must be declared before it is used. The
+    declaration tells the compiler that the variable will store the
+    address of a particular type of data. The <strong>*</strong> symbol
+    in a pointer declaration indicates that the variable is a pointer.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *ptr;
+    </div>
+
+    <p>
+      Here, <code>ptr</code> is declared as a pointer to an integer.
+      It is meant to store the address of an <code>int</code> variable.
+    </p>
+  </div>
+
+
+  <h2>Basic Syntax</h2>
+
+  <p>
+    The general form of a pointer declaration is:
+  </p>
+
+  <div class="note-flow">
+data_type *pointer_name;
+  </div>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *p;
+char *ch;
+float *f;
+    </div>
+
+    <p>
+      Each declaration creates a pointer for a different data type.
+    </p>
+  </div>
+
+
+  <h2>Integer Pointer</h2>
+
+  <p>
+    An integer pointer is used to store the address of an integer
+    variable. Its declaration uses the <code>int</code> data type
+    followed by <code>*</code> and the pointer name.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 25;
+int *ptr;
+
+ptr = &amp;number;
+    </div>
+
+    <p>
+      <code>ptr</code> stores the address of <code>number</code>.
+    </p>
+  </div>
+
+
+  <h2>Character Pointer</h2>
+
+  <p>
+    A character pointer stores the address of a character variable.
+    The pointer is declared using the <code>char</code> type.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+char grade = 'A';
+char *ptr;
+
+ptr = &amp;grade;
+    </div>
+
+    <p>
+      Here, <code>ptr</code> stores the address of the character
+      variable <code>grade</code>.
+    </p>
+  </div>
+
+
+  <h2>Floating-Point Pointer</h2>
+
+  <p>
+    A floating-point pointer stores the address of a
+    <code>float</code> variable. It is declared using the
+    <code>float</code> type.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+float percentage = 82.5;
+float *ptr;
+
+ptr = &amp;percentage;
+    </div>
+
+    <p>
+      Here, <code>ptr</code> stores the address of
+      <code>percentage</code>.
+    </p>
+  </div>
+
+
+  <h2>Pointer Initialization</h2>
+
+  <p>
+    Declaring a pointer only creates the pointer variable. Before using
+    it to access a variable, it should be initialized with a valid
+    address of a compatible variable.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 10;
+int *ptr = &amp;number;
+    </div>
+
+    <p>
+      The pointer <code>ptr</code> is initialized with the address of
+      <code>number</code>.
+    </p>
+  </div>
+
+
+  <h2>Using the Same Pointer Type with the Same Data Type</h2>
+
+  <p>
+    A pointer should normally be used with the corresponding data type
+    it is declared for. This allows the compiler to correctly interpret
+    the value stored at the pointed-to address.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int number = 50;
+int *ptr = &amp;number;
+    </div>
+
+    <p>
+      Here, an <code>int *</code> pointer is used with an
+      <code>int</code> variable.
+    </p>
+  </div>
+
+
+  <h2>Multiple Pointer Declarations</h2>
+
+  <p>
+    More than one pointer can be declared in the same statement.
+    Every variable that needs to be a pointer must have its own
+    <strong>*</strong> symbol.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *p, *q;
+    </div>
+
+    <p>
+      Both <code>p</code> and <code>q</code> are pointers to integers.
+    </p>
+  </div>
+
+
+  <h2>Pointer Declaration with a Normal Variable</h2>
+
+  <p>
+    A normal variable and a pointer variable can appear in the same
+    declaration statement, but the <strong>*</strong> belongs only to
+    the variable immediately associated with it.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">⚠️ Example</span>
+
+    <div class="note-flow">
+int number, *ptr;
+    </div>
+
+    <p>
+      Here, <code>number</code> is an ordinary integer variable,
+      whereas <code>ptr</code> is an integer pointer.
+    </p>
+  </div>
+
+
+  <h2>Meaning of the Asterisk in Pointer Declaration</h2>
+
+  <p>
+    In a declaration such as <code>int *ptr</code>, the asterisk
+    indicates that <code>ptr</code> is a pointer to an integer.
+    It does not mean that <code>ptr</code> will store an ordinary
+    integer value.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">💡 Example</span>
+
+    <div class="note-flow">
+int *ptr;
+    </div>
+
+    <p>
+      This means <code>ptr</code> is capable of storing the address
+      of an integer value.
+    </p>
+  </div>
+
+
+  <h2>Pointer Declaration and Meaning</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Declaration</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><code>int *p;</code></td>
+          <td><code>p</code> is a pointer to an integer.</td>
+        </tr>
+
+        <tr>
+          <td><code>char *p;</code></td>
+          <td><code>p</code> is a pointer to a character.</td>
+        </tr>
+
+        <tr>
+          <td><code>float *p;</code></td>
+          <td><code>p</code> is a pointer to a floating-point value.</td>
+        </tr>
+
+        <tr>
+          <td><code>double *p;</code></td>
+          <td><code>p</code> is a pointer to a double value.</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Practical Example</h2>
+
+  <h3>Problem Statement</h3>
+
+  <p>
+    Write a C program to declare an integer pointer, store the address
+    of an integer variable in it, and display the original value and
+    the value accessed through the pointer.
+  </p>
+
+
+  <h3>Learning Outcomes</h3>
+
+  <ul>
+
+    <li>Declare an integer pointer.</li>
+
+    <li>Initialize a pointer with the address of a variable.</li>
+
+    <li>Access the value through the pointer.</li>
+
+  </ul>
+
+
+  <h3>Hint</h3>
+
+  <p>
+    Declare an integer variable and an integer pointer. Assign
+    <code>&amp;number</code> to the pointer and use <code>*ptr</code>
+    to access the stored value.
+  </p>
+
+
+  <h3>Theory</h3>
+
+  <p>
+    A pointer declaration specifies the type of value whose address
+    the pointer is expected to store. After initialization, the pointer
+    can be used with the indirection operator to access that value.
+  </p>
+
+
+  <h3>Program</h3>
+
+  <div class="program-code">
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int number = 50;
+    int *ptr;
+
+    // store the address of number in the pointer
+    ptr = &amp;number;
+
+    printf("Value of number = %d
+", number);
+    printf("Value through pointer = %d
+", *ptr);
+
+    return 0;
+}
+  </div>
+
+
+  <h3>Expected Output</h3>
+
+  <div class="note-callout">
+
+    <p>
+      Value of number = 50
+    </p>
+
+    <p>
+      Value through pointer = 50
+    </p>
+
+  </div>
+
+
+  <h3>Note</h3>
+
+  <p>
+    The pointer <code>ptr</code> does not contain the value
+    <code>50</code> directly. It contains the address of
+    <code>number</code>, and <code>*ptr</code> accesses the value
+    stored at that address.
+  </p>
+
+
+  <h2>Common Mistakes</h2>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 1
+    </span>
+
+    <p>
+      Declaring a pointer and using it before giving it a valid address
+      can lead to undefined behavior.
+    </p>
+
+  </div>
+
+  <div class="note-callout">
+
+    <span class="note-callout-title">
+      ⚠️ Mistake 2
+    </span>
+
+    <p>
+      Do not confuse <code>int *ptr</code> with
+      <code>*ptr</code>. The first is a declaration, while the second
+      is used to access the value at the stored address.
+    </p>
+
+  </div>
+
+
+  <h2>Quick Revision</h2>
+
+  <div class="note-table-wrap">
+
+    <table class="note-table">
+
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Remember</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Pointer Declaration</strong></td>
+          <td>
+            <code>data_type *pointer_name;</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Integer Pointer</strong></td>
+          <td>
+            <code>int *p;</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Character Pointer</strong></td>
+          <td>
+            <code>char *p;</code>
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Initialization</strong></td>
+          <td>
+            Store a compatible variable's address in the pointer.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Address</strong></td>
+          <td>
+            Use the <code>&amp;</code> operator.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Value</strong></td>
+          <td>
+            Use the <code>*</code> operator with the pointer.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <h2>Important Exam Questions</h2>
+
+  <h3>Short Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>What is a pointer declaration?</li>
+
+    <li>What does <code>int *p</code> mean?</li>
+
+    <li>What is an integer pointer?</li>
+
+    <li>How is a pointer initialized?</li>
+
+    <li>What is the meaning of <code>char *p</code>?</li>
+
+    <li>Why must a pointer be initialized before it is used?</li>
+
+  </ol>
+
+
+  <h3>Long Answer Questions</h3>
+
+  <ol class="exam-list">
+
+    <li>
+      Explain pointer declaration and initialization with suitable examples.
+    </li>
+
+    <li>
+      Explain different types of pointer declarations in C.
+    </li>
+
+    <li>
+      Write a C program to declare, initialize and use an integer pointer.
+    </li>
+
+  </ol>
+
+
+  <div class="resource-section">
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🎥 Recommended Learning
+      </div>
+
+      <p>
+        Watch a beginner-friendly explanation of pointer declaration
+        and initialization in C.
+      </p>
+
+      <p>
+        <a
+          href="https://www.youtube.com/results?search_query=defining+pointers+in+C+programming+Hindi+BCA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ▶ Watch: Defining Pointers in C — Hindi
+        </a>
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        📝 Handwritten Notes
+      </div>
+
+      <p class="muted-resource">
+        A short handwritten-style revision sheet for pointer
+        declarations will be provided here.
+      </p>
+
+    </div>
+
+
+    <div class="resource-card">
+
+      <div class="resource-title">
+        🧠 Mind Map
+      </div>
+
+      <p class="muted-resource">
+        Use the mind map for pointer declaration, initialization,
+        address and indirection.
+      </p>
+
+    </div>
+
+  </div></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../m5-pointer-idea/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../m5-use-pointers/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

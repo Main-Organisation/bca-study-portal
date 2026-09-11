@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>P3.06 Fit a Moving-Average Model | Time Series</title>
+ <meta name="description" content="Fit MA(1) to a constructed series where noise is smoothed by a one-lag shock, and explain MA in words." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-p3-06/" />
+ <meta property="og:title" content="P3.06 Fit a Moving-Average Model" />
+ <meta property="og:description" content="Fit MA(1) to a constructed series where noise is smoothed by a one-lag shock, and explain MA in words." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-p3-06/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="P3.06 Fit a Moving-Average Model" />
+ <meta name="twitter:description" content="Fit MA(1) to a constructed series where noise is smoothed by a one-lag shock, and explain MA in words." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"P3.06 Fit a Moving-Average Model","item":"https://bcastudyportal.in/time-series/ts-p3-06/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-p3-06/","name":"P3.06 Fit a Moving-Average Model","description":"Fit MA(1) to a constructed series where noise is smoothed by a one-lag shock, and explain MA in words.","mainEntity":{"@type":"CreativeWork","name":"P3.06 Fit a Moving-Average Model","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / P3.06 Fit a Moving-Average Model</div>
+  <div class="meta">Subject: Time Series • Module: 3 Statistics Background for Forecasting • Type: Practical</div>
+  <h1>P3.06 Fit a Moving-Average Model</h1>
+  <div class="topic-content">
+    
+    <section><h2>Practical / Solution</h2><h2>P3.06 Fit a Moving-Average Model</h2>
+
+  <h3>Problem Statement</h3>
+  <p>Fit MA(1) to a constructed series where noise is smoothed by a one-lag shock, and explain MA in words.</p>
+
+  <h3>Learning Outcomes</h3>
+  <ul><li>Describe MA(1) as today's value depending on the last shock.</li><li>Fit ARIMA(0,0,1).</li></ul>
+
+  <h3>Theory</h3>
+  <p>An MA(1) model uses the previous error, not the previous observation. ACF of a true MA(1) cuts off after lag 1.</p>
+
+  <h3>Dataset / Data Source</h3>
+  <p>Constructed MA(1): y_t = e_t + 0.6 e_{t-1}.</p>
+
+  <h3>Analysis / Program</h3>
+  <div class="program-code notranslate" data-language="python">import numpy as np
+import pandas as pd
+from statsmodels.tsa.arima.model import ARIMA
+
+rng = np.random.default_rng(8)
+e = rng.normal(size=150)
+y = pd.Series(e + 0.6 * np.r_[0, e[:-1]])
+fit = ARIMA(y, order=(0, 0, 1)).fit()
+print(fit.summary())</div>
+
+  <h3>Expected Output</h3>
+  <p>An ARIMA(0,0,1) summary. The MA coefficient should be in the neighbourhood of 0.6 for this construction.</p>
+
+  <h3>Result / Interpretation</h3>
+  <p>MA terms capture short-lived shocks. If ACF cuts off quickly, an MA model is a candidate. Always confirm with residuals.</p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Note</span>
+    <p>MA is about shocks, AR is about past values. They are not the same idea.</p>
+  </div></section>
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p3-05/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-p3-07/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

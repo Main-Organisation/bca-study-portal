@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Least Squares Estimation in Linear Regression Models | Time Series</title>
+ <meta name="description" content="Least squares chooses the coefficients of a linear     regression so that the total of squared residuals is as small as     possible. A residual is the gap between an observed y and the value     predicted by the fitted line. Ordinary least squares (OLS) uses     equal weight for every observation." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-least-squares/" />
+ <meta property="og:title" content="Least Squares Estimation in Linear Regression Models" />
+ <meta property="og:description" content="Least squares chooses the coefficients of a linear     regression so that the total of squared residuals is as small as     possible. A residual is the gap between an observed y and the value     predicted by the fitted line. Ordinary least squares (OLS) uses     equal weight for every observation." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-least-squares/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Least Squares Estimation in Linear Regression Models" />
+ <meta name="twitter:description" content="Least squares chooses the coefficients of a linear     regression so that the total of squared residuals is as small as     possible. A residual is the gap between an observed y and the value     predicted by the fitted line. Ordinary least squares (OLS) uses     equal weight for every observation." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Least Squares Estimation in Linear Regression Models","item":"https://bcastudyportal.in/time-series/ts-least-squares/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-least-squares/","name":"Least Squares Estimation in Linear Regression Models","description":"Least squares chooses the coefficients of a linear     regression so that the total of squared residuals is as small as     possible. A residual is the gap between an observed y and the value     predicted by the fitted line. Ordinary least squares (OLS) uses     equal weight for every observation.","mainEntity":{"@type":"CreativeWork","name":"Least Squares Estimation in Linear Regression Models","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Least Squares Estimation in Linear Regression Models</div>
+  <div class="meta">Subject: Time Series • Module: 5 Time Series Regression Model • Type: Notes</div>
+  <h1>Least Squares Estimation in Linear Regression Models</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Least Squares Estimation in Linear Regression Models</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Least squares</strong> chooses the coefficients of a linear
+    regression so that the total of squared residuals is as small as
+    possible. A residual is the gap between an observed y and the value
+    predicted by the fitted line. Ordinary least squares (OLS) uses
+    equal weight for every observation.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Four constructed pairs (x, y): (1, 3), (2, 5), (3, 6), (4, 8).
+      The OLS line computed from these points is
+      ŷ = 1.5 + 1.6x (calculation on the next page). At x = 2 the line
+      predicts 4.7, while the observed y is 5, so the residual is 0.3.
+    </p>
+  </div>
+
+
+  <h2>The Linear Model</h2>
+
+  <p>
+    A simple linear regression is written
+  </p>
+
+  <p>
+    y = β<sub>0</sub> + β<sub>1</sub>x + ε
+  </p>
+
+  <ul>
+    <li><strong>y</strong> — observed dependent value</li>
+    <li><strong>x</strong> — explanatory value</li>
+    <li><strong>β<sub>0</sub></strong> — intercept (mean of y when x = 0, if that is meaningful)</li>
+    <li><strong>β<sub>1</sub></strong> — slope (change in the mean of y for a one-unit change in x)</li>
+    <li><strong>ε</strong> — random error (unobservable shock around the line)</li>
+  </ul>
+
+  <p>
+    After fitting, the estimated intercept and slope are written
+    β̂<sub>0</sub> and β̂<sub>1</sub>. The fitted (predicted) value is
+    ŷ = β̂<sub>0</sub> + β̂<sub>1</sub>x. The
+    <strong>residual</strong> is e = y − ŷ. The residual is the sample
+    leftover; the error ε is the theoretical term in the model. They
+    are related ideas, not identical names.
+  </p>
+
+
+  <h2>Least Squares Objective</h2>
+
+  <div class="note-flow">Observed value
+  ↓
+Predicted value
+  ↓
+Residual (y − ŷ)
+  ↓
+Square residual
+  ↓
+Minimize total squared residuals Σ e<sub>i</sub><sup>2</sup></div>
+
+  <p>
+    OLS chooses β̂<sub>0</sub> and β̂<sub>1</sub> so that
+    Σ e<sub>i</sub><sup>2</sup> is minimized. Squaring treats over- and
+    under-prediction equally and penalises large misses more than small
+    ones. Other methods (GLS, WLS) change the weights; they still start
+    from this residual idea.
+  </p>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>OLS estimates are chosen to minimize the sum of squared residuals.</li>
+    <li>Residual e<sub>i</sub> = y<sub>i</sub> − ŷ<sub>i</sub>; error ε is the unobservable model shock.</li>
+    <li>β<sub>0</sub> is the intercept; β<sub>1</sub> is the slope.</li>
+    <li>Fitting a line is not the same as checking whether the line is adequate.</li>
+  </ol>
+
+  
+
+
+  <h2>A Worked Four-Point OLS Example</h2>
+
+  <h2>Data and Formulas</h2>
+
+  <p>
+    Use the constructed pairs (1, 3), (2, 5), (3, 6), (4, 8).
+    n = 4, Σx = 10, Σy = 22, x̄ = 2.5, ȳ = 5.5,
+    Σxy = 63, Σx<sup>2</sup> = 30.
+  </p>
+
+  <p>
+    Slope:
+    β̂<sub>1</sub> = (n Σxy − (Σx)(Σy)) / (n Σx<sup>2</sup> − (Σx)<sup>2</sup>)
+    = (4×63 − 10×22) / (4×30 − 10<sup>2</sup>)
+    = (252 − 220) / (120 − 100)
+    = 32 / 20
+    = 1.6.
+  </p>
+
+  <p>
+    Intercept:
+    β̂<sub>0</sub> = ȳ − β̂<sub>1</sub> x̄
+    = 5.5 − 1.6×2.5
+    = 1.5.
+  </p>
+
+  <p>
+    Interpretation: each extra unit of x is associated with a 1.6 unit
+    rise in fitted y, on this tiny teaching set. The intercept 1.5 is
+    the fitted value at x = 0; here x = 0 is outside the observed range,
+    so treat 1.5 as an algebraic intercept, not a real-world claim.
+  </p>
+
+
+  <h2>Small Educational Python Example</h2>
+
+  <p>
+    The same four constructed points. Expected display: intercept near
+    1.5 and slope near 1.6, plus a scatter with the fitted line. Do not
+    treat software rounding as a new exam number.
+  </p>
+
+  <div class="program-code notranslate" data-language="python">
+# Import libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+# Load / prepare a constructed four-point series
+df = pd.DataFrame({
+    "x": [1, 2, 3, 4],
+    "y": [3, 5, 6, 8]
+})
+X = sm.add_constant(df["x"])  # intercept column
+
+# Fit OLS
+fit = sm.OLS(df["y"], X).fit()
+print(fit.params)
+
+# Plot points and fitted line
+plt.scatter(df["x"], df["y"], label="observed")
+plt.plot(df["x"], fit.fittedvalues, label="OLS line")
+plt.legend()
+plt.title("Constructed OLS example")
+plt.tight_layout()
+plt.show()
+  </div>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>Show the data before quoting a fitted intercept and slope.</li>
+    <li>β̂<sub>0</sub> = ȳ − β̂<sub>1</sub> x̄ for simple OLS.</li>
+    <li>A fitted line describes association in the sample; it is not proof of cause.</li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-regression-introduction/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-regression-inference/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>

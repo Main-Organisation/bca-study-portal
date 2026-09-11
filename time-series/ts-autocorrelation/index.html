@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Autocorrelation and Partial Autocorrelation | Time Series</title>
+ <meta name="description" content="Autocorrelation is the correlation between a time     series and a lagged version of itself. It measures whether today&#39;s     value tends to move together with a past value. Because observations     are ordered in time, neighbouring values are often dependent rather     than independent." />
+ <link rel="canonical" href="https://bcastudyportal.in/time-series/ts-autocorrelation/" />
+ <meta property="og:title" content="Autocorrelation and Partial Autocorrelation" />
+ <meta property="og:description" content="Autocorrelation is the correlation between a time     series and a lagged version of itself. It measures whether today&#39;s     value tends to move together with a past value. Because observations     are ordered in time, neighbouring values are often dependent rather     than independent." />
+ <meta property="og:url" content="https://bcastudyportal.in/time-series/ts-autocorrelation/" />
+ <meta property="og:type" content="article" />
+ <meta property="og:site_name" content="BCA Study Portal" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Autocorrelation and Partial Autocorrelation" />
+ <meta name="twitter:description" content="Autocorrelation is the correlation between a time     series and a lagged version of itself. It measures whether today&#39;s     value tends to move together with a past value. Because observations     are ordered in time, neighbouring values are often dependent rather     than independent." />
+ <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"Time Series","item":"https://bcastudyportal.in/time-series/"},{"@type":"ListItem","position":3,"name":"Autocorrelation and Partial Autocorrelation","item":"https://bcastudyportal.in/time-series/ts-autocorrelation/"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/ts-autocorrelation/","name":"Autocorrelation and Partial Autocorrelation","description":"Autocorrelation is the correlation between a time     series and a lagged version of itself. It measures whether today's     value tends to move together with a past value. Because observations     are ordered in time, neighbouring values are often dependent rather     than independent.","mainEntity":{"@type":"CreativeWork","name":"Autocorrelation and Partial Autocorrelation","about":"Time Series"}}</script>
+ <style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
+  a { color: #0f766e; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+  .meta { margin-bottom: 1rem; color: #475569; }
+  .topic-content { margin-top: 1.5rem; }
+  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
+  .topic-content pre, .topic-content code { overflow-x: auto; }
+  .topic-content img { max-width: 100%; height: auto; }
+  .topic-content table { border-collapse: collapse; width: 100%; }
+  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
+  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <div class="breadcrumb"><a href="https://bcastudyportal.in/time-series/">Time Series</a> / Autocorrelation and Partial Autocorrelation</div>
+  <div class="meta">Subject: Time Series • Module: 4 Introduction to Autoregressive Models and Forecasting • Type: Notes</div>
+  <h1>Autocorrelation and Partial Autocorrelation</h1>
+  <div class="topic-content">
+    <section><h2>Notes</h2><h2>Autocorrelation and Partial Autocorrelation</h2>
+
+  <h2>Definition</h2>
+
+  <p>
+    <strong>Autocorrelation</strong> is the correlation between a time
+    series and a lagged version of itself. It measures whether today's
+    value tends to move together with a past value. Because observations
+    are ordered in time, neighbouring values are often dependent rather
+    than independent.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      If this month's sales are high, next month's sales are also often
+      fairly high. That lag-1 pattern is a form of autocorrelation.
+    </p>
+  </div>
+
+
+  <h2>Lag</h2>
+
+  <p>
+    A <strong>lag</strong> is the number of time steps between two
+    observations being compared.
+  </p>
+
+  <ul>
+    <li><strong>Lag 1:</strong> compare Y<sub>t</sub> with Y<sub>t−1</sub> (the previous period).</li>
+    <li><strong>Lag 2:</strong> compare Y<sub>t</sub> with Y<sub>t−2</sub> (two periods earlier).</li>
+    <li><strong>Lag k:</strong> compare Y<sub>t</sub> with Y<sub>t−k</sub>.</li>
+  </ul>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      For monthly data, lag 1 is last month and lag 12 is the same month
+      last year.
+    </p>
+  </div>
+
+
+  <h2>Positive and Negative Autocorrelation</h2>
+
+  <p>
+    <strong>Positive autocorrelation</strong> means a high value tends
+    to be followed by another high value (and a low by a low).
+    <strong>Negative autocorrelation</strong> means a high value tends
+    to be followed by a low value, or the reverse.
+  </p>
+
+  <p>
+    Slow decay of autocorrelation across many lags often suggests
+    persistence or a wandering level. Near-zero autocorrelation after
+    lag 0 is closer to unstructured noise. These are guides for
+    inspection, not automatic model names.
+  </p>
+
+
+  <h2>Partial Autocorrelation</h2>
+
+  <p>
+    <strong>Partial autocorrelation</strong> at lag k is the correlation
+    between Y<sub>t</sub> and Y<sub>t−k</sub> after the linear effect of
+    the intermediate lags 1, 2, …, k−1 has been accounted for. It asks:
+    is there a <em>direct</em> link at lag k, once shorter lags are
+    controlled for?
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Example</span>
+    <p>
+      Sales may correlate with lag 2 partly because both lag 2 and today
+      are linked through lag 1. Partial autocorrelation at lag 2 removes
+      that shorter-lag path and looks at what remains.
+    </p>
+  </div>
+
+  
+
+
+  <h2>ACF, PACF and How They Differ</h2>
+
+  <h2>Comparison</h2>
+
+  <div class="note-table-wrap">
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Meaning</th>
+          <th>What it helps identify</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Autocorrelation</strong></td>
+          <td>Correlation of the series with its lagged values, including indirect paths through shorter lags</td>
+          <td>Overall dependence on the past; persistence; possible seasonal lag spikes</td>
+        </tr>
+        <tr>
+          <td><strong>Partial Autocorrelation</strong></td>
+          <td>Correlation at a chosen lag after accounting for intermediate lags</td>
+          <td>More direct lag-k dependence; often used when thinking about autoregressive order</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2>ACF and PACF Plots</h2>
+
+  <p>
+    The <strong>ACF plot</strong> shows sample autocorrelation at lags
+    1, 2, 3, … . The <strong>PACF plot</strong> shows sample partial
+    autocorrelation at those lags. Bars that stand well away from zero
+    (relative to a simple confidence band on the plot) suggest that the
+    lag is worth noticing. Finite samples are noisy, so one extra bar
+    should not be over-interpreted.
+  </p>
+
+  <p>
+    At an introductory level:
+  </p>
+
+  <ul>
+    <li>
+      ACF helps study correlation with lagged observations.
+    </li>
+    <li>
+      PACF helps study direct correlation at a particular lag after
+      accounting for intermediate lags.
+    </li>
+  </ul>
+
+  <p>
+    Teaching rules of thumb (for later AR/MA discussion) say that a
+    pure autoregressive pattern often shows ACF tailing off and PACF
+    cutting off, while a pure moving-average pattern often shows the
+    reverse. Mixed series and short samples do not follow textbooks
+    perfectly.
+  </p>
+
+  <div class="note-callout">
+    <span class="note-callout-title">Exam Note</span>
+    <p>
+      ACF and PACF are identification tools. They do not automatically
+      determine the final ARMA or ARIMA model. Always read them with a
+      time plot and, after fitting, with residual checks.
+    </p>
+  </div>
+
+
+  <h2>Exam-Oriented Key Points</h2>
+
+  <ol class="exam-list">
+    <li>
+      Autocorrelation measures dependence between a series and its lags.
+    </li>
+    <li>
+      Lag k compares the current observation with the value k periods earlier.
+    </li>
+    <li>
+      Partial autocorrelation at lag k removes the effect of lags 1 to k−1.
+    </li>
+    <li>
+      ACF/PACF plots support model thinking; they do not replace diagnostics.
+    </li>
+  </ol></section>
+    
+    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../ts-p3-10/" rel="prev">&larr; Previous</a></span><span class="next"><a href="../ts-arma-models/" rel="next">Next &rarr;</a></span></nav>
+  </div>
+ </div>
+</body>
+</html>
