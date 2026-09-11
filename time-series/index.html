@@ -17,23 +17,198 @@
   <meta property="og:image" content="https://bcastudyportal.in/images/cover.png" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/time-series/","name":"Time Series","description":"Learn time series analysis, forecasting, ARIMA, regression and practical data analysis."}</script>
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
-    a { color: #0f766e; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
-    .section { margin-top: 2rem; }
-    ul { padding-left: 1.25rem; }
+    :root {
+      --bg: #071018;
+      --bg-strong: #0c1725;
+      --panel: rgba(18, 27, 39, 0.92);
+      --panel-alt: rgba(10, 18, 26, 0.9);
+      --line: rgba(155, 185, 218, 0.22);
+      --text: #edf4ff;
+      --muted: #b2bfd4;
+      --accent: #63e4ff;
+      --accent-2: #7fe8c7;
+      --shadow: 0 18px 40px rgba(3, 7, 16, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: radial-gradient(circle at top left, rgba(99, 228, 255, 0.12), transparent 28%), linear-gradient(180deg, #040b12 0%, #09141d 100%);
+      color: var(--text);
+    }
+    a { color: #72d9ff; text-decoration: none; }
+    a:hover { color: #9feeff; }
+    .portal-shell {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+    .edu-header {
+      background: rgba(8, 14, 22, 0.9);
+      border-bottom: 1px solid rgba(151, 177, 214, 0.18);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+    .edu-header-inner {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 14px 0;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #eef6ff;
+    }
+    .brand-icon {
+      width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 9px; background: rgba(99, 228, 255, 0.1); border: 1px solid rgba(99, 228, 255, 0.2);
+      font-size: 1rem;
+    }
+    .brand strong {
+      display: block; font-size: clamp(1.2rem, 2vw, 1.7rem); letter-spacing: -0.04em; font-weight: 800; line-height: 1;
+    }
+    .brand small {
+      display: block; color: rgba(203, 220, 244, 0.75); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.6rem;
+    }
+    .subject-hero {
+      display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr); gap: 24px;
+      padding: 28px 28px 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(10, 19, 30, 0.96), rgba(18, 28, 42, 0.88));
+      box-shadow: var(--shadow);
+      margin-top: 28px;
+    }
+    .eyebrow {
+      margin: 0 0 12px; color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700;
+    }
+    .subject-hero h1 {
+      margin: 0; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.05em; line-height: 0.98; color: #f5f8ff;
+    }
+    .subject-hero p {
+      margin: 18px 0 0; font-size: 1.05rem; color: rgba(233, 241, 253, 0.8); max-width: 62ch;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px;
+    }
+    .hero-actions a {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 12px; font-weight: 700; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .hero-actions a:hover, .hero-actions a:focus-visible { transform: translateY(-1px); }
+    .primary-action {
+      background: linear-gradient(135deg, #6fe5ff, #68e0b8); color: #07131d; box-shadow: 0 10px 20px rgba(97, 219, 255, 0.3);
+    }
+    .secondary-action {
+      border: 1px solid rgba(143, 171, 214, 0.35); color: #ebf3ff; background: rgba(255,255,255,0.02);
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-content: start;
+    }
+    .stat-card {
+      min-height: 118px; padding: 18px 16px 14px; border-radius: 18px; border: 1px solid rgba(155,180,218,0.2); background: rgba(255,255,255,0.02); display: flex; flex-direction: column; justify-content: center; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .stat-card strong {
+      font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.05em; color: #6fe5ff; margin: 0;
+    }
+    .stat-card span {
+      margin-top: 8px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(208,223,246,0.75);
+    }
+    .module-panel {
+      margin-top: 24px; padding: 22px 20px 18px; border: 1px solid var(--line); border-radius: 24px; background: rgba(10, 18, 28, 0.75); box-shadow: 0 16px 40px rgba(1, 4, 13, 0.2);
+    }
+    .module-panel-header {
+      margin-bottom: 12px;
+    }
+    .module-panel-kicker {
+      display: inline-block; margin: 0 0 6px; color: var(--accent); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
+    }
+    .module-panel h2 {
+      margin: 0; font-size: clamp(1.7rem, 2.6vw, 2.4rem); letter-spacing: -0.04em; color: #f5f8ff;
+    }
+    .topic-list {
+      list-style: none; padding: 0; margin: 18px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px;
+    }
+    .topic-list li {
+      border: 1px solid rgba(146, 171, 200, 0.18); border-radius: 14px; background: rgba(255,255,255,0.02); transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .topic-list li:hover,
+    .topic-list li:focus-within {
+      transform: translateY(-1px); border-color: rgba(111, 229, 255, 0.58);
+    }
+    .topic-list a {
+      display: block; min-height: 54px; padding: 12px 14px; color: var(--text); font-weight: 600;
+    }
+    .topic-list a::before {
+      content: '→'; display: inline-block; margin-right: 8px; color: var(--accent);
+    }
+    @media (max-width: 860px) {
+      .subject-hero { grid-template-columns: 1fr; }
+      .topic-list { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="breadcrumb"><a href="https://bcastudyportal.in/">Home</a> › <span>Time Series</span></nav>
-    <h1>Time Series</h1>
-    <p>Learn time series analysis, forecasting, ARIMA, regression and practical data analysis. This subject contains 78 generated topic pages organised by module/unit below.</p>
-    
-      <section class="module">
-        <h2>Introduction to Time Series</h2>
-        <ul>
+  <header class="edu-header">
+    <div class="edu-header-inner">
+      <a class="brand" href="https://bcastudyportal.in/home.html">
+        <span class="brand-icon" aria-hidden="true">🎓</span>
+        <div>
+          <strong>BCA Study Portal</strong>
+          <small>Learn • Practice • Prepare</small>
+        </div>
+      </a>
+    </div>
+  </header>
+  <main class="portal-shell">
+    <section class="subject-hero">
+      <div>
+        <p class="eyebrow">Study portal • Time Series</p>
+        <h1>Time Series</h1>
+        <p>Learn time series analysis, forecasting, ARIMA, regression and practical data analysis. This subject contains 78 generated topic pages organised by module/unit below.</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#subject-modules">Browse topics</a>
+          <a class="secondary-action" href="https://bcastudyportal.in/home.html">Back to catalog</a>
+        </div>
+      </div>
+      <div class="stats-grid">
+        
+          <div class="stat-card">
+            <strong>78</strong>
+            <span>Topics</span>
+          </div>
+        
+          <div class="stat-card">
+            <strong>47</strong>
+            <span>Notes</span>
+          </div>
+        
+          <div class="stat-card">
+            <strong>31</strong>
+            <span>Practical</span>
+          </div>
+        
+          <div class="stat-card">
+            <strong>78</strong>
+            <span>Learning resources</span>
+          </div>
+        
+      </div>
+    </section>
+
+    <section id="subject-modules" aria-label="Subject modules">
+      
+      <section class="module-panel">
+        <div class="module-panel-header">
+          <span class="module-panel-kicker">Module 1</span>
+          <h2>Introduction to Time Series</h2>
+        </div>
+        <ul class="topic-list">
           <li><a href="./ts-introduction/">Introduction to Time Series</a></li>
 <li><a href="./ts-meaning/">Meaning and Definition of Time Series</a></li>
 <li><a href="./ts-components/">Components of Time Series</a></li>
@@ -52,9 +227,12 @@
       </section>
     
 
-      <section class="module">
-        <h2>Time Series Analysis and Components</h2>
-        <ul>
+      <section class="module-panel">
+        <div class="module-panel-header">
+          <span class="module-panel-kicker">Module 2</span>
+          <h2>Time Series Analysis and Components</h2>
+        </div>
+        <ul class="topic-list">
           <li><a href="./ts-trend/">Trend</a></li>
 <li><a href="./ts-seasonal/">Seasonal Variation</a></li>
 <li><a href="./ts-cyclical/">Cyclical Variation</a></li>
@@ -73,9 +251,12 @@
       </section>
     
 
-      <section class="module">
-        <h2>Statistics Background for Forecasting</h2>
-        <ul>
+      <section class="module-panel">
+        <div class="module-panel-header">
+          <span class="module-panel-kicker">Module 3</span>
+          <h2>Statistics Background for Forecasting</h2>
+        </div>
+        <ul class="topic-list">
           <li><a href="./ts-graphical-displays/">Graphical Displays</a></li>
 <li><a href="./ts-time-series-plots/">Time Series Plots</a></li>
 <li><a href="./ts-smoothed-data/">Plotting Smoothed Data</a></li>
@@ -97,9 +278,12 @@
       </section>
     
 
-      <section class="module">
-        <h2>Introduction to Autoregressive Models and Forecasting</h2>
-        <ul>
+      <section class="module-panel">
+        <div class="module-panel-header">
+          <span class="module-panel-kicker">Module 4</span>
+          <h2>Introduction to Autoregressive Models and Forecasting</h2>
+        </div>
+        <ul class="topic-list">
           <li><a href="./ts-autocorrelation/">Autocorrelation and Partial Autocorrelation</a></li>
 <li><a href="./ts-arma-models/">Autoregressive Moving Average (ARMA) Models</a></li>
 <li><a href="./ts-arima-models/">Autoregressive Integrated Moving Average (ARIMA) Models</a></li>
@@ -119,9 +303,12 @@
       </section>
     
 
-      <section class="module">
-        <h2>Time Series Regression Model</h2>
-        <ul>
+      <section class="module-panel">
+        <div class="module-panel-header">
+          <span class="module-panel-kicker">Module 5</span>
+          <h2>Time Series Regression Model</h2>
+        </div>
+        <ul class="topic-list">
           <li><a href="./ts-regression-introduction/">Introduction to Time Series Regression</a></li>
 <li><a href="./ts-least-squares/">Least Squares Estimation in Linear Regression Models</a></li>
 <li><a href="./ts-regression-inference/">Statistical Inference in Linear Regression</a></li>
@@ -141,15 +328,19 @@
       </section>
     
 
-      <section class="module">
-        <h2>Multivariate Time Series Models and Forecasting</h2>
-        <ul>
+      <section class="module-panel">
+        <div class="module-panel-header">
+          <span class="module-panel-kicker">Module 6</span>
+          <h2>Multivariate Time Series Models and Forecasting</h2>
+        </div>
+        <ul class="topic-list">
           <li><a href="./ts-multivariate-models/">Multivariate Time Series Models and Forecasting</a></li>
 <li><a href="./ts-multivariate-stationary/">Multivariate Stationary Process</a></li>
 <li><a href="./ts-bayesian-forecasting/">Bayesian Methods in Forecasting</a></li>
         </ul>
       </section>
     
-  </div>
+    </section>
+  </main>
 </body>
 </html>
