@@ -18,28 +18,98 @@
  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bcastudyportal.in/"},{"@type":"ListItem","position":2,"name":"C Programming","item":"https://bcastudyportal.in/c-programming/"},{"@type":"ListItem","position":3,"name":"Writing to Files — Exercises","item":"https://bcastudyportal.in/c-programming/s-m5-writing-files/"}]}</script>
  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://bcastudyportal.in/c-programming/s-m5-writing-files/","name":"Writing to Files — Exercises","description":"Write a C program to create a text file and write a simple message     into it using fprintf().","mainEntity":{"@type":"CreativeWork","name":"Writing to Files — Exercises","about":"C Programming"}}</script>
  <style>
-  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; color: #1f2937; }
-  a { color: #0f766e; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .breadcrumb { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
-  .meta { margin-bottom: 1rem; color: #475569; }
-  .topic-content { margin-top: 1.5rem; }
-  .topic-content h1, .topic-content h2, .topic-content h3 { color: #111827; }
-  .topic-content pre, .topic-content code { overflow-x: auto; }
-  .topic-content img { max-width: 100%; height: auto; }
-  .topic-content table { border-collapse: collapse; width: 100%; }
-  .topic-content th, .topic-content td { border: 1px solid #d1d5db; padding: 0.5rem; }
-  .topic-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+   :root {
+     --bg: #071018; --bg-strong: #0c1725; --panel: rgba(18,27,39,0.92); --line: rgba(155,185,218,0.22); --text: #edf4ff; --muted: #b2bfd4; --accent: #63e4ff; --accent-2: #7fe8c7; --shadow: 0 18px 40px rgba(3,7,16,0.28);
+   }
+   * { box-sizing: border-box; }
+   html { scroll-behavior: smooth; }
+   body {
+     margin: 0; min-height: 100vh; font-family: Arial, Helvetica, sans-serif; line-height: 1.7; background: radial-gradient(circle at 150% 0%, rgba(99,228,255,0.13), transparent 25%), linear-gradient(180deg, #040b12 0%, #09141d 100%); color: var(--text);
+   }
+   a { color: #72d9ff; text-decoration: none; }
+   a:hover { color: #9feeff; }
+   .topic-shell { width: min(1220px, calc(100% - 28px)); margin: 0 auto; padding: 28px 0 52px; }
+   .topic-hero {
+     position: relative; padding: 30px 28px 24px; border-radius: 28px 28px 0 0; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(13,24,34,0.96), rgba(15,22,31,0.82)); box-shadow: var(--shadow);
+   }
+   .topic-kicker { margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.17em; font-size: 0.72rem; color: var(--accent); font-weight: 700; }
+   .topic-breadcrumb { color: rgba(197,214,233,0.85); font-size: 0.9rem; margin-bottom: 14px; }
+   .topic-hero h1 { margin: 0; font-size: clamp(2.35rem, 4vw, 4rem); letter-spacing: -0.06em; line-height: 1.06; color: #f3f9ff; }
+   .topic-meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; color: var(--muted); font-size: 0.9rem; }
+   .topic-meta-row span { display: inline-flex; align-items: center; min-height: 32px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.02); }
+   .topic-layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 22px; padding: 0 0 20px; border: 1px solid var(--line); border-top: none; border-radius: 0 0 28px 28px; background: rgba(9,15,23,0.92); box-shadow: var(--shadow); }
+   .topic-rail { padding: 22px 18px 18px; border-right: 1px solid var(--line); background: rgba(13,18,29,0.72); }
+   .topic-rail-panel { padding: 16px 14px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,0.02); margin-bottom: 16px; }
+   .topic-rail-panel h3 { margin: 0 0 12px; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+   .topic-rail-panel ul { margin: 0; padding-left: 18px; color: var(--muted); }
+   .topic-rail-panel li + li { margin-top: 8px; }
+   .topic-content-wrap { padding: 22px 18px 6px; }
+   .topic-content { width: min(100%, 820px); }
+   .topic-content h2 { margin: 0 0 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-size: clamp(1.5rem, 2vw, 2.2rem); letter-spacing: -0.04em; color: #f1f7ff; }
+   .topic-content h3 { margin: 26px 0 10px; font-size: 1.1rem; color: #daf1fe; letter-spacing: -0.02em; }
+   .topic-content p, .topic-content li { color: rgba(234, 240, 250, 0.9); font-size: 1.02rem; line-height: 1.85; }
+   .topic-content pre, .topic-content code { overflow-x: auto; }
+   .topic-content code { padding: 0.15em 0.38em; border-radius: 8px; background: rgba(111,228,255,0.08); color: #b9f8ff; font-size: 0.95em; }
+   .topic-content pre { margin: 18px 0; padding: 18px 18px 16px; border: 1px solid var(--line); border-radius: 18px; background: rgba(2,8,13,0.86); color: #beffef; white-space: pre-wrap; word-break: break-word; }
+   .topic-content img { max-width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+   .topic-content table { width: 100%; border-collapse: collapse; margin: 20px 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+   .topic-content th, .topic-content td { padding: 14px 12px; border: 1px solid rgba(155,185,218,0.2); vertical-align: top; color: #edf4ff; }
+   .topic-content thead th { background: rgba(99, 228, 255, 0.08); color: #aef1ff; font-weight: 700; text-align: left; }
+   .section-panel, .concept-panel, .note-callout { border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 16px; background: rgba(12,19,29,0.75); margin: 20px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.02); }
+   .section-tag { display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(99,228,255,0.32); background: rgba(99,228,255,0.08); color: var(--accent); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+   .topic-nav { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
+   .topic-nav a { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:10px 16px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,0.02); color: var(--text); font-weight:700; transition: transform 180ms ease, border-color 180ms ease; }
+   .topic-nav a:hover { transform: translateY(-1px); border-color: rgba(126,233,215,0.7); }
+   @media (max-width: 860px) {
+     .topic-layout { grid-template-columns: 1fr; }
+     .topic-rail { border-right: none; border-bottom: 1px solid var(--line); }
+     .topic-shell { width: min(100%, calc(100% - 18px)); }
+     .topic-content-wrap { padding-left: 12px; padding-right: 12px; }
+     .topic-nav { flex-direction: column; align-items: stretch; }
+     .topic-nav a { width: 100%; }
+   }
+   @media (max-width: 640px) {
+     .topic-hero { padding-left: 18px; padding-right: 18px; }
+     .topic-meta-row span { font-size: 0.8rem; }
+     .topic-content p, .topic-content li { font-size: 0.98rem; }
+     .topic-rail-panel { padding: 14px 12px; }
+   }
+   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
  </style>
 </head>
 <body>
- <div class="container">
-  <div class="breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Writing to Files — Exercises</div>
-  <div class="meta">Subject: C Programming • Module: 5 Pointers &amp; File handling • Type: Practical</div>
-  <h1>Writing to Files — Exercises</h1>
-  <div class="topic-content">
-    
-    <section><h2>Practical / Solution</h2><h2>Writing from Files — Exercise 1</h2>
+  <div class="topic-shell">
+    <header class="topic-hero">
+      <div class="topic-kicker">C Programming • Pointers &amp; File handling</div>
+      <div class="topic-breadcrumb"><a href="https://bcastudyportal.in/c-programming/">C Programming</a> / Writing to Files — Exercises</div>
+      <h1>Writing to Files — Exercises</h1>
+      <div class="topic-meta-row">
+        <span>Practical</span>
+        <span>5</span>
+        <span>Pointers &amp; File handling</span>
+      </div>
+    </header>
+    <div class="topic-layout">
+      <aside class="topic-rail">
+        <div class="topic-rail-panel">
+          <h3>Quick access</h3>
+          <ul>
+            <li><a href="#topic-overview">Overview</a></li><li><a href="#topic-content-panel">Content</a></li><li><a href="#topic-next">Related topic</a></li>
+          </ul>
+        </div>
+        <div class="topic-rail-panel">
+          <h3>Overview</h3>
+          <p>Write a C program to create a text file and write a simple message     into it using fprintf().</p>
+        </div>
+      </aside>
+      <div class="topic-content-wrap">
+        <div class="topic-content" id="topic-overview">
+          <div class="concept-panel">
+            <div class="section-tag">Quick concept</div>
+            <p>Write a C program to create a text file and write a simple message     into it using fprintf().</p>
+          </div>
+          <div class="section-panel" id="topic-content-panel">
+            <section><h2>Practical / Solution</h2><h2>Writing from Files — Exercise 1</h2>
 
   <h3>Problem</h3>
 
@@ -677,8 +747,11 @@ int main()
     <p>Total    : 270</p>
     <p>Average  : 90.00</p>
   </div></section>
-    <nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m5-reading-files/" rel="prev">&larr; Previous</a></span></nav>
+          </div>
+          <div id="topic-next"><nav class="topic-nav" aria-label="Topic navigation"><span class="prev"><a href="../s-m5-reading-files/" rel="prev">← Previous</a></span></nav></div>
+        </div>
+      </div>
+    </div>
   </div>
- </div>
 </body>
 </html>

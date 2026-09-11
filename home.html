@@ -13,7 +13,7 @@
   >
 
   <link rel="canonical" href="https://bcastudyportal.in/home.html">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <meta property="og:type" content="website">
   <meta
@@ -45,6 +45,334 @@
   </script>
 
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.home-page {
+      background:
+        radial-gradient(circle at top left, rgba(58, 104, 255, 0.15), transparent 26%),
+        linear-gradient(180deg, #07111d 0%, #0c1726 100%);
+      color: #edf3ff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .site-header.home-header {
+      background: rgba(8, 14, 22, 0.9);
+      border-bottom: 1px solid rgba(151, 177, 214, 0.18);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .brand {
+      text-decoration: none;
+      color: #eef6ff;
+    }
+
+    .site-title {
+      font-size: clamp(1.5rem, 3vw, 2.35rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin: 0;
+    }
+
+    .home-catalog {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 60px;
+    }
+
+    .home-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.9fr);
+      gap: 24px;
+      padding: 28px 28px 22px;
+      border: 1px solid rgba(145, 171, 212, 0.22);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(10, 19, 30, 0.96), rgba(18, 28, 42, 0.88));
+      box-shadow: 0 18px 50px rgba(2, 7, 18, 0.24);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: #6fe5ff;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .home-hero h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      color: #f5f8ff;
+    }
+
+    .home-hero p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(233, 241, 253, 0.8);
+      max-width: 60ch;
+      margin: 18px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-button.primary {
+      background: linear-gradient(135deg, #6fe5ff, #68e0b8);
+      color: #07131d;
+      box-shadow: 0 10px 20px rgba(97, 219, 255, 0.3);
+    }
+
+    .hero-button.secondary {
+      border: 1px solid rgba(143, 171, 214, 0.35);
+      color: #ebf3ff;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .portal-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-content: start;
+    }
+
+    .stat-card {
+      padding: 18px 16px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(155, 180, 218, 0.2);
+      background: rgba(255,255,255,0.02);
+      min-height: 118px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .stat-card .stat-number {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: #6fe5ff;
+      margin: 0;
+    }
+
+    .stat-card .stat-label {
+      margin: 8px 0 0;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(208, 223, 246, 0.75);
+    }
+
+    .home-subject-panel {
+      background: rgba(10, 18, 28, 0.75);
+      border: 1px solid rgba(140, 170, 205, 0.18);
+      border-radius: 28px;
+      box-shadow: 0 16px 40px rgba(1, 4, 13, 0.2);
+      padding: 26px 22px 24px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .panel-kicker {
+      margin: 0 0 8px;
+      color: #6fe5ff;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    #chooseSubjectHeading {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      letter-spacing: -0.04em;
+      color: #f3f7ff;
+    }
+
+    .panel-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(120, 165, 205, 0.28);
+      background: rgba(118, 150, 201, 0.08);
+      color: #c3dbff;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .home-catalog-copy {
+      margin: 8px 0 20px;
+      color: rgba(229, 237, 250, 0.8);
+      font-size: 1rem;
+    }
+
+    .home-subject-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .home-subject-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      min-height: 250px;
+      padding: 22px 18px 18px;
+      border-radius: 22px;
+      text-decoration: none;
+      border: 1px solid rgba(146, 171, 200, 0.18);
+      background: linear-gradient(180deg, rgba(16, 23, 34, 0.94), rgba(7, 12, 18, 0.98));
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      color: #edf5ff;
+    }
+
+    .home-subject-card:hover,
+    .home-subject-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(111, 229, 255, 0.58);
+      box-shadow: 0 20px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .home-subject-card-accent {
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: var(--home-accent, #6fe5ff);
+      box-shadow: 0 0 18px rgba(111, 229, 255, 0.4);
+    }
+
+    .home-subject-card-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      margin-top: 18px;
+      border-radius: 12px;
+      background: rgba(111, 229, 255, 0.1);
+      color: var(--home-accent, #6fe5ff);
+      font-size: 1.35rem;
+      font-weight: 800;
+      border: 1px solid rgba(111, 229, 255, 0.15);
+    }
+
+    .home-subject-card-title {
+      margin: 16px 0 6px;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      letter-spacing: -0.04em;
+      color: #f6f9ff;
+    }
+
+    .home-subject-card-category {
+      margin: 0;
+      color: rgba(150, 176, 211, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .home-subject-card-description {
+      margin: 16px 0 0;
+      color: rgba(226, 234, 246, 0.8);
+      line-height: 1.6;
+      min-height: 72px;
+    }
+
+    .home-subject-card-meta {
+      margin: 18px 0 18px;
+      color: #a7d9ff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .home-subject-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #6fe5ff;
+      transition: transform 180ms ease;
+    }
+
+    .home-subject-card:hover .home-subject-card-cta,
+    .home-subject-card:focus-visible .home-subject-card-cta {
+      transform: translateX(2px);
+    }
+
+    .site-footer {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto 40px;
+      color: rgba(219, 230, 245, 0.8);
+      padding-top: 18px;
+      border-top: 1px solid rgba(155, 180, 218, 0.16);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(219, 230, 245, 0.8);
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .home-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .home-subject-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 
 </head>
 <body class="home-page">
@@ -60,22 +388,39 @@
   </header>
 
   <main class="home-catalog">
-    <header class="home-catalog-intro">
-      <h1>BCA Study Portal</h1>
-      <p class="home-catalog-subtitle">
-        Syllabus-aligned notes, practicals, and learning resources for BCA subjects.
-      </p>
-      <h2 id="chooseSubjectHeading">Choose Your Subject</h2>
+    <section class="home-hero" aria-labelledby="chooseSubjectHeading">
+      <div>
+        <div class="eyebrow">Study portal</div>
+        <h1>Academic learning resources, structured for focused revision.</h1>
+        <p>
+          Explore subject-aligned notes, practical examples and structured study content designed to help you learn faster, revise smarter and stay exam-ready.
+        </p>
+        <div class="hero-actions">
+          <a href="#homeSubjectGrid" class="hero-button primary">Browse subjects</a>
+          <a href="about.html" class="hero-button secondary">About us</a>
+        </div>
+      </div>
+      <div id="portalStats" class="portal-stats" aria-live="polite"></div>
+    </section>
+
+    <section class="home-subject-panel">
+      <div class="panel-header">
+        <div>
+          <p class="panel-kicker">Academic catalog</p>
+          <h2 id="chooseSubjectHeading">Choose your subject</h2>
+        </div>
+        <span class="panel-chip">Subject-driven study</span>
+      </div>
       <p class="home-catalog-copy">
         Open a subject to study notes and practicals in the learning reader.
       </p>
-    </header>
 
-    <section
-      id="homeSubjectGrid"
-      class="home-subject-grid"
-      aria-labelledby="chooseSubjectHeading"
-    ></section>
+      <section
+        id="homeSubjectGrid"
+        class="home-subject-grid"
+        aria-labelledby="chooseSubjectHeading"
+      ></section>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -95,6 +440,36 @@
   <script src="js/time-series-practical-syllabus.js"></script>
   <script src="js/subject-catalog.js"></script>
   <script src="js/home.js"></script>
+  <script>
+    (function () {
+      const stats = document.getElementById('portalStats');
+      if (!stats || typeof SUBJECT_CATALOG === 'undefined') return;
+
+      const totalSubjects = SUBJECT_CATALOG.length;
+      const notesTotal = SUBJECT_CATALOG.reduce((sum, subject) => {
+        const syllabus = typeof getNamedSyllabus === 'function' ? getNamedSyllabus(subject.notesSyllabus) : [];
+        return sum + (typeof countCatalogTopics === 'function' ? countCatalogTopics(syllabus) : 0);
+      }, 0);
+      const practicalTotal = SUBJECT_CATALOG.reduce((sum, subject) => {
+        const syllabus = typeof getNamedSyllabus === 'function' ? getNamedSyllabus(subject.practicalSyllabus) : [];
+        return sum + (typeof countCatalogTopics === 'function' ? countCatalogTopics(syllabus) : 0);
+      }, 0);
+
+      const cards = [
+        { value: totalSubjects, label: 'Subjects' },
+        { value: notesTotal, label: 'Topics' },
+        { value: practicalTotal, label: 'Practicals' },
+        { value: notesTotal + practicalTotal, label: 'Learning resources' }
+      ];
+
+      stats.innerHTML = cards.map(card => `
+        <div class="stat-card">
+          <p class="stat-number">${card.value}</p>
+          <p class="stat-label">${card.label}</p>
+        </div>
+      `).join('');
+    })();
+  </script>
 
 </body>
 </html>
